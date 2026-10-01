@@ -1,0 +1,102 @@
+{
+  "ours_max30_n4096": {
+    "label": "<= 30 heavy atoms (TFG-Flow's cap)",
+    "floor": 0.20991,
+    "replicates": [
+      {
+        "replicate": "0",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.24972109649024787,
+        "unguided": 0.22647468462309917,
+        "gain": 0.02324641186714871,
+        "relative_pct": 10.264463732816576,
+        "guided_pb": 0.89892578125,
+        "unguided_pb": 0.871826171875
+      },
+      {
+        "replicate": "1",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.2482808335489608,
+        "unguided": 0.2260981197723595,
+        "gain": 0.022182713776601304,
+        "relative_pct": 9.811100507574032,
+        "guided_pb": 0.884033203125,
+        "unguided_pb": 0.8779296875
+      },
+      {
+        "replicate": "2",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.24830461232340895,
+        "unguided": 0.22515978708361217,
+        "gain": 0.023144825239796774,
+        "relative_pct": 10.279289006079061,
+        "guided_pb": 0.88720703125,
+        "unguided_pb": 0.874755859375
+      }
+    ],
+    "n_total": 12288,
+    "guided_mean": 0.24876884745420588,
+    "guided_sem": 0.000476173997438875,
+    "unguided_mean": 0.22591086382635694,
+    "unguided_sem": 0.000390955017370805,
+    "relative_pct_mean": 10.11828441548989,
+    "relative_pct_sem": 0.15365156702061372,
+    "guided_margin": 0.03885884745420587,
+    "unguided_margin": 0.01600086382635693,
+    "guided_pb": 0.8900553385416666,
+    "unguided_pb": 0.8748372395833334
+  },
+  "ours_n4096": {
+    "label": "<= 71 heavy atoms",
+    "floor": 0.21951,
+    "replicates": [
+      {
+        "replicate": "0",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.2780056234564654,
+        "unguided": 0.2294974143278523,
+        "gain": 0.04850820912861309,
+        "relative_pct": 21.13671270357578,
+        "guided_pb": 0.89990234375,
+        "unguided_pb": 0.871826171875
+      },
+      {
+        "replicate": "1",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.27718206045756233,
+        "unguided": 0.22932826107899018,
+        "gain": 0.04785379937857215,
+        "relative_pct": 20.86694380946328,
+        "guided_pb": 0.8955078125,
+        "unguided_pb": 0.8779296875
+      },
+      {
+        "replicate": "2",
+        "n_shards": 4,
+        "n_molecules": 4096,
+        "guided": 0.27291040279050094,
+        "unguided": 0.22753259290857386,
+        "gain": 0.04537780988192708,
+        "relative_pct": 19.943432851468714,
+        "guided_pb": 0.890380859375,
+        "unguided_pb": 0.874755859375
+      }
+    ],
+    "n_total": 12288,
+    "guided_mean": 0.2760326955681762,
+    "guided_sem": 0.001579145142731027,
+    "unguided_mean": 0.22878608943847212,
+    "unguided_sem": 0.0006286475876170958,
+    "relative_pct_mean": 20.64902978816926,
+    "relative_pct_sem": 0.361291245335654,
+    "guided_margin": 0.05652269556817621,
+    "unguided_margin": 0.009276089438472107,
+    "guided_pb": 0.895263671875,
+    "unguided_pb": 0.8748372395833334
+  }
+}

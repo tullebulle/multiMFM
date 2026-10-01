@@ -1,0 +1,1579 @@
+{
+  "summary": {
+    "method": "best_of_n",
+    "n_candidates": 2,
+    "num_mols": 256,
+    "max_atoms": 71,
+    "seed": 303,
+    "sample_steps": 100,
+    "tanimoto_real_mean": 0.2545960458664922,
+    "tanimoto_real_sem": 0.005672151311875388,
+    "pb_valid": 0.984375,
+    "nfe": {
+      "nfe_base": 200.0,
+      "nfe_base_bwd": 0.0,
+      "nfe_mfm": 0.0,
+      "nfe_mfm_bwd": 0.0,
+      "nfe_regressor": 0.0,
+      "nfe_regressor_bwd": 0.0,
+      "nfe_generative": 200.0,
+      "nfe_generative_bwd": 0.0,
+      "nfe_generative_fwd_equiv": 200.0
+    },
+    "targets_skipped": 0,
+    "args": {
+      "num_mols": 256,
+      "n_candidates": 2,
+      "sample_steps": 100,
+      "max_atoms": null,
+      "target_split": "val",
+      "target_selection": "filter",
+      "batch": 32,
+      "seed": 303,
+      "pb": true,
+      "pb_config": null,
+      "soft_atom_temperature": 0.25,
+      "device": "cuda",
+      "out_dir": "results/geom/runs/fp_nfe_sweep",
+      "tag": "bon_k2_seed303"
+    }
+  },
+  "per_molecule": [
+    {
+      "target_idx": 0,
+      "tanimoto_real": 0.20614035427570343,
+      "head_score": 0.21717171370983124,
+      "valid": true
+    },
+    {
+      "target_idx": 1,
+      "tanimoto_real": 0.17445482313632965,
+      "head_score": 0.1678321659564972,
+      "valid": true
+    },
+    {
+      "target_idx": 2,
+      "tanimoto_real": 0.201646089553833,
+      "head_score": 0.1991869956254959,
+      "valid": true
+    },
+    {
+      "target_idx": 3,
+      "tanimoto_real": 0.2755555510520935,
+      "head_score": 0.29147982597351074,
+      "valid": true
+    },
+    {
+      "target_idx": 4,
+      "tanimoto_real": 0.23456789553165436,
+      "head_score": 0.2531120479106903,
+      "valid": true
+    },
+    {
+      "target_idx": 5,
+      "tanimoto_real": 0.27137547731399536,
+      "head_score": 0.2857142984867096,
+      "valid": true
+    },
+    {
+      "target_idx": 6,
+      "tanimoto_real": 0.31081080436706543,
+      "head_score": 0.37681159377098083,
+      "valid": true
+    },
+    {
+      "target_idx": 7,
+      "tanimoto_real": 0.18218623101711273,
+      "head_score": 0.18218623101711273,
+      "valid": true
+    },
+    {
+      "target_idx": 8,
+      "tanimoto_real": 0.11274509876966476,
+      "head_score": 0.12921348214149475,
+      "valid": true
+    },
+    {
+      "target_idx": 9,
+      "tanimoto_real": 0.1767241358757019,
+      "head_score": 0.18721461296081543,
+      "valid": true
+    },
+    {
+      "target_idx": 10,
+      "tanimoto_real": 0.25619834661483765,
+      "head_score": 0.28326180577278137,
+      "valid": true
+    },
+    {
+      "target_idx": 11,
+      "tanimoto_real": 0.36627906560897827,
+      "head_score": 0.38235294818878174,
+      "valid": true
+    },
+    {
+      "target_idx": 12,
+      "tanimoto_real": 0.2738095223903656,
+      "head_score": 0.274678111076355,
+      "valid": true
+    },
+    {
+      "target_idx": 13,
+      "tanimoto_real": 0.23043477535247803,
+      "head_score": 0.26291078329086304,
+      "valid": true
+    },
+    {
+      "target_idx": 14,
+      "tanimoto_real": 0.24336282908916473,
+      "head_score": 0.2763819098472595,
+      "valid": true
+    },
+    {
+      "target_idx": 15,
+      "tanimoto_real": 0.2881355881690979,
+      "head_score": 0.31734317541122437,
+      "valid": true
+    },
+    {
+      "target_idx": 16,
+      "tanimoto_real": 0.31439393758773804,
+      "head_score": 0.28915661573410034,
+      "valid": true
+    },
+    {
+      "target_idx": 17,
+      "tanimoto_real": 0.2369668185710907,
+      "head_score": 0.24757280945777893,
+      "valid": true
+    },
+    {
+      "target_idx": 18,
+      "tanimoto_real": 0.19005848467350006,
+      "head_score": 0.19005848467350006,
+      "valid": true
+    },
+    {
+      "target_idx": 19,
+      "tanimoto_real": 0.47333332896232605,
+      "head_score": 0.4930555522441864,
+      "valid": true
+    },
+    {
+      "target_idx": 20,
+      "tanimoto_real": 0.35080644488334656,
+      "head_score": 0.38695651292800903,
+      "valid": true
+    },
+    {
+      "target_idx": 21,
+      "tanimoto_real": 0.25441697239875793,
+      "head_score": 0.2370370328426361,
+      "valid": true
+    },
+    {
+      "target_idx": 22,
+      "tanimoto_real": 0.31496062874794006,
+      "head_score": 0.31496062874794006,
+      "valid": true
+    },
+    {
+      "target_idx": 23,
+      "tanimoto_real": 0.3568281829357147,
+      "head_score": 0.4270833432674408,
+      "valid": true
+    },
+    {
+      "target_idx": 24,
+      "tanimoto_real": 0.27544909715652466,
+      "head_score": 0.29729729890823364,
+      "valid": true
+    },
+    {
+      "target_idx": 25,
+      "tanimoto_real": 0.2053571492433548,
+      "head_score": 0.23076923191547394,
+      "valid": true
+    },
+    {
+      "target_idx": 26,
+      "tanimoto_real": 0.21653543412685394,
+      "head_score": 0.2320675104856491,
+      "valid": true
+    },
+    {
+      "target_idx": 27,
+      "tanimoto_real": 0.24528302252292633,
+      "head_score": 0.2261904776096344,
+      "valid": true
+    },
+    {
+      "target_idx": 28,
+      "tanimoto_real": 0.20499999821186066,
+      "head_score": 0.21938775479793549,
+      "valid": true
+    },
+    {
+      "target_idx": 29,
+      "tanimoto_real": 0.125827819108963,
+      "head_score": 0.1118881106376648,
+      "valid": true
+    },
+    {
+      "target_idx": 30,
+      "tanimoto_real": 0.18801090121269226,
+      "head_score": 0.17765043675899506,
+      "valid": true
+    },
+    {
+      "target_idx": 31,
+      "tanimoto_real": 0.34364262223243713,
+      "head_score": 0.30215826630592346,
+      "valid": true
+    },
+    {
+      "target_idx": 32,
+      "tanimoto_real": 0.23333333432674408,
+      "head_score": 0.23893804848194122,
+      "valid": true
+    },
+    {
+      "target_idx": 33,
+      "tanimoto_real": 0.12295082211494446,
+      "head_score": 0.1456310749053955,
+      "valid": true
+    },
+    {
+      "target_idx": 34,
+      "tanimoto_real": 0.36150234937667847,
+      "head_score": 0.3465346395969391,
+      "valid": true
+    },
+    {
+      "target_idx": 35,
+      "tanimoto_real": 0.34246575832366943,
+      "head_score": 0.35971224308013916,
+      "valid": true
+    },
+    {
+      "target_idx": 36,
+      "tanimoto_real": 0.3400000035762787,
+      "head_score": 0.3400000035762787,
+      "valid": true
+    },
+    {
+      "target_idx": 37,
+      "tanimoto_real": 0.3199999928474426,
+      "head_score": 0.3378995358943939,
+      "valid": true
+    },
+    {
+      "target_idx": 38,
+      "tanimoto_real": 0.2189054787158966,
+      "head_score": 0.2261306494474411,
+      "valid": true
+    },
+    {
+      "target_idx": 39,
+      "tanimoto_real": 0.11564625799655914,
+      "head_score": 0.10544217377901077,
+      "valid": true
+    },
+    {
+      "target_idx": 40,
+      "tanimoto_real": 0.2535211145877838,
+      "head_score": 0.24175824224948883,
+      "valid": true
+    },
+    {
+      "target_idx": 41,
+      "tanimoto_real": 0.14077669382095337,
+      "head_score": 0.13903743028640747,
+      "valid": false
+    },
+    {
+      "target_idx": 42,
+      "tanimoto_real": 0.28688523173332214,
+      "head_score": 0.31489360332489014,
+      "valid": true
+    },
+    {
+      "target_idx": 43,
+      "tanimoto_real": 0.18367347121238708,
+      "head_score": 0.21195651590824127,
+      "valid": false
+    },
+    {
+      "target_idx": 44,
+      "tanimoto_real": 0.22268907725811005,
+      "head_score": 0.21875,
+      "valid": true
+    },
+    {
+      "target_idx": 45,
+      "tanimoto_real": 0.20661157369613647,
+      "head_score": 0.20576131343841553,
+      "valid": true
+    },
+    {
+      "target_idx": 46,
+      "tanimoto_real": 0.18589743971824646,
+      "head_score": 0.1767241358757019,
+      "valid": true
+    },
+    {
+      "target_idx": 47,
+      "tanimoto_real": 0.48571428656578064,
+      "head_score": 0.5268292427062988,
+      "valid": true
+    },
+    {
+      "target_idx": 48,
+      "tanimoto_real": 0.18909090757369995,
+      "head_score": 0.20814479887485504,
+      "valid": true
+    },
+    {
+      "target_idx": 49,
+      "tanimoto_real": 0.22822822630405426,
+      "head_score": 0.2291666716337204,
+      "valid": true
+    },
+    {
+      "target_idx": 50,
+      "tanimoto_real": 0.19917012751102448,
+      "head_score": 0.1805555522441864,
+      "valid": true
+    },
+    {
+      "target_idx": 51,
+      "tanimoto_real": 0.13793103396892548,
+      "head_score": 0.13636364042758942,
+      "valid": true
+    },
+    {
+      "target_idx": 52,
+      "tanimoto_real": 0.34272301197052,
+      "head_score": 0.339712917804718,
+      "valid": true
+    },
+    {
+      "target_idx": 53,
+      "tanimoto_real": 0.4049079716205597,
+      "head_score": 0.3888888955116272,
+      "valid": true
+    },
+    {
+      "target_idx": 54,
+      "tanimoto_real": 0.1513761430978775,
+      "head_score": 0.1515151560306549,
+      "valid": true
+    },
+    {
+      "target_idx": 55,
+      "tanimoto_real": 0.1201716735959053,
+      "head_score": 0.14141413569450378,
+      "valid": true
+    },
+    {
+      "target_idx": 56,
+      "tanimoto_real": 0.231453999876976,
+      "head_score": 0.2638036906719208,
+      "valid": true
+    },
+    {
+      "target_idx": 57,
+      "tanimoto_real": 0.10752688348293304,
+      "head_score": 0.11290322244167328,
+      "valid": true
+    },
+    {
+      "target_idx": 58,
+      "tanimoto_real": 0.16917292773723602,
+      "head_score": 0.17374517023563385,
+      "valid": true
+    },
+    {
+      "target_idx": 59,
+      "tanimoto_real": 0.16080401837825775,
+      "head_score": 0.16842105984687805,
+      "valid": true
+    },
+    {
+      "target_idx": 60,
+      "tanimoto_real": 0.2806122303009033,
+      "head_score": 0.3144329786300659,
+      "valid": true
+    },
+    {
+      "target_idx": 61,
+      "tanimoto_real": 0.1589147299528122,
+      "head_score": 0.18672199547290802,
+      "valid": true
+    },
+    {
+      "target_idx": 62,
+      "tanimoto_real": 0.2068965584039688,
+      "head_score": 0.2068965584039688,
+      "valid": true
+    },
+    {
+      "target_idx": 63,
+      "tanimoto_real": 0.2950819730758667,
+      "head_score": 0.2967033088207245,
+      "valid": true
+    },
+    {
+      "target_idx": 64,
+      "tanimoto_real": 0.2829457223415375,
+      "head_score": 0.28015562891960144,
+      "valid": true
+    },
+    {
+      "target_idx": 65,
+      "tanimoto_real": 0.28333333134651184,
+      "head_score": 0.2933333218097687,
+      "valid": true
+    },
+    {
+      "target_idx": 66,
+      "tanimoto_real": 0.2666666805744171,
+      "head_score": 0.24229075014591217,
+      "valid": true
+    },
+    {
+      "target_idx": 67,
+      "tanimoto_real": 0.5063830018043518,
+      "head_score": 0.5,
+      "valid": true
+    },
+    {
+      "target_idx": 68,
+      "tanimoto_real": 0.33838382363319397,
+      "head_score": 0.3350253701210022,
+      "valid": true
+    },
+    {
+      "target_idx": 69,
+      "tanimoto_real": 0.1835206001996994,
+      "head_score": 0.17175573110580444,
+      "valid": true
+    },
+    {
+      "target_idx": 70,
+      "tanimoto_real": 0.26101693511009216,
+      "head_score": 0.25999999046325684,
+      "valid": true
+    },
+    {
+      "target_idx": 71,
+      "tanimoto_real": 0.27272728085517883,
+      "head_score": 0.26778241991996765,
+      "valid": true
+    },
+    {
+      "target_idx": 72,
+      "tanimoto_real": 0.4038461446762085,
+      "head_score": 0.38277512788772583,
+      "valid": true
+    },
+    {
+      "target_idx": 73,
+      "tanimoto_real": 0.3306773006916046,
+      "head_score": 0.35564854741096497,
+      "valid": true
+    },
+    {
+      "target_idx": 74,
+      "tanimoto_real": 0.27927929162979126,
+      "head_score": 0.27927929162979126,
+      "valid": true
+    },
+    {
+      "target_idx": 75,
+      "tanimoto_real": 0.3888888955116272,
+      "head_score": 0.41333332657814026,
+      "valid": true
+    },
+    {
+      "target_idx": 76,
+      "tanimoto_real": 0.1111111119389534,
+      "head_score": 0.12669683992862701,
+      "valid": true
+    },
+    {
+      "target_idx": 77,
+      "tanimoto_real": 0.2511415481567383,
+      "head_score": 0.3103448152542114,
+      "valid": true
+    },
+    {
+      "target_idx": 78,
+      "tanimoto_real": 0.1812865436077118,
+      "head_score": 0.18633539974689484,
+      "valid": true
+    },
+    {
+      "target_idx": 79,
+      "tanimoto_real": 0.286995530128479,
+      "head_score": 0.2699114978313446,
+      "valid": true
+    },
+    {
+      "target_idx": 80,
+      "tanimoto_real": 0.171875,
+      "head_score": 0.18565401434898376,
+      "valid": true
+    },
+    {
+      "target_idx": 81,
+      "tanimoto_real": 0.19607843458652496,
+      "head_score": 0.19601328670978546,
+      "valid": true
+    },
+    {
+      "target_idx": 82,
+      "tanimoto_real": 0.26618704199790955,
+      "head_score": 0.26618704199790955,
+      "valid": true
+    },
+    {
+      "target_idx": 83,
+      "tanimoto_real": 0.2473498284816742,
+      "head_score": 0.2473498284816742,
+      "valid": true
+    },
+    {
+      "target_idx": 84,
+      "tanimoto_real": 0.20202019810676575,
+      "head_score": 0.20812182128429413,
+      "valid": true
+    },
+    {
+      "target_idx": 85,
+      "tanimoto_real": 0.22641509771347046,
+      "head_score": 0.24495677649974823,
+      "valid": true
+    },
+    {
+      "target_idx": 86,
+      "tanimoto_real": 0.265193372964859,
+      "head_score": 0.27485379576683044,
+      "valid": true
+    },
+    {
+      "target_idx": 87,
+      "tanimoto_real": 0.16249999403953552,
+      "head_score": 0.1639871448278427,
+      "valid": true
+    },
+    {
+      "target_idx": 88,
+      "tanimoto_real": 0.14864864945411682,
+      "head_score": 0.1513761430978775,
+      "valid": true
+    },
+    {
+      "target_idx": 89,
+      "tanimoto_real": 0.24291497468948364,
+      "head_score": 0.2699114978313446,
+      "valid": true
+    },
+    {
+      "target_idx": 90,
+      "tanimoto_real": 0.20000000298023224,
+      "head_score": 0.20000000298023224,
+      "valid": true
+    },
+    {
+      "target_idx": 91,
+      "tanimoto_real": 0.28787878155708313,
+      "head_score": 0.2473498284816742,
+      "valid": true
+    },
+    {
+      "target_idx": 92,
+      "tanimoto_real": 0.4972972869873047,
+      "head_score": 0.4972677528858185,
+      "valid": true
+    },
+    {
+      "target_idx": 93,
+      "tanimoto_real": 0.29343628883361816,
+      "head_score": 0.30399999022483826,
+      "valid": true
+    },
+    {
+      "target_idx": 94,
+      "tanimoto_real": 0.2969283163547516,
+      "head_score": 0.29729729890823364,
+      "valid": true
+    },
+    {
+      "target_idx": 95,
+      "tanimoto_real": 0.4559585452079773,
+      "head_score": 0.43589743971824646,
+      "valid": true
+    },
+    {
+      "target_idx": 96,
+      "tanimoto_real": 0.4885057508945465,
+      "head_score": 0.4939759075641632,
+      "valid": true
+    },
+    {
+      "target_idx": 97,
+      "tanimoto_real": 0.3317972421646118,
+      "head_score": 0.3395348787307739,
+      "valid": true
+    },
+    {
+      "target_idx": 98,
+      "tanimoto_real": 0.05042016878724098,
+      "head_score": 0.04932735487818718,
+      "valid": true
+    },
+    {
+      "target_idx": 99,
+      "tanimoto_real": 0.35031846165657043,
+      "head_score": 0.35668790340423584,
+      "valid": true
+    },
+    {
+      "target_idx": 100,
+      "tanimoto_real": 0.30042919516563416,
+      "head_score": 0.3013100326061249,
+      "valid": true
+    },
+    {
+      "target_idx": 101,
+      "tanimoto_real": 0.1978609561920166,
+      "head_score": 0.19148936867713928,
+      "valid": true
+    },
+    {
+      "target_idx": 102,
+      "tanimoto_real": 0.12956809997558594,
+      "head_score": 0.11196911334991455,
+      "valid": true
+    },
+    {
+      "target_idx": 103,
+      "tanimoto_real": 0.28671327233314514,
+      "head_score": 0.367441862821579,
+      "valid": true
+    },
+    {
+      "target_idx": 104,
+      "tanimoto_real": 0.18250951170921326,
+      "head_score": 0.18473894894123077,
+      "valid": true
+    },
+    {
+      "target_idx": 105,
+      "tanimoto_real": 0.17482517659664154,
+      "head_score": 0.17482517659664154,
+      "valid": true
+    },
+    {
+      "target_idx": 106,
+      "tanimoto_real": 0.1494845300912857,
+      "head_score": 0.16477273404598236,
+      "valid": true
+    },
+    {
+      "target_idx": 107,
+      "tanimoto_real": 0.11864406615495682,
+      "head_score": 0.08522727340459824,
+      "valid": true
+    },
+    {
+      "target_idx": 108,
+      "tanimoto_real": 0.24537037312984467,
+      "head_score": 0.24761904776096344,
+      "valid": true
+    },
+    {
+      "target_idx": 109,
+      "tanimoto_real": 0.18888889253139496,
+      "head_score": 0.17692308127880096,
+      "valid": true
+    },
+    {
+      "target_idx": 110,
+      "tanimoto_real": 0.29629629850387573,
+      "head_score": 0.3348837196826935,
+      "valid": true
+    },
+    {
+      "target_idx": 111,
+      "tanimoto_real": 0.3034055829048157,
+      "head_score": 0.40377357602119446,
+      "valid": true
+    },
+    {
+      "target_idx": 112,
+      "tanimoto_real": 0.1672862470149994,
+      "head_score": 0.17870722711086273,
+      "valid": true
+    },
+    {
+      "target_idx": 113,
+      "tanimoto_real": 0.3154121935367584,
+      "head_score": 0.3333333432674408,
+      "valid": true
+    },
+    {
+      "target_idx": 114,
+      "tanimoto_real": 0.5431034564971924,
+      "head_score": 0.5431034564971924,
+      "valid": true
+    },
+    {
+      "target_idx": 115,
+      "tanimoto_real": 0.3113207519054413,
+      "head_score": 0.3219512104988098,
+      "valid": true
+    },
+    {
+      "target_idx": 116,
+      "tanimoto_real": 0.3695652186870575,
+      "head_score": 0.41897234320640564,
+      "valid": true
+    },
+    {
+      "target_idx": 117,
+      "tanimoto_real": 0.2844574749469757,
+      "head_score": 0.2784431278705597,
+      "valid": true
+    },
+    {
+      "target_idx": 118,
+      "tanimoto_real": 0.24390244483947754,
+      "head_score": 0.24460431933403015,
+      "valid": true
+    },
+    {
+      "target_idx": 119,
+      "tanimoto_real": 0.1825726181268692,
+      "head_score": 0.190476194024086,
+      "valid": true
+    },
+    {
+      "target_idx": 120,
+      "tanimoto_real": 0.21118012070655823,
+      "head_score": 0.21250000596046448,
+      "valid": true
+    },
+    {
+      "target_idx": 121,
+      "tanimoto_real": 0.3483146131038666,
+      "head_score": 0.3579545319080353,
+      "valid": true
+    },
+    {
+      "target_idx": 122,
+      "tanimoto_real": 0.34161490201950073,
+      "head_score": 0.39743590354919434,
+      "valid": true
+    },
+    {
+      "target_idx": 123,
+      "tanimoto_real": 0.3207547068595886,
+      "head_score": 0.32380953431129456,
+      "valid": true
+    },
+    {
+      "target_idx": 124,
+      "tanimoto_real": 0.18927444517612457,
+      "head_score": 0.18730159103870392,
+      "valid": true
+    },
+    {
+      "target_idx": 125,
+      "tanimoto_real": 0.19170984625816345,
+      "head_score": 0.20555555820465088,
+      "valid": true
+    },
+    {
+      "target_idx": 126,
+      "tanimoto_real": 0.2584269642829895,
+      "head_score": 0.26900583505630493,
+      "valid": true
+    },
+    {
+      "target_idx": 127,
+      "tanimoto_real": 0.2254098355770111,
+      "head_score": 0.21991701424121857,
+      "valid": true
+    },
+    {
+      "target_idx": 128,
+      "tanimoto_real": 0.16019417345523834,
+      "head_score": 0.17297297716140747,
+      "valid": true
+    },
+    {
+      "target_idx": 129,
+      "tanimoto_real": 0.18061673641204834,
+      "head_score": 0.20168067514896393,
+      "valid": true
+    },
+    {
+      "target_idx": 130,
+      "tanimoto_real": 0.18014705181121826,
+      "head_score": 0.142259418964386,
+      "valid": true
+    },
+    {
+      "target_idx": 131,
+      "tanimoto_real": 0.1489361673593521,
+      "head_score": 0.20283019542694092,
+      "valid": true
+    },
+    {
+      "target_idx": 132,
+      "tanimoto_real": 0.20253165066242218,
+      "head_score": 0.19944597780704498,
+      "valid": true
+    },
+    {
+      "target_idx": 133,
+      "tanimoto_real": 0.18553459644317627,
+      "head_score": 0.21611721813678741,
+      "valid": true
+    },
+    {
+      "target_idx": 134,
+      "tanimoto_real": 0.29720279574394226,
+      "head_score": 0.28308823704719543,
+      "valid": true
+    },
+    {
+      "target_idx": 135,
+      "tanimoto_real": 0.5952380895614624,
+      "head_score": 0.6097561120986938,
+      "valid": true
+    },
+    {
+      "target_idx": 136,
+      "tanimoto_real": 0.26819923520088196,
+      "head_score": 0.25984251499176025,
+      "valid": true
+    },
+    {
+      "target_idx": 137,
+      "tanimoto_real": 0.22884012758731842,
+      "head_score": 0.22812500596046448,
+      "valid": true
+    },
+    {
+      "target_idx": 138,
+      "tanimoto_real": 0.2012012004852295,
+      "head_score": 0.1743421107530594,
+      "valid": true
+    },
+    {
+      "target_idx": 139,
+      "tanimoto_real": 0.5031847357749939,
+      "head_score": 0.49367088079452515,
+      "valid": true
+    },
+    {
+      "target_idx": 140,
+      "tanimoto_real": 0.27927929162979126,
+      "head_score": 0.27906978130340576,
+      "valid": true
+    },
+    {
+      "target_idx": 141,
+      "tanimoto_real": 0.3187251091003418,
+      "head_score": 0.32231405377388,
+      "valid": true
+    },
+    {
+      "target_idx": 142,
+      "tanimoto_real": 0.21337579190731049,
+      "head_score": 0.19601328670978546,
+      "valid": true
+    },
+    {
+      "target_idx": 143,
+      "tanimoto_real": 0.1619718372821808,
+      "head_score": 0.1631205677986145,
+      "valid": true
+    },
+    {
+      "target_idx": 144,
+      "tanimoto_real": 0.14338235557079315,
+      "head_score": 0.14615385234355927,
+      "valid": true
+    },
+    {
+      "target_idx": 145,
+      "tanimoto_real": 0.36125653982162476,
+      "head_score": 0.36125653982162476,
+      "valid": true
+    },
+    {
+      "target_idx": 146,
+      "tanimoto_real": 0.3243243098258972,
+      "head_score": 0.33181819319725037,
+      "valid": true
+    },
+    {
+      "target_idx": 147,
+      "tanimoto_real": 0.32209739089012146,
+      "head_score": 0.3195488750934601,
+      "valid": true
+    },
+    {
+      "target_idx": 148,
+      "tanimoto_real": 0.3131868243217468,
+      "head_score": 0.3257142901420593,
+      "valid": true
+    },
+    {
+      "target_idx": 149,
+      "tanimoto_real": 0.16935484111309052,
+      "head_score": 0.1834319531917572,
+      "valid": false
+    },
+    {
+      "target_idx": 150,
+      "tanimoto_real": 0.5353535413742065,
+      "head_score": 0.5306122303009033,
+      "valid": true
+    },
+    {
+      "target_idx": 151,
+      "tanimoto_real": 0.296875,
+      "head_score": 0.356890469789505,
+      "valid": true
+    },
+    {
+      "target_idx": 152,
+      "tanimoto_real": 0.07324840873479843,
+      "head_score": 0.06949806958436966,
+      "valid": true
+    },
+    {
+      "target_idx": 153,
+      "tanimoto_real": 0.2532467544078827,
+      "head_score": 0.2877193093299866,
+      "valid": true
+    },
+    {
+      "target_idx": 154,
+      "tanimoto_real": 0.2671480178833008,
+      "head_score": 0.28731343150138855,
+      "valid": true
+    },
+    {
+      "target_idx": 155,
+      "tanimoto_real": 0.2664233446121216,
+      "head_score": 0.262948215007782,
+      "valid": true
+    },
+    {
+      "target_idx": 156,
+      "tanimoto_real": 0.21348313987255096,
+      "head_score": 0.21755725145339966,
+      "valid": true
+    },
+    {
+      "target_idx": 157,
+      "tanimoto_real": 0.31213873624801636,
+      "head_score": 0.3139534890651703,
+      "valid": true
+    },
+    {
+      "target_idx": 158,
+      "tanimoto_real": 0.3142857253551483,
+      "head_score": 0.2949640154838562,
+      "valid": true
+    },
+    {
+      "target_idx": 159,
+      "tanimoto_real": 0.28278687596321106,
+      "head_score": 0.29767441749572754,
+      "valid": true
+    },
+    {
+      "target_idx": 160,
+      "tanimoto_real": 0.24590164422988892,
+      "head_score": 0.24137930572032928,
+      "valid": true
+    },
+    {
+      "target_idx": 161,
+      "tanimoto_real": 0.2131979763507843,
+      "head_score": 0.2131979763507843,
+      "valid": true
+    },
+    {
+      "target_idx": 162,
+      "tanimoto_real": 0.324528306722641,
+      "head_score": 0.3481781482696533,
+      "valid": true
+    },
+    {
+      "target_idx": 163,
+      "tanimoto_real": 0.1715686321258545,
+      "head_score": 0.15804597735404968,
+      "valid": true
+    },
+    {
+      "target_idx": 164,
+      "tanimoto_real": 0.3236514627933502,
+      "head_score": 0.32083332538604736,
+      "valid": true
+    },
+    {
+      "target_idx": 165,
+      "tanimoto_real": 0.19597989320755005,
+      "head_score": 0.21134020388126373,
+      "valid": true
+    },
+    {
+      "target_idx": 166,
+      "tanimoto_real": 0.35499998927116394,
+      "head_score": 0.3678756356239319,
+      "valid": true
+    },
+    {
+      "target_idx": 167,
+      "tanimoto_real": 0.1259259283542633,
+      "head_score": 0.12399999797344208,
+      "valid": true
+    },
+    {
+      "target_idx": 168,
+      "tanimoto_real": 0.21985815465450287,
+      "head_score": 0.2246376872062683,
+      "valid": true
+    },
+    {
+      "target_idx": 169,
+      "tanimoto_real": 0.3055555522441864,
+      "head_score": 0.3468634784221649,
+      "valid": true
+    },
+    {
+      "target_idx": 170,
+      "tanimoto_real": 0.24473683536052704,
+      "head_score": 0.2981927692890167,
+      "valid": true
+    },
+    {
+      "target_idx": 171,
+      "tanimoto_real": 0.1627296656370163,
+      "head_score": 0.1957104504108429,
+      "valid": true
+    },
+    {
+      "target_idx": 172,
+      "tanimoto_real": 0.20805369317531586,
+      "head_score": 0.2631579041481018,
+      "valid": true
+    },
+    {
+      "target_idx": 173,
+      "tanimoto_real": 0.17167381942272186,
+      "head_score": 0.16371680796146393,
+      "valid": true
+    },
+    {
+      "target_idx": 174,
+      "tanimoto_real": 0.3228699564933777,
+      "head_score": 0.34634146094322205,
+      "valid": true
+    },
+    {
+      "target_idx": 175,
+      "tanimoto_real": 0.30158731341362,
+      "head_score": 0.3055555522441864,
+      "valid": true
+    },
+    {
+      "target_idx": 176,
+      "tanimoto_real": 0.19850187003612518,
+      "head_score": 0.20472441613674164,
+      "valid": true
+    },
+    {
+      "target_idx": 177,
+      "tanimoto_real": 0.32407405972480774,
+      "head_score": 0.3087557554244995,
+      "valid": true
+    },
+    {
+      "target_idx": 178,
+      "tanimoto_real": 0.28523489832878113,
+      "head_score": 0.2736486494541168,
+      "valid": true
+    },
+    {
+      "target_idx": 179,
+      "tanimoto_real": 0.38922154903411865,
+      "head_score": 0.39263802766799927,
+      "valid": true
+    },
+    {
+      "target_idx": 180,
+      "tanimoto_real": 0.2687224745750427,
+      "head_score": 0.29906541109085083,
+      "valid": true
+    },
+    {
+      "target_idx": 181,
+      "tanimoto_real": 0.23766815662384033,
+      "head_score": 0.29120880365371704,
+      "valid": true
+    },
+    {
+      "target_idx": 182,
+      "tanimoto_real": 0.1749347299337387,
+      "head_score": 0.2646239697933197,
+      "valid": true
+    },
+    {
+      "target_idx": 183,
+      "tanimoto_real": 0.23643410205841064,
+      "head_score": 0.24894514679908752,
+      "valid": true
+    },
+    {
+      "target_idx": 184,
+      "tanimoto_real": 0.18536585569381714,
+      "head_score": 0.21111111342906952,
+      "valid": true
+    },
+    {
+      "target_idx": 185,
+      "tanimoto_real": 0.3081081211566925,
+      "head_score": 0.3081081211566925,
+      "valid": true
+    },
+    {
+      "target_idx": 186,
+      "tanimoto_real": 0.2509652376174927,
+      "head_score": 0.25193798542022705,
+      "valid": true
+    },
+    {
+      "target_idx": 187,
+      "tanimoto_real": 0.157657653093338,
+      "head_score": 0.14414414763450623,
+      "valid": true
+    },
+    {
+      "target_idx": 188,
+      "tanimoto_real": 0.23943662643432617,
+      "head_score": 0.24873095750808716,
+      "valid": true
+    },
+    {
+      "target_idx": 189,
+      "tanimoto_real": 0.28797468543052673,
+      "head_score": 0.22635135054588318,
+      "valid": true
+    },
+    {
+      "target_idx": 190,
+      "tanimoto_real": 0.3636363744735718,
+      "head_score": 0.33862432837486267,
+      "valid": true
+    },
+    {
+      "target_idx": 191,
+      "tanimoto_real": 0.20737327635288239,
+      "head_score": 0.2526315748691559,
+      "valid": true
+    },
+    {
+      "target_idx": 192,
+      "tanimoto_real": 0.4112149477005005,
+      "head_score": 0.45077720284461975,
+      "valid": true
+    },
+    {
+      "target_idx": 193,
+      "tanimoto_real": 0.15658363699913025,
+      "head_score": 0.25984251499176025,
+      "valid": true
+    },
+    {
+      "target_idx": 194,
+      "tanimoto_real": 0.1564885526895523,
+      "head_score": 0.134782612323761,
+      "valid": true
+    },
+    {
+      "target_idx": 195,
+      "tanimoto_real": 0.1709090918302536,
+      "head_score": 0.180811807513237,
+      "valid": true
+    },
+    {
+      "target_idx": 196,
+      "tanimoto_real": 0.24014337360858917,
+      "head_score": 0.23846153914928436,
+      "valid": true
+    },
+    {
+      "target_idx": 197,
+      "tanimoto_real": 0.28270041942596436,
+      "head_score": 0.2680850923061371,
+      "valid": true
+    },
+    {
+      "target_idx": 198,
+      "tanimoto_real": 0.21551723778247833,
+      "head_score": 0.23492063581943512,
+      "valid": true
+    },
+    {
+      "target_idx": 199,
+      "tanimoto_real": 0.38461539149284363,
+      "head_score": 0.38461539149284363,
+      "valid": true
+    },
+    {
+      "target_idx": 200,
+      "tanimoto_real": 0.13333334028720856,
+      "head_score": 0.13278008997440338,
+      "valid": true
+    },
+    {
+      "target_idx": 201,
+      "tanimoto_real": 0.3050847351551056,
+      "head_score": 0.3214285671710968,
+      "valid": true
+    },
+    {
+      "target_idx": 202,
+      "tanimoto_real": 0.1627907007932663,
+      "head_score": 0.18103447556495667,
+      "valid": true
+    },
+    {
+      "target_idx": 203,
+      "tanimoto_real": 0.13698630034923553,
+      "head_score": 0.18579235672950745,
+      "valid": true
+    },
+    {
+      "target_idx": 204,
+      "tanimoto_real": 0.27819550037384033,
+      "head_score": 0.28244274854660034,
+      "valid": true
+    },
+    {
+      "target_idx": 205,
+      "tanimoto_real": 0.4464285671710968,
+      "head_score": 0.4464285671710968,
+      "valid": true
+    },
+    {
+      "target_idx": 206,
+      "tanimoto_real": 0.4356435537338257,
+      "head_score": 0.49444442987442017,
+      "valid": true
+    },
+    {
+      "target_idx": 207,
+      "tanimoto_real": 0.2511848211288452,
+      "head_score": 0.26530611515045166,
+      "valid": true
+    },
+    {
+      "target_idx": 208,
+      "tanimoto_real": 0.25,
+      "head_score": 0.24215246737003326,
+      "valid": true
+    },
+    {
+      "target_idx": 209,
+      "tanimoto_real": 0.2582159638404846,
+      "head_score": 0.25123152136802673,
+      "valid": true
+    },
+    {
+      "target_idx": 210,
+      "tanimoto_real": 0.17419354617595673,
+      "head_score": 0.20915032923221588,
+      "valid": true
+    },
+    {
+      "target_idx": 211,
+      "tanimoto_real": 0.20333333313465118,
+      "head_score": 0.19795222580432892,
+      "valid": true
+    },
+    {
+      "target_idx": 212,
+      "tanimoto_real": 0.3198198080062866,
+      "head_score": 0.3349514603614807,
+      "valid": true
+    },
+    {
+      "target_idx": 213,
+      "tanimoto_real": 0.3490196168422699,
+      "head_score": 0.3166666626930237,
+      "valid": true
+    },
+    {
+      "target_idx": 214,
+      "tanimoto_real": 0.15000000596046448,
+      "head_score": 0.15000000596046448,
+      "valid": true
+    },
+    {
+      "target_idx": 215,
+      "tanimoto_real": 0.2750000059604645,
+      "head_score": 0.2883211672306061,
+      "valid": true
+    },
+    {
+      "target_idx": 216,
+      "tanimoto_real": 0.22641509771347046,
+      "head_score": 0.21292775869369507,
+      "valid": true
+    },
+    {
+      "target_idx": 217,
+      "tanimoto_real": 0.34797295928001404,
+      "head_score": 0.3469387888908386,
+      "valid": true
+    },
+    {
+      "target_idx": 218,
+      "tanimoto_real": 0.19607843458652496,
+      "head_score": 0.17910447716712952,
+      "valid": true
+    },
+    {
+      "target_idx": 219,
+      "tanimoto_real": 0.23955431580543518,
+      "head_score": 0.23098590970039368,
+      "valid": true
+    },
+    {
+      "target_idx": 220,
+      "tanimoto_real": 0.2083333283662796,
+      "head_score": 0.22448979318141937,
+      "valid": true
+    },
+    {
+      "target_idx": 221,
+      "tanimoto_real": 0.21481481194496155,
+      "head_score": 0.18473894894123077,
+      "valid": true
+    },
+    {
+      "target_idx": 222,
+      "tanimoto_real": 0.20187793672084808,
+      "head_score": 0.20187793672084808,
+      "valid": true
+    },
+    {
+      "target_idx": 223,
+      "tanimoto_real": 0.2266666740179062,
+      "head_score": 0.2513088881969452,
+      "valid": true
+    },
+    {
+      "target_idx": 224,
+      "tanimoto_real": 0.5077720284461975,
+      "head_score": 0.4793814420700073,
+      "valid": true
+    },
+    {
+      "target_idx": 225,
+      "tanimoto_real": 0.3977900445461273,
+      "head_score": 0.43529412150382996,
+      "valid": true
+    },
+    {
+      "target_idx": 226,
+      "tanimoto_real": 0.22590361535549164,
+      "head_score": 0.22712934017181396,
+      "valid": true
+    },
+    {
+      "target_idx": 227,
+      "tanimoto_real": 0.296167254447937,
+      "head_score": 0.32209739089012146,
+      "valid": true
+    },
+    {
+      "target_idx": 228,
+      "tanimoto_real": 0.23970037698745728,
+      "head_score": 0.24803149700164795,
+      "valid": true
+    },
+    {
+      "target_idx": 229,
+      "tanimoto_real": 0.2490842491388321,
+      "head_score": 0.31075698137283325,
+      "valid": true
+    },
+    {
+      "target_idx": 230,
+      "tanimoto_real": 0.3298429250717163,
+      "head_score": 0.33155080676078796,
+      "valid": true
+    },
+    {
+      "target_idx": 231,
+      "tanimoto_real": 0.19784173369407654,
+      "head_score": 0.23577235639095306,
+      "valid": true
+    },
+    {
+      "target_idx": 232,
+      "tanimoto_real": 0.30434781312942505,
+      "head_score": 0.29296875,
+      "valid": true
+    },
+    {
+      "target_idx": 233,
+      "tanimoto_real": 0.21666666865348816,
+      "head_score": 0.24186046421527863,
+      "valid": true
+    },
+    {
+      "target_idx": 234,
+      "tanimoto_real": 0.07929515093564987,
+      "head_score": 0.21348313987255096,
+      "valid": true
+    },
+    {
+      "target_idx": 235,
+      "tanimoto_real": 0.2713567912578583,
+      "head_score": 0.2977527976036072,
+      "valid": true
+    },
+    {
+      "target_idx": 236,
+      "tanimoto_real": 0.34228187799453735,
+      "head_score": 0.3402777910232544,
+      "valid": true
+    },
+    {
+      "target_idx": 237,
+      "tanimoto_real": 0.2933333218097687,
+      "head_score": 0.2933333218097687,
+      "valid": true
+    },
+    {
+      "target_idx": 238,
+      "tanimoto_real": 0.28070175647735596,
+      "head_score": 0.28959277272224426,
+      "valid": true
+    },
+    {
+      "target_idx": 239,
+      "tanimoto_real": 0.15189872682094574,
+      "head_score": 0.18103447556495667,
+      "valid": true
+    },
+    {
+      "target_idx": 240,
+      "tanimoto_real": 0.3208955228328705,
+      "head_score": 0.3166666626930237,
+      "valid": true
+    },
+    {
+      "target_idx": 241,
+      "tanimoto_real": 0.31506848335266113,
+      "head_score": 0.31506848335266113,
+      "valid": true
+    },
+    {
+      "target_idx": 242,
+      "tanimoto_real": 0.25670498609542847,
+      "head_score": 0.25590550899505615,
+      "valid": true
+    },
+    {
+      "target_idx": 243,
+      "tanimoto_real": 0.34810125827789307,
+      "head_score": 0.3529411852359772,
+      "valid": true
+    },
+    {
+      "target_idx": 244,
+      "tanimoto_real": 0.12925170361995697,
+      "head_score": 0.1354166716337204,
+      "valid": true
+    },
+    {
+      "target_idx": 245,
+      "tanimoto_real": 0.28436020016670227,
+      "head_score": 0.2829268276691437,
+      "valid": true
+    },
+    {
+      "target_idx": 246,
+      "tanimoto_real": 0.20202019810676575,
+      "head_score": 0.1850000023841858,
+      "valid": true
+    },
+    {
+      "target_idx": 247,
+      "tanimoto_real": 0.1881188154220581,
+      "head_score": 0.1881188154220581,
+      "valid": true
+    },
+    {
+      "target_idx": 248,
+      "tanimoto_real": 0.1147058829665184,
+      "head_score": 0.12956809997558594,
+      "valid": true
+    },
+    {
+      "target_idx": 249,
+      "tanimoto_real": 0.20521172881126404,
+      "head_score": 0.22535210847854614,
+      "valid": true
+    },
+    {
+      "target_idx": 250,
+      "tanimoto_real": 0.23394495248794556,
+      "head_score": 0.2304147481918335,
+      "valid": true
+    },
+    {
+      "target_idx": 251,
+      "tanimoto_real": 0.16731517016887665,
+      "head_score": 0.16091954708099365,
+      "valid": true
+    },
+    {
+      "target_idx": 252,
+      "tanimoto_real": 0.17241379618644714,
+      "head_score": 0.14457830786705017,
+      "valid": true
+    },
+    {
+      "target_idx": 253,
+      "tanimoto_real": 0.2596491277217865,
+      "head_score": 0.26865673065185547,
+      "valid": false
+    },
+    {
+      "target_idx": 254,
+      "tanimoto_real": 0.17766498029232025,
+      "head_score": 0.16438356041908264,
+      "valid": true
+    },
+    {
+      "target_idx": 255,
+      "tanimoto_real": 0.23199999332427979,
+      "head_score": 0.25652173161506653,
+      "valid": true
+    }
+  ]
+}
