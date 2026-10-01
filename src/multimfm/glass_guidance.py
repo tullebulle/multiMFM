@@ -632,6 +632,13 @@ def value_gradient(
             diagonal=mfm_diagonal,
             prior_noise=prior_noise,
         )
+    elif value_sampler == "denoiser":
+        # DPS: the value estimate is the reward at the model's one-step deterministic
+        # endpoint, r(E[X_1 | X_t]), rather than an average over posterior samples. It is
+        # the degenerate case of the same estimator -- one sample, taken at the mean instead
+        # of drawn -- which is why it has no N to spend and is flat in the posterior budget.
+        posterior = endpoint_prediction(model, cond_state, t)
+        posterior_samples = 1
     else:
         raise ValueError(f"Unknown value_sampler={value_sampler!r}")
     rewards = grouped_rewards(

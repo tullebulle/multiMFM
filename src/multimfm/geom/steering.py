@@ -39,6 +39,7 @@ from multimfm.geom.paths import (
 from multimfm.geom.mu_schedule import DEFAULT_EPS_T, MU_SCHEDULES, install_mu_schedule
 from multimfm.geom.reward import install_fingerprint_reward
 from multimfm.geom.teacher import load_geom_teacher
+from multimfm.nfe import NFECounter, attach_standard
 from multimfm.glass_guidance import (
     build_posebusters,
     guided_sample,
@@ -59,6 +60,9 @@ def add_common_arguments(p: argparse.ArgumentParser, *, value_sampler: str) -> a
     driver's those of ``glass/run_fingerprint_steering.sbatch``.
     """
     is_mfm = value_sampler == "mfm"
+    # "denoiser" (DPS) needs neither a flow-map student nor GLASS inner steps: its value
+    # estimate is the model's own one-step endpoint, so it takes the GLASS argument set
+    # and simply never reads --value-glass-steps.
     p.add_argument("--teacher-checkpoint", type=Path, default=DEFAULT_TEACHER)
     p.add_argument("--structure-head", type=Path, default=DEFAULT_STRUCTURE_HEAD)
     p.add_argument("--geom-fp-dir", type=Path, default=DEFAULT_GEOM_FP_DIR)
@@ -147,9 +151,10 @@ def _run_one(model, student, head, init_state, targets, args, *, mu, value_sampl
         num_steps=args.sample_steps,
         mu=mu,
         reward_scale=args.reward_lambda,
-        value_samples=value_samples,
+        value_samples=(1 if value_sampler == "denoiser" else value_samples),
         value_glass_steps=(
-            args.mfm_steps if value_sampler == "mfm" else args.value_glass_steps
+            args.mfm_steps if value_sampler == "mfm"
+            else (0 if value_sampler == "denoiser" else args.value_glass_steps)
         ),
         reward_name=getattr(args, "reward_kind", "fingerprint"),
         target_x=0.0,
@@ -231,9 +236,16 @@ def run_steering(args: argparse.Namespace, *, value_sampler: str) -> dict:
         )
     targets = targets.to(device)
 
+    # Measured, not assumed: forward hooks on the base network and the flow-map
+    # student count rows per call, so every arm of the comparison (multiMFM, DPS,
+    # best-of-N) lands on one axis that was counted the same way.
+    nfe = attach_standard(NFECounter(), model=model, mfm_student=student)
+
     extra = (
         f"mfm={Path(args.mfm_checkpoint).name} mfm_steps={args.mfm_steps} "
         if value_sampler == "mfm"
+        else "one-step denoiser endpoint "
+        if value_sampler == "denoiser"
         else f"glass_steps={args.value_glass_steps} "
     )
     print(
@@ -250,13 +262,17 @@ def run_steering(args: argparse.Namespace, *, value_sampler: str) -> dict:
     set_seed(args.seed)
     init_state = model._sample_noise_like_batch(batch_size=args.num_mols).to(device)
 
+    # Count the two arms separately. A single total averaged over both would be neither
+    # arm's cost, and the guided arm's cost is the one that goes on the NFE axis.
     set_seed(args.seed)
-    unguided, _ = _run_one(model, student, head, init_state, targets, args,
-                           mu=0.0, value_samples=0, value_sampler=value_sampler)
+    with nfe.phase("unguided"):
+        unguided, _ = _run_one(model, student, head, init_state, targets, args,
+                               mu=0.0, value_samples=0, value_sampler=value_sampler)
     set_seed(args.seed)
-    guided, _ = _run_one(model, student, head, init_state, targets, args,
-                         mu=args.mu, value_samples=args.value_samples,
-                         value_sampler=value_sampler)
+    with nfe.phase("guided"):
+        guided, _ = _run_one(model, student, head, init_state, targets, args,
+                             mu=args.mu, value_samples=args.value_samples,
+                             value_sampler=value_sampler)
 
     unguided_score = fp.score(unguided, targets, head, normalizer, device)
     guided_score = fp.score(guided, targets, head, normalizer, device)
@@ -317,15 +333,22 @@ def run_steering(args: argparse.Namespace, *, value_sampler: str) -> dict:
         "unguided": unguided_score,
         "guided": guided_score,
         "tanimoto_gain": guided_score["tanimoto_real_mean"] - unguided_score["tanimoto_real_mean"],
+        # per molecule, per arm; "nfe_generative_fwd_equiv" of the guided phase is the
+        # number the NFE axis uses, with the backward pass billed at twice a forward.
+        "nfe": nfe.by_phase(args.num_mols) if hasattr(nfe, "by_phase") else {},
     }
     if value_sampler == "mfm":
         result["mfm_checkpoint"] = str(args.mfm_checkpoint)
         result["mfm_steps"] = args.mfm_steps
+    elif value_sampler == "denoiser":
+        result["value_samples"] = 1
     else:
         result["value_glass_steps"] = args.value_glass_steps
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    prefix = "mfm_fingerprint_steering" if value_sampler == "mfm" else "fingerprint_steering"
+    prefix = {"mfm": "mfm_fingerprint_steering",
+              "denoiser": "dps_fingerprint_steering"}.get(
+        value_sampler, "fingerprint_steering")
     out = args.output_dir / f"{prefix}_{args.tag}.json"
     # Write atomically: the sharded runs are resumed by "output exists and is non-empty",
     # so a task preempted mid-write must not leave a truncated JSON behind.
@@ -336,7 +359,7 @@ def run_steering(args: argparse.Namespace, *, value_sampler: str) -> dict:
     def _pb(s):
         return f"{s['pb_valid']:.3f}" if s["pb_valid"] is not None else "n/a"
 
-    label = "MFM" if value_sampler == "mfm" else "GLASS"
+    label = {"mfm": "MFM", "denoiser": "DPS"}.get(value_sampler, "GLASS")
     print(f"\n===== {label} fingerprint steering result =====")
     print(f"  UNGUIDED  real-FP2 Tanimoto = {unguided_score['tanimoto_real_mean']:.4f} "
           f"(head {unguided_score['tanimoto_head_mean']:.3f}, "

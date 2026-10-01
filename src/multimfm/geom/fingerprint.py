@@ -301,5 +301,9 @@ def score(state: TensorDict, targets: torch.Tensor, head, normalizer: float, dev
         "n_valid": int(vmask.sum()),
         # per-molecule arrays for exact cross-shard aggregation (multi-GPU 4096-mol runs)
         "tanimoto_real_per_mol": [float(x) for x in tani.tolist()],
+        # The guide's own view of each molecule, which is the only signal a method is
+        # allowed to select on: picking by ``tanimoto_real_per_mol`` would be selecting on
+        # the reported metric, which no guided arm can do.
+        "tanimoto_head_per_mol": [float(x) for x in head_tani.tolist()],
         "valid_per_mol": [bool(x) for x in valid.tolist()],
     }

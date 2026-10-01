@@ -126,10 +126,10 @@ source scripts/env.sh
 python -m pytest tests -q
 ```
 
-22 pass and 6 skip once the artifacts are fetched. Without them, 18 pass and the four DNA
-tests that load a checkpoint or the parent-split file fail on the missing file — they check
-that the shipped sbatch wrappers reproduce each model's recorded training arguments, so they
-need the real artifacts and nothing else.
+All 28 pass once the artifacts are fetched. Without them 18 pass, 6 skip and 4 fail: the
+skips and failures are the DNA tests that load a checkpoint or the parent-split file, which
+check that the shipped sbatch wrappers reproduce each model's recorded training arguments.
+They need the real artifacts and nothing else.
 
 ## Usage
 
