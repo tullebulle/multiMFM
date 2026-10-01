@@ -1,0 +1,28 @@
+{
+ "_note": "Verbatim copies of the ORIGINAL producer scripts of Fig 5 and Tables 14-15 (and of Table 18's estimator), copied 2026-09-29 for the dMFM rerun in src/dmfm/scalefree. These experiments are NOT in tullebulle/DNA-MFM@187fe7b: that clone's scripts/ and slurm/ contain no file named ablate_glass_gradient_mc.py, rescore_gradient_pairs_scale_free.py or summarize_gradient_accuracy_metrics.py, and no file mentioning gradient_pairs, scale_free or gradient_accuracy (the rebuttal runs are from 2026-07-26 / 08-02 and live only in dirichlet-flow-matching). The durable source below was byte-verified against the purge-prone netscratch working copy: all sha256 identical.",
+ "durable_source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/{scripts,slurm}",
+ "purge_prone_working_copy": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/{scripts,slurm}",
+ "checked_against_dna_mfm_187fe7b": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/DNA-MFM_187fe7b - none of these files exist there",
+ "produced": {
+  "Fig 5, Tables 14-15": "ablate_glass_gradient_mc.py + ablate_yeast_glass_gradient_mc.sbatch (REWARD in gc/motif/conjunction), then rescore_gradient_pairs_scale_free.py (2026-08-02, --bootstrap 10000 --seed 20260802) and summarize_gradient_accuracy_metrics.py (add_gradient_accuracy_metrics.sbatch); plot_gradient_accuracy_required_mc.py made the older required-MC figures.",
+  "Table 18": "ablate_dmfm_one_step_gradient_mc.py (the dMFM posterior estimator reused unchanged by the rerun)"
+ },
+ "ported_to": {
+  "ablate_glass_gradient_mc.py": "src/dmfm/experiments/ablate_glass_gradient_mc.py",
+  "ablate_dmfm_one_step_gradient_mc.py": "src/dmfm/experiments/ablate_dmfm_one_step_gradient_mc.py",
+  "rescore_gradient_pairs_scale_free.py": "src/dmfm/experiments/rescore_gradient_pairs_scale_free.py",
+  "summarize_gradient_accuracy_metrics.py": "src/dmfm/experiments/summarize_gradient_accuracy_metrics.py",
+  "plot_gradient_accuracy_required_mc.py": "src/dmfm/experiments/plot_gradient_accuracy_required_mc.py",
+  "ablate_yeast_glass_gradient_mc.sbatch": "scripts/dna/fig5_tables14_15_gradient_mc.sbatch"
+ },
+ "port_diff": "diff against the ported copies: imports, repo-relative default paths, docstrings, argv plumbing, and in glass_integrate_diff the documented end_time=1.0 allowance for the Euler solver (which is what these runs did, predating --glass_end_time). All numerics identical; the ported rescore reproduces the published L=50 motif Table 15 column bitwise from the original gradient_pairs.pt.",
+ "sha256": {
+  "ablate_dmfm_one_step_gradient_mc.py": "b0a1b96f06633a9f565b759aae959137173f281fa4f536d25f44e255151451f4",
+  "ablate_glass_gradient_mc.py": "9c8efa262d82123aaef0c05a16e13b451adcf5dbab29ad7062f844237d41c307",
+  "ablate_yeast_glass_gradient_mc.sbatch": "199470295246e7e6e8d4bb21715cfa6a0347f6c6a2151af10154e9447f30092a",
+  "add_gradient_accuracy_metrics.sbatch": "1775c7c8055616d906fb1ec521a3f5156ddc34a6ebb0fad3600ec05ba1a3bd7e",
+  "plot_gradient_accuracy_required_mc.py": "9851622f6904e198bc9645b9236756e90f1db97ef7df54eb111ebc22f2b3de71",
+  "rescore_gradient_pairs_scale_free.py": "6bcf2c52c579b5ac19d30de6cb82ef80722bd7499c640b533d54453eefca814c",
+  "summarize_gradient_accuracy_metrics.py": "4ca94ae9f38d73796405853c82ba5eac34305174182015ab52d81411522c04f9"
+ }
+}

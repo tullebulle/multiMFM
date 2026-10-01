@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "device": "cuda",
+    "device_name": "NVIDIA H200",
+    "torch": "2.5.1+cu124",
+    "tf32_matmul": true
+  },
+  "dna": {
+    "frozen_student_params": "78/78",
+    "frozen_guide_params": "8/8",
+    "by_batch": {
+      "25": {
+        "student_fwd_plus_guide_s": 0.0034022722393274307,
+        "student_fwd_plus_guide_plus_backward_s": 0.006826474331319332,
+        "ratio_fwdbwd_over_fwd": 2.0064456490021523,
+        "implied_k": 1.0064456490021523,
+        "base_net_fwd_s": 0.002510359976440668,
+        "raw": {
+          "fwd": {
+            "median_s": 0.0034022722393274307,
+            "min_s": 0.003390112891793251,
+            "max_s": 0.003452062141150236,
+            "reps": 5
+          },
+          "fwd_bwd": {
+            "median_s": 0.006826474331319332,
+            "min_s": 0.0067892237566411495,
+            "max_s": 0.006868124008178711,
+            "reps": 5
+          },
+          "base_fwd": {
+            "median_s": 0.002510359976440668,
+            "min_s": 0.002502399031072855,
+            "max_s": 0.002522398717701435,
+            "reps": 5
+          }
+        }
+      },
+      "100": {
+        "student_fwd_plus_guide_s": 0.0033428617753088474,
+        "student_fwd_plus_guide_plus_backward_s": 0.007011862937361002,
+        "ratio_fwdbwd_over_fwd": 2.0975629292100106,
+        "implied_k": 1.0975629292100106,
+        "base_net_fwd_s": 0.0025745388120412827,
+        "raw": {
+          "fwd": {
+            "median_s": 0.0033428617753088474,
+            "min_s": 0.003330682870000601,
+            "max_s": 0.003355551976710558,
+            "reps": 5
+          },
+          "fwd_bwd": {
+            "median_s": 0.007011862937361002,
+            "min_s": 0.006947672925889492,
+            "max_s": 0.007076642010360956,
+            "reps": 5
+          },
+          "base_fwd": {
+            "median_s": 0.0025745388120412827,
+            "min_s": 0.0025639990344643593,
+            "max_s": 0.0025834888219833374,
+            "reps": 5
+          }
+        }
+      },
+      "400": {
+        "student_fwd_plus_guide_s": 0.004167736973613501,
+        "student_fwd_plus_guide_plus_backward_s": 0.008467260748147964,
+        "ratio_fwdbwd_over_fwd": 2.0316207096933714,
+        "implied_k": 1.0316207096933714,
+        "base_net_fwd_s": 0.0034458208829164505,
+        "raw": {
+          "fwd": {
+            "median_s": 0.004167736973613501,
+            "min_s": 0.00415676599368453,
+            "max_s": 0.004178724717348814,
+            "reps": 5
+          },
+          "fwd_bwd": {
+            "median_s": 0.008467260748147964,
+            "min_s": 0.008466280065476894,
+            "max_s": 0.00848662992939353,
+            "reps": 5
+          },
+          "base_fwd": {
+            "median_s": 0.0034458208829164505,
+            "min_s": 0.0034444318152964115,
+            "max_s": 0.0034492919221520424,
+            "reps": 5
+          }
+        }
+      },
+      "1600": {
+        "student_fwd_plus_guide_s": 0.0120157222263515,
+        "student_fwd_plus_guide_plus_backward_s": 0.02574995020404458,
+        "ratio_fwdbwd_over_fwd": 2.143021428006446,
+        "implied_k": 1.143021428006446,
+        "base_net_fwd_s": 0.011244518216699362,
+        "raw": {
+          "fwd": {
+            "median_s": 0.0120157222263515,
+            "min_s": 0.01200689235702157,
+            "max_s": 0.01202700100839138,
+            "reps": 5
+          },
+          "fwd_bwd": {
+            "median_s": 0.02574995020404458,
+            "min_s": 0.025745129212737083,
+            "max_s": 0.02578804874792695,
+            "reps": 5
+          },
+          "base_fwd": {
+            "median_s": 0.011244518216699362,
+            "min_s": 0.01122018788009882,
+            "max_s": 0.011289127636700869,
+            "reps": 5
+          }
+        }
+      }
+    }
+  },
+  "qm9": {
+    "frozen_student_params": "94/94",
+    "params": {
+      "base_net": 338121,
+      "mfm_student": 363465,
+      "guide_regressor": 928263
+    },
+    "by_batch": {
+      "B25_MC1": {
+        "posterior_fwd_s": 0.014257813803851604,
+        "value_gradient_fwd_plus_bwd_s": 0.04117662273347378,
+        "ratio_fwdbwd_over_fwd": 2.8880039604914978,
+        "implied_k": 1.8880039604914978,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      },
+      "B25_MC4": {
+        "posterior_fwd_s": 0.013828066177666187,
+        "value_gradient_fwd_plus_bwd_s": 0.0414972510188818,
+        "ratio_fwdbwd_over_fwd": 3.0009439125988795,
+        "implied_k": 2.0009439125988795,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      },
+      "B25_MC16": {
+        "posterior_fwd_s": 0.013727807905524969,
+        "value_gradient_fwd_plus_bwd_s": 0.040802995674312115,
+        "ratio_fwdbwd_over_fwd": 2.9722877793103675,
+        "implied_k": 1.9722877793103675,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      },
+      "B100_MC1": {
+        "posterior_fwd_s": 0.013865835964679718,
+        "value_gradient_fwd_plus_bwd_s": 0.0414995108731091,
+        "ratio_fwdbwd_over_fwd": 2.9929324837550597,
+        "implied_k": 1.9929324837550597,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      },
+      "B100_MC4": {
+        "posterior_fwd_s": 0.013688827864825726,
+        "value_gradient_fwd_plus_bwd_s": 0.040803235955536366,
+        "ratio_fwdbwd_over_fwd": 2.9807691614256293,
+        "implied_k": 1.9807691614256293,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      },
+      "B100_MC16": {
+        "posterior_fwd_s": 0.01460866117849946,
+        "value_gradient_fwd_plus_bwd_s": 0.05724133225157857,
+        "ratio_fwdbwd_over_fwd": 3.918314727965931,
+        "implied_k": 2.918314727965931,
+        "note": "fwd_only omits the regressor forward that fwd_bwd includes, so the ratio is a slight OVER-estimate of the backward's share"
+      }
+    },
+    "regressor_vs_base_B100": {
+      "regressor_fwd_s": 0.0030984049662947655,
+      "base_net_fwd_s": 0.0022289417684078217,
+      "regressor_over_base": 1.390078920055421
+    },
+    "regressor_vs_base_B400": {
+      "regressor_fwd_s": 0.0028329058550298214,
+      "base_net_fwd_s": 0.0021813823841512203,
+      "regressor_over_base": 1.2986745815920349
+    }
+  }
+}

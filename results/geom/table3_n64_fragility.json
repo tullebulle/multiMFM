@@ -1,0 +1,20 @@
+{
+  "_what": "How fragile the submitted Table 3 gain is at n=64. Bootstrap: draw 64 paired per-molecule gains (with replacement) from the 4,096x3 evaluation of the same configuration and ask how often a 64-molecule estimate looks as good as the submitted one.",
+  "source": "results/geom/table3_per_molecule.csv (run = n4096_3seed, job 47833756)",
+  "pool_size": 11260,
+  "pool_mean_gain": -0.004569674245115453,
+  "pool_sd_gain": 0.0854526405090193,
+  "bootstrap_draws": 200000,
+  "subsample_size": 64,
+  "submitted_n64_gain": 0.0199,
+  "p_subsample_gain_ge_submitted": 0.010575,
+  "p_subsample_gain_positive": 0.33595,
+  "subsample_gain_quantiles": {
+    "2.5%": -0.0257810203125,
+    "50%": -0.004520375,
+    "97.5%": 0.016270454296874997
+  },
+  "note": "This says nothing about which number is 'right'; it quantifies that a single 64-molecule draw from a population whose true paired gain is -0.0046 reaches +0.0199 about 1.1% of the time, and is positive 33.6% of the time. The submitted row was also the best of four (lambda, mu) points, which raises the effective selection probability further.",
+  "p_at_least_one_of_4_grid_points_ge_submitted_if_independent": 0.04163373417934879,
+  "caveat": "The bootstrap assumes the n=64 run sampled the same population as the 4,096x3 run. It did not exactly: the n=64 run's unguided Tanimoto was 0.2072 against 0.2287 at 4,096, so its 64 targets were an easier draw. Subsampling noise plus selecting the best of four (lambda, mu) points therefore explains part, but probably not all, of the difference; the target draw explains the rest."
+}

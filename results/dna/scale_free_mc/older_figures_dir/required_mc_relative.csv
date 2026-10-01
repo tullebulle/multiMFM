@@ -1,0 +1,13 @@
+length,required_mc,criterion,metric,reward
+50,64,global relative RMSE <= 1.4,relative,GC control
+100,64,global relative RMSE <= 1.4,relative,GC control
+200,64,global relative RMSE <= 1.4,relative,GC control
+400,64,global relative RMSE <= 1.4,relative,GC control
+50,256,global relative RMSE <= 1.4,relative,Soft motif
+100,256,global relative RMSE <= 1.4,relative,Soft motif
+200,256,global relative RMSE <= 1.4,relative,Soft motif
+400,128,global relative RMSE <= 1.4,relative,Soft motif
+50,256,global relative RMSE <= 1.4,relative,Two-motif conjunction
+100,256,global relative RMSE <= 1.4,relative,Two-motif conjunction
+200,256,global relative RMSE <= 1.4,relative,Two-motif conjunction
+400,256,global relative RMSE <= 1.4,relative,Two-motif conjunction

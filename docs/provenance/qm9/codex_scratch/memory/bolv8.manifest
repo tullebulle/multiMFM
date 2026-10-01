@@ -1,0 +1,14 @@
+# PB-valid BoL round 8: lock final numbers - heavily replicate the new selT=0.30 winners. n=100
+# JOBID PROPERTY MU RS SELMINT TAG
+35049269 gap   1.00 12000 0.30 v8_gap_mu1p0_a
+35049270 gap   1.00 12000 0.30 v8_gap_mu1p0_b
+35049272 gap   1.00 12000 0.30 v8_gap_mu1p0_c
+35049288 homo  1.50 41500 0.30 v8_homo_mu1p5_a
+35049262 homo  1.50 41500 0.30 v8_homo_mu1p5_b
+35049200 homo  1.50 41500 0.30 v8_homo_mu1p5_c
+35049197 mu    3.00 8.638 0.30 v8_mu_mu3p0_a
+35049193 mu    3.00 8.638 0.30 v8_mu_mu3p0_b
+35049192 lumo  1.50 12000 0.30 v8_lumo_mu1p5_a
+35049152 lumo  1.50 12000 0.30 v8_lumo_mu1p5_b
+35049153 alpha 11.0 0.3   0.30 v8_alpha_mu11_c
+35049145 cv    5.00 1.5   0.30 v8_cv_mu5_s30_a

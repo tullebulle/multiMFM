@@ -1,0 +1,5 @@
+posebusters_metrics:
+  _target_: tabasco.callbacks.PoseBustersCallback
+  num_samples: 500          # PB-validity estimated over 500 generated molecules each validation
+  compute_every: 5
+  num_sampling_steps: 200

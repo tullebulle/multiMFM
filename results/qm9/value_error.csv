@@ -1,0 +1,41 @@
+estimator,n,abs_value_error
+multiMFM,1,27.33383
+DPS,1,21.26622
+FMAP,1,29.67828
+reference self-split,1,0.06235
+multiMFM,2,15.01802
+DPS,2,21.26622
+FMAP,2,29.67828
+reference self-split,2,0.06235
+multiMFM,4,7.58991
+DPS,4,21.26622
+FMAP,4,29.67828
+reference self-split,4,0.06235
+multiMFM,8,4.25679
+DPS,8,21.26622
+FMAP,8,29.67828
+reference self-split,8,0.06235
+multiMFM,16,2.17779
+DPS,16,21.26622
+FMAP,16,29.67828
+reference self-split,16,0.06235
+multiMFM,32,1.58152
+DPS,32,21.26622
+FMAP,32,29.67828
+reference self-split,32,0.06235
+multiMFM,64,1.08211
+DPS,64,21.26622
+FMAP,64,29.67828
+reference self-split,64,0.06235
+multiMFM,128,0.50965
+DPS,128,21.26622
+FMAP,128,29.67828
+reference self-split,128,0.06235
+multiMFM,256,0.39942
+DPS,256,21.26622
+FMAP,256,29.67828
+reference self-split,256,0.06235
+multiMFM,512,0.19416
+DPS,512,21.26622
+FMAP,512,29.67828
+reference self-split,512,0.06235

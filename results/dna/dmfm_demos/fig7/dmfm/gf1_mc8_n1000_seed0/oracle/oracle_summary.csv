@@ -1,0 +1,4 @@
+run_dir,target_c0,set,n_samples,oracle_score_mean,oracle_target_mae,oracle_target_mae_ci95_low,oracle_target_mae_ci95_high,fraction_guided_improved
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/dmfm_demos/fig7/dmfm/gf1_mc8_n1000_seed0,0.3,unguided,1000,-0.17146508395671844,0.5502393841743469,0.5303171932697296,0.5703482955694198,
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/dmfm_demos/fig7/dmfm/gf1_mc8_n1000_seed0,0.3,guided,1000,0.08024154603481293,0.2996949851512909,0.2852335855364799,0.3146655820310116,
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/dmfm_demos/fig7/dmfm/gf1_mc8_n1000_seed0,0.3,paired_guidance_effect,1000,,0.2505444288253784,0.23189273439347743,0.26908039301633835,0.804

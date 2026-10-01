@@ -1,0 +1,46 @@
+   250	            batch_size=batch_size,
+   251	            step=step,
+   252	            generator=g_data,
+   253	            device=device,
+   254	            time_min=time_min,
+   255	            time_max=time_max,
+   256	            gap_warmup_steps=gap_warmup_steps,
+   257	            gap_anneal_steps=gap_anneal_steps,
+   258	            t_cond_min=t_cond_min,
+   259	            t_cond_max=t_cond_max,
+   260	            t_cond_zero_prob=t_cond_zero_prob,
+   261	        )
+   262	
+   263	        with torch.no_grad():
+   264	            vss = glass_posterior_velocity(s, I_s, x_cond, t_cond, teacher_v, eps=1e-6)
+   265	            if target_clip > 0.0:
+   266	                vss = vss.clamp(-target_clip, target_clip)
+   267	
+   268	        diag_pred = model.v(s, s, I_s, t_cond=t_cond, x_cond=x_cond)
+   269	        diag_loss, diag_loss_c, diag_loss_y = split_loss(diag_pred - vss)
+   270	        diag_loss = c_weight * diag_loss_c + y_weight * diag_loss_y
+   271	
+   272	        def vsu_fn(s_: torch.Tensor, u_: torch.Tensor, x_: torch.Tensor):
+   273	            return model.v(s_, u_, x_, t_cond=t_cond, x_cond=x_cond)
+   274	
+   275	        with math_sdp_kernel_context():
+   276	            vsu, jvp = torch.func.jvp(
+   277	                vsu_fn,
+   278	                (s, u, I_s),
+   279	                (torch.ones_like(s), torch.zeros_like(u), vss),
+   280	            )
+   281	        esd_target = vss + (u - s).unsqueeze(-1) * jvp
+   282	        if stop_grad_esd_teacher:
+   283	            esd_target = esd_target.detach()
+   284	        consistency_loss, consistency_loss_c, consistency_loss_y = split_loss(
+   285	            vsu - esd_target
+   286	        )
+   287	        consistency_loss = c_weight * consistency_loss_c + y_weight * consistency_loss_y
+   288	
+   289	        loss = diagonal_weight * diag_loss + consistency_weight * consistency_loss
+   290	
+   291	        opt.zero_grad(set_to_none=True)
+   292	        loss.backward()
+   293	        if grad_clip > 0.0:
+   294	            torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
+   295	        opt.step()

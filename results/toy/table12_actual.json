@@ -1,0 +1,222 @@
+{
+ "paper_table12": {
+  "Number of classes K": 3,
+  "Continuous dimension d": 2,
+  "Source distribution": "N(0, I) for both modalities",
+  "Probability path": "Linear interpolant",
+  "Model width D": 128,
+  "Transformer blocks": 6,
+  "Attention heads": 8,
+  "MLP expansion ratio": 4,
+  "Tokens per sample": 2,
+  "Conditioning": "adaLN-Zero",
+  "Optimizer": "AdamW",
+  "Peak learning rate": 0.0003,
+  "Learning-rate schedule": "Cosine decay with warmup",
+  "Warmup steps": 500,
+  "EMA decay": 0.999,
+  "Batch size": 4096,
+  "Training steps": 20000,
+  "Continuous loss Ly": "MSE on y_hat_1",
+  "Discrete loss Lc": "Cross-entropy on z_hat",
+  "Consistency loss L_ESD": "ESD loss",
+  "Total loss": "L = Ly + Lc + L_ESD",
+  "Integrator": "Explicit Euler",
+  "Sampling steps": 100,
+  "Early-stop margin eps": 0.001,
+  "Class readout": "Sample from softmax(z_hat) at t = 1 - eps"
+ },
+ "sampling_fixed_by_code": {
+  "Integrator": "Explicit Euler",
+  "Sampling steps": 100,
+  "Early-stop margin eps": 0.001,
+  "Class readout": "Sample from softmax(z_hat) at t = 1 - eps",
+  "Source distribution": "N(0, I) for both modalities",
+  "Probability path": "Linear interpolant",
+  "Conditioning": "adaLN-Zero",
+  "Tokens per sample": 2,
+  "Optimizer": "AdamW",
+  "Learning-rate schedule": "Cosine decay with warmup"
+ },
+ "stages": {
+  "base": {
+   "stage": "base",
+   "checkpoint": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/ckpt_uniform_color_square.pt",
+   "present": true,
+   "objective": "endpoint_mse_plus_ce",
+   "dataset": "uniform_color_square",
+   "Model width D": 128,
+   "Transformer blocks": 6,
+   "Attention heads": 8,
+   "MLP expansion ratio": 4,
+   "Number of classes K": 3,
+   "Continuous dimension d": 2,
+   "Training steps": 20000,
+   "Batch size": 4096,
+   "Peak learning rate": 0.0003,
+   "Warmup steps": 500,
+   "EMA decay": 0.999,
+   "Gradient clipping": 1.0,
+   "Seed": 0,
+   "Loss": "L = Ly (MSE on y_hat_1) + Lc (cross-entropy on z_hat)",
+   "other": {},
+   "final_logged_loss": 0.8324705958366394
+  },
+  "diagonal": {
+   "stage": "diagonal",
+   "checkpoint": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/mfm_diagonal_10000.pt",
+   "present": true,
+   "objective": "diagonal_glass_velocity",
+   "dataset": "uniform_color_square",
+   "Model width D": 128,
+   "Transformer blocks": 6,
+   "Attention heads": 8,
+   "MLP expansion ratio": 4,
+   "Number of classes K": 3,
+   "Continuous dimension d": 2,
+   "Training steps": 10000,
+   "Batch size": 2048,
+   "Peak learning rate": 0.0003,
+   "Warmup steps": 500,
+   "EMA decay": 0.999,
+   "Gradient clipping": 1.0,
+   "Seed": 0,
+   "Loss": "L = y_weight * ||v_y - v_y^GLASS||^2 + c_weight * ||v_c - v_c^GLASS||^2  (both weights 1.0)",
+   "other": {
+    "use_teacher_ema": true,
+    "init_from_teacher": true,
+    "s_min": 0.001,
+    "s_max": 0.95,
+    "t_cond_min": 0.001,
+    "t_cond_max": 0.95,
+    "t_cond_zero_prob": 0.0,
+    "c_weight": 1.0,
+    "y_weight": 1.0,
+    "target_clip": 0.0
+   },
+   "teacher_ckpt": "checkpoints/toy/ckpt_uniform_color_square.pt",
+   "final_logged_loss": 4.832276681554504e-05
+  },
+  "esd": {
+   "stage": "esd",
+   "checkpoint": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/mfm_consistency_10000.pt",
+   "present": true,
+   "objective": "esd_teacher_consistency_plus_diagonal_glass",
+   "dataset": "uniform_color_square",
+   "Model width D": 128,
+   "Transformer blocks": 6,
+   "Attention heads": 8,
+   "MLP expansion ratio": 4,
+   "Number of classes K": 3,
+   "Continuous dimension d": 2,
+   "Training steps": 10000,
+   "Batch size": 1024,
+   "Peak learning rate": 0.0001,
+   "Warmup steps": 500,
+   "EMA decay": 0.995,
+   "Gradient clipping": 1.0,
+   "Seed": 0,
+   "Loss": "L = diagonal_weight * L_diag + consistency_weight * L_ESD  (both weights 1.0)",
+   "other": {
+    "use_teacher_ema": true,
+    "init_use_ema": true,
+    "time_min": 0.001,
+    "time_max": 0.95,
+    "gap_warmup_steps": 0,
+    "gap_anneal_steps": 5000,
+    "t_cond_min": 0.001,
+    "t_cond_max": 0.95,
+    "t_cond_zero_prob": 0.0,
+    "c_weight": 1.0,
+    "y_weight": 1.0,
+    "diagonal_weight": 1.0,
+    "consistency_weight": 1.0,
+    "target_clip": 10.0,
+    "stop_grad_esd_teacher": true
+   },
+   "teacher_ckpt": "checkpoints/toy/ckpt_uniform_color_square.pt",
+   "init_ckpt": "checkpoints/toy/mfm_diagonal_10000.pt",
+   "final_logged_loss": 0.002270593075081706
+  }
+ },
+ "comparison": [
+  {
+   "row": "Number of classes K",
+   "paper": 3,
+   "base": 3,
+   "diagonal": 3,
+   "esd": 3
+  },
+  {
+   "row": "Continuous dimension d",
+   "paper": 2,
+   "base": 2,
+   "diagonal": 2,
+   "esd": 2
+  },
+  {
+   "row": "Model width D",
+   "paper": 128,
+   "base": 128,
+   "diagonal": 128,
+   "esd": 128
+  },
+  {
+   "row": "Transformer blocks",
+   "paper": 6,
+   "base": 6,
+   "diagonal": 6,
+   "esd": 6
+  },
+  {
+   "row": "Attention heads",
+   "paper": 8,
+   "base": 8,
+   "diagonal": 8,
+   "esd": 8
+  },
+  {
+   "row": "MLP expansion ratio",
+   "paper": 4,
+   "base": 4,
+   "diagonal": 4,
+   "esd": 4
+  },
+  {
+   "row": "Peak learning rate",
+   "paper": 0.0003,
+   "base": 0.0003,
+   "diagonal": 0.0003,
+   "esd": 0.0001
+  },
+  {
+   "row": "Warmup steps",
+   "paper": 500,
+   "base": 500,
+   "diagonal": 500,
+   "esd": 500
+  },
+  {
+   "row": "EMA decay",
+   "paper": 0.999,
+   "base": 0.999,
+   "diagonal": 0.999,
+   "esd": 0.995
+  },
+  {
+   "row": "Batch size",
+   "paper": 4096,
+   "base": 4096,
+   "diagonal": 2048,
+   "esd": 1024
+  },
+  {
+   "row": "Training steps",
+   "paper": 20000,
+   "base": 20000,
+   "diagonal": 10000,
+   "esd": 10000
+  }
+ ],
+ "note": "Table 12 prints one column. Its Optimization/Training block matches the BASE stage only. The diagonal stage used batch 2048 (same lr 3e-4, EMA 0.999, 10k steps); the ESD stage used 10k steps, batch 1024, lr 1e-4, EMA 0.995, gap_anneal_steps 5000 -- none of which appear in the table (reproducibility plan sec. 7.5). The L_ESD row is also listed under the same 'Total loss' as Ly + Lc, but no single stage optimises all three together: the base stage uses Ly + Lc, the ESD stage uses L_diag + L_ESD."
+}

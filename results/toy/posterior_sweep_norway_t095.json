@@ -1,0 +1,258 @@
+{
+ "mfm_ckpt": "checkpoints/toy/mfm_consistency_10000.pt",
+ "base_ckpt": "checkpoints/toy/ckpt_uniform_color_square.pt",
+ "mfm_training_config": {
+  "steps": 10000,
+  "batch_size": 1024,
+  "lr": 0.0001,
+  "warmup": 500,
+  "ema_decay": 0.995,
+  "seed": 0,
+  "use_teacher_ema": true,
+  "init_use_ema": true,
+  "time_min": 0.001,
+  "time_max": 0.95,
+  "gap_warmup_steps": 0,
+  "gap_anneal_steps": 5000,
+  "t_cond_min": 0.001,
+  "t_cond_max": 0.95,
+  "t_cond_zero_prob": 0.0,
+  "c_weight": 1.0,
+  "y_weight": 1.0,
+  "diagonal_weight": 1.0,
+  "consistency_weight": 1.0,
+  "grad_clip": 1.0,
+  "target_clip": 10.0,
+  "stop_grad_esd_teacher": true
+ },
+ "n": 2000,
+ "glass_steps": [
+  8
+ ],
+ "mfm_steps": [
+  1,
+  2,
+  4,
+  8
+ ],
+ "device": "cpu",
+ "rows": {
+  "norway": [
+   {
+    "label": "glass-8  window[0.8,0.98]",
+    "n": 2000,
+    "mean_reward": 0.4570915997028351,
+    "min_reward": 0.08256036043167114,
+    "max_reward": 0.576116144657135,
+    "reward_ungated_mean": 0.47149428725242615,
+    "match": 0.7519999742507935,
+    "inside_square": 0.9959999918937683,
+    "color_fractions_BWR": [
+     0.3050000071525574,
+     0.2759999930858612,
+     0.4189999997615814
+    ],
+    "region_fractions_BWR": [
+     0.3125,
+     0.19949999451637268,
+     0.4880000054836273
+    ],
+    "y_mean": [
+     -0.03110589273273945,
+     -0.0011620244476944208
+    ],
+    "per_region": {
+     "blue": {
+      "n": 625,
+      "accuracy": 0.7472000122070312
+     },
+     "white": {
+      "n": 399,
+      "accuracy": 0.7468671798706055
+     },
+     "red": {
+      "n": 976,
+      "accuracy": 0.7571721076965332
+     }
+    },
+    "backend": "glass",
+    "posterior_steps": 8,
+    "guidance_end": 0.98,
+    "guidance_ratio": 2.0,
+    "runtime_s": 97.15712976455688
+   },
+   {
+    "label": "mfm-1  window[0.8,0.98]",
+    "n": 2000,
+    "mean_reward": 0.4480697512626648,
+    "min_reward": 0.08816105127334595,
+    "max_reward": 0.5761160850524902,
+    "reward_ungated_mean": 0.46352338790893555,
+    "match": 0.7064999938011169,
+    "inside_square": 0.996999979019165,
+    "color_fractions_BWR": [
+     0.2809999883174896,
+     0.28700000047683716,
+     0.4320000112056732
+    ],
+    "region_fractions_BWR": [
+     0.30550000071525574,
+     0.19599999487400055,
+     0.4984999895095825
+    ],
+    "y_mean": [
+     -0.03624016419053078,
+     -0.002575170947238803
+    ],
+    "per_region": {
+     "blue": {
+      "n": 611,
+      "accuracy": 0.6792144179344177
+     },
+     "white": {
+      "n": 392,
+      "accuracy": 0.6581632494926453
+     },
+     "red": {
+      "n": 997,
+      "accuracy": 0.7422266602516174
+     }
+    },
+    "backend": "mfm",
+    "posterior_steps": 1,
+    "guidance_end": 0.98,
+    "guidance_ratio": 2.0,
+    "runtime_s": 12.932435989379883
+   },
+   {
+    "label": "mfm-2  window[0.8,0.98]",
+    "n": 2000,
+    "mean_reward": 0.4439966380596161,
+    "min_reward": 0.09294579923152924,
+    "max_reward": 0.5761160850524902,
+    "reward_ungated_mean": 0.4590967893600464,
+    "match": 0.6945000290870667,
+    "inside_square": 0.996999979019165,
+    "color_fractions_BWR": [
+     0.2930000126361847,
+     0.28999999165534973,
+     0.4169999957084656
+    ],
+    "region_fractions_BWR": [
+     0.3154999911785126,
+     0.19249999523162842,
+     0.492000013589859
+    ],
+    "y_mean": [
+     -0.03143621236085892,
+     -0.002041771775111556
+    ],
+    "per_region": {
+     "blue": {
+      "n": 631,
+      "accuracy": 0.6909667253494263
+     },
+     "white": {
+      "n": 385,
+      "accuracy": 0.6259739995002747
+     },
+     "red": {
+      "n": 984,
+      "accuracy": 0.7235772609710693
+     }
+    },
+    "backend": "mfm",
+    "posterior_steps": 2,
+    "guidance_end": 0.98,
+    "guidance_ratio": 2.0,
+    "runtime_s": 23.32915711402893
+   },
+   {
+    "label": "mfm-4  window[0.8,0.98]",
+    "n": 2000,
+    "mean_reward": 0.43195146322250366,
+    "min_reward": 0.0933585837483406,
+    "max_reward": 0.576116144657135,
+    "reward_ungated_mean": 0.4471113979816437,
+    "match": 0.6549999713897705,
+    "inside_square": 0.9959999918937683,
+    "color_fractions_BWR": [
+     0.2955000102519989,
+     0.27649998664855957,
+     0.42800000309944153
+    ],
+    "region_fractions_BWR": [
+     0.31850001215934753,
+     0.19200000166893005,
+     0.4894999861717224
+    ],
+    "y_mean": [
+     -0.029689311981201172,
+     -0.00231916387565434
+    ],
+    "per_region": {
+     "blue": {
+      "n": 637,
+      "accuracy": 0.6514913439750671
+     },
+     "white": {
+      "n": 384,
+      "accuracy": 0.5026041865348816
+     },
+     "red": {
+      "n": 979,
+      "accuracy": 0.7170582413673401
+     }
+    },
+    "backend": "mfm",
+    "posterior_steps": 4,
+    "guidance_end": 0.98,
+    "guidance_ratio": 2.0,
+    "runtime_s": 44.26872181892395
+   },
+   {
+    "label": "mfm-8  window[0.8,0.98]",
+    "n": 2000,
+    "mean_reward": 0.42389926314353943,
+    "min_reward": 0.0710119903087616,
+    "max_reward": 0.5761160850524902,
+    "reward_ungated_mean": 0.43868938088417053,
+    "match": 0.6309999823570251,
+    "inside_square": 0.9950000047683716,
+    "color_fractions_BWR": [
+     0.2939999997615814,
+     0.28299999237060547,
+     0.4230000078678131
+    ],
+    "region_fractions_BWR": [
+     0.3190000057220459,
+     0.19550000131130219,
+     0.4855000078678131
+    ],
+    "y_mean": [
+     -0.029384668916463852,
+     -0.0029924465343356133
+    ],
+    "per_region": {
+     "blue": {
+      "n": 638,
+      "accuracy": 0.6175548434257507
+     },
+     "white": {
+      "n": 391,
+      "accuracy": 0.4680306911468506
+     },
+     "red": {
+      "n": 971,
+      "accuracy": 0.7054582834243774
+     }
+    },
+    "backend": "mfm",
+    "posterior_steps": 8,
+    "guidance_end": 0.98,
+    "guidance_ratio": 2.0,
+    "runtime_s": 86.55728697776794
+   }
+  ]
+ }
+}

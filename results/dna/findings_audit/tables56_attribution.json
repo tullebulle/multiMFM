@@ -1,0 +1,454 @@
+{
+  "_what": "Does the split65k -> parent-disjoint move explain the lost Table 5 clustering and the lost Table 6 -1 NLL gap?",
+  "protocol_diff": {
+    "_published_producer": "DNA-MFM@187fe7b scripts/sample_yeast_split_dmfm_c0.py (DMFMSteeringRunner of scripts/benchmark_yeast_split_dmfm_steering.py); NOT scripts/sample_yeast_c0_guidance_hist.py, which is what Table 1 / Fig 3 / Fig 7 used",
+    "posterior": {
+      "published": "dMFM student, 1 composed flow map (nfe_value 1)",
+      "regen_glass": "GLASS on the base DFM, 4 Euler steps",
+      "regen_dmfm": "4-step ESD student, 4 composed steps"
+    },
+    "guidance_window": {
+      "published": [
+        0.01,
+        0.95
+      ],
+      "regen": [
+        0.5,
+        0.95
+      ]
+    },
+    "guided_steps": {
+      "published": 91,
+      "regen": 30
+    },
+    "mc": {
+      "published": 16,
+      "regen": 8
+    },
+    "trajectory": {
+      "published": "nfe_sample 96 integrated to t = 1.0",
+      "regen": "nfe_traj 64 integrated to t_max = 0.95"
+    },
+    "reward_scale": {
+      "published": 1.0,
+      "regen": 0.5
+    },
+    "effective_log_reward": {
+      "published": "-22.22 (f - y*)^2",
+      "regen": "-11.11 (f - y*)^2"
+    },
+    "mc_noise": {
+      "published": "fresh torch.randn at every guided step",
+      "regen": "frozen per-sample pool seed + 1e6 + i"
+    },
+    "seeds": {
+      "published": {
+        "+1": 0,
+        "-1": 1
+      },
+      "regen": {
+        "+1": 0,
+        "-1": 0
+      }
+    },
+    "guide": {
+      "published": "dinko/C0free_torch.pt (Keras-converted)",
+      "regen": "parent-disjoint park_cnn guide"
+    },
+    "model_split": {
+      "published": "split65k random windows of yeast_mid50.pt",
+      "regen": "parent-disjoint yeast_parent_L50.pt"
+    }
+  },
+  "paper_table5_transcribed": {
+    "_columns": [
+      "n",
+      "guide_score_mean",
+      "exact_unique",
+      "novel_train",
+      "novel_test",
+      "nearest_train",
+      "nearest_test",
+      "nearest_gen",
+      "pairwise_gen",
+      "pairwise_over_heldout",
+      "nearest_gen_over_heldout"
+    ],
+    "-1_guided": [
+      1000,
+      -0.9893,
+      1.0,
+      1.0,
+      1.0,
+      0.3966,
+      0.4361,
+      0.4175,
+      0.701,
+      0.9507,
+      0.8027
+    ],
+    "-1_unguided": [
+      1000,
+      -0.1692,
+      1.0,
+      1.0,
+      1.0,
+      0.4449,
+      0.4779,
+      0.521,
+      0.7364,
+      0.9987,
+      1.0017
+    ],
+    "+1_guided": [
+      1000,
+      1.001,
+      1.0,
+      1.0,
+      1.0,
+      0.4446,
+      0.4769,
+      0.4913,
+      0.7372,
+      0.9997,
+      0.9447
+    ],
+    "+1_unguided": [
+      1000,
+      -0.1766,
+      1.0,
+      1.0,
+      1.0,
+      0.4466,
+      0.4787,
+      0.5215,
+      0.737,
+      0.9995,
+      1.0027
+    ]
+  },
+  "table4_real_baselines_regen": [
+    {
+      "set": "full_sample",
+      "n_samples": 1000,
+      "exact_unique_frac": 1.0,
+      "nearest_gen_frac_mean": 0.52188,
+      "pairwise_gen_frac_mean": 0.7376993393393393,
+      "pairwise_gen_frac_median": 0.74,
+      "nearest_a_train_frac_mean": NaN,
+      "novel_exact_vs_a_train_frac": NaN
+    },
+    {
+      "set": "a_train_sample",
+      "n_samples": 1000,
+      "exact_unique_frac": 1.0,
+      "nearest_gen_frac_mean": 0.52,
+      "pairwise_gen_frac_mean": 0.7360735935935936,
+      "pairwise_gen_frac_median": 0.74,
+      "nearest_a_train_frac_mean": NaN,
+      "novel_exact_vs_a_train_frac": NaN
+    },
+    {
+      "set": "a_val_sample",
+      "n_samples": 1000,
+      "exact_unique_frac": 1.0,
+      "nearest_gen_frac_mean": 0.51936,
+      "pairwise_gen_frac_mean": 0.7384512112112113,
+      "pairwise_gen_frac_median": 0.74,
+      "nearest_a_train_frac_mean": 0.4578399999999999,
+      "novel_exact_vs_a_train_frac": 1.0
+    },
+    {
+      "set": "test_sample",
+      "n_samples": 1000,
+      "exact_unique_frac": 1.0,
+      "nearest_gen_frac_mean": 0.52192,
+      "pairwise_gen_frac_mean": 0.7381149549549549,
+      "pairwise_gen_frac_median": 0.74,
+      "nearest_a_train_frac_mean": 0.45676,
+      "novel_exact_vs_a_train_frac": 1.0
+    }
+  ],
+  "table6_row_by_row": [
+    {
+      "row": "reference/split_test_sample",
+      "depends_on_guidance": false,
+      "published_split65k": 1.3454029754698276,
+      "parent_disjoint_dMFM": 1.3412095826268196,
+      "parent_disjoint_GLASS": 1.3404935560524465,
+      "delta_dMFM_minus_published": -0.004193392843008015,
+      "delta_GLASS_minus_published": -0.0049094194173811
+    },
+    {
+      "row": "reference/split_train_sample",
+      "depends_on_guidance": false,
+      "published_split65k": 1.3463494902849198,
+      "parent_disjoint_dMFM": 1.344692469984293,
+      "parent_disjoint_GLASS": 1.3438468914628028,
+      "delta_dMFM_minus_published": -0.0016570203006267548,
+      "delta_GLASS_minus_published": -0.002502598822117008
+    },
+    {
+      "row": "reference/split_val_sample",
+      "depends_on_guidance": false,
+      "published_split65k": 1.3388969256877898,
+      "parent_disjoint_dMFM": 1.3410723094940185,
+      "parent_disjoint_GLASS": 1.3403008933365346,
+      "delta_dMFM_minus_published": 0.0021753838062286146,
+      "delta_GLASS_minus_published": 0.0014039676487447306
+    },
+    {
+      "row": "reference/full_sample",
+      "depends_on_guidance": false,
+      "published_split65k": 1.3476915093660355,
+      "parent_disjoint_dMFM": 1.348359524637461,
+      "parent_disjoint_GLASS": 1.3475462336540225,
+      "delta_dMFM_minus_published": 0.0006680152714253484,
+      "delta_GLASS_minus_published": -0.0001452757120130599
+    },
+    {
+      "row": "generated/unguided/y*=-1",
+      "depends_on_guidance": false,
+      "published_split65k": 1.3613051057457923,
+      "parent_disjoint_dMFM": 1.3652821677029132,
+      "parent_disjoint_GLASS": 1.3644671225845817,
+      "delta_dMFM_minus_published": 0.0039770619571208865,
+      "delta_GLASS_minus_published": 0.003162016838789361
+    },
+    {
+      "row": "generated/unguided/y*=+1",
+      "depends_on_guidance": false,
+      "published_split65k": 1.361939496934414,
+      "parent_disjoint_dMFM": 1.3652821677029132,
+      "parent_disjoint_GLASS": 1.3644671225845817,
+      "delta_dMFM_minus_published": 0.0033426707684991452,
+      "delta_GLASS_minus_published": 0.0025276256501676198
+    },
+    {
+      "row": "generated/guided/y*=-1",
+      "depends_on_guidance": true,
+      "published_split65k": 1.2350489284694195,
+      "parent_disjoint_dMFM": 1.334389478713274,
+      "parent_disjoint_GLASS": 1.3224949402809143,
+      "delta_dMFM_minus_published": 0.09934055024385446,
+      "delta_GLASS_minus_published": 0.0874460118114948
+    },
+    {
+      "row": "generated/guided/y*=+1",
+      "depends_on_guidance": true,
+      "published_split65k": 1.3529115769267082,
+      "parent_disjoint_dMFM": 1.358112641453743,
+      "parent_disjoint_GLASS": 1.3602309677004814,
+      "delta_dMFM_minus_published": 0.005201064527034838,
+      "delta_GLASS_minus_published": 0.007319390773773193
+    }
+  ],
+  "table6_verdict": {
+    "max_abs_shift_in_guidance_independent_rows": 0.004193392843008015,
+    "abs_shift_in_guided_rows": [
+      0.09934055024385446,
+      0.005201064527034838
+    ],
+    "note": "The six rows that do not depend on the guidance term (four real-data references and the two unguided generated sets) bracket the split65k -> parent-disjoint effect. The guided y*=-1 row moved ~15-25x more than that bracket."
+  },
+  "table5_row_by_row": [
+    {
+      "target": -1.0,
+      "set": "guided",
+      "depends_on_guidance": true,
+      "published_split65k": {
+        "nearest_gen_frac_mean": 0.4175,
+        "pairwise_gen_frac_mean": 0.701,
+        "pairwise_vs_test_sample": 0.9507,
+        "nearest_gen_vs_test_sample": 0.8027
+      },
+      "regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.49604,
+        "pairwise_gen_frac_mean": 0.7286947347347348,
+        "pairwise_vs_test_sample": 0.9872374619197424,
+        "nearest_gen_vs_test_sample": 0.9504138565297362
+      },
+      "delta_regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.07854,
+        "pairwise_gen_frac_mean": 0.027694734734734827,
+        "pairwise_vs_test_sample": 0.03653746191974239,
+        "nearest_gen_vs_test_sample": 0.14771385652973623
+      },
+      "dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.50214,
+        "pairwise_gen_frac_mean": 0.7327172772772772,
+        "pairwise_vs_test_sample": 0.992687212687613,
+        "nearest_gen_vs_test_sample": 0.9621014714898836
+      },
+      "delta_dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.08464000000000005,
+        "pairwise_gen_frac_mean": 0.031717277277277245,
+        "pairwise_vs_test_sample": 0.04198721268761296,
+        "nearest_gen_vs_test_sample": 0.1594014714898836
+      },
+      "glass_norm": {
+        "nearest_gen_frac_mean": 0.48888,
+        "pairwise_gen_frac_mean": 0.7315906306306306,
+        "pairwise_vs_test_sample": 0.9911608289731476,
+        "nearest_gen_vs_test_sample": 0.936695278969957
+      },
+      "delta_glass_norm": {
+        "nearest_gen_frac_mean": 0.07138,
+        "pairwise_gen_frac_mean": 0.03059063063063061,
+        "pairwise_vs_test_sample": 0.04046082897314762,
+        "nearest_gen_vs_test_sample": 0.133995278969957
+      }
+    },
+    {
+      "target": 1.0,
+      "set": "guided",
+      "depends_on_guidance": true,
+      "published_split65k": {
+        "nearest_gen_frac_mean": 0.4913,
+        "pairwise_gen_frac_mean": 0.7372,
+        "pairwise_vs_test_sample": 0.9997,
+        "nearest_gen_vs_test_sample": 0.9447
+      },
+      "regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.50914,
+        "pairwise_gen_frac_mean": 0.7348481681681682,
+        "pairwise_vs_test_sample": 0.9955741490334848,
+        "nearest_gen_vs_test_sample": 0.9755134886572656
+      },
+      "delta_regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.017840000000000023,
+        "pairwise_gen_frac_mean": -0.002351831831831741,
+        "pairwise_vs_test_sample": -0.004125850966515188,
+        "nearest_gen_vs_test_sample": 0.03081348865726563
+      },
+      "dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.50668,
+        "pairwise_gen_frac_mean": 0.7354911311311311,
+        "pairwise_vs_test_sample": 0.9964452368750828,
+        "nearest_gen_vs_test_sample": 0.9708001226241568
+      },
+      "delta_dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.015380000000000005,
+        "pairwise_gen_frac_mean": -0.0017088688688688958,
+        "pairwise_vs_test_sample": -0.003254763124917237,
+        "nearest_gen_vs_test_sample": 0.02610012262415684
+      },
+      "glass_norm": {
+        "nearest_gen_frac_mean": 0.50874,
+        "pairwise_gen_frac_mean": 0.7376984184184184,
+        "pairwise_vs_test_sample": 0.9994356752512054,
+        "nearest_gen_vs_test_sample": 0.974747087676272
+      },
+      "delta_glass_norm": {
+        "nearest_gen_frac_mean": 0.017439999999999956,
+        "pairwise_gen_frac_mean": 0.000498418418418467,
+        "pairwise_vs_test_sample": -0.0002643247487946754,
+        "nearest_gen_vs_test_sample": 0.030047087676272066
+      }
+    },
+    {
+      "target": -1.0,
+      "set": "unguided",
+      "depends_on_guidance": false,
+      "published_split65k": {
+        "nearest_gen_frac_mean": 0.521,
+        "pairwise_gen_frac_mean": 0.7364,
+        "pairwise_vs_test_sample": 0.9987,
+        "nearest_gen_vs_test_sample": 1.0017
+      },
+      "regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.001060000000000061,
+        "pairwise_gen_frac_mean": 0.0010313113113112893,
+        "pairwise_vs_test_sample": 0.00037379786975677565,
+        "nearest_gen_vs_test_sample": -0.0014317596566524315
+      },
+      "dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.001060000000000061,
+        "pairwise_gen_frac_mean": 0.0010313113113112893,
+        "pairwise_vs_test_sample": 0.00037379786975677565,
+        "nearest_gen_vs_test_sample": -0.0014317596566524315
+      },
+      "glass_norm": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_glass_norm": {
+        "nearest_gen_frac_mean": 0.001060000000000061,
+        "pairwise_gen_frac_mean": 0.0010313113113112893,
+        "pairwise_vs_test_sample": 0.00037379786975677565,
+        "nearest_gen_vs_test_sample": -0.0014317596566524315
+      }
+    },
+    {
+      "target": 1.0,
+      "set": "unguided",
+      "depends_on_guidance": false,
+      "published_split65k": {
+        "nearest_gen_frac_mean": 0.5215,
+        "pairwise_gen_frac_mean": 0.737,
+        "pairwise_vs_test_sample": 0.9995,
+        "nearest_gen_vs_test_sample": 1.0027
+      },
+      "regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_regen_GLASS_stock": {
+        "nearest_gen_frac_mean": 0.000560000000000116,
+        "pairwise_gen_frac_mean": 0.00043131131131135536,
+        "pairwise_vs_test_sample": -0.00042620213024324727,
+        "nearest_gen_vs_test_sample": -0.0024317596566523214
+      },
+      "dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_dmfm4_norm": {
+        "nearest_gen_frac_mean": 0.000560000000000116,
+        "pairwise_gen_frac_mean": 0.00043131131131135536,
+        "pairwise_vs_test_sample": -0.00042620213024324727,
+        "nearest_gen_vs_test_sample": -0.0024317596566523214
+      },
+      "glass_norm": {
+        "nearest_gen_frac_mean": 0.5220600000000001,
+        "pairwise_gen_frac_mean": 0.7374313113113113,
+        "pairwise_vs_test_sample": 0.9990737978697568,
+        "nearest_gen_vs_test_sample": 1.0002682403433476
+      },
+      "delta_glass_norm": {
+        "nearest_gen_frac_mean": 0.000560000000000116,
+        "pairwise_gen_frac_mean": 0.00043131131131135536,
+        "pairwise_vs_test_sample": -0.00042620213024324727,
+        "nearest_gen_vs_test_sample": -0.0024317596566523214
+      }
+    }
+  ],
+  "table5_verdict": {
+    "max_abs_shift_in_unguided_rows": 0.0024317596566523214,
+    "abs_shift_in_minus1_guided_row": {
+      "nearest_gen_frac_mean": 0.08464000000000005,
+      "pairwise_gen_frac_mean": 0.031717277277277245,
+      "pairwise_vs_test_sample": 0.04198721268761296,
+      "nearest_gen_vs_test_sample": 0.1594014714898836
+    },
+    "note": "The unguided generated rows use the same base model, the same trajectory integrator and the same real-data denominators as the guided rows, and differ from the published ones by at most this much; the y*=-1 guided row moved far more."
+  }
+}

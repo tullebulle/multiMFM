@@ -1,0 +1,145 @@
+{
+  "args": {
+    "batch_size": 8,
+    "coeff_cap": 10.0,
+    "configs": [
+      "glass_euler2@norm",
+      "glass_euler4@norm",
+      "glass_euler8@norm",
+      "dmfm4_fm1@norm",
+      "dmfm4_fm2@norm",
+      "dmfm4_fm4@norm",
+      "dmfm4_fm8@norm",
+      "diag_fm1@norm",
+      "diag_fm4@norm",
+      "dmfm4_fm1@norm@mc=32",
+      "dmfm4_fm2@norm@mc=16",
+      "glass_euler2@norm@mc=16"
+    ],
+    "device": null,
+    "grad_clip": 10.0,
+    "guidance_frac": 8.0,
+    "guide_t_end": 0.95,
+    "guide_t_start": 0.5,
+    "length": 50,
+    "mc": 8,
+    "mc_chunk": 8,
+    "n_samples": 200,
+    "nfe_traj": 64,
+    "out_dir": "results/dna/deficit_rescue/nfe_L50_n200/target_m1p0",
+    "reward_scale": 0.5,
+    "reward_sigma": 0.15,
+    "sample_start": 0,
+    "seed": 0,
+    "student_ckpt_dmfm": null,
+    "student_ckpt_dmfm4": null,
+    "t_max": 0.95,
+    "targets": [
+      -1.0
+    ]
+  },
+  "configs": {
+    "diag_fm1": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 1,
+      "note": "diagonal student, one-step map (Tables 13/17 pairing)",
+      "student": "dmfm"
+    },
+    "diag_fm4": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "as shipped in table1_c0_guidance_dmfm.sbatch (suspected defect)",
+      "student": "dmfm"
+    },
+    "diag_fm4_e999": {
+      "end_time": 0.999,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "diagonal student at 4 steps, Table 18's end_time",
+      "student": "dmfm"
+    },
+    "dmfm4_fm1": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 1,
+      "note": "4-step student forced to one step",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm2": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 2,
+      "note": "4-step student at 2 steps (gap 0.5, above its 0.25 training gap)",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm4": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "4-step ESD student at 4 steps (Table 18 pairing)",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm4_e999": {
+      "end_time": 0.999,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "4-step student at 4 steps, Table 18's end_time",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm8": {
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 8,
+      "note": "4-step student at 8 steps (gap 0.125, inside its training range)",
+      "student": "dmfm4"
+    },
+    "glass_euler2": {
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 2,
+      "note": "GLASS, 2 Euler steps",
+      "student": null
+    },
+    "glass_euler32": {
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 32,
+      "note": "GLASS with 32 Euler steps (posterior-accuracy ceiling)",
+      "student": null
+    },
+    "glass_euler4": {
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 4,
+      "note": "Table 1 / Fig 3 posterior (GLASS, 4 Euler steps)",
+      "student": null
+    },
+    "glass_euler8": {
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 8,
+      "note": "GLASS, 8 Euler steps",
+      "student": null
+    }
+  },
+  "relnorm": {
+    "ema": 0.0,
+    "tail_x_grad_clip": 4.0
+  },
+  "run_env": {
+    "device": "cuda",
+    "device_name": "NVIDIA H200",
+    "host": "holygpu8a03504.rc.fas.harvard.edu",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49431420",
+    "slurm_job_partition": "kempner_h200",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "student_overrides": {
+    "dmfm": null,
+    "dmfm4": null
+  }
+}

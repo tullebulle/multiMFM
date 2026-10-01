@@ -1,0 +1,618 @@
+{
+  "item": "Fig 6 + Table 16 (regenerated)",
+  "status": "new implementation of the lost producer, following the authors' June recipe (results/dna/original_scripts/make_yeast_split_sample_figures.py)",
+  "date": "2026-09-30 05:06:47 EDT",
+  "git_rev": "e67a3e7",
+  "slurm_job_id": "49402861",
+  "headline": {
+    "n_generated": 4096,
+    "n_uniform": 4096,
+    "real_set": "test_sample",
+    "n_real": 4096,
+    "real_seed": 0
+  },
+  "n_generated_total": 10000,
+  "n_real_sets": {
+    "test_sample": 4096,
+    "full": 82368,
+    "a_train": 32890,
+    "test": 8294
+  },
+  "length": 50,
+  "nfe": 128,
+  "t_max": 1.0,
+  "seed": 0,
+  "uniform_seed": 1,
+  "num_shards": 20,
+  "shard_runs": [
+    {
+      "file": "generated_tokens_shard000of020.npz",
+      "rows": [
+        0,
+        500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400230",
+        "array_job_id": "49294651",
+        "array_task_id": "0",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02103"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999986290931702,
+        "p0.01": 0.999998956912756,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard001of020.npz",
+      "rows": [
+        500,
+        1000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400231",
+        "array_job_id": "49294651",
+        "array_task_id": "1",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02108"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999986886978149,
+        "p0.01": 0.999998927116394,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard002of020.npz",
+      "rows": [
+        1000,
+        1500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400892",
+        "array_job_id": "49294651",
+        "array_task_id": "2",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02112"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999989867210388,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard003of020.npz",
+      "rows": [
+        1500,
+        2000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400893",
+        "array_job_id": "49294651",
+        "array_task_id": "3",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02112"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999990463256836,
+        "p0.01": 0.9999990761220455,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard004of020.npz",
+      "rows": [
+        2000,
+        2500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400894",
+        "array_job_id": "49294651",
+        "array_task_id": "4",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999988675117493,
+        "p0.01": 0.9999989867210388,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard005of020.npz",
+      "rows": [
+        2500,
+        3000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400895",
+        "array_job_id": "49294651",
+        "array_task_id": "5",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999986290931702,
+        "p0.01": 0.9999988377034664,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard006of020.npz",
+      "rows": [
+        3000,
+        3500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400896",
+        "array_job_id": "49294651",
+        "array_task_id": "6",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02306"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999990463256836,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.9999995231628418,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard007of020.npz",
+      "rows": [
+        3500,
+        4000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400897",
+        "array_job_id": "49294651",
+        "array_task_id": "7",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02509"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999984502792358,
+        "p0.01": 0.9999986290931702,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard008of020.npz",
+      "rows": [
+        4000,
+        4500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400898",
+        "array_job_id": "49294651",
+        "array_task_id": "8",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c04601"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.999998927116394,
+        "p0.01": 0.9999991655349731,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard009of020.npz",
+      "rows": [
+        4500,
+        5000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49400899",
+        "array_job_id": "49294651",
+        "array_task_id": "9",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c04601"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.999998927116394,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard010of020.npz",
+      "rows": [
+        5000,
+        5500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402716",
+        "array_job_id": "49294651",
+        "array_task_id": "10",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02111"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999985098838806,
+        "p0.01": 0.9999988972961903,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard011of020.npz",
+      "rows": [
+        5500,
+        6000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402717",
+        "array_job_id": "49294651",
+        "array_task_id": "11",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02111"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999982118606567,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard012of020.npz",
+      "rows": [
+        6000,
+        6500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402718",
+        "array_job_id": "49294651",
+        "array_task_id": "12",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02201"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.999997615814209,
+        "p0.01": 0.9999985992848873,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard013of020.npz",
+      "rows": [
+        6500,
+        7000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402719",
+        "array_job_id": "49294651",
+        "array_task_id": "13",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02201"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999988079071045,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard014of020.npz",
+      "rows": [
+        7000,
+        7500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402720",
+        "array_job_id": "49294651",
+        "array_task_id": "14",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999987483024597,
+        "p0.01": 0.9999990761220455,
+        "p1": 0.9999995231628418,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard015of020.npz",
+      "rows": [
+        7500,
+        8000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402721",
+        "array_job_id": "49294651",
+        "array_task_id": "15",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999988079071045,
+        "p0.01": 0.9999989867210388,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard016of020.npz",
+      "rows": [
+        8000,
+        8500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402722",
+        "array_job_id": "49294651",
+        "array_task_id": "16",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999989867210388,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard017of020.npz",
+      "rows": [
+        8500,
+        9000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402723",
+        "array_job_id": "49294651",
+        "array_task_id": "17",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02203"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999985098838806,
+        "p0.01": 0.9999990463256836,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard018of020.npz",
+      "rows": [
+        9000,
+        9500
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49402861",
+        "array_job_id": "49294651",
+        "array_task_id": "18",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02305"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999988675117493,
+        "p0.01": 0.9999991059303284,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    },
+    {
+      "file": "generated_tokens_shard019of020.npz",
+      "rows": [
+        9500,
+        10000
+      ],
+      "device": "cpu",
+      "device_name": "cpu",
+      "torch": "2.5.1+cu124",
+      "slurm": {
+        "job_id": "49294651",
+        "array_job_id": "49294651",
+        "array_task_id": "19",
+        "partition": "serial_requeue",
+        "account": "albergo_lab",
+        "nodelist": "holy7c02305"
+      },
+      "decode_margin": {
+        "n_tokens": 25000,
+        "min": 0.9999983906745911,
+        "p0.01": 0.9999990761220455,
+        "p1": 0.999999463558197,
+        "median": 0.9999998211860657,
+        "frac_below_1e-4": 0.0,
+        "frac_below_1e-3": 0.0,
+        "frac_below_1e-2": 0.0
+      }
+    }
+  ],
+  "devices": [
+    "cpu"
+  ],
+  "device_names": [
+    "cpu"
+  ],
+  "decode_margin_min_over_shards": 0.999997615814209,
+  "decode_margin_max_frac_below_1e-3": 0.0,
+  "device_note": "Initial noise is always drawn by a seeded CPU generator and only then moved to the sampling device, so CPU and GPU runs share identical randomness and differ only in float arithmetic (fp32 on CPU; fp32/TF32 on GPU). `shard_runs[*].decode_margin` gives the top-1 minus top-2 gap of the final state per token: a floor far above the float32 noise floor means no token's argmax is close enough to be flipped by that difference. These figures are in any case distributional summaries over thousands of samples.",
+  "base_ckpt": "checkpoints/dna/base/L50/best.pt",
+  "guide_ckpt": "checkpoints/dna/c0/guide/best_state.pt",
+  "data": "data/dna/yeast_parent_disjoint/yeast_parent_L50.pt",
+  "prefix_sizes": [
+    1000,
+    2000,
+    4096,
+    10000
+  ],
+  "c0_mean": {
+    "real": -0.18345558349609375,
+    "generated": -0.1779614794921875,
+    "uniform": -0.174609140625
+  },
+  "c0_std": {
+    "real": 0.42071489218400404,
+    "generated": 0.44568171309452487,
+    "uniform": 0.33716377489809723
+  },
+  "command": "python -m dmfm.regen.base_marginals --n 10000 --num_shards 20 --nfe 128 --t_max 1.0 --reduce"
+}

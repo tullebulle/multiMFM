@@ -1,0 +1,46 @@
+{
+  "_what": "directional check of the fingerprint value gradient",
+  "t": 0.5,
+  "num_mols": 4,
+  "reward_lambda": 0.02,
+  "posterior_samples": 4,
+  "mfm_steps": 6,
+  "probe_samples": 8,
+  "seed": 0,
+  "grad_coords_rms": 17.031620025634766,
+  "grad_atomics_rms": 1.431047797203064,
+  "guide_reward_by_step": {
+    "-1.0": -229.6400146484375,
+    "-0.3": -230.72073364257812,
+    "-0.1": -160.31552124023438,
+    "0.0": -155.66094970703125,
+    "0.1": -166.43309020996094,
+    "0.3": -234.04544067382812,
+    "1.0": -232.23098754882812
+  },
+  "paired_plus_minus": [
+    {
+      "abs_step": 0.1,
+      "delta_plus": -10.772140502929688,
+      "delta_minus": -4.654571533203125,
+      "plus_minus_advantage": -6.1175689697265625,
+      "displacement_over_state_rms": 5.018771320957265
+    },
+    {
+      "abs_step": 0.3,
+      "delta_plus": -78.38449096679688,
+      "delta_minus": -75.05978393554688,
+      "plus_minus_advantage": -3.32470703125,
+      "displacement_over_state_rms": 15.056313962871794
+    },
+    {
+      "abs_step": 1.0,
+      "delta_plus": -76.57003784179688,
+      "delta_minus": -73.97906494140625,
+      "plus_minus_advantage": -2.590972900390625,
+      "displacement_over_state_rms": 50.18771320957266
+    }
+  ],
+  "state_coords_rms": 0.3393583595752716,
+  "verdict": "UNDERPOWERED AS A SIGN TEST: 0 of 3 matched +/- pairs favour +grad. This scan re-draws the look-ahead noise between the gradient and the probes and reports no uncertainty, and every step above displaces the state by far more than the value function's measured linear radius (~1e-6 of the state RMS), so its ordering cannot establish the sign either way. Use `fd-check` for the sign and magnitude, and `scripts/geom/grad_sign_seeds.sbatch` for this scan's own error bars. See docs/geom_guidance_diagnosis.md."
+}

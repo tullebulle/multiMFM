@@ -1,0 +1,40 @@
+{
+  "method": "multimfm",
+  "n": 64,
+  "k_sd": 3.0,
+  "mu": 1.0,
+  "value_samples": 2,
+  "n_candidates": null,
+  "rg_mae": 0.21290395967662334,
+  "rg_mae_sem": 0.012781137534322052,
+  "nfe": {
+    "nfe_base": 100.0,
+    "nfe_base_bwd": 0.0,
+    "nfe_mfm": 92.0,
+    "nfe_mfm_bwd": 92.0,
+    "nfe_regressor": 0.0,
+    "nfe_regressor_bwd": 0.0,
+    "nfe_generative": 192.0,
+    "nfe_generative_bwd": 92.0,
+    "nfe_generative_fwd_equiv": 376.0
+  },
+  "args": {
+    "method": "multimfm",
+    "n": 64,
+    "n_candidates": 1,
+    "value_samples": 2,
+    "mfm_steps": 1,
+    "sample_steps": 100,
+    "mu": 1.0,
+    "reward_scale": 1.0,
+    "guide_every": 1,
+    "guide_min_t": 0.1,
+    "guide_max_t": 0.9,
+    "k_sd": 3.0,
+    "batch": 16,
+    "seed": 0,
+    "rg_stats": "results/geom/rg_preflight.json",
+    "tag": "mmfm_s1_mc2_mu1",
+    "out_dir": "results/geom/rg_benchmark"
+  }
+}

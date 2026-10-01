@@ -1,0 +1,23 @@
+{
+  "checkpoint": "checkpoints/geom/teacher/epoch=38-step=89310.ckpt",
+  "weights": "ema",
+  "epoch": 38,
+  "global_step": 89310,
+  "num_steps": 200,
+  "num_samples": 100,
+  "hidden_dim": 256,
+  "pb_config": "configs/geom/posebusters_geom.yaml",
+  "seed": 0,
+  "pb_valid": 0.88,
+  "conversion_rate": 0.98,
+  "pb_mol_pred_loaded": 0.98,
+  "pb_sanitization": 0.98,
+  "pb_inchi_convertible": 0.98,
+  "pb_all_atoms_connected": 0.98,
+  "pb_bond_lengths": 0.97,
+  "pb_bond_angles": 0.97,
+  "pb_internal_steric_clash": 0.89,
+  "pb_aromatic_ring_flatness": 0.98,
+  "pb_non-aromatic_ring_non-flatness": 0.97,
+  "pb_double_bond_flatness": 0.98
+}

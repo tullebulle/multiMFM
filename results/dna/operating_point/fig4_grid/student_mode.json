@@ -1,0 +1,11 @@
+{
+  "student_mode": "convention",
+  "resolved": {
+    "1": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt",
+    "2": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+    "4": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+    "8": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+    "16": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt"
+  },
+  "_warning": "each shard's meta.checkpoints.dmfm is hard-coded by run_steering and may name the diagonal student even when another one was loaded; this file is authoritative for this directory."
+}

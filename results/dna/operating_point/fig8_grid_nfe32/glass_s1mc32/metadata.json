@@ -1,0 +1,75 @@
+{
+  "item": "Fig 8 (regenerated)",
+  "status": "new implementation (producer unknown)",
+  "date": "2026-09-30 15:30:58 EDT",
+  "git_rev": "cdba1c6",
+  "slurm_job_id": null,
+  "slurm": {
+    "partition": null,
+    "account": null,
+    "nodelist": null,
+    "cpus": null
+  },
+  "device": "cpu",
+  "device_name": "cpu",
+  "torch_version": "2.5.1+cu124",
+  "device_note": "The initial noise and the MC noise pool are drawn by seeded CPU generators and only then moved to the device, so a CPU and a GPU run of this trace share identical randomness. They differ in float arithmetic, and on GPU also in the nondeterministic backward used for the value gradient; a CPU run is deterministic. Fig 8 illustrates one trajectory and is not the published trajectory in any case (its producer is lost), so no published number depends on which device drew it.",
+  "settings": {
+    "length": 50,
+    "sample_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target_c0": 0.3,
+    "seed": 0,
+    "mc": 32,
+    "nfe_traj": 64,
+    "nfe_value": 1,
+    "t_max": 0.95,
+    "guide_t_start": 0.5,
+    "guide_t_end": 0.95,
+    "guidance_frac": 8.0,
+    "coeff_cap": 10.0,
+    "grad_clip": 10.0,
+    "reward_sigma": 0.15,
+    "reward_scale": 0.5,
+    "posterior": "glass",
+    "grad_normalize": true
+  },
+  "student_ckpt": null,
+  "base_ckpt": "checkpoints/dna/base/L50/best.pt",
+  "guide_ckpt": "checkpoints/dna/c0/guide/best_state.pt",
+  "endpoints": {
+    "unguided": {
+      "sequences": [
+        "GATGGTACTGCCGGTGTCTCCGCTATTGAAGCTGCTTCTGAAAGAGAATC",
+        "CACCGAAAAAAACTCAAGAGTTTTCAACAAACTGTAGATTATCTTCCAAA",
+        "CCCATTTTCCATTCACACATATACTTTTTCGCGATATATACACCATGGCC",
+        "TGAACACGTGTTCGATGCAAAAAATCCCGATCGATACATTAACATATATG"
+      ],
+      "final_score": [
+        -0.3606942892074585,
+        -0.3487825393676758,
+        0.528314471244812,
+        -0.16617316007614136
+      ]
+    },
+    "guided": {
+      "sequences": [
+        "TCTGGTAACAACGGTGCCTCCGCTGGTAGAGCTGCTTCTGAAGCCGCCTC",
+        "CACCGAAAACCAGGCAAGAAAGATATACAGACTATATATATTGTTTCATA",
+        "CCTATTTTCTATTTACATATATATATATATACAAACTATACAACATAGTC",
+        "CAGACAGGCAAGCAAGGTAAGAAACACCCAGAGAGGGATTCCCCTGGAGG"
+      ],
+      "final_score": [
+        0.3180443048477173,
+        0.32159340381622314,
+        0.31130439043045044,
+        0.4066564440727234
+      ]
+    }
+  },
+  "command": "python -m dmfm.regen.guidance_trace --posterior glass --target_c0 0.3 --mc 32 --nfe_traj 64 --nfe_value 1 --guidance_frac 8.0 --grad_normalize"
+}

@@ -1,0 +1,15 @@
+# PB-valid BoL round 9: STEERING WINDOW test at each property's best config.
+# A = guide [0.00,0.95] (steer from t>0); B = guide [0.00,0.99] (whole window). Compare vs [0.05,0.95].
+# JOBID PROPERTY MU RS SELMINT TAG GMIN GMAX
+35049269 cv    5.00 1.5   0.50 v9_cv_g000_095    0.00 0.95
+35049270 cv    5.00 1.5   0.50 v9_cv_g000_099    0.00 0.99
+35049272 alpha 11.0 0.3   0.30 v9_alpha_g000_095 0.00 0.95
+35049288 alpha 11.0 0.3   0.30 v9_alpha_g000_099 0.00 0.99
+35049262 mu    3.00 8.638 0.30 v9_mu_g000_095    0.00 0.95
+35049200 mu    3.00 8.638 0.30 v9_mu_g000_099    0.00 0.99
+35049197 lumo  1.50 12000 0.30 v9_lumo_g000_095  0.00 0.95
+35049193 lumo  1.50 12000 0.30 v9_lumo_g000_099  0.00 0.99
+35049192 gap   1.00 12000 0.30 v9_gap_g000_095   0.00 0.95
+35049152 gap   1.00 12000 0.30 v9_gap_g000_099   0.00 0.99
+35049153 homo  1.50 41500 0.30 v9_homo_g000_095  0.00 0.95
+35049145 homo  1.50 41500 0.30 v9_homo_g000_099  0.00 0.99

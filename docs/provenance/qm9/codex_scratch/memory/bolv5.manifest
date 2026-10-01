@@ -1,0 +1,14 @@
+# PB-valid BoL round 5: 2 more replicates per winner (pool with round 4 -> 4 reps, 400 mols). n=100
+# JOBID PROPERTY MU RS SELMINT TAG
+34985247 alpha 8.00  0.3   0.50 v5_alpha_mu8_c
+34985221 alpha 8.00  0.3   0.50 v5_alpha_mu8_d
+34988184 gap   0.60  12000 0.50 v5_gap_mu0p6_c
+34988143 gap   0.60  12000 0.50 v5_gap_mu0p6_d
+34988141 homo  1.50  41500 0.50 v5_homo_mu1p5_c
+34989391 homo  1.50  41500 0.50 v5_homo_mu1p5_d
+34989362 lumo  0.90  12000 0.50 v5_lumo_mu0p9_c
+34989345 lumo  0.90  12000 0.50 v5_lumo_mu0p9_d
+34989311 mu    2.00  8.638 0.50 v5_mu_mu2p0_c
+34989432 mu    2.00  8.638 0.50 v5_mu_mu2p0_d
+34989449 cv    5.00  1.5   0.50 v5_cv_mu5_c
+34989466 cv    5.00  1.5   0.50 v5_cv_mu5_d

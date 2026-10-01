@@ -1,0 +1,42 @@
+{
+  "_source": "checkpoints/geom/teacher/hydra/config.yaml (resolved Hydra config of the run that produced epoch=38-step=89310.ckpt) + data_stats inside the checkpoint",
+  "training_set_molecules_processed_pt": 1141716,
+  "training_set_molecules_fingerprint_lmdb": 1172182,
+  "hydrogen_atoms": "excluded",
+  "max_heavy_atoms_in_data": 71,
+  "model_max_num_atoms_capacity": 90,
+  "atom_vector_dimension": 9,
+  "coordinate_normalization_divisor": 2.0,
+  "probability_path": "linear",
+  "training_time_distribution": "Beta(1.8, 1)",
+  "hidden_width": 256,
+  "transformer_layers": 16,
+  "attention_heads": 8,
+  "cross_attention": true,
+  "optimizer": "Adam",
+  "optimizer_betas": [
+    0.9,
+    0.995
+  ],
+  "learning_rate": 0.002,
+  "learning_rate_schedule": "constant",
+  "weight_decay": 0.0,
+  "gradient_clipping_l2": 0.5,
+  "ema_decay": 0.999,
+  "batch_before_rotation_copies": 512,
+  "additional_rotation_copies": 7,
+  "batch_including_rotation_copies": 4096,
+  "selected_checkpoint_step": 89310,
+  "selected_checkpoint_epoch": 38,
+  "coordinate_loss_coefficient": 1.0,
+  "atom_loss_coefficient": 0.1,
+  "sample_schedule": "log",
+  "devices": 1,
+  "seed": 42,
+  "notes": [
+    "The committed configs/experiment/geom_dfm.yaml in the source repo said batch_size 256; the released run used 512 (this resolved config). configs/geom/experiment/geom_dfm.yaml in this repo is set to 512 to match the run.",
+    "globals.max_num_atoms=90 is the model's positional capacity; the data maximum (and the value in data_stats, which the samplers use) is 71.",
+    "checkpoint global_step=89310, filename says step=89310; Table 19 prints 89,310."
+  ],
+  "selected_checkpoint_filename": "epoch=38-step=89310.ckpt"
+}

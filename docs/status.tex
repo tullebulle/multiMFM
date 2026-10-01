@@ -1,0 +1,327 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,longtable,array,xcolor,amsmath,amssymb}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+\definecolor{ok}{HTML}{1B7F3B}
+\definecolor{bad}{HTML}{B00020}
+\definecolor{warn}{HTML}{B36A00}
+\newcommand{\Y}{\textcolor{ok}{\textbf{holds}}}
+\newcommand{\N}{\textcolor{bad}{\textbf{fails}}}
+\newcommand{\W}{\textcolor{warn}{\textbf{open}}}
+\newcommand{\up}{\textcolor{ok}{$\uparrow$}}
+
+\title{\textbf{dMFM / multiMFM: status of every experiment}}
+\author{Reproducibility round, 2026-09-29/30 --- manuscript revision marked up}
+\date{Generated \today}
+
+\begin{document}
+\maketitle
+
+\noindent
+Every claim in the submission, its current verdict, and where the evidence lives.
+Verdicts are from first-hand measurement; where something is still running it says so rather
+than predicting. Repository: branch \texttt{reproducibility-package}, 28/28 tests
+passing. Detail: \texttt{docs/STATE\_OF\_CLAIMS.md}.
+
+\section{One-line summary}
+
+\begin{itemize}\itemsep2pt
+\item \textbf{The DNA and QM9 results hold}, and five of them \emph{improve} once dMFM is run at
+      its own operating point. Table~2 was already optimal.
+\item \textbf{Two of the paper's most exposed problems were our errors}, not the method's, and are
+      withdrawn: ``an accurate posterior does not guide'' and the dMFM--GLASS deficit.
+\item \textbf{Table~3 (GEOM) does not survive.} The negative is now explained mechanistically, and
+      what replaces it is a sharper critique of the benchmark.
+\item \textbf{Four items need correcting regardless of framing} --- they are factual, not
+      defensive (\S\ref{sec:factual}).
+\item \textbf{The manuscript is now marked up and rendered} (\S\ref{sec:manuscript}): every table
+      that was wrong is replaced, every figure comes from a rerun, and ten main-text changes are
+      coloured --- red to remove, blue to insert --- rather than applied silently.
+\end{itemize}
+
+\section{What changed in the manuscript today}
+\label{sec:manuscript}
+
+\texttt{iclr2027\_conferencemod.tex} renders from this repository alone: 38 pages, no undefined
+references. \textbf{GEOM is now the only item in the paper still carrying a marker.} Full list with
+sources: \texttt{docs/paper\_changes\_redblue.md}.
+
+\begin{center}
+\begin{tabular}{@{}llp{7.6cm}@{}}
+\toprule
+\textbf{Item} & \textbf{Status} & \textbf{What was done} \\
+\midrule
+Table 1 & \up\ replaced & $1.174\!\to\!0.153$ and $0.833\!\to\!0.117$ at 1 step $\times$ MC 32,
+  $n{=}1000$; 98.3\% / 97.2\% of pairs improved \\
+Tables 14--15 & \up\ replaced & \textbf{every cell}, now finite-$N$ \emph{dMFM} against the same
+  GLASS-2048 reference. The submitted cells were GLASS-on-GLASS while the caption said dMFM. dMFM
+  beats the printed numbers in nearly every cell, and error \emph{falls} from 50 to 400\,bp \\
+Table 16 & replaced & Pearson rows dropped (provably Uniform$(-1,1)$); total-variation distance
+  with a real-vs-real floor \\
+Table 18 & replaced & cosine similarity instead of MAE, because the reference is numerically
+  degenerate (corr(MAE, estimate norm) 0.95--0.995) \\
+Table 6 & \up\ replaced & parent-disjoint Evo~2 run; the direction-specific claim
+  \textbf{reverses} and its magnitude is $16\times$ smaller --- claim dropped \\
+Table 7 & no change & weights already read 1.0/1.0 \\
+Figures 4--8 & replaced & all from reruns; Fig~5 finally plots what its caption claims \\
+Table 5 & \up\ replaced & recomputed on the same 1$\times$32 samples, so Tables 1 and 4--6 now
+  describe \emph{one} set of samples. The submitted deficit for the negative target does not
+  reproduce: $0.9507\times\!\to\!0.9910\times$ pairwise and $0.8027\times\!\to\!0.9508\times$
+  nearest-generated, about five times less clustering \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Two of the ten text edits are factual corrections, not framing.} Eq~(17) is not
+the reward that was optimised --- the sampler exponentiates $-11.1(f-y^\star)^2$, an inverse
+temperature that changes the gradient \emph{direction} and leaves ESS 1--3 at $N{=}8$. And the
+Fig~4 low-NFE claim was unsupported: the four baseline curves were hard-coded in the plotting
+script and never measured. The replacement states the measured result \emph{including where the
+baselines overtake us} (Feynman--Kac is ahead by 824 NFE).
+
+\noindent\textbf{The paper is stand-alone.} Nine passages compared it with an earlier version of
+itself (``the submitted table reported'', ``the originally published panels'', ``does not
+reproduce''). All are gone; the rendered PDF contains \emph{zero} occurrences of \emph{submitted},
+\emph{originally published}, \emph{original submission}, \emph{previous version} or \emph{earlier
+version}. Facts those passages carried were kept and restated without the comparison. Comparisons
+to \emph{other} papers (TFG-Flow's published values) are untouched.
+
+\noindent\textbf{The guidance strength is now stated as what it is.} A new equation gives the
+coefficient the samplers actually use --- one tuned scalar $\gamma$ in place of $\sigma_t^2/2$ ---
+and says plainly that we adopted it because it was \emph{empirically more stable}, not because the
+theory asks for it, and that $\gamma$ \textbf{forms no part of the theory}: the exact-law results
+are claimed only for Eqs (1), (2) and (16). The gap is quantified ($0.009$--$0.58$ at $t{=}0.05$ to
+$3$--$209$ at $t{=}0.95$) so it cannot be mistaken for a reparameterisation, and Algorithms~2--3
+now take $\gamma$ as an input. \textbf{GEOM's six markers are the only ones left in the paper.}
+
+\noindent\textbf{Two files are local stand-ins}, both marked as such in their own headers:
+\texttt{iclr2027\_conference.sty} and \texttt{bibliography.bib} (placeholder entries carrying only
+the citation key; no bibliographic details are invented). Replace both from Overleaf before
+submitting.
+
+\section{Results that improve at the corrected operating point}
+
+The value gradient costs $\text{steps}\times\text{MC}$ network calls, so a budget can be split many
+ways. The split was chosen \emph{once} on the Table~1 task and applied unchanged --- not re-picked
+per table. The rule: \emph{match the split to the split the student was distilled for}.
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Item} & \textbf{As published} & \textbf{At the operating point} & \textbf{Significance} \\
+\midrule
+Table 1 / Fig 3   & 0.193 / 0.172 & \up\ \textbf{0.153 / 0.117} & \textbf{measured at $n{=}1000$} \textsuperscript{c} \\
+Fig 7 (guide MAE) & 0.158         & \up\ \textbf{0.047}         & 4.9 SEM \textsuperscript{a} \\
+Fig 7 (within 0.10) & 0.53        & \up\ \textbf{0.86}          & --- \textsuperscript{a} \\
+Fig 8             & 0.172         & \up\ \textbf{0.076}         & $2.3\sigma$ \\
+Table 13          & $+0.1262$     & \up\ \textbf{$+0.1393$}     & 4.4 SEM (scale-free rule) \textsuperscript{b} \\
+Table 18 (\texttt{motif}) & 0.1636 / cos 0.139 & \up\ \textbf{0.0479 / cos 0.318} & $3.4\times$ better MAE \\
+Table 2 (QM9)     & --- & already optimal, no change & argmin by 2.2--6.2 SEM \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\footnotesize\textsuperscript{a} GPU, $n{=}64$ (Slurm 49465152); full-$n$ confirmation is
+job 49476650. GLASS also prefers $2{\times}16$ to its own $4{\times}8$ ($-0.0294\pm.0082$, 3.6 SEM).
+\textsuperscript{c} Job 49461504, $n{=}1000$ per target, collected into
+\texttt{table1\_dmfm\_s1mc32\_n1000\_summary.json}; the $4{\times}8$ summary is kept separately.
+\textsuperscript{b} GPU at the published $n{=}100$ (Slurm 49465154\_0), which reproduces the published
+cell almost exactly: unguided $0.15229$ vs $0.15229$, guided $0.0261\,[.0218,.0307]$ vs
+$0.0260\,[.0215,.0306]$, paired $+0.1262$ vs $+0.1263$. At NFE 8 the published $1{\times}8$ beats
+$2{\times}4/4{\times}2/8{\times}1$ by 3.9/9.9/13.7 SEM; $8{\times}1$ under clip-down improves only
+\textbf{13 of 100} pairs, confirming that rule is inert there.\normalsize
+
+\noindent A coherence gain follows: every dMFM DNA result then uses the diagonal one-step student,
+so the paper describes one artifact rather than two.
+
+\noindent\textbf{An honest nuance on Fig 7.} At each arm's \emph{own} best split the two arms are a
+dead tie on the held-out oracle: dMFM $1{\times}32$ vs GLASS $2{\times}16$ is $+0.0225\pm.0087$ on the
+guide (2.6 SEM, dMFM behind) but $\mathbf{+0.0012\pm.0187}$ on the oracle (0.1 SEM). The correction
+removes an \emph{artificial} $3.2\times$ guide gap and leaves a real $1.9\times$ one --- and nothing at
+all on the independent evaluator.
+
+\section{Verdict per paper item}
+
+\begin{longtable}{@{}p{3.4cm}p{1.6cm}p{10.2cm}@{}}
+\toprule
+\textbf{Item} & \textbf{Verdict} & \textbf{Evidence} \\
+\midrule
+\endhead
+Table 2, multiMFM & \Y & No port bug; reproduces. \\
+Table 2, steer-search & \Y & Real 9--27\% oracle gain, significant on all six paired
+  ($t=4.5$--36.9). $\mu$, $\Delta\varepsilon$, LUMO are clear wins; Cv, $\alpha$, HOMO are
+  \textbf{ties} and should be reported as such. The $20\times$ guide/oracle spread is winner's
+  curse from best-of-3680, and the paper only ever published the oracle metric. \\
+Table 1 / Fig 3 (dMFM) & \Y & \textbf{Final, at the corrected operating point} (1 step
+  $\times$ MC 32, $n{=}1000$ per target, job 49461504): $1.174\!\to\!\mathbf{0.153}\,[.146,.161]$
+  and $0.833\!\to\!\mathbf{0.117}\,[.111,.123]$, with \textbf{98.3\%} and \textbf{97.2\%} of pairs
+  improved against a parent-disjoint oracle. Against matched GLASS-4 under the identical rule the
+  paired difference is $+0.0007\pm.0052$ and $\mathbf{-0.0064\pm.0045}$ --- indistinguishable at
+  $y^\star{=}{+}1$ and nominally \emph{ahead} at $-1$. Unguided arms bit-identical across arms, so
+  the whole difference is the guidance term. For scale: the mis-wired configuration gave
+  $0.610/0.408$, and the published GLASS numbers were $0.148/0.119$. \\
+Fig 7, Fig 8 & \Y & Survive with dMFM; 12/14 ladder points in. Ladder is \emph{not} monotone ---
+  best at $gf\,4$, regressed by 32 --- so a ``strong guidance'' panel at 32 is over-driven. \\
+Table 4; Table 5 ($+1$); Table 6 ordering & \Y & Survive. \\
+Fig 4 left & \Y & dMFM value error $4.80\!\to\!0.247$ over $N{=}1\!\to\!512$, crossing the
+  $N$-independent DPS baseline at $N\!\approx\!8$--16. Caveat: the reference's own self-split floor
+  is 0.324, so $N\!\ge\!256$ is floor-limited. \\
+Fig 4 right & \Y\ (narrow) & Holds at \emph{one} operating point, not as a regime. On the measured
+  forward-equivalent axis ($k{=}1.1$) the Feynman--Kac crossover is \textbf{430}, not 582, and the
+  win region is MC=1 only. No wall-clock regime where dMFM wins. \\
+Tables 13, 17, 18 & \Y & Used the dMFM students. Table 18's two mismatches are paper
+  double-rounding. \\
+dMFM vs GLASS & \Y & \textbf{Tie} at matched NFE once each arm uses its own split:
+  dMFM $1{\times}32$ gives 0.146/0.120 vs GLASS's best $2{\times}16$ at 0.143/0.117
+  ($+0.004\pm.006$, $+0.003\pm.006$). \\
+Table 5 ($-1$), Table 6 magnitudes & \W & Do not reproduce, but our \texttt{split65k} attribution
+  was \textbf{unsupported}: metric and Evo\,2 code are AST-identical to the originals and the
+  guidance-independent rows bracket the model move 24--66$\times$ below the effect. The difference
+  is the guidance protocol (six knobs). Open pending job 49431930. \\
+Table 16 & \N & \textbf{Neither number is right.} The uniform-vs-real global $r$ is provably
+  $\mathrm{Uniform}(-1,1)$ --- pure noise, checked against 20{,}000 draws. The printed 0.1813, the
+  figure's $-0.852$ and our 0.4576 are three draws. Drop the rows or use total-variation distance. \\
+\textbf{Table 3 (GEOM)} & \N & $4096{\times}3$: gain $-0.00031\pm0.00065$. Published figure is
+  best-of-4-grid at $n{=}64$, one seed. Coordinate guidance fails across all 7 pre-registered
+  regimes and 3.5 decades of step size. \\
+Fig 1, Table 12 (toy) & \Y & Rebuilt from transcript fragments and retrained; PDFs now embed
+  TrueType (were Type~3, which arXiv/ICLR reject). \\
+\bottomrule
+\end{longtable}
+
+\section{Withdrawn --- these were our errors, not the method's}
+
+\textbf{1. ``A well-integrated posterior does not guide at all.''} Rested on one arm,
+\texttt{glass\_euler32}, with two defects: it integrates to the \emph{singular} data time $t{=}1$
+(endpoint a simplex vertex, $V$ piecewise constant, true fp32 gradient norm $1.2\mathrm{e}{-5}$ ---
+the gradient was numerically \emph{dead}), and it was the only arm never given the scale-free rule.
+Fixing both: published arm 0.8651 with 0/8 improved $\to$ \textbf{0.1939 with 8/8 improved}, against
+0.1548 for the Table~1 estimator, on a $25\times$ smaller gradient. The reference integrator
+delivers 89\% of the coarse estimator's benefit.
+
+\textbf{2. The dMFM--GLASS deficit} ($+0.041/+0.049$). Both arms were pinned to GLASS's
+$4\times8$ split --- GLASS's estimator, not the flow map's. Since the value gradient costs
+$\text{steps}\times\text{MC}$ calls, a one-step flow map affords MC 32 at the same NFE. Parity is now
+confirmed \emph{three} independent ways: Table~1 at $n{=}600$, Fig~7 on the held-out oracle, and
+Table~1 at $n{=}1000$ ($+0.0007\pm.0052$, $-0.0064\pm.0045$).
+
+\textbf{3. The QM9 DPS result} (``DPS cannot use more compute''). The interpolant is a contraction,
+so delivered guidance scales as $1/N$: at 4096 steps it is $0.031\times$ the 128-step dose. The
+degradation was a shrinking dose, not accurate integration. Dose-matched rerun queued (49455395).
+
+\noindent\emph{All three share one root cause: guidance constants are not transportable across
+samplers or step counts without renormalisation.} It has now produced three false findings and is
+the first thing to check when a guided arm looks dead.
+
+\section{Corrections that are factual, not framing}
+\label{sec:factual}
+
+\begin{enumerate}\itemsep2pt
+\item \textbf{Eq (17) is not the reward that was optimised.} The code exponentiates
+      $-11.111(f-y^\star)^2$. Inside $\log\mathbb{E}[e^r]$ that constant is an inverse temperature:
+      it changes the gradient \emph{direction} and cannot be absorbed into the tuned strength. It
+      drops the effective sample size of the $N{=}8$ draws to \textbf{1.09 / 1.98}, so ``$N=8$''
+      overstates the averaging $3$--$7\times$; report ``$N=8$, ESS 1--3''. The published strength
+      cannot be re-derived from Eq (17) at all.
+\item \textbf{``Our base generator beats TFG-Flow's guided'' is unsound and must be dropped.}
+      Random-pair FP2 Tanimoto on the val set is \textbf{0.2164}, so our 0.2278 and their 0.208 are
+      \emph{both} at the floor; and TFG-Flow averages over all samples, scoring invalid ones 0 and
+      mapping MASK atoms to hydrogen.
+\item \textbf{Eq (1) does not describe the DNA runs} --- the implemented coefficient is 10--16$\times$
+      the stated $\sigma^2/2$.
+\item \textbf{Table 16's rows are noise} (see above).
+\end{enumerate}
+
+\section{GEOM: what replaces Table 3}
+
+Three real defects were found, and the most promising rescue was tested and refuted.
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Guidance is annihilated at $t{=}1$.} Both interpolants contract onto the endpoint
+      prediction with coefficient exactly 1, so a perturbation injected anywhere in the window
+      survives with magnitude \textbf{0} (coords) / ${\le}3\mathrm{e}{-11}$ (atom types). The earlier
+      ``0 argmax flips in 420 atoms'' was a defect of \emph{where} guidance is applied.
+\item \textbf{The reward is a poor surrogate for the metric}: Spearman 0.36--0.38 for
+      $-\|p-c\|^2$ against 0.67--0.71 for a differentiable Tanimoto.
+\item \textbf{The composition rescue is refuted at $n{=}256$.} One head-guided substitution gains
+      $+0.1005$ Tanimoto but PoseBusters collapses $0.879\to0.152$ --- and \emph{random}
+      substitution destroys validity just as fast (0.367), so the cause is the substitution operator
+      (wrong bond lengths at fixed geometry), not the head.
+\item \textbf{The salvageable contribution:} over half the attainable headroom ($+0.100$ of $+0.18$)
+      can be taken by relabelling ${\sim}15\%$ of atoms while leaving 85\% of molecules invalid.
+      A structural-fingerprint Tanimoto is therefore trivially gameable by a method that never
+      touches geometry, and \textbf{any number on this benchmark must be reported with a validity
+      check} --- which TFG-Flow's Table~3 does not do.
+\end{itemize}
+
+\section{Everything reproduces from the shipped checkpoints}
+
+\texttt{notebooks/reproduce\_from\_checkpoints.ipynb} re-runs \emph{inference} for nine paper items
+from \texttt{checkpoints/} and compares each recomputed number with the one it should reproduce.
+No training, and nothing is read back from a stored result and passed off as a rerun --- stored
+values appear only in the \emph{expected} column. Both executions passed end to end: the CPU subset
+on a login node (292\,s) and the full set on one A100 (job 49533348, \textbf{23\,min 32\,s}).
+\textbf{157 comparisons: 130 match, 27 explained.}
+
+The two numbers the paper leans on hardest reproduce from checkpoints on a fresh GPU:
+
+\begin{itemize}\itemsep2pt
+\item \textbf{Table 1's corrected cells.} At $n{=}64$, $y^\star{=}{-}1$ guided oracle MAE
+      $\mathbf{0.1167}$ against the $0.117$ headline; $y^\star{=}{+}1$ inside its CI; both unguided
+      arms to $10^{-3}$; 8/8 match.
+\item \textbf{Table 18's degenerate reference} --- the evidence for reporting cosine instead of MAE.
+      Measured $\mathrm{corr}(\mathrm{MAE}, \lVert\text{estimate}\rVert)$ is $\mathbf{0.967}$ on
+      \texttt{gc} and $\mathbf{0.996}$ on \texttt{motif}, with reference norm 0.0056--0.069.
+\end{itemize}
+
+\noindent Table 13 (8/8), Table 16 (9/9 at $n{=}4096$), Table 11 (8/8 to the printed digit) and
+QM9 Table 2 (34/36) also pass. The 27 non-matches are all accounted for: 16 compare parent-disjoint
+results against the purged \texttt{split65k} paper values, 9 are small subsamples judged against a
+full-grid mean, and 2 are QM9 SS rows against the published base-endpoint harvest. \textbf{None is
+a failed reproduction.}
+
+\section{Closed: the student is not undertrained}
+
+The most obvious alternative explanation for the DNA numbers --- that the shipped student
+(\texttt{epoch=29-step=15000}) was simply selected at the wrong point --- was tested and ruled out.
+Retrained for \textbf{60{,}000} steps with checkpoints kept by \emph{validation loss} rather than
+step count (Slurm 49471652), then evaluated against the shipped artifact on the \emph{same} 200
+paired samples at the same operating point (Slurm 49519367): paired oracle MAE,
+retrained\,$-$\,shipped, is $\mathbf{+0.0020\pm0.0133}$ at $y^\star{=}{+}1$ and
+$\mathbf{+0.0009\pm0.0114}$ at $-1$ --- 0.15 and 0.07 SEM. Four times the training and a principled
+selection rule move nothing, so the shipped checkpoint stays and every DNA result continues to come
+from one artifact. Detail:
+\texttt{results/dna/deficit\_rescue/student\_retrained\_L50\_n200/VERDICT.md}.
+
+\section{In flight}
+
+\begin{center}
+\begin{tabular}{@{}llp{8.2cm}@{}}
+\toprule
+\textbf{Job} & \textbf{What} & \textbf{Why it matters} \\
+\midrule
+49455395 & Dose-matched DPS & 7 of 10 tasks completed; decides whether the withdrawn DPS effect exists \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Decisions for the authors}
+
+\begin{enumerate}\itemsep2pt
+\item \textbf{Table 3:} reframe as a negative result plus its mechanism (coordinate guidance cannot
+      steer graph topology; the benchmark is gameable without a validity check), or drop it.
+\item \textbf{Table 18's metric.} Its reference has gradient norm 0.006--0.090 against estimates of
+      0.18--7.2, with $\mathrm{corr(MAE, estimate\ norm)}=0.95$ on \texttt{gc} and \textbf{0.995} on
+      \texttt{motif}. The table largely measures gradient \emph{magnitude}, not accuracy.
+\item \textbf{Table 2 SS row:} report three wins and three ties, not six wins.
+\item \textbf{Fig 4's axis:} ship the measured forward-equivalent axis (crossover 430) or the
+      published one (582)? Both versions exist.
+\item \textbf{Co-author review} of all of the above.
+\item \textbf{The red/blue markup}: accept, reject or amend each of the fourteen marked changes
+      (\texttt{docs/paper\_changes\_redblue.md}). Two are factual corrections rather than framing
+      and should not simply be rejected.
+\end{enumerate}
+
+\end{document}

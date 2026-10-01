@@ -1,0 +1,51 @@
+{
+  "_what": "GEOM-Drugs row of paper Table 21 (PoseBusters validity before/after MFM guidance)",
+  "paper": {
+    "dataset": "GEOM-Drugs",
+    "guidance_target": "Structural fingerprint",
+    "N": "4096",
+    "unsteered_pct": "92.0",
+    "multimfm_pct": "87.5",
+    "multimfm_ss_pct": null
+  },
+  "records": {
+    "selected_run_n64": {
+      "slurm_job": 35670937,
+      "N": 64,
+      "seed": 0,
+      "unsteered_pb_pct": 87.5,
+      "multimfm_pb_pct": 87.5,
+      "pb_config": "configs/geom/posebusters_geom.yaml",
+      "note": "the run the paper's 87.5% comes from; its own unsteered arm is also 87.5%"
+    },
+    "rerun_n4096x3": {
+      "slurm_job": 47833756,
+      "N": 4096,
+      "replicates": 3,
+      "unsteered_pb_pct": 88.02379261363636,
+      "multimfm_pb_pct": 84.98757102272727,
+      "pb_config": "configs/geom/posebusters_geom.yaml",
+      "note": "11 of 12 shards (seed 21 crashed on a 72-atom target); mean over shards of the per-shard PB fraction"
+    },
+    "base_model_training_validation": {
+      "source": "results/geom/teacher_training_pb_validity.csv (wandb val/pb_intersection)",
+      "N": 100,
+      "num_sampling_steps": 100,
+      "pb_config": "src/tabasco/utils/posebusters_no_strain.yaml",
+      "epoch_38_selected_checkpoint_pct": 98.0,
+      "epochs_with_exactly_92_0_pct": [
+        26,
+        28,
+        37
+      ],
+      "mean_last_10_epochs_pct": 89.9
+    },
+    "base_model_standalone_evals": {
+      "source": "results/geom/teacher_pb_curve.csv (validation_teacher/check_pb_validity.py, N=200, 200 steps, no-strain config)",
+      "no_record_for_step_89310": true,
+      "max_recorded_big_curve_pct": 90.5
+    }
+  },
+  "mismatch": "No record measures the base model's PB validity on 4,096 molecules. The 92.0% in Table 21 coincides with the training-time validation PB (100 molecules, no-strain config) at epochs 26, 28 and 37; the selected epoch-38 checkpoint logged 98.0% there. The unsteered arms of the two runs that produced the multiMFM number give 87.5% (n=64) and 88.0% (n=4096x3) with the GEOM PB config.",
+  "_precision": "paper.* values printed with a fixed number of decimals are stored as the printed literal STRING (thousands separators dropped) so notebooks/_common.py compare() derives the exact tolerance; JSON numbers lose trailing zeros (92.0 -> 92.0 reads back fine but 87.50 would not). records.* are recomputed values and stay numeric."
+}

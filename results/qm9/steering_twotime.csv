@@ -1,0 +1,61 @@
+config,arm,query,nfe_fwd_equiv,oracle_mae,oracle_mae_sem,pb_valid,n_seeds
+S1/ge4/mc1/g1.5,multiMFM,diag,215,2.9497,0.1879,0.7585,3
+S1/ge4/mc1/g1.5,SS,diag,215,2.5217,0.0946,0.9714,3
+S1/ge4/mc1/g1.5,multiMFM,twotime,215,2.8512,0.1027,0.7865,3
+S1/ge4/mc1/g1.5,SS,twotime,215,2.4422,0.1419,0.9766,3
+S1/ge4/mc1/g3.4,multiMFM,diag,215,2.6008,0.0748,0.6107,3
+S1/ge4/mc1/g3.4,SS,diag,215,2.2225,0.0882,0.9525,3
+S1/ge4/mc1/g3.4,multiMFM,twotime,215,2.4034,0.0321,0.6048,3
+S1/ge4/mc1/g3.4,SS,twotime,215,2.0441,0.0535,0.9512,3
+matched b256/g1.5,multiMFM,twotime,257,2.2846,0.0928,0.7331,3
+matched b256/g1.5,SS,twotime,257,2.1171,0.1059,0.9863,3
+matched b256/g2.2,multiMFM,twotime,257,2.0122,0.0458,0.6556,3
+matched b256/g2.2,SS,twotime,257,1.9931,0.0135,0.9837,3
+matched b256/g3.4,multiMFM,twotime,257,1.7943,0.0722,0.5703,3
+matched b256/g3.4,SS,twotime,257,1.8753,0.0839,0.9661,3
+S1/ge2/mc1/g1.5,multiMFM,diag,299,2.5001,0.0247,0.7773,3
+S1/ge2/mc1/g1.5,SS,diag,299,2.1574,0.0264,0.9753,3
+S1/ge2/mc1/g1.5,multiMFM,twotime,299,2.4141,0.0587,0.7858,3
+S1/ge2/mc1/g1.5,SS,twotime,299,2.0655,0.0663,0.9714,3
+S2/ge2/mc1/g2.2,multiMFM,diag,470,1.7525,0.0565,0.8112,3
+S2/ge2/mc1/g2.2,SS,diag,470,1.4878,0.0441,0.9974,3
+S2/ge2/mc1/g2.2,multiMFM,twotime,470,1.7345,0.0186,0.7786,3
+S2/ge2/mc1/g2.2,SS,twotime,470,1.3842,0.0249,0.9961,3
+S2/ge2/mc1/g3.4,multiMFM,diag,470,1.689,0.0504,0.7148,3
+S2/ge2/mc1/g3.4,SS,diag,470,1.4223,0.0408,0.9844,3
+S2/ge2/mc1/g3.4,multiMFM,twotime,470,1.7688,0.022,0.6777,3
+S2/ge2/mc1/g3.4,SS,twotime,470,1.4845,0.0594,0.9948,3
+matched b512/g1.5,multiMFM,twotime,512,1.6039,0.0603,0.8665,3
+matched b512/g1.5,SS,twotime,512,1.3162,0.0467,0.9967,3
+matched b512/g2.2,multiMFM,twotime,512,1.4792,0.0458,0.8281,3
+matched b512/g2.2,SS,twotime,512,1.3112,0.0191,0.9909,3
+matched b512/g3.4,multiMFM,twotime,512,1.4664,0.0249,0.7064,3
+matched b512/g3.4,SS,twotime,512,1.4537,0.0529,0.9811,3
+S2/ge1/mc1/g1.0,multiMFM,diag,818,1.6427,0.0118,0.873,3
+S2/ge1/mc1/g1.0,SS,diag,818,1.3224,0.0054,0.9961,3
+S2/ge1/mc1/g1.0,multiMFM,twotime,818,1.5764,0.0194,0.8704,3
+S2/ge1/mc1/g1.0,SS,twotime,818,1.2779,0.0334,0.9993,3
+S2/ge1/mc1/g2.2,multiMFM,diag,818,1.5105,0.0617,0.8112,3
+S2/ge1/mc1/g2.2,SS,diag,818,1.3028,0.0152,0.9961,3
+S2/ge1/mc1/g2.2,multiMFM,twotime,818,1.4912,0.0658,0.7839,3
+S2/ge1/mc1/g2.2,SS,twotime,818,1.3042,0.0735,0.9993,3
+S2/ge1/mc1/g1.5,multiMFM,diag,818,1.5773,0.0469,0.8548,3
+S2/ge1/mc1/g1.5,SS,diag,818,1.3433,0.0098,0.9993,3
+S2/ge1/mc1/g1.5,multiMFM,twotime,818,1.4981,0.0222,0.8561,3
+S2/ge1/mc1/g1.5,SS,twotime,818,1.2403,0.0307,0.9993,3
+matched b1024/g1.5,multiMFM,twotime,1028,1.9985,0.0154,0.666,3
+matched b1024/g1.5,SS,twotime,1028,1.5388,0.0342,0.9993,3
+matched b1024/g2.2,multiMFM,twotime,1028,1.8289,0.0158,0.5664,3
+matched b1024/g2.2,SS,twotime,1028,1.5978,0.0679,0.9967,3
+matched b1024/g3.4,multiMFM,twotime,1028,2.2762,0.1654,0.377,3
+matched b1024/g3.4,SS,twotime,1028,1.9633,0.0371,0.985,3
+S4/ge1/mc1/g1.5,multiMFM,diag,1508,1.6501,0.0224,0.7552,3
+S4/ge1/mc1/g1.5,SS,diag,1508,1.3424,0.0125,1.0,3
+S4/ge1/mc1/g1.5,multiMFM,twotime,1508,1.8325,0.0499,0.6784,3
+S4/ge1/mc1/g1.5,SS,twotime,1508,1.3073,0.069,1.0,3
+matched b2048/g1.5,multiMFM,twotime,2048,1.634,0.0046,0.7884,3
+matched b2048/g1.5,SS,twotime,2048,1.1988,0.0197,1.0,3
+matched b2048/g2.2,multiMFM,twotime,2048,1.5957,0.0345,0.7005,3
+matched b2048/g2.2,SS,twotime,2048,1.3517,0.0216,1.0,3
+matched b2048/g3.4,multiMFM,twotime,2048,1.8532,0.048,0.5618,3
+matched b2048/g3.4,SS,twotime,2048,1.4508,0.0368,0.9987,3

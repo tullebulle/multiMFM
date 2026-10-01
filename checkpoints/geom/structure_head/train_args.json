@@ -1,0 +1,93 @@
+{
+  "checkpoint": "best.pth",
+  "role": "fingerprint guide predictor E(G) for GEOM-Drugs steering (paper Sec. 3.2, Table 3)",
+  "architecture": {
+    "class": "diffusion.predictor.Predictor (TFG-Flow EGNN + masked mean-pool + linear)",
+    "h_embed_size": 128,
+    "e_embed_size": 128,
+    "cls_embed_size": 64,
+    "num_layers": 6,
+    "class_num": 1024,
+    "num_atom_types": 9,
+    "max_len": 82,
+    "atom_vocabulary": [
+      "C",
+      "N",
+      "O",
+      "F",
+      "S",
+      "Cl",
+      "Br",
+      "I",
+      "*"
+    ],
+    "coord_normalizer": 2.0,
+    "note": "max_len only sets the padded width the head was trained with; the masked mean-pool makes it size-agnostic, and the steering drivers instantiate it with max_len=71 (the generator's capacity)."
+  },
+  "label": "OpenBabel FP2, 1024 bits, bonds re-perceived from 3-D coordinates",
+  "objective": "BCE with logits; model selection on val Tanimoto (pred>0.5)",
+  "data": {
+    "train": 1172182,
+    "val": 146401,
+    "source": "data/geom/geom_fp (prepared FP2 LMDB)"
+  },
+  "selected": {
+    "epoch": 34,
+    "val_tanimoto": 0.8522962331771851,
+    "val_bce": 0.0686061680316925
+  },
+  "training_legs": [
+    {
+      "name": "geom_structure_head",
+      "gpus": 1,
+      "batch_per_gpu": 64,
+      "lr": 0.0001,
+      "lr_schedule": "none",
+      "best_val_tanimoto": 0.7639,
+      "log": "TFG-Flow/storage/logs/train_head.log"
+    },
+    {
+      "name": "geom_structure_head_ddp",
+      "slurm_job": 35354644,
+      "gpus": 3,
+      "batch_per_gpu": 256,
+      "global_batch": 768,
+      "lr": 0.0003,
+      "lr_schedule": "none",
+      "epochs": 10,
+      "best_val_tanimoto": 0.7883,
+      "log": "TFG-Flow/storage/logs/train_head_ddp_35354644.log"
+    },
+    {
+      "name": "geom_structure_head_ddp_cont",
+      "slurm_job": 35367054,
+      "gpus": 3,
+      "batch_per_gpu": 256,
+      "global_batch": 768,
+      "lr": 0.0003,
+      "lr_schedule": "none",
+      "init_ckpt": "geom_structure_head_ddp/best.pth",
+      "best_val_tanimoto": 0.8169,
+      "log": "TFG-Flow/storage/logs/train_head_ddp_35367054.log"
+    },
+    {
+      "name": "geom_structure_head_ddp_cont2 (RELEASED)",
+      "slurm_job": 35548578,
+      "gpus": 3,
+      "batch_per_gpu": 256,
+      "global_batch": 768,
+      "lr": 0.001,
+      "lr_schedule": "cosine",
+      "warmup_steps": 500,
+      "total_steps": 61040,
+      "epochs": 40,
+      "init_ckpt": "geom_structure_head_ddp_cont/best.pth",
+      "best_epoch": 34,
+      "best_val_tanimoto": 0.8523,
+      "log": "TFG-Flow/storage/logs/train_head_ddp_35548578.log"
+    }
+  ],
+  "optimizer": "AdamW, grad-clip 1.0",
+  "paper_discrepancy": "The paper says the guide predictor is 'off-the-shelf from TFG-Flow'. The architecture and the FP2 label definition are TFG-Flow's, but these weights were trained by the authors on GEOM-Drugs in the four legs above; TFG-Flow publishes no GEOM-Drugs structure head.",
+  "reproduce": "torchrun --standalone --nproc_per_node=3 -m multimfm.geom.train_structure_head --batch_size 256 --lr 1e-3 --lr_schedule cosine --epochs 40 --warmup_steps 500 --init_ckpt <previous leg best.pth>   (needs the train split of data/geom/geom_fp)"
+}

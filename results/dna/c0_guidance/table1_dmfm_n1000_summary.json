@@ -1,0 +1,525 @@
+{
+  "_status": "complete",
+  "_what": "Table 1 (Sec. 3.1) for the n = 1000 dMFM-guided run (authors' decision 2026-09-29: Table 1 reports dMFM guidance). The dMFM posterior is the 4-step ESD student checkpoints/dna/dmfm_4step/L50 composed in 4 steps, the artifact distilled and checkpoint-selected for that jump (Table 18's pairing), and both arms use the same scale-free guidance rule. The GLASS arm under the identical rule is in 'matched_glass_arm' and the per-sample paired difference in 'dmfm_vs_glass_matched'; that pair, not the dMFM column alone, is the like-for-like comparison. Built by dmfm.experiments.collect_table1_c0 (scripts/dna/collect_table1_dmfm.sh).",
+  "_scale_rule": "scale-free: the value gradient is rescaled to exactly grad_clip (10.0) at every guided step. Table 1's constants (guidance_frac 8.0, coeff_cap 10.0, grad_clip 10.0) were tuned to the GLASS-4 gradient magnitude (mean norm ~1-3, clip binding on 1-5% of guided steps). Every dMFM posterior's gradient there has norm 5-125 and binds on 6-52% of steps, so under the stock rule swapping the posterior multiplies the effective guidance strength 5-12x and the comparison measures drive, not posterior quality. The scale-free rule is applied identically to both arms; nothing is tuned per arm. See docs/dmfm_glass_parity.md.",
+  "_partial_sampling": "Shards tile sample_idx in contiguous blocks of 200 (0-199, 200-399, ...), but sample_idx indexes independent seeded draws in unconditional generation -- initial noise seed+i, MC pool seed+1e6+i, no data ordering -- so the ids are exchangeable and a finished subset of shards is an i.i.d. subsample of the same pool, not a biased slice. A partial number is therefore unbiased, only wider: its bootstrap CI at reduced n is the honest uncertainty. Each arm/target's included shards are listed as _shards_included.",
+  "_reward": "The implemented terminal reward is reward_scale * -0.5 ((f_guide(x1) - y*) / reward_sigma)^2 = 11.111 * -(f_guide(x1) - y*)^2 at the settings used here (reward_sigma 0.15, reward_scale 0.5), NOT eq (17)'s -(f - y*)^2. Inside the value V(x) = log mean_j exp(r_j) that constant is an inverse temperature: it reweights the MC average over posterior samples and so changes the gradient direction, which means it cannot be absorbed into the tuned guidance strength. The same constant appears in every DNA C0 args.json, including the submitted n=32 pilot, so this is a disclosure gap in eq (17) rather than a defect in these runs; the paper should state the effective inverse temperature.",
+  "_caveat_posterior_accuracy": "The guidance signal rides on the coarse posterior's discretisation error, and the strength constants are calibrated against that error. A *more accurate* posterior guides less, not more: GLASS with 32 Euler steps leaves the guided oracle MAE at the unguided value (1.1905 vs 1.1907 at y*=+1; 0.8098 vs 0.8098 at y*=-1), and the well-integrated reference gradient (GLASS-25 RK4 to 0.999) has norm ~0.15 against 3-125 for every estimator actually used for guidance. So 'use a better posterior sampler' is not, in this setup, a route to better steering, and the constants cannot be transported between samplers without renormalisation. This is a property of the experiment as published, not of dMFM (docs/dmfm_glass_parity.md section 2).",
+  "_withdrawn_runs": {
+    "slurm_49277977": {
+      "tree": "outputs/dna/table1_dmfm_n1000",
+      "what": "first n=1000 'Table 1 with dMFM' run: composed 4 flow-map steps of the DIAGONAL student checkpoints/dna/dmfm/L50, which the rest of the paper uses as a ONE-step map, and used the stock clip-down rule, so it was both mis-paired and 5-12x over-driven.",
+      "status": "WITHDRAWN, do not print as Table 1 (REPRODUCIBILITY_PLAN.md section 7 item 8); complete n=1000 arrays are kept on disk as provenance.",
+      "guided_oracle_mae_n1000": {
+        "+1": 0.6103,
+        "-1": 0.4081
+      },
+      "paired_improvement_n1000": {
+        "+1": 0.5634,
+        "-1": 0.4244
+      },
+      "guided_oracle_mae_at_n64_parity_run": {
+        "+1": 0.632,
+        "-1": 0.38
+      },
+      "_note": "oracle-scored by dmfm.experiments.collect_table1_c0 on its complete n=1000 arrays (H100, job 49277977); its 1000/1000 unguided sequences per target are identical to the stored GLASS n=1000 run, so only the posterior and the guidance scale differ."
+    }
+  },
+  "_ci_method": "Percentile bootstrap of the mean over pairs: 2,000 resamples, numpy default_rng(seed=0) re-seeded for each statistic, rng.choice with replacement, 2.5/97.5% quantiles; float32 oracle scores (exactly dmfm.experiments.score_c0_oracle --bootstrap 2000 --seed 0, the method behind the submitted Table 1).",
+  "_oracle": "park_cnn oracle checkpoints/dna/c0/oracle/best_state.pt (= workdir/yeast_parent_c0_oracle_2026-07-26), reverse-complement averaged, scored on cpu; trained on b_train parents (disjoint from the guide's a_train).",
+  "_sampler": "dMFM-posterior value-gradient guidance on the parent-disjoint L=50 base flow: value gradients from 4 composed flow-map steps of the L=50 dMFM (epoch=29-step=15000.ckpt), mc 8 frozen per-sample pool, nfe_traj 64, guidance_frac 8.0, reward_sigma 0.15, reward_scale 0.5, t in [0.5, 0.95], t_max 0.95, seed 0, batch 8, noise-paired guided/unguided samples. Identical to the GLASS Table 1 protocol except for the posterior sampler (dmfm.experiments.sample_c0_guidance_dmfm --paired --posterior dmfm).",
+  "source_runs": {
+    "dmfm_n1000": {
+      "+1": "outputs/dna/table1_dmfm4_norm_n1000/target_1p0/merged",
+      "-1": "outputs/dna/table1_dmfm4_norm_n1000/target_m1p0/merged",
+      "slurm_jobs": [
+        49461504
+      ],
+      "wrapper": "scripts/dna/table1_c0_guidance_dmfm.sbatch",
+      "results": "results/dna/c0_guidance/dmfm_n1000/target_{1p0,m1p0}/"
+    },
+    "glass_n1000_not_in_paper": {
+      "+1": "dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0",
+      "-1": "dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0",
+      "slurm_jobs": {
+        "+1": 48651189,
+        "-1": 48651190
+      },
+      "results": "results/dna/c0_guidance/n1000/target_{1p0,m1p0}/"
+    }
+  },
+  "n1000": {
+    "+1": {
+      "n_pairs": 1000,
+      "oracle_mean_unguided": -0.17146508395671844,
+      "oracle_mean_guided": 0.8984927535057068,
+      "unguided_mae": 1.1737016439437866,
+      "unguided_mae_ci": [
+        1.1485287517309188,
+        1.200499603152275
+      ],
+      "guided_mae": 0.1932549774646759,
+      "guided_mae_ci": [
+        0.18361006826162338,
+        0.20358589701354504
+      ],
+      "paired_improvement": 0.9804467558860779,
+      "paired_improvement_ci": [
+        0.9532647266983986,
+        1.0088331401348114
+      ],
+      "frac_pairs_improved": 0.975,
+      "_max_abs_diff_vs_stored_oracle_summary": 1.1102230246251565e-16,
+      "_unguided_vs_stored_glass_n1000_run": {
+        "n_shared": 1000,
+        "identical_unguided_sequences": 1000,
+        "max_abs_diff_unguided_guide_score": 0.00028645992279052734
+      },
+      "guide_scored": {
+        "unguided_mean": -0.17671640175580977,
+        "guided_mean": 0.981737097159028,
+        "unguided_mae": 1.1802486798167229,
+        "guided_mae": 0.12530253563821317,
+        "guided_frac_within_0.10": 0.561
+      },
+      "_execution": {
+        "devices": [
+          "NVIDIA H100 80GB HBM3"
+        ],
+        "slurm_accounts": [
+          "kempner_albergo_lab"
+        ],
+        "slurm_partitions": [
+          "kempner_h100"
+        ],
+        "slurm_jobs": [
+          "49352242"
+        ],
+        "tf32": [
+          true
+        ],
+        "oracle_device": "cpu"
+      },
+      "_shards_included": [
+        "0000_0200",
+        "0200_0400",
+        "0400_0600",
+        "0600_0800",
+        "0800_1000"
+      ]
+    },
+    "-1": {
+      "n_pairs": 1000,
+      "oracle_mean_unguided": -0.17146508395671844,
+      "oracle_mean_guided": -0.8974027037620544,
+      "unguided_mae": 0.8325567245483398,
+      "unguided_mae_ci": [
+        0.8061169669032097,
+        0.8574791684746742
+      ],
+      "guided_mae": 0.17234866321086884,
+      "guided_mae_ci": [
+        0.16414126418530942,
+        0.18047164417803285
+      ],
+      "paired_improvement": 0.660207986831665,
+      "paired_improvement_ci": [
+        0.6328101649880409,
+        0.6870133027434349
+      ],
+      "frac_pairs_improved": 0.954,
+      "_max_abs_diff_vs_stored_oracle_summary": 5.551115123125783e-17,
+      "_unguided_vs_stored_glass_n1000_run": {
+        "n_shared": 1000,
+        "identical_unguided_sequences": 1000,
+        "max_abs_diff_unguided_guide_score": 0.00028645992279052734
+      },
+      "guide_scored": {
+        "unguided_mean": -0.17671640175580977,
+        "guided_mean": -0.9389856522679328,
+        "unguided_mae": 0.8264647732377053,
+        "guided_mae": 0.10464999574422837,
+        "guided_frac_within_0.10": 0.608
+      },
+      "_execution": {
+        "devices": [
+          "NVIDIA H100 80GB HBM3"
+        ],
+        "slurm_accounts": [
+          "kempner_albergo_lab"
+        ],
+        "slurm_partitions": [
+          "kempner_h100"
+        ],
+        "slurm_jobs": [
+          "49352242"
+        ],
+        "tf32": [
+          true
+        ],
+        "oracle_device": "cpu"
+      },
+      "_shards_included": [
+        "0000_0200",
+        "0200_0400",
+        "0400_0600",
+        "0600_0800",
+        "0800_1000"
+      ]
+    }
+  },
+  "table1_n1000_formatted": {
+    "+1": {
+      "target": "+1",
+      "mean_oracle_score_unguided": "-0.171",
+      "mean_oracle_score_guided": "0.898",
+      "unguided_mae": "1.174 [1.149, 1.200]",
+      "guided_mae": "0.193 [0.184, 0.204]",
+      "paired_improvement": "0.980 [0.953, 1.009]"
+    },
+    "-1": {
+      "target": "-1",
+      "mean_oracle_score_unguided": "-0.171",
+      "mean_oracle_score_guided": "-0.897",
+      "unguided_mae": "0.833 [0.806, 0.857]",
+      "guided_mae": "0.172 [0.164, 0.180]",
+      "paired_improvement": "0.660 [0.633, 0.687]"
+    }
+  },
+  "table1_n1000_latex_rows": {
+    "+1": "$+1$ & $-0.171$ & $0.898$ & $1.174\\,[1.149,\\,1.200]$ & $0.193\\,[0.184,\\,0.204]$ & $0.980\\,[0.953,\\,1.009]$ \\\\",
+    "-1": "$-1$ & $-0.171$ & $-0.897$ & $0.833\\,[0.806,\\,0.857]$ & $0.172\\,[0.164,\\,0.180]$ & $0.660\\,[0.633,\\,0.687]$ \\\\"
+  },
+  "matched_glass_arm": null,
+  "dmfm_vs_glass_matched": null,
+  "in_text_sec3_1": {
+    "oracle_mae_unguided_to_guided": {
+      "+1": [
+        1.17,
+        0.19
+      ],
+      "-1": [
+        0.83,
+        0.17
+      ]
+    },
+    "oracle_mae_unguided_to_guided_3dp": {
+      "+1": [
+        1.174,
+        0.193
+      ],
+      "-1": [
+        0.833,
+        0.172
+      ]
+    },
+    "oracle_own_heldout_mae": 0.16,
+    "n_pairs_per_target": {
+      "+1": 1000,
+      "-1": 1000
+    },
+    "frac_pairs_improved": {
+      "+1": 0.975,
+      "-1": 0.954
+    },
+    "submitted_text": {
+      "+1": [
+        1.17,
+        0.16
+      ],
+      "-1": [
+        0.83,
+        0.15
+      ],
+      "oracle_own_mae": 0.16
+    },
+    "suggested_sentences": "Guidance reduces oracle MAE from 1.17 to 0.19 for $y^\\star=+1$ and from 0.83 to 0.17 for $y^\\star=-1$. ... The guided errors of 0.19 and 0.17 compare with the oracle's own MAE of 0.16 against measured C0 on the held-out parents."
+  },
+  "glass_n1000_provenance_not_in_paper": {
+    "n1000": {
+      "+1": {
+        "n_pairs": 1000,
+        "oracle_mean_unguided": -0.17146024107933044,
+        "oracle_mean_guided": 0.9170964360237122,
+        "unguided_mae": 1.1736979484558105,
+        "unguided_mae_ci": [
+          1.1485230684280396,
+          1.2004978775978088
+        ],
+        "guided_mae": 0.14829213917255402,
+        "guided_mae_ci": [
+          0.14119392447173595,
+          0.15564331263303757
+        ],
+        "paired_improvement": 1.0254058837890625,
+        "paired_improvement_ci": [
+          0.9991891905665398,
+          1.0522146016359328
+        ],
+        "frac_pairs_improved": 0.983,
+        "_max_abs_diff_vs_stored_oracle_summary": 2.220446049250313e-16,
+        "guide_scored": {
+          "unguided_mean": -0.17671580378711224,
+          "guided_mean": 0.9985946650505066,
+          "unguided_mae": 1.1802481490820647,
+          "guided_mae": 0.057896476984024045,
+          "guided_frac_within_0.10": 0.843
+        }
+      },
+      "-1": {
+        "n_pairs": 1000,
+        "oracle_mean_unguided": -0.17146024107933044,
+        "oracle_mean_guided": -0.9485327005386353,
+        "unguided_mae": 0.8325607776641846,
+        "unguided_mae_ci": [
+          0.8061202362179756,
+          0.8574841871857642
+        ],
+        "guided_mae": 0.11922600865364075,
+        "guided_mae_ci": [
+          0.11360903363674879,
+          0.12523461021482946
+        ],
+        "paired_improvement": 0.7133347392082214,
+        "paired_improvement_ci": [
+          0.6866236105561256,
+          0.739621964097023
+        ],
+        "frac_pairs_improved": 0.971,
+        "_max_abs_diff_vs_stored_oracle_summary": 9.71445146547012e-17,
+        "guide_scored": {
+          "unguided_mean": -0.17671580378711224,
+          "guided_mean": -0.9932393872737885,
+          "unguided_mae": 0.8264651327878236,
+          "guided_mae": 0.04414056372642517,
+          "guided_frac_within_0.10": 0.927
+        }
+      }
+    },
+    "table1_n1000_formatted": {
+      "+1": {
+        "target": "+1",
+        "mean_oracle_score_unguided": "-0.171",
+        "mean_oracle_score_guided": "0.917",
+        "unguided_mae": "1.174 [1.149, 1.200]",
+        "guided_mae": "0.148 [0.141, 0.156]",
+        "paired_improvement": "1.025 [0.999, 1.052]"
+      },
+      "-1": {
+        "target": "-1",
+        "mean_oracle_score_unguided": "-0.171",
+        "mean_oracle_score_guided": "-0.949",
+        "unguided_mae": "0.833 [0.806, 0.857]",
+        "guided_mae": "0.119 [0.114, 0.125]",
+        "paired_improvement": "0.713 [0.687, 0.740]"
+      }
+    },
+    "in_text_sec3_1": {
+      "oracle_mae_unguided_to_guided": {
+        "+1": [
+          1.17,
+          0.15
+        ],
+        "-1": [
+          0.83,
+          0.12
+        ]
+      },
+      "oracle_mae_unguided_to_guided_3dp": {
+        "+1": [
+          1.174,
+          0.148
+        ],
+        "-1": [
+          0.833,
+          0.119
+        ]
+      },
+      "oracle_own_heldout_mae": 0.16,
+      "n_pairs_per_target": 1000,
+      "frac_pairs_improved": {
+        "+1": 0.983,
+        "-1": 0.971
+      },
+      "submitted_text": {
+        "+1": [
+          1.17,
+          0.16
+        ],
+        "-1": [
+          0.83,
+          0.15
+        ],
+        "oracle_own_mae": 0.16
+      },
+      "suggested_sentences": "Guidance reduces oracle MAE from 1.17 to 0.15 for $y^\\star=+1$ and from 0.83 to 0.12 for $y^\\star=-1$. ... The guided errors of 0.15 and 0.12 are comparable to the oracle's own MAE of 0.16 against measured C0 on the held-out parents."
+    }
+  },
+  "submitted_n32": {
+    "recomputed": {
+      "+1": {
+        "n_pairs": 32,
+        "oracle_mean_unguided": -0.16886430978775024,
+        "oracle_mean_guided": 0.9119889736175537,
+        "unguided_mae": 1.1698126792907715,
+        "unguided_mae_ci": [
+          1.0380734652280807,
+          1.2914197623729706
+        ],
+        "guided_mae": 0.15712031722068787,
+        "guided_mae_ci": [
+          0.1193094365298748,
+          0.1961226012557745
+        ],
+        "paired_improvement": 1.0126922130584717,
+        "paired_improvement_ci": [
+          0.8813015952706337,
+          1.1417496144771575
+        ],
+        "frac_pairs_improved": 1.0,
+        "_max_abs_diff_vs_stored_oracle_summary": 2.220446049250313e-16,
+        "guide_scored": {
+          "unguided_mean": -0.196494480362162,
+          "guided_mean": 1.0235025584697723,
+          "unguided_mae": 1.203217794885859,
+          "guided_mae": 0.05066748708486557,
+          "guided_frac_within_0.10": 0.84375
+        }
+      },
+      "-1": {
+        "n_pairs": 32,
+        "oracle_mean_unguided": -0.16886430978775024,
+        "oracle_mean_guided": -0.9155596494674683,
+        "unguided_mae": 0.8311356902122498,
+        "unguided_mae_ci": [
+          0.7085802376270294,
+          0.9638242051005361
+        ],
+        "guided_mae": 0.15263673663139343,
+        "guided_mae_ci": [
+          0.11829075794667006,
+          0.19018923006951807
+        ],
+        "paired_improvement": 0.6784989833831787,
+        "paired_improvement_ci": [
+          0.553561407327652,
+          0.8158915668725967
+        ],
+        "frac_pairs_improved": 1.0,
+        "_max_abs_diff_vs_stored_oracle_summary": 1.1102230246251565e-16,
+        "guide_scored": {
+          "unguided_mean": -0.196494480362162,
+          "guided_mean": -0.9870916958898306,
+          "unguided_mae": 0.803505519637838,
+          "guided_mae": 0.04695829190313816,
+          "guided_frac_within_0.10": 0.9375
+        }
+      }
+    },
+    "printed_in_pdf": {
+      "+1": {
+        "oracle_mean_unguided": -0.169,
+        "oracle_mean_guided": 0.912,
+        "unguided_mae": 1.17,
+        "unguided_mae_ci": [
+          1.038,
+          1.291
+        ],
+        "guided_mae": 0.157,
+        "guided_mae_ci": [
+          0.119,
+          0.196
+        ],
+        "paired_improvement": 1.013,
+        "paired_improvement_ci": [
+          0.881,
+          1.142
+        ]
+      },
+      "-1": {
+        "oracle_mean_unguided": -0.169,
+        "oracle_mean_guided": -0.916,
+        "unguided_mae": 0.831,
+        "unguided_mae_ci": [
+          0.709,
+          0.964
+        ],
+        "guided_mae": 0.153,
+        "guided_mae_ci": [
+          0.118,
+          0.19
+        ],
+        "paired_improvement": 0.678,
+        "paired_improvement_ci": [
+          0.554,
+          0.816
+        ]
+      }
+    }
+  },
+  "fig3_caption_and_table11": {
+    "guide": {
+      "n_test_windows": 8294,
+      "mae": 0.15877169166450522,
+      "rmse": 0.23064518154639058,
+      "pearson": 0.8774120754187915,
+      "spearman": 0.8838295621073194,
+      "stored_test_metrics": {
+        "mae": 0.15877169370651245,
+        "n": 8294,
+        "pearson": 0.8774120752094197,
+        "rmse": 0.23064517974853516,
+        "spearman": 0.8838295621073193
+      }
+    },
+    "oracle": {
+      "n_test_windows": 8294,
+      "mae": 0.16198487753992524,
+      "rmse": 0.23469386534404924,
+      "pearson": 0.8724167428260794,
+      "spearman": 0.8763612208110617,
+      "stored_test_metrics": {
+        "mae": 0.1619848757982254,
+        "n": 8294,
+        "pearson": 0.872416742437719,
+        "rmse": 0.23469385504722595,
+        "spearman": 0.8763612208110617
+      }
+    },
+    "caption_values_recomputed": {
+      "guide_pearson": 0.88,
+      "guide_mae": 0.159,
+      "oracle_pearson": 0.87,
+      "oracle_mae": 0.162
+    },
+    "caption_values_printed": {
+      "guide_pearson": 0.88,
+      "guide_mae": 0.159,
+      "oracle_pearson": 0.87,
+      "oracle_mae": 0.162
+    },
+    "table11_printed": {
+      "_columns": [
+        "mae",
+        "rmse",
+        "pearson",
+        "spearman"
+      ],
+      "guide": [
+        0.1588,
+        0.2306,
+        0.8774,
+        0.8838
+      ],
+      "oracle": [
+        0.162,
+        0.2347,
+        0.8724,
+        0.8764
+      ],
+      "n_test_parents": 58,
+      "n_test_windows": 8294
+    },
+    "_note": "Unchanged by the switch to n = 1000 (same guide/oracle checkpoints, same 8,294 test windows)."
+  }
+}

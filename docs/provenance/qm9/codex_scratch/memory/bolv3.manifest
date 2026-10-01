@@ -1,0 +1,14 @@
+# PB-valid BoL round 3: n=100, all lookaheads, selT=0.50, bracket each property's mu optimum
+# JOBID PROPERTY MU RS SELMINT TAG
+34985247 alpha 6.00  0.3   0.50 v3_alpha_mu6
+34985221 alpha 9.00  0.3   0.50 v3_alpha_mu9
+34988184 gap   0.40  12000 0.50 v3_gap_mu0p40
+34988143 gap   0.60  12000 0.50 v3_gap_mu0p60
+34988141 homo  1.20  41500 0.50 v3_homo_mu1p2
+34989391 homo  1.80  41500 0.50 v3_homo_mu1p8
+34989362 lumo  0.90  12000 0.50 v3_lumo_mu0p9
+34989345 lumo  1.50  12000 0.50 v3_lumo_mu1p5
+34989311 mu    2.00  8.638 0.50 v3_mu_mu2p0
+34989432 mu    3.00  8.638 0.50 v3_mu_mu3p0
+34989449 cv    5.00  1.5   0.50 v3_cv_mu5
+34989466 cv    7.00  1.5   0.50 v3_cv_mu7

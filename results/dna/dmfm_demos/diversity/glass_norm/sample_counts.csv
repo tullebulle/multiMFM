@@ -1,0 +1,5 @@
+run_dir,target_c0,set,n_fasta,n_sample_scores_csv,n_oracle_csv,fasta_equals_csv_in_order,seq_lengths,n_exact_unique,n_samples_args_json,seed_args_json
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/table1_glass_norm_n1000/target_m1p0/merged,-1.0,guided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/table1_glass_norm_n1000/target_m1p0/merged,-1.0,unguided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/table1_glass_norm_n1000/target_1p0/merged,1.0,guided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/table1_glass_norm_n1000/target_1p0/merged,1.0,unguided,1000,1000,1000,True,50,1000,1000,0

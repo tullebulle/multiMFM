@@ -1,0 +1,64 @@
+{
+  "_what": "directional check of the fingerprint value gradient",
+  "t": 0.5,
+  "num_mols": 4,
+  "reward_lambda": 0.01,
+  "posterior_samples": 4,
+  "mfm_steps": 10,
+  "probe_samples": 16,
+  "seed": 2,
+  "grad_coords_rms": 1.2256605625152588,
+  "grad_atomics_rms": 0.3505021929740906,
+  "guide_reward_by_step": {
+    "-1.0": -169.08380126953125,
+    "-0.3": -168.6613006591797,
+    "-0.1": -170.37313842773438,
+    "-0.01": -165.67257690429688,
+    "-0.001": -162.56484985351562,
+    "0.0": -162.98858642578125,
+    "0.001": -163.03768920898438,
+    "0.01": -163.43954467773438,
+    "0.1": -161.27896118164062,
+    "0.3": -162.28030395507812,
+    "1.0": -145.10464477539062
+  },
+  "paired_plus_minus": [
+    {
+      "abs_step": 0.001,
+      "delta_plus": -0.049102783203125,
+      "delta_minus": 0.423736572265625,
+      "plus_minus_advantage": -0.47283935546875,
+      "displacement_over_state_rms": 0.004407372121798744
+    },
+    {
+      "abs_step": 0.01,
+      "delta_plus": -0.450958251953125,
+      "delta_minus": -2.683990478515625,
+      "plus_minus_advantage": 2.2330322265625,
+      "displacement_over_state_rms": 0.04407372121798745
+    },
+    {
+      "abs_step": 0.1,
+      "delta_plus": 1.709625244140625,
+      "delta_minus": -7.384552001953125,
+      "plus_minus_advantage": 9.09417724609375,
+      "displacement_over_state_rms": 0.44073721217987455
+    },
+    {
+      "abs_step": 0.3,
+      "delta_plus": 0.708282470703125,
+      "delta_minus": -5.6727142333984375,
+      "plus_minus_advantage": 6.3809967041015625,
+      "displacement_over_state_rms": 1.3222116365396235
+    },
+    {
+      "abs_step": 1.0,
+      "delta_plus": 17.883941650390625,
+      "delta_minus": -6.09521484375,
+      "plus_minus_advantage": 23.979156494140625,
+      "displacement_over_state_rms": 4.407372121798745
+    }
+  ],
+  "state_coords_rms": 0.27809327840805054,
+  "verdict": "UNDERPOWERED AS A SIGN TEST: 4 of 5 matched +/- pairs favour +grad. This scan re-draws the look-ahead noise between the gradient and the probes and reports no uncertainty, and every step above displaces the state by far more than the value function's measured linear radius (~1e-6 of the state RMS), so its ordering cannot establish the sign either way. Use `fd-check` for the sign and magnitude, and `scripts/geom/grad_sign_seeds.sbatch` for this scan's own error bars. See docs/geom_guidance_diagnosis.md."
+}

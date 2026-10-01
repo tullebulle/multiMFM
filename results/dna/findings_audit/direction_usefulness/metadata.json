@@ -1,0 +1,35 @@
+{
+  "args": {
+    "length": 50,
+    "n_probes": 8,
+    "mc": 8,
+    "probe_times": [
+      0.5,
+      0.7
+    ],
+    "targets": [
+      1.0,
+      -1.0
+    ],
+    "deltas": [
+      0.1484,
+      1.484,
+      14.84
+    ],
+    "n_random": 2,
+    "configs": [
+      "glass_euler4",
+      "glass_euler32",
+      "glass_euler32_e999",
+      "glass_rk4_25_e999"
+    ],
+    "reward_sigma": 0.15,
+    "reward_scale": 0.5,
+    "nfe_traj": 64,
+    "t_max": 0.95,
+    "seed": 0,
+    "device": "cpu",
+    "out_dir": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/results/dna/findings_audit/direction_usefulness"
+  },
+  "device": "cpu"
+}

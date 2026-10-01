@@ -1,0 +1,67 @@
+{
+  "0000_0200": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "host": "holygpu8a19505.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49461504",
+    "slurm_array_task_id": "0",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49490027",
+    "slurm_job_partition": "kempner_requeue",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0200_0400": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "host": "holygpu8a19505.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49461504",
+    "slurm_array_task_id": "1",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49490028",
+    "slurm_job_partition": "kempner_requeue",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0400_0600": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "host": "holygpu8a19505.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49461504",
+    "slurm_array_task_id": "2",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49493265",
+    "slurm_job_partition": "kempner_requeue",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0600_0800": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "host": "holygpu8a19505.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49461504",
+    "slurm_array_task_id": "3",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49493266",
+    "slurm_job_partition": "kempner_requeue",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0800_1000": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+    "host": "holygpu8a19505.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49461504",
+    "slurm_array_task_id": "4",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49493267",
+    "slurm_job_partition": "kempner_requeue",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  }
+}

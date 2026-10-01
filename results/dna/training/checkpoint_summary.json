@@ -1,0 +1,208 @@
+{
+  "base": {
+    "50": {
+      "best.pt": {
+        "step": 50000,
+        "n_params": 2912836,
+        "val_loss": 0.7776020786863999,
+        "val_token_acc": 0.642459616420756
+      },
+      "last.pt": {
+        "step": 200000,
+        "n_params": 2912836,
+        "val_loss": 0.7847602794565348,
+        "val_token_acc": 0.6397299158277068
+      },
+      "checkpoint_used_downstream": "best.pt"
+    },
+    "100": {
+      "best.pt": {
+        "step": 55000,
+        "n_params": 2912836,
+        "val_loss": 0.7829967747246168,
+        "val_token_acc": 0.641757338561622
+      },
+      "last.pt": {
+        "step": 200000,
+        "n_params": 2912836,
+        "val_loss": 0.7964228877314815,
+        "val_token_acc": 0.6373563218390804
+      },
+      "checkpoint_used_downstream": "best.pt"
+    },
+    "200": {
+      "best.pt": {
+        "step": 45000,
+        "n_params": 2912836,
+        "val_loss": 0.7960297265736321,
+        "val_token_acc": 0.6354516399793388
+      },
+      "last.pt": {
+        "step": 200000,
+        "n_params": 2912836,
+        "val_loss": 0.8116010838201767,
+        "val_token_acc": 0.6299116863556212
+      },
+      "checkpoint_used_downstream": "best.pt"
+    },
+    "400": {
+      "best.pt": {
+        "step": 45000,
+        "n_params": 2912836,
+        "val_loss": 0.7984343497983871,
+        "val_token_acc": 0.6360019886100297
+      },
+      "last.pt": {
+        "step": 200000,
+        "n_params": 2912836,
+        "val_loss": 0.8166484896412681,
+        "val_token_acc": 0.6291601218512467
+      },
+      "checkpoint_used_downstream": "best.pt"
+    }
+  },
+  "dmfm": {
+    "50": {
+      "run_dir": "yeast_parent_a_L50_dmfm_diagonal_h192_b4",
+      "checkpoint": "epoch=95-step=49000.ckpt",
+      "global_step": 49000,
+      "epoch": 95,
+      "n_params_total": 3420484,
+      "param_groups": {
+        "model.x_embed.embedding": 768,
+        "model.x_cond_embed.embedding": 768,
+        "model.x_cond_adaLN.1": 74112,
+        "model.s_embedder.mlp": 86400,
+        "model.t_embedder.mlp": 86400,
+        "model.t_cond_embedder.mlp": 86400,
+        "model.s_embedder_second.mlp": 86400,
+        "model.t_embedder_second.mlp": 86400,
+        "model.model.vocab_embed": 768,
+        "model.model.sigma_map": 86400,
+        "model.model.sigma_map_prime": 86400,
+        "model.model.blocks": 2664192,
+        "model.model.output_layer": 75076
+      },
+      "checkpoint_callback": {
+        "ModelCheckpoint{'monitor': 'val_loss', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}": {
+          "monitor": "val_loss",
+          "best_model_score": "tensor(0.5352)",
+          "best_model_path": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_diagonal_h192_b4/epoch=95-step=49000.ckpt"
+        }
+      }
+    },
+    "100": {
+      "run_dir": "yeast_parent_a_L100_dmfm_diagonal_h192_b4",
+      "checkpoint": "epoch=80-step=39000.ckpt",
+      "global_step": 39000,
+      "epoch": 80,
+      "n_params_total": 3420484,
+      "param_groups": {
+        "model.x_embed.embedding": 768,
+        "model.x_cond_embed.embedding": 768,
+        "model.x_cond_adaLN.1": 74112,
+        "model.s_embedder.mlp": 86400,
+        "model.t_embedder.mlp": 86400,
+        "model.t_cond_embedder.mlp": 86400,
+        "model.s_embedder_second.mlp": 86400,
+        "model.t_embedder_second.mlp": 86400,
+        "model.model.vocab_embed": 768,
+        "model.model.sigma_map": 86400,
+        "model.model.sigma_map_prime": 86400,
+        "model.model.blocks": 2664192,
+        "model.model.output_layer": 75076
+      },
+      "checkpoint_callback": {
+        "ModelCheckpoint{'monitor': 'val_loss', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}": {
+          "monitor": "val_loss",
+          "best_model_score": "tensor(0.6817)",
+          "best_model_path": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_diagonal_h192_b4/epoch=80-step=39000.ckpt"
+        }
+      }
+    },
+    "200": {
+      "run_dir": "yeast_parent_a_L200_dmfm_diagonal_h192_b4",
+      "checkpoint": "epoch=51-step=45000.ckpt",
+      "global_step": 45000,
+      "epoch": 51,
+      "n_params_total": 3420484,
+      "param_groups": {
+        "model.x_embed.embedding": 768,
+        "model.x_cond_embed.embedding": 768,
+        "model.x_cond_adaLN.1": 74112,
+        "model.s_embedder.mlp": 86400,
+        "model.t_embedder.mlp": 86400,
+        "model.t_cond_embedder.mlp": 86400,
+        "model.s_embedder_second.mlp": 86400,
+        "model.t_embedder_second.mlp": 86400,
+        "model.model.vocab_embed": 768,
+        "model.model.sigma_map": 86400,
+        "model.model.sigma_map_prime": 86400,
+        "model.model.blocks": 2664192,
+        "model.model.output_layer": 75076
+      },
+      "checkpoint_callback": {
+        "ModelCheckpoint{'monitor': 'val_loss', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}": {
+          "monitor": "val_loss",
+          "best_model_score": "tensor(0.7469)",
+          "best_model_path": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_diagonal_h192_b4/epoch=51-step=45000.ckpt"
+        }
+      }
+    },
+    "400": {
+      "run_dir": "yeast_parent_a_L400_dmfm_diagonly_finetune_20260726",
+      "checkpoint": "epoch=33-step=45750-v1.ckpt",
+      "global_step": 45750,
+      "epoch": 33,
+      "n_params_total": 3420484,
+      "param_groups": {
+        "model.x_embed.embedding": 768,
+        "model.x_cond_embed.embedding": 768,
+        "model.x_cond_adaLN.1": 74112,
+        "model.s_embedder.mlp": 86400,
+        "model.t_embedder.mlp": 86400,
+        "model.t_cond_embedder.mlp": 86400,
+        "model.s_embedder_second.mlp": 86400,
+        "model.t_embedder_second.mlp": 86400,
+        "model.model.vocab_embed": 768,
+        "model.model.sigma_map": 86400,
+        "model.model.sigma_map_prime": 86400,
+        "model.model.blocks": 2664192,
+        "model.model.output_layer": 75076
+      },
+      "checkpoint_callback": {
+        "ModelCheckpoint{'monitor': 'val_mfm_probe_diag_mse', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}": {
+          "monitor": "val_mfm_probe_diag_mse",
+          "best_model_score": "tensor(0.0001)",
+          "best_model_path": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726/epoch=33-step=45750-v1.ckpt"
+        }
+      }
+    }
+  },
+  "dmfm_4step": {
+    "50": {
+      "run_dir": "yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727",
+      "checkpoint": "epoch=29-step=15000.ckpt",
+      "global_step": 15000,
+      "n_params_total": 3420484
+    },
+    "100": {
+      "run_dir": "yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727",
+      "checkpoint": "epoch=306-step=149000.ckpt",
+      "global_step": 149000,
+      "n_params_total": 3420484
+    },
+    "200": {
+      "run_dir": "yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727",
+      "checkpoint": "epoch=39-step=34000.ckpt",
+      "global_step": 34000,
+      "n_params_total": 3420484
+    },
+    "400": {
+      "run_dir": "yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727",
+      "checkpoint": "epoch=96-step=129000.ckpt",
+      "global_step": 129000,
+      "n_params_total": 3420484
+    }
+  }
+}

@@ -1,0 +1,15 @@
+# PB-valid BoL round 6: AGGRESSIVE mu + wider window (select_min_t=0.30) so selection catches
+# the earlier target crossing. 2 mu per property. n=100. New GPU set (35049xxx).
+# JOBID PROPERTY MU RS SELMINT TAG
+35049269 alpha 11.0  0.3   0.30 v6_alpha_mu11_s30
+35049270 alpha 15.0  0.3   0.30 v6_alpha_mu15_s30
+35049272 gap   0.90  12000 0.30 v6_gap_mu0p9_s30
+35049288 gap   1.30  12000 0.30 v6_gap_mu1p3_s30
+35049262 homo  2.20  41500 0.30 v6_homo_mu2p2_s30
+35049200 homo  3.00  41500 0.30 v6_homo_mu3p0_s30
+35049197 lumo  1.50  12000 0.30 v6_lumo_mu1p5_s30
+35049193 lumo  2.20  12000 0.30 v6_lumo_mu2p2_s30
+35049192 mu    3.00  8.638 0.30 v6_mu_mu3p0_s30
+35049152 mu    4.50  8.638 0.30 v6_mu_mu4p5_s30
+35049153 cv    6.50  1.5   0.30 v6_cv_mu6p5_s30
+35049145 cv    9.00  1.5   0.30 v6_cv_mu9_s30

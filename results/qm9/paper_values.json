@@ -1,0 +1,314 @@
+{
+  "_source": "dMFM (40).pdf (ICLR 2027 submission), transcribed 2026-09-29 from the PDF text (paper.txt line numbers given per item). Units: Cv cal/(mol K), mu D, alpha Bohr^3, gap/HOMO/LUMO meV. null = 'NA' in the paper.",
+  "table2": {
+    "_caption": "MAE for molecular property guidance. Published baseline values reproduced from Table 1 of TFG-Flow (Lin et al., 2025) (which reports Upper bound, #Atoms, Lower bound, Cond-EDM and EEGSDE from Bao et al. 2023 and the training-free rows from Ye et al. 2024). Caption claims: 'Our rows report MAE over PB-valid molecules.'",
+    "_paper_lines": "paper.txt 511-541 (Table 2, p.7)",
+    "columns": [
+      "cv",
+      "mu",
+      "alpha",
+      "gap",
+      "homo",
+      "lumo"
+    ],
+    "units": {
+      "cv": "cal/(mol K)",
+      "mu": "D",
+      "alpha": "Bohr^3",
+      "gap": "meV",
+      "homo": "meV",
+      "lumo": "meV"
+    },
+    "rows": {
+      "Upper bound": {
+        "category": "Reference",
+        "cv": "6.87",
+        "mu": "1.61",
+        "alpha": "8.98",
+        "gap": "1464",
+        "homo": "645",
+        "lumo": "1457"
+      },
+      "#Atoms": {
+        "category": "Reference",
+        "cv": "1.97",
+        "mu": "1.05",
+        "alpha": "3.86",
+        "gap": "886",
+        "homo": "426",
+        "lumo": "813"
+      },
+      "Lower bound": {
+        "category": "Reference",
+        "cv": "0.040",
+        "mu": "0.043",
+        "alpha": "0.09",
+        "gap": "65",
+        "homo": "39",
+        "lumo": "36"
+      },
+      "Cond-EDM (Hoogeboom et al., 2022)": {
+        "category": "Continuous Diffusion",
+        "cv": "1.065",
+        "mu": "1.123",
+        "alpha": "2.78",
+        "gap": "671",
+        "homo": "371",
+        "lumo": "601"
+      },
+      "EEGSDE (Bao et al., 2023)": {
+        "category": "Continuous Diffusion",
+        "cv": "0.941",
+        "mu": "0.777",
+        "alpha": "2.50",
+        "gap": "487",
+        "homo": "302",
+        "lumo": "447"
+      },
+      "UniGEM (Feng et al., 2025)": {
+        "category": "Continuous Diffusion",
+        "cv": "0.873",
+        "mu": "0.805",
+        "alpha": "2.22",
+        "gap": "511",
+        "homo": "233",
+        "lumo": "592"
+      },
+      "Cond-Flow (Campbell et al., 2024)": {
+        "category": "Multimodal Flow",
+        "cv": "1.52",
+        "mu": "0.962",
+        "alpha": "3.10",
+        "gap": "805",
+        "homo": "435",
+        "lumo": "693"
+      },
+      "DPS (Chung et al., 2023)": {
+        "category": "Continuous Diffusion",
+        "cv": "5.26",
+        "mu": "63.2",
+        "alpha": "51169",
+        "gap": "1380",
+        "homo": "744",
+        "lumo": null
+      },
+      "LGD (Song et al., 2023a)": {
+        "category": "Continuous Diffusion",
+        "cv": "3.77",
+        "mu": "1.51",
+        "alpha": "7.15",
+        "gap": "1190",
+        "homo": "664",
+        "lumo": "1200"
+      },
+      "FreeDoM (Yu et al., 2023)": {
+        "category": "Continuous Diffusion",
+        "cv": "2.84",
+        "mu": "1.35",
+        "alpha": "5.92",
+        "gap": "1170",
+        "homo": "623",
+        "lumo": "1160"
+      },
+      "MPGD (He et al., 2024)": {
+        "category": "Continuous Diffusion",
+        "cv": "2.86",
+        "mu": "1.51",
+        "alpha": "4.26",
+        "gap": "1070",
+        "homo": "554",
+        "lumo": "1060"
+      },
+      "UGD (Bansal et al., 2024)": {
+        "category": "Continuous Diffusion",
+        "cv": "3.02",
+        "mu": "1.56",
+        "alpha": "5.45",
+        "gap": "1150",
+        "homo": "582",
+        "lumo": "1270"
+      },
+      "TFG (Ye et al., 2024)": {
+        "category": "Continuous Diffusion",
+        "cv": "2.77",
+        "mu": "1.33",
+        "alpha": "3.90",
+        "gap": "893",
+        "homo": "568",
+        "lumo": "984"
+      },
+      "TFG-Flow (Lin et al., 2025)": {
+        "category": "Multimodal Flow",
+        "cv": "1.75",
+        "mu": "0.817",
+        "alpha": "2.32",
+        "gap": "804",
+        "homo": "364",
+        "lumo": "941"
+      },
+      "multiMFM (Ours)": {
+        "category": "Multimodal Flow",
+        "cv": "0.42",
+        "mu": "0.84",
+        "alpha": "1.12",
+        "gap": "600",
+        "homo": "262",
+        "lumo": "392"
+      },
+      "multiMFM-SS (Ours)": {
+        "category": "Multimodal Flow",
+        "cv": "0.40",
+        "mu": "0.69",
+        "alpha": "1.10",
+        "gap": "462",
+        "homo": "252",
+        "lumo": "316"
+      }
+    }
+  },
+  "table21": {
+    "_caption": "PoseBusters validity before and after MFM guidance (percent of all generated molecules).",
+    "_paper_lines": "paper.txt 2892-2903",
+    "n": "1000",
+    "unsteered": {
+      "cv": "98.7",
+      "mu": "98.7",
+      "alpha": "98.7",
+      "gap": "98.7",
+      "homo": "98.7",
+      "lumo": "98.7"
+    },
+    "multimfm": {
+      "cv": "90.3",
+      "mu": "91.6",
+      "alpha": "91.3",
+      "gap": "90.9",
+      "homo": "92.3",
+      "lumo": "92.2"
+    },
+    "multimfm_ss": {
+      "cv": "97.4",
+      "mu": "96.0",
+      "alpha": "97.5",
+      "gap": "95.8",
+      "homo": "97.8",
+      "lumo": "97.8"
+    },
+    "geom_drugs": {
+      "n": "4096",
+      "unsteered": "92.0",
+      "multimfm": "87.5",
+      "multimfm_ss": null
+    }
+  },
+  "table22": {
+    "_caption": "QM9 uniqueness for the same runs as Table 21 (U = n_unique/n_SMILES, U_all = n_unique/N), percent.",
+    "_paper_lines": "paper.txt 2915-2923",
+    "unsteered_U": {
+      "cv": "67.0",
+      "mu": "67.0",
+      "alpha": "67.0",
+      "gap": "67.0",
+      "homo": "67.0",
+      "lumo": "67.0"
+    },
+    "steered_U": {
+      "cv": "95.6",
+      "mu": "88.2",
+      "alpha": "94.3",
+      "gap": "87.6",
+      "homo": "91.1",
+      "lumo": "88.8"
+    },
+    "steered_counts": {
+      "cv": "945/989",
+      "mu": "873/990",
+      "alpha": "935/992",
+      "gap": "865/987",
+      "homo": "902/990",
+      "lumo": "880/991"
+    },
+    "steered_U_all": {
+      "cv": "94.5",
+      "mu": "87.3",
+      "alpha": "93.5",
+      "gap": "86.5",
+      "homo": "90.2",
+      "lumo": "88.0"
+    }
+  },
+  "text": {
+    "_paper_lines": "paper.txt 366-375 (Sec 3.2), 476-477 (Discussion), 2827-2835 (App F.9), 2773-2775 (App F.8)",
+    "mean_pb_multimfm_pct": "91.4",
+    "mean_pb_multimfm_ss_pct": "97.1",
+    "base_pb_pct": "98.7",
+    "multimfm_pb_range_pct": [
+      "90.3",
+      "92.3"
+    ],
+    "multimfm_ss_pb_range_pct": [
+      "95.8",
+      "97.8"
+    ],
+    "qm9_inner_steps": 4,
+    "qm9_posterior_samples": 32,
+    "qm9_outer_steps": 128,
+    "qm9_n_per_property": 1000
+  },
+  "table19_qm9": {
+    "_paper_lines": "paper.txt 2786-2865 (Table 19, QM9 column)",
+    "training_set": "50,000 molecules",
+    "hydrogen_atoms": "Excluded",
+    "max_heavy_atoms": "9",
+    "atom_vector_dim": "9",
+    "coordinate_normalizer": "1.0",
+    "probability_path": "Linear",
+    "training_time_distribution": "Beta(1.8, 1)",
+    "hidden_width": "64",
+    "transformer_layers": "4",
+    "attention_heads": "4",
+    "cross_attention": "Enabled",
+    "optimizer": "AdamW",
+    "betas": [
+      "0.9",
+      "0.999"
+    ],
+    "lr": 0.002,
+    "lr_schedule": "Constant",
+    "weight_decay": "0.01",
+    "grad_clip_l2": "1.0",
+    "ema_decay": null,
+    "batch_before_rotation": "128",
+    "additional_rotation_copies": "0",
+    "batch_including_rotation": "128",
+    "selected_checkpoint_step": "100000",
+    "coord_loss_coef": "1.0",
+    "atom_loss_coef": "0.1"
+  },
+  "table20_qm9": {
+    "_paper_lines": "paper.txt 2862-2912 (Table 20, QM9 column)",
+    "hidden_width": "64",
+    "layers": "4",
+    "heads": "4",
+    "conditioning": "Additive",
+    "velocity_parameterization": "Endpoint",
+    "batch_per_gpu": "4",
+    "num_gpus": "1",
+    "global_batch": "4",
+    "selected_updates_in_phase": "1000",
+    "cosine_schedule_horizon": "4000",
+    "optimizer": "Adam",
+    "peak_lr": 1e-06,
+    "warmup_steps": "200",
+    "grad_clip_l2": "1.0",
+    "ema_decay": "0.999",
+    "objective": "Diagonal + ESD",
+    "coord_weight": "8.0",
+    "atom_weight": "0.5",
+    "max_training_time": "0.95",
+    "conditioning_states": "Teacher-generated",
+    "extra_mass_at_tcond0": "0",
+    "initialized_from_previous_mfm": true
+  },
+  "_precision": "Numbers the paper prints with a fixed number of decimals are stored as STRINGS holding the printed literal (thousands separators dropped so float() parses them), because JSON numbers cannot carry trailing zeros: 0.40 would read back as 0.4 and compare() would then apply tolerance 0.05 instead of 0.005. notebooks/_common.py compare() takes the decimal count from the string. Values the paper prints in scientific notation (table19_qm9.lr '2x10^-3', table20_qm9.peak_lr '10^-6') stay numeric; the notebook passes decimals= for those."
+}

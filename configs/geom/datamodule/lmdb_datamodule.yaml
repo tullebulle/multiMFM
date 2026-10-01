@@ -1,0 +1,11 @@
+_target_: tabasco.data.lmdb_datamodule.LmdbDataModule
+data_dir: ${paths.data_dir}/geom/processed_geom_train.pt
+val_data_dir: ${paths.data_dir}/geom/processed_geom_val.pt
+test_data_dir: ${paths.data_dir}/geom/processed_geom_test.pt
+lmdb_dir: ${paths.data_dir}/geom/lmdb_geom   # required by LmdbDataModule; LMDB is built here from the .pt files if missing
+add_random_rotation: true
+add_random_permutation: false
+reorder_to_smiles_order: true
+remove_hydrogens: true                        # heavy-atom-only GEOM teacher (atom_dim = 9)
+batch_size: 256
+num_workers: 8

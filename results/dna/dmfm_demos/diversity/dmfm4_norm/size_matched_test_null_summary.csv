@@ -1,0 +1,2 @@
+n,draws,pairwise_frac_mean,pairwise_frac_p025,pairwise_frac_p975,nearest_gen_frac_mean,nearest_gen_frac_p025,nearest_gen_frac_p975,exact_unique_frac_mean,nearest_a_train_frac_mean,nearest_a_train_frac_p025,nearest_a_train_frac_p975
+1000,1000,0.7385548383983984,0.7373901341341341,0.7397482942942943,0.52247654,0.5198795,0.524961,1.0,0.45627080000000003,0.45399949999999994,0.45848

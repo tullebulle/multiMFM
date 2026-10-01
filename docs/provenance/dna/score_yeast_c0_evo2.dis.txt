@@ -1,0 +1,2173 @@
+# Full CPython 3.9 disassembly (dis + all nested code objects) of the only surviving artifact of
+# dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py, produced 2026-09-29 with
+# ~/micromamba/envs/seq_h100/bin/python (3.9). The holylabs backup copy has the same sha256.
+#
+# Verification of the port: the source text was recovered from the Codex session log
+# ~/.codex/sessions/2026/06/03/rollout-2026-06-03T13-57-06-019e8ea1-c496-7e71-9b42-7598ccca1ab7.jsonl
+# (line 1484 "*** Add File" patch, 2026-06-10T18:06Z, + line 2071 one-line "Update File" patch,
+# 20:06Z). The rebuilt file is 13706 bytes (= source size in the pyc header) and compiles under
+# CPython 3.9 to a code object that is marshal-identical to this pyc (bytecode, consts, names,
+# line tables). The ported module is src/dmfm/experiments/score_yeast_c0_evo2.py.
+# The Table 6 run command (2026-06-10T20:08Z, session line 2110) and its full evo2_summary.csv
+# (session line 2228, a cat of docs/results/yeast_split_dmfm_c0_evo2_summary_2026-06-10.csv,
+# which matches paper Table 6) are in the same log.
+#
+# source pyc: /n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/__pycache__/score_yeast_c0_evo2.cpython-39.pyc
+# sha256: 30138882266b592e5ce2400eaed85ee8f206d5b1f151fd672bf047cbbc079f9e
+# magic: 610d0d0a flags: 0 source mtime: 1781121991 2026-06-10 16:06:31 source size: 13706
+
+================================================================================
+CODE OBJECT <module>  (firstlineno=2, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=0 posonly=0 kwonly=0 nlocals=0 flags=0x1000040
+  varnames=()
+  names=('__future__', 'annotations', 'argparse', 'glob', 'json', 'pathlib', 'Path', 'typing', 'Iterable', 'numpy', 'np', 'pandas', 'pd', 'torch', 'utils.yeast_splits', 'load_yeast_split_indices', 'array', 'list', 'INT_TO_DNA', 'str', 'maketrans', 'RC_TRANS', 'parse_args', 'load_train_tokens', 'tokens_to_seqs', 'reverse_complement', 'discover_csvs', 'load_args_payload', 'run_metadata', 'cap_df', 'generated_rows', 'baseline_rows', 'load_evo2', 'model_forward', 'prepare_batch', 'score_mean_logprobs', 'score_rows', 'bootstrap_ci', 'summarize', 'main', '__name__')
+  freevars=() cellvars=()
+  consts=[0, ('annotations',), None, ('Path',), ('Iterable',), ('load_yeast_split_indices',), 'ACGT', 'ACGTacgt', 'TGCAtgca', 'argparse.Namespace', ('return',), '<code parse_args>', 'parse_args', 'str | Path', 'np.ndarray', ('path', 'return'), '<code load_train_tokens>', 'load_train_tokens', 'list[str]', ('tokens', 'return'), '<code tokens_to_seqs>', 'tokens_to_seqs', 'str', ('seq', 'return'), '<code reverse_complement>', 'reverse_complement', 'list[str] | None', ('patterns', 'return'), '<code discover_csvs>', 'discover_csvs', 'dict', '<code load_args_payload>', 'load_args_payload', ('csv_path', 'return'), '<code run_metadata>', 'run_metadata', 'pd.DataFrame', 'int | None', 'int', ('df', 'n', 'seed', 'return'), '<code cap_df>', 'cap_df', 'set[float] | None', ('csvs', 'targets', 'max_per_set', 'seed', 'return'), '<code generated_rows>', 'generated_rows', ('train_pt', 'split_pt', 'baseline_n', 'max_per_set', 'seed', 'return'), '<code baseline_rows>', 'baseline_rows', ('model_name',), '<code load_evo2>', 'load_evo2', 'torch.Tensor', ('input_ids', 'return'), '<code model_forward>', 'model_forward', 'bool', 'tuple[torch.Tensor, np.ndarray]', ('seqs', 'prepend_bos', 'device', 'return'), '<code prepare_batch>', 'prepare_batch', 'tuple[np.ndarray, np.ndarray]', ('seqs', 'batch_size', 'prepend_bos', 'device', 'return'), '<code score_mean_logprobs>', 'score_mean_logprobs', ('rows', 'args', 'return'), '<code score_rows>', 'score_rows', 'tuple[float, float]', ('values', 'n_boot', 'seed', 'return'), '<code bootstrap_ci>', 'bootstrap_ci', ('scored', 'n_boot', 'seed', 'return'), '<code summarize>', 'summarize', 'None', '<code main>', 'main', '__main__']
+--------------------------------------------------------------------------------
+  2           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (('annotations',))
+              4 IMPORT_NAME              0 (__future__)
+              6 IMPORT_FROM              1 (annotations)
+              8 STORE_NAME               1 (annotations)
+             10 POP_TOP
+
+  4          12 LOAD_CONST               0 (0)
+             14 LOAD_CONST               2 (None)
+             16 IMPORT_NAME              2 (argparse)
+             18 STORE_NAME               2 (argparse)
+
+  5          20 LOAD_CONST               0 (0)
+             22 LOAD_CONST               2 (None)
+             24 IMPORT_NAME              3 (glob)
+             26 STORE_NAME               3 (glob)
+
+  6          28 LOAD_CONST               0 (0)
+             30 LOAD_CONST               2 (None)
+             32 IMPORT_NAME              4 (json)
+             34 STORE_NAME               4 (json)
+
+  7          36 LOAD_CONST               0 (0)
+             38 LOAD_CONST               3 (('Path',))
+             40 IMPORT_NAME              5 (pathlib)
+             42 IMPORT_FROM              6 (Path)
+             44 STORE_NAME               6 (Path)
+             46 POP_TOP
+
+  8          48 LOAD_CONST               0 (0)
+             50 LOAD_CONST               4 (('Iterable',))
+             52 IMPORT_NAME              7 (typing)
+             54 IMPORT_FROM              8 (Iterable)
+             56 STORE_NAME               8 (Iterable)
+             58 POP_TOP
+
+ 10          60 LOAD_CONST               0 (0)
+             62 LOAD_CONST               2 (None)
+             64 IMPORT_NAME              9 (numpy)
+             66 STORE_NAME              10 (np)
+
+ 11          68 LOAD_CONST               0 (0)
+             70 LOAD_CONST               2 (None)
+             72 IMPORT_NAME             11 (pandas)
+             74 STORE_NAME              12 (pd)
+
+ 12          76 LOAD_CONST               0 (0)
+             78 LOAD_CONST               2 (None)
+             80 IMPORT_NAME             13 (torch)
+             82 STORE_NAME              13 (torch)
+
+ 14          84 LOAD_CONST               0 (0)
+             86 LOAD_CONST               5 (('load_yeast_split_indices',))
+             88 IMPORT_NAME             14 (utils.yeast_splits)
+             90 IMPORT_FROM             15 (load_yeast_split_indices)
+             92 STORE_NAME              15 (load_yeast_split_indices)
+             94 POP_TOP
+
+ 17          96 LOAD_NAME               10 (np)
+             98 LOAD_METHOD             16 (array)
+            100 LOAD_NAME               17 (list)
+            102 LOAD_CONST               6 ('ACGT')
+            104 CALL_FUNCTION            1
+            106 CALL_METHOD              1
+            108 STORE_NAME              18 (INT_TO_DNA)
+
+ 18         110 LOAD_NAME               19 (str)
+            112 LOAD_METHOD             20 (maketrans)
+            114 LOAD_CONST               7 ('ACGTacgt')
+            116 LOAD_CONST               8 ('TGCAtgca')
+            118 CALL_METHOD              2
+            120 STORE_NAME              21 (RC_TRANS)
+
+ 21         122 LOAD_CONST               9 ('argparse.Namespace')
+            124 LOAD_CONST              10 (('return',))
+            126 BUILD_CONST_KEY_MAP      1
+            128 LOAD_CONST              11 (<code object parse_args at 0x150086c82190, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 21>)
+            130 LOAD_CONST              12 ('parse_args')
+            132 MAKE_FUNCTION            4 (annotations)
+            134 STORE_NAME              22 (parse_args)
+
+ 75         136 LOAD_CONST              13 ('str | Path')
+            138 LOAD_CONST              14 ('np.ndarray')
+            140 LOAD_CONST              15 (('path', 'return'))
+            142 BUILD_CONST_KEY_MAP      2
+            144 LOAD_CONST              16 (<code object load_train_tokens at 0x150086c82500, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 75>)
+            146 LOAD_CONST              17 ('load_train_tokens')
+            148 MAKE_FUNCTION            4 (annotations)
+            150 STORE_NAME              23 (load_train_tokens)
+
+ 88         152 LOAD_CONST              14 ('np.ndarray')
+            154 LOAD_CONST              18 ('list[str]')
+            156 LOAD_CONST              19 (('tokens', 'return'))
+            158 BUILD_CONST_KEY_MAP      2
+            160 LOAD_CONST              20 (<code object tokens_to_seqs at 0x150086c827c0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 88>)
+            162 LOAD_CONST              21 ('tokens_to_seqs')
+            164 MAKE_FUNCTION            4 (annotations)
+            166 STORE_NAME              24 (tokens_to_seqs)
+
+ 92         168 LOAD_CONST              22 ('str')
+            170 LOAD_CONST              22 ('str')
+            172 LOAD_CONST              23 (('seq', 'return'))
+            174 BUILD_CONST_KEY_MAP      2
+            176 LOAD_CONST              24 (<code object reverse_complement at 0x150086c82870, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 92>)
+            178 LOAD_CONST              25 ('reverse_complement')
+            180 MAKE_FUNCTION            4 (annotations)
+            182 STORE_NAME              25 (reverse_complement)
+
+ 96         184 LOAD_CONST              26 ('list[str] | None')
+            186 LOAD_CONST              18 ('list[str]')
+            188 LOAD_CONST              27 (('patterns', 'return'))
+            190 BUILD_CONST_KEY_MAP      2
+            192 LOAD_CONST              28 (<code object discover_csvs at 0x150086c82920, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 96>)
+            194 LOAD_CONST              29 ('discover_csvs')
+            196 MAKE_FUNCTION            4 (annotations)
+            198 STORE_NAME              26 (discover_csvs)
+
+103         200 LOAD_CONST              13 ('str | Path')
+            202 LOAD_CONST              30 ('dict')
+            204 LOAD_CONST              15 (('path', 'return'))
+            206 BUILD_CONST_KEY_MAP      2
+            208 LOAD_CONST              31 (<code object load_args_payload at 0x150086c82a80, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 103>)
+            210 LOAD_CONST              32 ('load_args_payload')
+            212 MAKE_FUNCTION            4 (annotations)
+            214 STORE_NAME              27 (load_args_payload)
+
+109         216 LOAD_CONST              13 ('str | Path')
+            218 LOAD_CONST              30 ('dict')
+            220 LOAD_CONST              33 (('csv_path', 'return'))
+            222 BUILD_CONST_KEY_MAP      2
+            224 LOAD_CONST              34 (<code object run_metadata at 0x150086c87030, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 109>)
+            226 LOAD_CONST              35 ('run_metadata')
+            228 MAKE_FUNCTION            4 (annotations)
+            230 STORE_NAME              28 (run_metadata)
+
+116         232 LOAD_CONST              36 ('pd.DataFrame')
+            234 LOAD_CONST              37 ('int | None')
+            236 LOAD_CONST              38 ('int')
+            238 LOAD_CONST              36 ('pd.DataFrame')
+            240 LOAD_CONST              39 (('df', 'n', 'seed', 'return'))
+            242 BUILD_CONST_KEY_MAP      4
+            244 LOAD_CONST              40 (<code object cap_df at 0x150086c8a240, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 116>)
+            246 LOAD_CONST              41 ('cap_df')
+            248 MAKE_FUNCTION            4 (annotations)
+            250 STORE_NAME              29 (cap_df)
+
+122         252 LOAD_CONST              18 ('list[str]')
+            254 LOAD_CONST              42 ('set[float] | None')
+            256 LOAD_CONST              37 ('int | None')
+            258 LOAD_CONST              38 ('int')
+            260 LOAD_CONST              36 ('pd.DataFrame')
+            262 LOAD_CONST              43 (('csvs', 'targets', 'max_per_set', 'seed', 'return'))
+            264 BUILD_CONST_KEY_MAP      5
+            266 LOAD_CONST              44 (<code object generated_rows at 0x150086c8c2f0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 122>)
+            268 LOAD_CONST              45 ('generated_rows')
+            270 MAKE_FUNCTION            4 (annotations)
+            272 STORE_NAME              30 (generated_rows)
+
+153         274 LOAD_CONST              13 ('str | Path')
+            276 LOAD_CONST              13 ('str | Path')
+            278 LOAD_CONST              38 ('int')
+            280 LOAD_CONST              37 ('int | None')
+            282 LOAD_CONST              38 ('int')
+            284 LOAD_CONST              36 ('pd.DataFrame')
+            286 LOAD_CONST              46 (('train_pt', 'split_pt', 'baseline_n', 'max_per_set', 'seed', 'return'))
+            288 BUILD_CONST_KEY_MAP      6
+            290 LOAD_CONST              47 (<code object baseline_rows at 0x150086c8cdf0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 153>)
+            292 LOAD_CONST              48 ('baseline_rows')
+            294 MAKE_FUNCTION            4 (annotations)
+            296 STORE_NAME              31 (baseline_rows)
+
+188         298 LOAD_CONST              22 ('str')
+            300 LOAD_CONST              49 (('model_name',))
+            302 BUILD_CONST_KEY_MAP      1
+            304 LOAD_CONST              50 (<code object load_evo2 at 0x150086c923a0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 188>)
+            306 LOAD_CONST              51 ('load_evo2')
+            308 MAKE_FUNCTION            4 (annotations)
+            310 STORE_NAME              32 (load_evo2)
+
+200         312 LOAD_CONST              52 ('torch.Tensor')
+            314 LOAD_CONST              52 ('torch.Tensor')
+            316 LOAD_CONST              53 (('input_ids', 'return'))
+            318 BUILD_CONST_KEY_MAP      2
+            320 LOAD_CONST              54 (<code object model_forward at 0x150086c99450, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 200>)
+            322 LOAD_CONST              55 ('model_forward')
+            324 MAKE_FUNCTION            4 (annotations)
+            326 STORE_NAME              33 (model_forward)
+
+209         328 LOAD_CONST              18 ('list[str]')
+            330 LOAD_CONST              56 ('bool')
+            332 LOAD_CONST              22 ('str')
+            334 LOAD_CONST              57 ('tuple[torch.Tensor, np.ndarray]')
+            336 LOAD_CONST              58 (('seqs', 'prepend_bos', 'device', 'return'))
+            338 BUILD_CONST_KEY_MAP      4
+            340 LOAD_CONST              59 (<code object prepare_batch at 0x150086c992f0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 209>)
+            342 LOAD_CONST              60 ('prepare_batch')
+            344 MAKE_FUNCTION            4 (annotations)
+            346 STORE_NAME              34 (prepare_batch)
+
+228         348 LOAD_CONST              18 ('list[str]')
+            350 LOAD_CONST              38 ('int')
+            352 LOAD_CONST              56 ('bool')
+            354 LOAD_CONST              22 ('str')
+            356 LOAD_CONST              61 ('tuple[np.ndarray, np.ndarray]')
+            358 LOAD_CONST              62 (('seqs', 'batch_size', 'prepend_bos', 'device', 'return'))
+            360 BUILD_CONST_KEY_MAP      5
+            362 LOAD_CONST              63 (<code object score_mean_logprobs at 0x150086caad40, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 228>)
+            364 LOAD_CONST              64 ('score_mean_logprobs')
+            366 MAKE_FUNCTION            4 (annotations)
+            368 STORE_NAME              35 (score_mean_logprobs)
+
+261         370 LOAD_CONST              36 ('pd.DataFrame')
+            372 LOAD_CONST               9 ('argparse.Namespace')
+            374 LOAD_CONST              36 ('pd.DataFrame')
+            376 LOAD_CONST              65 (('rows', 'args', 'return'))
+            378 BUILD_CONST_KEY_MAP      3
+            380 LOAD_CONST              66 (<code object score_rows at 0x150086caac90, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 261>)
+            382 LOAD_CONST              67 ('score_rows')
+            384 MAKE_FUNCTION            4 (annotations)
+            386 STORE_NAME              36 (score_rows)
+
+296         388 LOAD_CONST              14 ('np.ndarray')
+            390 LOAD_CONST              38 ('int')
+            392 LOAD_CONST              38 ('int')
+            394 LOAD_CONST              68 ('tuple[float, float]')
+            396 LOAD_CONST              69 (('values', 'n_boot', 'seed', 'return'))
+            398 BUILD_CONST_KEY_MAP      4
+            400 LOAD_CONST              70 (<code object bootstrap_ci at 0x150086caa710, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 296>)
+            402 LOAD_CONST              71 ('bootstrap_ci')
+            404 MAKE_FUNCTION            4 (annotations)
+            406 STORE_NAME              37 (bootstrap_ci)
+
+307         408 LOAD_CONST              36 ('pd.DataFrame')
+            410 LOAD_CONST              38 ('int')
+            412 LOAD_CONST              38 ('int')
+            414 LOAD_CONST              36 ('pd.DataFrame')
+            416 LOAD_CONST              72 (('scored', 'n_boot', 'seed', 'return'))
+            418 BUILD_CONST_KEY_MAP      4
+            420 LOAD_CONST              73 (<code object summarize at 0x150086caa920, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 307>)
+            422 LOAD_CONST              74 ('summarize')
+            424 MAKE_FUNCTION            4 (annotations)
+            426 STORE_NAME              38 (summarize)
+
+343         428 LOAD_CONST              75 ('None')
+            430 LOAD_CONST              10 (('return',))
+            432 BUILD_CONST_KEY_MAP      1
+            434 LOAD_CONST              76 (<code object main at 0x150086caa9d0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 343>)
+            436 LOAD_CONST              77 ('main')
+            438 MAKE_FUNCTION            4 (annotations)
+            440 STORE_NAME              39 (main)
+
+377         442 LOAD_NAME               40 (__name__)
+            444 LOAD_CONST              78 ('__main__')
+            446 COMPARE_OP               2 (==)
+            448 EXTENDED_ARG             1
+            450 POP_JUMP_IF_FALSE      458
+
+378         452 LOAD_NAME               39 (main)
+            454 CALL_FUNCTION            0
+            456 POP_TOP
+        >>  458 LOAD_CONST               2 (None)
+            460 RETURN_VALUE
+
+================================================================================
+CODE OBJECT parse_args  (firstlineno=21, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=0 posonly=0 kwonly=0 nlocals=1 flags=0x1000043
+  varnames=('p',)
+  names=('argparse', 'ArgumentParser', 'add_argument', 'int', 'BooleanOptionalAction', 'float', 'parse_args')
+  freevars=() cellvars=()
+  consts=[None, 'Score clean-split yeast dMFM C0 samples and real-data baselines with Evo2. Outputs per-sequence mean log-likelihood, per-base NLL, and perplexity.', ('description',), '--run_glob', 'append', 'Glob(s) for sample_scores.csv. Can be passed multiple times.', ('action', 'default', 'help'), '--train_pt', 'data/yeast_mid50.pt', ('default',), '--split_pt', 'data/yeast_mid50_split_seed0_train65000_val8000.pt', '--out_dir', 'workdir/yeast_split_dmfm_c0_evo2', '--model_name', 'evo2_7b_base', '--batch_size', 16, ('type', 'default'), '--baseline_n', 1000, 'Number of real sequences sampled from each reference split.', ('type', 'default', 'help'), '--max_per_set', 'Optional cap per generated/baseline set for smoke tests.', '--seed', 0, '--prepend_bos', 'store_true', 'Prepend Evo2 EOD token before scoring so every base has a previous token.', ('action', 'help'), '--reverse_complement', True, 'Average forward and reverse-complement mean log-likelihoods.', '--device', 'cuda:0', '--bootstrap', 2000, '--targets', '*', 'Optional target_c0 values to keep, e.g. --targets -1 1.', ('type', 'nargs', 'default', 'help')]
+--------------------------------------------------------------------------------
+ 22           0 LOAD_GLOBAL              0 (argparse)
+              2 LOAD_ATTR                1 (ArgumentParser)
+
+ 24           4 LOAD_CONST               1 ('Score clean-split yeast dMFM C0 samples and real-data baselines with Evo2. Outputs per-sequence mean log-likelihood, per-base NLL, and perplexity.')
+
+ 22           6 LOAD_CONST               2 (('description',))
+              8 CALL_FUNCTION_KW         1
+             10 STORE_FAST               0 (p)
+
+ 28          12 LOAD_FAST                0 (p)
+             14 LOAD_ATTR                2 (add_argument)
+
+ 29          16 LOAD_CONST               3 ('--run_glob')
+
+ 30          18 LOAD_CONST               4 ('append')
+
+ 31          20 LOAD_CONST               0 (None)
+
+ 32          22 LOAD_CONST               5 ('Glob(s) for sample_scores.csv. Can be passed multiple times.')
+
+ 28          24 LOAD_CONST               6 (('action', 'default', 'help'))
+             26 CALL_FUNCTION_KW         4
+             28 POP_TOP
+
+ 34          30 LOAD_FAST                0 (p)
+             32 LOAD_ATTR                2 (add_argument)
+             34 LOAD_CONST               7 ('--train_pt')
+             36 LOAD_CONST               8 ('data/yeast_mid50.pt')
+             38 LOAD_CONST               9 (('default',))
+             40 CALL_FUNCTION_KW         2
+             42 POP_TOP
+
+ 35          44 LOAD_FAST                0 (p)
+             46 LOAD_ATTR                2 (add_argument)
+             48 LOAD_CONST              10 ('--split_pt')
+             50 LOAD_CONST              11 ('data/yeast_mid50_split_seed0_train65000_val8000.pt')
+             52 LOAD_CONST               9 (('default',))
+             54 CALL_FUNCTION_KW         2
+             56 POP_TOP
+
+ 36          58 LOAD_FAST                0 (p)
+             60 LOAD_ATTR                2 (add_argument)
+             62 LOAD_CONST              12 ('--out_dir')
+             64 LOAD_CONST              13 ('workdir/yeast_split_dmfm_c0_evo2')
+             66 LOAD_CONST               9 (('default',))
+             68 CALL_FUNCTION_KW         2
+             70 POP_TOP
+
+ 37          72 LOAD_FAST                0 (p)
+             74 LOAD_ATTR                2 (add_argument)
+             76 LOAD_CONST              14 ('--model_name')
+             78 LOAD_CONST              15 ('evo2_7b_base')
+             80 LOAD_CONST               9 (('default',))
+             82 CALL_FUNCTION_KW         2
+             84 POP_TOP
+
+ 38          86 LOAD_FAST                0 (p)
+             88 LOAD_ATTR                2 (add_argument)
+             90 LOAD_CONST              16 ('--batch_size')
+             92 LOAD_GLOBAL              3 (int)
+             94 LOAD_CONST              17 (16)
+             96 LOAD_CONST              18 (('type', 'default'))
+             98 CALL_FUNCTION_KW         3
+            100 POP_TOP
+
+ 39         102 LOAD_FAST                0 (p)
+            104 LOAD_ATTR                2 (add_argument)
+
+ 40         106 LOAD_CONST              19 ('--baseline_n')
+
+ 41         108 LOAD_GLOBAL              3 (int)
+
+ 42         110 LOAD_CONST              20 (1000)
+
+ 43         112 LOAD_CONST              21 ('Number of real sequences sampled from each reference split.')
+
+ 39         114 LOAD_CONST              22 (('type', 'default', 'help'))
+            116 CALL_FUNCTION_KW         4
+            118 POP_TOP
+
+ 45         120 LOAD_FAST                0 (p)
+            122 LOAD_ATTR                2 (add_argument)
+
+ 46         124 LOAD_CONST              23 ('--max_per_set')
+
+ 47         126 LOAD_GLOBAL              3 (int)
+
+ 48         128 LOAD_CONST               0 (None)
+
+ 49         130 LOAD_CONST              24 ('Optional cap per generated/baseline set for smoke tests.')
+
+ 45         132 LOAD_CONST              22 (('type', 'default', 'help'))
+            134 CALL_FUNCTION_KW         4
+            136 POP_TOP
+
+ 51         138 LOAD_FAST                0 (p)
+            140 LOAD_ATTR                2 (add_argument)
+            142 LOAD_CONST              25 ('--seed')
+            144 LOAD_GLOBAL              3 (int)
+            146 LOAD_CONST              26 (0)
+            148 LOAD_CONST              18 (('type', 'default'))
+            150 CALL_FUNCTION_KW         3
+            152 POP_TOP
+
+ 52         154 LOAD_FAST                0 (p)
+            156 LOAD_ATTR                2 (add_argument)
+
+ 53         158 LOAD_CONST              27 ('--prepend_bos')
+
+ 54         160 LOAD_CONST              28 ('store_true')
+
+ 55         162 LOAD_CONST              29 ('Prepend Evo2 EOD token before scoring so every base has a previous token.')
+
+ 52         164 LOAD_CONST              30 (('action', 'help'))
+            166 CALL_FUNCTION_KW         3
+            168 POP_TOP
+
+ 57         170 LOAD_FAST                0 (p)
+            172 LOAD_ATTR                2 (add_argument)
+
+ 58         174 LOAD_CONST              31 ('--reverse_complement')
+
+ 59         176 LOAD_GLOBAL              0 (argparse)
+            178 LOAD_ATTR                4 (BooleanOptionalAction)
+
+ 60         180 LOAD_CONST              32 (True)
+
+ 61         182 LOAD_CONST              33 ('Average forward and reverse-complement mean log-likelihoods.')
+
+ 57         184 LOAD_CONST               6 (('action', 'default', 'help'))
+            186 CALL_FUNCTION_KW         4
+            188 POP_TOP
+
+ 63         190 LOAD_FAST                0 (p)
+            192 LOAD_ATTR                2 (add_argument)
+            194 LOAD_CONST              34 ('--device')
+            196 LOAD_CONST              35 ('cuda:0')
+            198 LOAD_CONST               9 (('default',))
+            200 CALL_FUNCTION_KW         2
+            202 POP_TOP
+
+ 64         204 LOAD_FAST                0 (p)
+            206 LOAD_ATTR                2 (add_argument)
+            208 LOAD_CONST              36 ('--bootstrap')
+            210 LOAD_GLOBAL              3 (int)
+            212 LOAD_CONST              37 (2000)
+            214 LOAD_CONST              18 (('type', 'default'))
+            216 CALL_FUNCTION_KW         3
+            218 POP_TOP
+
+ 65         220 LOAD_FAST                0 (p)
+            222 LOAD_ATTR                2 (add_argument)
+
+ 66         224 LOAD_CONST              38 ('--targets')
+
+ 67         226 LOAD_GLOBAL              5 (float)
+
+ 68         228 LOAD_CONST              39 ('*')
+
+ 69         230 LOAD_CONST               0 (None)
+
+ 70         232 LOAD_CONST              40 ('Optional target_c0 values to keep, e.g. --targets -1 1.')
+
+ 65         234 LOAD_CONST              41 (('type', 'nargs', 'default', 'help'))
+            236 CALL_FUNCTION_KW         5
+            238 POP_TOP
+
+ 72         240 LOAD_FAST                0 (p)
+            242 LOAD_METHOD              6 (parse_args)
+            244 CALL_METHOD              0
+            246 RETURN_VALUE
+
+================================================================================
+CODE OBJECT load_train_tokens  (firstlineno=75, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=4 flags=0x1000043
+  varnames=('path', 'payload', 'seqs', 'arr')
+  names=('torch', 'load', 'isinstance', 'dict', 'Tensor', 'TypeError', 'type', 'detach', 'cpu', 'numpy', 'astype', 'np', 'int16', 'ndim', 'ValueError', 'shape', 'min', 'max')
+  freevars=() cellvars=()
+  consts=[None, 'cpu', ('map_location',), 'seqs', "Expected tensor or dict with 'seqs' in ", ', got ', False, ('copy',), 2, 'Expected train tokens [N,L], got ', 0, 3, 'Expected DNA integer tokens in {0,1,2,3}, got min=', ' max=']
+--------------------------------------------------------------------------------
+ 76           0 LOAD_GLOBAL              0 (torch)
+              2 LOAD_ATTR                1 (load)
+              4 LOAD_FAST                0 (path)
+              6 LOAD_CONST               1 ('cpu')
+              8 LOAD_CONST               2 (('map_location',))
+             10 CALL_FUNCTION_KW         2
+             12 STORE_FAST               1 (payload)
+
+ 77          14 LOAD_GLOBAL              2 (isinstance)
+             16 LOAD_FAST                1 (payload)
+             18 LOAD_GLOBAL              3 (dict)
+             20 CALL_FUNCTION            2
+             22 POP_JUMP_IF_FALSE       40
+             24 LOAD_CONST               3 ('seqs')
+             26 LOAD_FAST                1 (payload)
+             28 CONTAINS_OP              0
+             30 POP_JUMP_IF_FALSE       40
+             32 LOAD_FAST                1 (payload)
+             34 LOAD_CONST               3 ('seqs')
+             36 BINARY_SUBSCR
+             38 JUMP_FORWARD             2 (to 42)
+        >>   40 LOAD_FAST                1 (payload)
+        >>   42 STORE_FAST               2 (seqs)
+
+ 78          44 LOAD_GLOBAL              2 (isinstance)
+             46 LOAD_FAST                2 (seqs)
+             48 LOAD_GLOBAL              0 (torch)
+             50 LOAD_ATTR                4 (Tensor)
+             52 CALL_FUNCTION            2
+             54 POP_JUMP_IF_TRUE        80
+
+ 79          56 LOAD_GLOBAL              5 (TypeError)
+             58 LOAD_CONST               4 ("Expected tensor or dict with 'seqs' in ")
+             60 LOAD_FAST                0 (path)
+             62 FORMAT_VALUE             0
+             64 LOAD_CONST               5 (', got ')
+             66 LOAD_GLOBAL              6 (type)
+             68 LOAD_FAST                2 (seqs)
+             70 CALL_FUNCTION            1
+             72 FORMAT_VALUE             0
+             74 BUILD_STRING             4
+             76 CALL_FUNCTION            1
+             78 RAISE_VARARGS            1
+
+ 80     >>   80 LOAD_FAST                2 (seqs)
+             82 LOAD_METHOD              7 (detach)
+             84 CALL_METHOD              0
+             86 LOAD_METHOD              8 (cpu)
+             88 CALL_METHOD              0
+             90 LOAD_METHOD              9 (numpy)
+             92 CALL_METHOD              0
+             94 LOAD_ATTR               10 (astype)
+             96 LOAD_GLOBAL             11 (np)
+             98 LOAD_ATTR               12 (int16)
+            100 LOAD_CONST               6 (False)
+            102 LOAD_CONST               7 (('copy',))
+            104 CALL_FUNCTION_KW         2
+            106 STORE_FAST               3 (arr)
+
+ 81         108 LOAD_FAST                3 (arr)
+            110 LOAD_ATTR               13 (ndim)
+            112 LOAD_CONST               8 (2)
+            114 COMPARE_OP               3 (!=)
+            116 POP_JUMP_IF_FALSE      134
+
+ 82         118 LOAD_GLOBAL             14 (ValueError)
+            120 LOAD_CONST               9 ('Expected train tokens [N,L], got ')
+            122 LOAD_FAST                3 (arr)
+            124 LOAD_ATTR               15 (shape)
+            126 FORMAT_VALUE             0
+            128 BUILD_STRING             2
+            130 CALL_FUNCTION            1
+            132 RAISE_VARARGS            1
+
+ 83     >>  134 LOAD_FAST                3 (arr)
+            136 LOAD_METHOD             16 (min)
+            138 CALL_METHOD              0
+            140 LOAD_CONST              10 (0)
+            142 COMPARE_OP               0 (<)
+            144 POP_JUMP_IF_TRUE       158
+            146 LOAD_FAST                3 (arr)
+            148 LOAD_METHOD             17 (max)
+            150 CALL_METHOD              0
+            152 LOAD_CONST              11 (3)
+            154 COMPARE_OP               4 (>)
+            156 POP_JUMP_IF_FALSE      186
+
+ 84     >>  158 LOAD_GLOBAL             14 (ValueError)
+            160 LOAD_CONST              12 ('Expected DNA integer tokens in {0,1,2,3}, got min=')
+            162 LOAD_FAST                3 (arr)
+            164 LOAD_METHOD             16 (min)
+            166 CALL_METHOD              0
+            168 FORMAT_VALUE             0
+            170 LOAD_CONST              13 (' max=')
+            172 LOAD_FAST                3 (arr)
+            174 LOAD_METHOD             17 (max)
+            176 CALL_METHOD              0
+            178 FORMAT_VALUE             0
+            180 BUILD_STRING             4
+            182 CALL_FUNCTION            1
+            184 RAISE_VARARGS            1
+
+ 85     >>  186 LOAD_FAST                3 (arr)
+            188 RETURN_VALUE
+
+================================================================================
+CODE OBJECT tokens_to_seqs  (firstlineno=88, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=1 flags=0x1000043
+  varnames=('tokens',)
+  names=()
+  freevars=() cellvars=()
+  consts=[None, '<code <listcomp>>', 'tokens_to_seqs.<locals>.<listcomp>']
+--------------------------------------------------------------------------------
+ 89           0 LOAD_CONST               1 (<code object <listcomp> at 0x150086c825b0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 89>)
+              2 LOAD_CONST               2 ('tokens_to_seqs.<locals>.<listcomp>')
+              4 MAKE_FUNCTION            0
+              6 LOAD_FAST                0 (tokens)
+              8 GET_ITER
+             10 CALL_FUNCTION            1
+             12 RETURN_VALUE
+
+================================================================================
+CODE OBJECT <listcomp>  (firstlineno=89, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=2 flags=0x1000053
+  varnames=('.0', 'row')
+  names=('join', 'INT_TO_DNA')
+  freevars=() cellvars=()
+  consts=['']
+--------------------------------------------------------------------------------
+ 89           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                18 (to 24)
+              6 STORE_FAST               1 (row)
+              8 LOAD_CONST               0 ('')
+             10 LOAD_METHOD              0 (join)
+             12 LOAD_GLOBAL              1 (INT_TO_DNA)
+             14 LOAD_FAST                1 (row)
+             16 BINARY_SUBSCR
+             18 CALL_METHOD              1
+             20 LIST_APPEND              2
+             22 JUMP_ABSOLUTE            4
+        >>   24 RETURN_VALUE
+
+================================================================================
+CODE OBJECT reverse_complement  (firstlineno=92, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=1 flags=0x1000043
+  varnames=('seq',)
+  names=('translate', 'RC_TRANS', 'upper')
+  freevars=() cellvars=()
+  consts=[None, -1]
+--------------------------------------------------------------------------------
+ 93           0 LOAD_FAST                0 (seq)
+              2 LOAD_METHOD              0 (translate)
+              4 LOAD_GLOBAL              1 (RC_TRANS)
+              6 CALL_METHOD              1
+              8 LOAD_CONST               0 (None)
+             10 LOAD_CONST               0 (None)
+             12 LOAD_CONST               1 (-1)
+             14 BUILD_SLICE              3
+             16 BINARY_SUBSCR
+             18 LOAD_METHOD              2 (upper)
+             20 CALL_METHOD              0
+             22 RETURN_VALUE
+
+================================================================================
+CODE OBJECT discover_csvs  (firstlineno=96, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=3 flags=0x1000043
+  varnames=('patterns', 'paths', 'pat')
+  names=('extend', 'glob', 'sorted', 'set')
+  freevars=() cellvars=()
+  consts=[None, 'workdir/yeast_split_dmfm_c0_samples_target_*/sample_scores.csv']
+--------------------------------------------------------------------------------
+ 97           0 BUILD_LIST               0
+              2 STORE_FAST               1 (paths)
+
+ 98           4 LOAD_FAST                0 (patterns)
+              6 JUMP_IF_TRUE_OR_POP     12
+              8 LOAD_CONST               1 ('workdir/yeast_split_dmfm_c0_samples_target_*/sample_scores.csv')
+             10 BUILD_LIST               1
+        >>   12 GET_ITER
+        >>   14 FOR_ITER                20 (to 36)
+             16 STORE_FAST               2 (pat)
+
+ 99          18 LOAD_FAST                1 (paths)
+             20 LOAD_METHOD              0 (extend)
+             22 LOAD_GLOBAL              1 (glob)
+             24 LOAD_METHOD              1 (glob)
+             26 LOAD_FAST                2 (pat)
+             28 CALL_METHOD              1
+             30 CALL_METHOD              1
+             32 POP_TOP
+             34 JUMP_ABSOLUTE           14
+
+100     >>   36 LOAD_GLOBAL              2 (sorted)
+             38 LOAD_GLOBAL              3 (set)
+             40 LOAD_FAST                1 (paths)
+             42 CALL_FUNCTION            1
+             44 CALL_FUNCTION            1
+             46 RETURN_VALUE
+
+================================================================================
+CODE OBJECT load_args_payload  (firstlineno=103, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=3 flags=0x1000043
+  varnames=('path', 'f', 'payload')
+  names=('open', 'json', 'load', 'get')
+  freevars=() cellvars=()
+  consts=[None, 'args']
+--------------------------------------------------------------------------------
+104           0 LOAD_GLOBAL              0 (open)
+              2 LOAD_FAST                0 (path)
+              4 CALL_FUNCTION            1
+              6 SETUP_WITH              26 (to 34)
+              8 STORE_FAST               1 (f)
+
+105          10 LOAD_GLOBAL              1 (json)
+             12 LOAD_METHOD              2 (load)
+             14 LOAD_FAST                1 (f)
+             16 CALL_METHOD              1
+             18 STORE_FAST               2 (payload)
+             20 POP_BLOCK
+             22 LOAD_CONST               0 (None)
+             24 DUP_TOP
+             26 DUP_TOP
+             28 CALL_FUNCTION            3
+             30 POP_TOP
+             32 JUMP_FORWARD            16 (to 50)
+        >>   34 WITH_EXCEPT_START
+             36 POP_JUMP_IF_TRUE        40
+             38 RERAISE
+        >>   40 POP_TOP
+             42 POP_TOP
+             44 POP_TOP
+             46 POP_EXCEPT
+             48 POP_TOP
+
+106     >>   50 LOAD_FAST                2 (payload)
+             52 LOAD_METHOD              3 (get)
+             54 LOAD_CONST               1 ('args')
+             56 LOAD_FAST                2 (payload)
+             58 CALL_METHOD              2
+             60 RETURN_VALUE
+
+================================================================================
+CODE OBJECT run_metadata  (firstlineno=109, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=2 flags=0x1000043
+  varnames=('csv_path', 'args_path')
+  names=('Path', 'with_name', 'exists', 'load_args_payload')
+  freevars=() cellvars=()
+  consts=[None, 'args.json']
+--------------------------------------------------------------------------------
+110           0 LOAD_GLOBAL              0 (Path)
+              2 LOAD_FAST                0 (csv_path)
+              4 CALL_FUNCTION            1
+              6 LOAD_METHOD              1 (with_name)
+              8 LOAD_CONST               1 ('args.json')
+             10 CALL_METHOD              1
+             12 STORE_FAST               1 (args_path)
+
+111          14 LOAD_FAST                1 (args_path)
+             16 LOAD_METHOD              2 (exists)
+             18 CALL_METHOD              0
+             20 POP_JUMP_IF_TRUE        26
+
+112          22 BUILD_MAP                0
+             24 RETURN_VALUE
+
+113     >>   26 LOAD_GLOBAL              3 (load_args_payload)
+             28 LOAD_FAST                1 (args_path)
+             30 CALL_FUNCTION            1
+             32 RETURN_VALUE
+
+================================================================================
+CODE OBJECT cap_df  (firstlineno=116, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=3 posonly=0 kwonly=0 nlocals=3 flags=0x1000043
+  varnames=('df', 'n', 'seed')
+  names=('len', 'reset_index', 'sample', 'int', 'sort_index')
+  freevars=() cellvars=()
+  consts=[None, True, ('drop',), ('n', 'random_state')]
+--------------------------------------------------------------------------------
+117           0 LOAD_FAST                1 (n)
+              2 LOAD_CONST               0 (None)
+              4 IS_OP                    0
+              6 POP_JUMP_IF_TRUE        20
+              8 LOAD_GLOBAL              0 (len)
+             10 LOAD_FAST                0 (df)
+             12 CALL_FUNCTION            1
+             14 LOAD_FAST                1 (n)
+             16 COMPARE_OP               1 (<=)
+             18 POP_JUMP_IF_FALSE       32
+
+118     >>   20 LOAD_FAST                0 (df)
+             22 LOAD_ATTR                1 (reset_index)
+             24 LOAD_CONST               1 (True)
+             26 LOAD_CONST               2 (('drop',))
+             28 CALL_FUNCTION_KW         1
+             30 RETURN_VALUE
+
+119     >>   32 LOAD_FAST                0 (df)
+             34 LOAD_ATTR                2 (sample)
+             36 LOAD_GLOBAL              3 (int)
+             38 LOAD_FAST                1 (n)
+             40 CALL_FUNCTION            1
+             42 LOAD_FAST                2 (seed)
+             44 LOAD_CONST               3 (('n', 'random_state'))
+             46 CALL_FUNCTION_KW         2
+             48 LOAD_METHOD              4 (sort_index)
+             50 CALL_METHOD              0
+             52 LOAD_ATTR                1 (reset_index)
+             54 LOAD_CONST               1 (True)
+             56 LOAD_CONST               2 (('drop',))
+             58 CALL_FUNCTION_KW         1
+             60 RETURN_VALUE
+
+================================================================================
+CODE OBJECT generated_rows  (firstlineno=122, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=4 posonly=0 kwonly=0 nlocals=13 flags=0x1000043
+  varnames=('csvs', 'targets', 'max_per_set', 'seed', 'parts', 'csv_path', 'meta', 'target', 'df', 'seq_col', 'set_name', 'score_col', 'part')
+  names=('run_metadata', 'float', 'get', 'np', 'nan', 'pd', 'read_csv', 'columns', 'DataFrame', 'str', 'Path', 'parent', 'to_numpy', 'arange', 'len', 'astype', 'upper', 'append', 'cap_df', 'concat')
+  freevars=() cellvars=()
+  consts=[None, 'target_c0', (('seq_unguided', 'unguided', 'unguided'), ('seq_guided', 'guided', 'guided')), 'generated', 'sample_idx', ('source', 'set', 'target_c0', 'run_dir', 'sample_idx', 'score', 'seq'), True, ('ignore_index',)]
+--------------------------------------------------------------------------------
+123           0 BUILD_LIST               0
+              2 STORE_FAST               4 (parts)
+
+124           4 LOAD_FAST                0 (csvs)
+              6 GET_ITER
+        >>    8 FOR_ITER               212 (to 222)
+             10 STORE_FAST               5 (csv_path)
+
+125          12 LOAD_GLOBAL              0 (run_metadata)
+             14 LOAD_FAST                5 (csv_path)
+             16 CALL_FUNCTION            1
+             18 STORE_FAST               6 (meta)
+
+126          20 LOAD_GLOBAL              1 (float)
+             22 LOAD_FAST                6 (meta)
+             24 LOAD_METHOD              2 (get)
+             26 LOAD_CONST               1 ('target_c0')
+             28 LOAD_GLOBAL              3 (np)
+             30 LOAD_ATTR                4 (nan)
+             32 CALL_METHOD              2
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               7 (target)
+
+127          38 LOAD_FAST                1 (targets)
+             40 LOAD_CONST               0 (None)
+             42 IS_OP                    1
+             44 POP_JUMP_IF_FALSE       56
+             46 LOAD_FAST                7 (target)
+             48 LOAD_FAST                1 (targets)
+             50 CONTAINS_OP              1
+             52 POP_JUMP_IF_FALSE       56
+
+128          54 JUMP_ABSOLUTE            8
+
+129     >>   56 LOAD_GLOBAL              5 (pd)
+             58 LOAD_METHOD              6 (read_csv)
+             60 LOAD_FAST                5 (csv_path)
+             62 CALL_METHOD              1
+             64 STORE_FAST               8 (df)
+
+130          66 LOAD_CONST               2 ((('seq_unguided', 'unguided', 'unguided'), ('seq_guided', 'guided', 'guided')))
+             68 GET_ITER
+        >>   70 FOR_ITER               148 (to 220)
+             72 UNPACK_SEQUENCE          3
+             74 STORE_FAST               9 (seq_col)
+             76 STORE_FAST              10 (set_name)
+             78 STORE_FAST              11 (score_col)
+
+134          80 LOAD_FAST                9 (seq_col)
+             82 LOAD_FAST                8 (df)
+             84 LOAD_ATTR                7 (columns)
+             86 CONTAINS_OP              1
+             88 POP_JUMP_IF_FALSE       92
+
+135          90 JUMP_ABSOLUTE           70
+
+136     >>   92 LOAD_GLOBAL              5 (pd)
+             94 LOAD_METHOD              8 (DataFrame)
+
+138          96 LOAD_CONST               3 ('generated')
+
+139          98 LOAD_FAST               10 (set_name)
+
+140         100 LOAD_FAST                7 (target)
+
+141         102 LOAD_GLOBAL              9 (str)
+            104 LOAD_GLOBAL             10 (Path)
+            106 LOAD_FAST                5 (csv_path)
+            108 CALL_FUNCTION            1
+            110 LOAD_ATTR               11 (parent)
+            112 CALL_FUNCTION            1
+
+142         114 LOAD_CONST               4 ('sample_idx')
+            116 LOAD_FAST                8 (df)
+            118 CONTAINS_OP              0
+            120 POP_JUMP_IF_FALSE      134
+            122 LOAD_FAST                8 (df)
+            124 LOAD_CONST               4 ('sample_idx')
+            126 BINARY_SUBSCR
+            128 LOAD_METHOD             12 (to_numpy)
+            130 CALL_METHOD              0
+            132 JUMP_FORWARD            12 (to 146)
+        >>  134 LOAD_GLOBAL              3 (np)
+            136 LOAD_METHOD             13 (arange)
+            138 LOAD_GLOBAL             14 (len)
+            140 LOAD_FAST                8 (df)
+            142 CALL_FUNCTION            1
+            144 CALL_METHOD              1
+
+143     >>  146 LOAD_FAST               11 (score_col)
+            148 LOAD_FAST                8 (df)
+            150 CONTAINS_OP              0
+            152 POP_JUMP_IF_FALSE      166
+            154 LOAD_FAST                8 (df)
+            156 LOAD_FAST               11 (score_col)
+            158 BINARY_SUBSCR
+            160 LOAD_METHOD             12 (to_numpy)
+            162 CALL_METHOD              0
+            164 JUMP_FORWARD             4 (to 170)
+        >>  166 LOAD_GLOBAL              3 (np)
+            168 LOAD_ATTR                4 (nan)
+
+144     >>  170 LOAD_FAST                8 (df)
+            172 LOAD_FAST                9 (seq_col)
+            174 BINARY_SUBSCR
+            176 LOAD_METHOD             15 (astype)
+            178 LOAD_GLOBAL              9 (str)
+            180 CALL_METHOD              1
+            182 LOAD_ATTR                9 (str)
+            184 LOAD_METHOD             16 (upper)
+            186 CALL_METHOD              0
+            188 LOAD_METHOD             12 (to_numpy)
+            190 CALL_METHOD              0
+
+137         192 LOAD_CONST               5 (('source', 'set', 'target_c0', 'run_dir', 'sample_idx', 'score', 'seq'))
+            194 BUILD_CONST_KEY_MAP      7
+
+136         196 CALL_METHOD              1
+            198 STORE_FAST              12 (part)
+
+147         200 LOAD_FAST                4 (parts)
+            202 LOAD_METHOD             17 (append)
+            204 LOAD_GLOBAL             18 (cap_df)
+            206 LOAD_FAST               12 (part)
+            208 LOAD_FAST                2 (max_per_set)
+            210 LOAD_FAST                3 (seed)
+            212 CALL_FUNCTION            3
+            214 CALL_METHOD              1
+            216 POP_TOP
+            218 JUMP_ABSOLUTE           70
+        >>  220 JUMP_ABSOLUTE            8
+
+148     >>  222 LOAD_FAST                4 (parts)
+            224 POP_JUMP_IF_TRUE       234
+
+149         226 LOAD_GLOBAL              5 (pd)
+            228 LOAD_METHOD              8 (DataFrame)
+            230 CALL_METHOD              0
+            232 RETURN_VALUE
+
+150     >>  234 LOAD_GLOBAL              5 (pd)
+            236 LOAD_ATTR               19 (concat)
+            238 LOAD_FAST                4 (parts)
+            240 LOAD_CONST               6 (True)
+            242 LOAD_CONST               7 (('ignore_index',))
+            244 CALL_FUNCTION_KW         2
+            246 RETURN_VALUE
+
+================================================================================
+CODE OBJECT baseline_rows  (firstlineno=153, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=5 posonly=0 kwonly=0 nlocals=15 flags=0x1000043
+  varnames=('train_pt', 'split_pt', 'baseline_n', 'max_per_set', 'seed', 'full', 'references', 'rng', 'rows', 'set_name', 'tokens', 'n', 'idx', 'seqs', 'part')
+  names=('load_train_tokens', 'load_yeast_split_indices', 'numpy', 'np', 'random', 'default_rng', 'items', 'min', 'int', 'shape', 'sort', 'choice', 'tokens_to_seqs', 'pd', 'DataFrame', 'nan', 'append', 'cap_df', 'concat')
+  freevars=() cellvars=()
+  consts=[None, 'train', 'val', 'test', ('full_sample', 'split_train_sample', 'split_val_sample', 'split_test_sample'), 0, False, ('size', 'replace'), 'reference', 'reference_data', ('source', 'set', 'target_c0', 'run_dir', 'sample_idx', 'score', 'seq'), True, ('ignore_index',)]
+--------------------------------------------------------------------------------
+160           0 LOAD_GLOBAL              0 (load_train_tokens)
+              2 LOAD_FAST                0 (train_pt)
+              4 CALL_FUNCTION            1
+              6 STORE_FAST               5 (full)
+
+162           8 LOAD_FAST                5 (full)
+
+163          10 LOAD_FAST                5 (full)
+             12 LOAD_GLOBAL              1 (load_yeast_split_indices)
+             14 LOAD_FAST                1 (split_pt)
+             16 LOAD_CONST               1 ('train')
+             18 CALL_FUNCTION            2
+             20 LOAD_METHOD              2 (numpy)
+             22 CALL_METHOD              0
+             24 BINARY_SUBSCR
+
+164          26 LOAD_FAST                5 (full)
+             28 LOAD_GLOBAL              1 (load_yeast_split_indices)
+             30 LOAD_FAST                1 (split_pt)
+             32 LOAD_CONST               2 ('val')
+             34 CALL_FUNCTION            2
+             36 LOAD_METHOD              2 (numpy)
+             38 CALL_METHOD              0
+             40 BINARY_SUBSCR
+
+165          42 LOAD_FAST                5 (full)
+             44 LOAD_GLOBAL              1 (load_yeast_split_indices)
+             46 LOAD_FAST                1 (split_pt)
+             48 LOAD_CONST               3 ('test')
+             50 CALL_FUNCTION            2
+             52 LOAD_METHOD              2 (numpy)
+             54 CALL_METHOD              0
+             56 BINARY_SUBSCR
+
+161          58 LOAD_CONST               4 (('full_sample', 'split_train_sample', 'split_val_sample', 'split_test_sample'))
+             60 BUILD_CONST_KEY_MAP      4
+             62 STORE_FAST               6 (references)
+
+167          64 LOAD_GLOBAL              3 (np)
+             66 LOAD_ATTR                4 (random)
+             68 LOAD_METHOD              5 (default_rng)
+             70 LOAD_FAST                4 (seed)
+             72 CALL_METHOD              1
+             74 STORE_FAST               7 (rng)
+
+168          76 BUILD_LIST               0
+             78 STORE_FAST               8 (rows)
+
+169          80 LOAD_FAST                6 (references)
+             82 LOAD_METHOD              6 (items)
+             84 CALL_METHOD              0
+             86 GET_ITER
+        >>   88 FOR_ITER               116 (to 206)
+             90 UNPACK_SEQUENCE          2
+             92 STORE_FAST               9 (set_name)
+             94 STORE_FAST              10 (tokens)
+
+170          96 LOAD_GLOBAL              7 (min)
+             98 LOAD_GLOBAL              8 (int)
+            100 LOAD_FAST                2 (baseline_n)
+            102 CALL_FUNCTION            1
+            104 LOAD_FAST               10 (tokens)
+            106 LOAD_ATTR                9 (shape)
+            108 LOAD_CONST               5 (0)
+            110 BINARY_SUBSCR
+            112 CALL_FUNCTION            2
+            114 STORE_FAST              11 (n)
+
+171         116 LOAD_GLOBAL              3 (np)
+            118 LOAD_METHOD             10 (sort)
+            120 LOAD_FAST                7 (rng)
+            122 LOAD_ATTR               11 (choice)
+            124 LOAD_FAST               10 (tokens)
+            126 LOAD_ATTR                9 (shape)
+            128 LOAD_CONST               5 (0)
+            130 BINARY_SUBSCR
+            132 LOAD_FAST               11 (n)
+            134 LOAD_CONST               6 (False)
+            136 LOAD_CONST               7 (('size', 'replace'))
+            138 CALL_FUNCTION_KW         3
+            140 CALL_METHOD              1
+            142 STORE_FAST              12 (idx)
+
+172         144 LOAD_GLOBAL             12 (tokens_to_seqs)
+            146 LOAD_FAST               10 (tokens)
+            148 LOAD_FAST               12 (idx)
+            150 BINARY_SUBSCR
+            152 CALL_FUNCTION            1
+            154 STORE_FAST              13 (seqs)
+
+173         156 LOAD_GLOBAL             13 (pd)
+            158 LOAD_METHOD             14 (DataFrame)
+
+175         160 LOAD_CONST               8 ('reference')
+
+176         162 LOAD_FAST                9 (set_name)
+
+177         164 LOAD_GLOBAL              3 (np)
+            166 LOAD_ATTR               15 (nan)
+
+178         168 LOAD_CONST               9 ('reference_data')
+
+179         170 LOAD_FAST               12 (idx)
+
+180         172 LOAD_GLOBAL              3 (np)
+            174 LOAD_ATTR               15 (nan)
+
+181         176 LOAD_FAST               13 (seqs)
+
+174         178 LOAD_CONST              10 (('source', 'set', 'target_c0', 'run_dir', 'sample_idx', 'score', 'seq'))
+            180 BUILD_CONST_KEY_MAP      7
+
+173         182 CALL_METHOD              1
+            184 STORE_FAST              14 (part)
+
+184         186 LOAD_FAST                8 (rows)
+            188 LOAD_METHOD             16 (append)
+            190 LOAD_GLOBAL             17 (cap_df)
+            192 LOAD_FAST               14 (part)
+            194 LOAD_FAST                3 (max_per_set)
+            196 LOAD_FAST                4 (seed)
+            198 CALL_FUNCTION            3
+            200 CALL_METHOD              1
+            202 POP_TOP
+            204 JUMP_ABSOLUTE           88
+
+185     >>  206 LOAD_GLOBAL             13 (pd)
+            208 LOAD_ATTR               18 (concat)
+            210 LOAD_FAST                8 (rows)
+            212 LOAD_CONST              11 (True)
+            214 LOAD_CONST              12 (('ignore_index',))
+            216 CALL_FUNCTION_KW         2
+            218 RETURN_VALUE
+
+================================================================================
+CODE OBJECT load_evo2  (firstlineno=188, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=4 flags=0x1000043
+  varnames=('model_name', 'Evo2', 'exc', 'model')
+  names=('evo2', 'Evo2', 'ImportError')
+  freevars=() cellvars=()
+  consts=[None, 0, ('Evo2',), 'Could not import Evo2. Install a Python 3.11/3.12 Evo2 environment first; the official package requires Python >=3.11,<3.13.']
+--------------------------------------------------------------------------------
+189           0 SETUP_FINALLY           16 (to 18)
+
+190           2 LOAD_CONST               1 (0)
+              4 LOAD_CONST               2 (('Evo2',))
+              6 IMPORT_NAME              0 (evo2)
+              8 IMPORT_FROM              1 (Evo2)
+             10 STORE_FAST               1 (Evo2)
+             12 POP_TOP
+             14 POP_BLOCK
+             16 JUMP_FORWARD            46 (to 64)
+
+191     >>   18 DUP_TOP
+             20 LOAD_GLOBAL              2 (ImportError)
+             22 JUMP_IF_NOT_EXC_MATCH    62
+             24 POP_TOP
+             26 STORE_FAST               2 (exc)
+             28 POP_TOP
+             30 SETUP_FINALLY           22 (to 54)
+
+192          32 LOAD_GLOBAL              2 (ImportError)
+
+193          34 LOAD_CONST               3 ('Could not import Evo2. Install a Python 3.11/3.12 Evo2 environment first; the official package requires Python >=3.11,<3.13.')
+
+192          36 CALL_FUNCTION            1
+
+195          38 LOAD_FAST                2 (exc)
+
+192          40 RAISE_VARARGS            2
+             42 POP_BLOCK
+             44 POP_EXCEPT
+             46 LOAD_CONST               0 (None)
+             48 STORE_FAST               2 (exc)
+             50 DELETE_FAST              2 (exc)
+             52 JUMP_FORWARD            10 (to 64)
+        >>   54 LOAD_CONST               0 (None)
+             56 STORE_FAST               2 (exc)
+             58 DELETE_FAST              2 (exc)
+             60 RERAISE
+        >>   62 RERAISE
+
+196     >>   64 LOAD_FAST                1 (Evo2)
+             66 LOAD_FAST                0 (model_name)
+             68 CALL_FUNCTION            1
+             70 STORE_FAST               3 (model)
+
+197          72 LOAD_FAST                3 (model)
+             74 RETURN_VALUE
+
+================================================================================
+CODE OBJECT model_forward  (firstlineno=200, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=2 posonly=0 kwonly=0 nlocals=5 flags=0x1000043
+  varnames=('evo2_model', 'input_ids', 'model', 'outputs', 'first')
+  names=('getattr', 'isinstance', 'tuple', 'list')
+  freevars=() cellvars=()
+  consts=[None, 'model', 0]
+--------------------------------------------------------------------------------
+201           0 LOAD_GLOBAL              0 (getattr)
+              2 LOAD_FAST                0 (evo2_model)
+              4 LOAD_CONST               1 ('model')
+              6 LOAD_FAST                0 (evo2_model)
+              8 CALL_FUNCTION            3
+             10 STORE_FAST               2 (model)
+
+202          12 LOAD_FAST                2 (model)
+             14 LOAD_FAST                1 (input_ids)
+             16 CALL_FUNCTION            1
+             18 STORE_FAST               3 (outputs)
+
+203          20 LOAD_GLOBAL              1 (isinstance)
+             22 LOAD_FAST                3 (outputs)
+             24 LOAD_GLOBAL              2 (tuple)
+             26 LOAD_GLOBAL              3 (list)
+             28 BUILD_TUPLE              2
+             30 CALL_FUNCTION            2
+             32 POP_JUMP_IF_FALSE       42
+             34 LOAD_FAST                3 (outputs)
+             36 LOAD_CONST               2 (0)
+             38 BINARY_SUBSCR
+             40 JUMP_FORWARD             2 (to 44)
+        >>   42 LOAD_FAST                3 (outputs)
+        >>   44 STORE_FAST               4 (first)
+
+204          46 LOAD_GLOBAL              1 (isinstance)
+             48 LOAD_FAST                4 (first)
+             50 LOAD_GLOBAL              2 (tuple)
+             52 LOAD_GLOBAL              3 (list)
+             54 BUILD_TUPLE              2
+             56 CALL_FUNCTION            2
+             58 POP_JUMP_IF_FALSE       68
+
+205          60 LOAD_FAST                4 (first)
+             62 LOAD_CONST               2 (0)
+             64 BINARY_SUBSCR
+             66 STORE_FAST               4 (first)
+
+206     >>   68 LOAD_FAST                4 (first)
+             70 RETURN_VALUE
+
+================================================================================
+CODE OBJECT prepare_batch  (firstlineno=209, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=2 posonly=0 kwonly=2 nlocals=12 flags=0x1000043
+  varnames=('seqs', 'tokenizer', 'prepend_bos', 'device', 'lengths', 'max_len', 'pad_id', 'bos', 'encoded', 'seq', 'token_ids', 'padding')
+  names=('np', 'array', 'int64', 'int', 'max', 'pad_id', 'eod_id', 'tokenize', 'len', 'append', 'torch', 'tensor', 'long', 'stack', 'to')
+  freevars=() cellvars=()
+  consts=[None, '<code <listcomp>>', 'prepare_batch.<locals>.<listcomp>', ('dtype',), 0, ('dim',)]
+--------------------------------------------------------------------------------
+216           0 LOAD_GLOBAL              0 (np)
+              2 LOAD_ATTR                1 (array)
+              4 LOAD_CONST               1 (<code object <listcomp> at 0x150086c993a0, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 216>)
+              6 LOAD_CONST               2 ('prepare_batch.<locals>.<listcomp>')
+              8 MAKE_FUNCTION            0
+             10 LOAD_FAST                0 (seqs)
+             12 GET_ITER
+             14 CALL_FUNCTION            1
+             16 LOAD_GLOBAL              0 (np)
+             18 LOAD_ATTR                2 (int64)
+             20 LOAD_CONST               3 (('dtype',))
+             22 CALL_FUNCTION_KW         2
+             24 STORE_FAST               4 (lengths)
+
+217          26 LOAD_GLOBAL              3 (int)
+             28 LOAD_FAST                4 (lengths)
+             30 LOAD_METHOD              4 (max)
+             32 CALL_METHOD              0
+             34 CALL_FUNCTION            1
+             36 STORE_FAST               5 (max_len)
+
+218          38 LOAD_GLOBAL              3 (int)
+             40 LOAD_FAST                1 (tokenizer)
+             42 LOAD_ATTR                5 (pad_id)
+             44 CALL_FUNCTION            1
+             46 STORE_FAST               6 (pad_id)
+
+219          48 LOAD_FAST                2 (prepend_bos)
+             50 POP_JUMP_IF_FALSE       64
+             52 LOAD_GLOBAL              3 (int)
+             54 LOAD_FAST                1 (tokenizer)
+             56 LOAD_ATTR                6 (eod_id)
+             58 CALL_FUNCTION            1
+             60 BUILD_LIST               1
+             62 JUMP_FORWARD             2 (to 66)
+        >>   64 BUILD_LIST               0
+        >>   66 STORE_FAST               7 (bos)
+
+220          68 BUILD_LIST               0
+             70 STORE_FAST               8 (encoded)
+
+221          72 LOAD_FAST                0 (seqs)
+             74 GET_ITER
+        >>   76 FOR_ITER                62 (to 140)
+             78 STORE_FAST               9 (seq)
+
+222          80 LOAD_FAST                1 (tokenizer)
+             82 LOAD_METHOD              7 (tokenize)
+             84 LOAD_FAST                9 (seq)
+             86 CALL_METHOD              1
+             88 STORE_FAST              10 (token_ids)
+
+223          90 LOAD_FAST                6 (pad_id)
+             92 BUILD_LIST               1
+             94 LOAD_FAST                5 (max_len)
+             96 LOAD_GLOBAL              8 (len)
+             98 LOAD_FAST                9 (seq)
+            100 CALL_FUNCTION            1
+            102 BINARY_SUBTRACT
+            104 BINARY_MULTIPLY
+            106 STORE_FAST              11 (padding)
+
+224         108 LOAD_FAST                8 (encoded)
+            110 LOAD_METHOD              9 (append)
+            112 LOAD_GLOBAL             10 (torch)
+            114 LOAD_ATTR               11 (tensor)
+            116 LOAD_FAST                7 (bos)
+            118 LOAD_FAST               10 (token_ids)
+            120 BINARY_ADD
+            122 LOAD_FAST               11 (padding)
+            124 BINARY_ADD
+            126 LOAD_GLOBAL             10 (torch)
+            128 LOAD_ATTR               12 (long)
+            130 LOAD_CONST               3 (('dtype',))
+            132 CALL_FUNCTION_KW         2
+            134 CALL_METHOD              1
+            136 POP_TOP
+            138 JUMP_ABSOLUTE           76
+
+225     >>  140 LOAD_GLOBAL             10 (torch)
+            142 LOAD_ATTR               13 (stack)
+            144 LOAD_FAST                8 (encoded)
+            146 LOAD_CONST               4 (0)
+            148 LOAD_CONST               5 (('dim',))
+            150 CALL_FUNCTION_KW         2
+            152 LOAD_METHOD             14 (to)
+            154 LOAD_FAST                3 (device)
+            156 CALL_METHOD              1
+            158 LOAD_FAST                4 (lengths)
+            160 BUILD_TUPLE              2
+            162 RETURN_VALUE
+
+================================================================================
+CODE OBJECT <listcomp>  (firstlineno=216, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=2 flags=0x1000053
+  varnames=('.0', 'seq')
+  names=('len',)
+  freevars=() cellvars=()
+  consts=[]
+--------------------------------------------------------------------------------
+216           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (seq)
+              8 LOAD_GLOBAL              0 (len)
+             10 LOAD_FAST                1 (seq)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+================================================================================
+CODE OBJECT score_mean_logprobs  (firstlineno=228, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=2 posonly=0 kwonly=3 nlocals=20 flags=0x1000043
+  varnames=('seqs', 'evo2_model', 'batch_size', 'prepend_bos', 'device', 'tokenizer', 'scores', 'scored_positions', 'i', 'batch', 'input_ids', 'lengths', 'logits', 'log_probs', 'token_log_probs', 'arr', 'offset', 'row_idx', 'length', 'n_scored')
+  names=('tokenizer', 'range', 'len', 'prepare_batch', 'torch', 'inference_mode', 'model_forward', 'log_softmax', 'gather', 'unsqueeze', 'squeeze', 'float', 'detach', 'cpu', 'numpy', 'enumerate', 'int', 'ValueError', 'append', 'mean', 'np', 'asarray', 'float64', 'int64')
+  freevars=() cellvars=()
+  consts=[None, 0, ('prepend_bos', 'device'), -1, ('dim',), 2, 1, 'Evo2 likelihood scoring requires sequences of length at least 2.', ('dtype',)]
+--------------------------------------------------------------------------------
+236           0 LOAD_FAST                1 (evo2_model)
+              2 LOAD_ATTR                0 (tokenizer)
+              4 STORE_FAST               5 (tokenizer)
+
+237           6 BUILD_LIST               0
+              8 STORE_FAST               6 (scores)
+
+238          10 BUILD_LIST               0
+             12 STORE_FAST               7 (scored_positions)
+
+239          14 LOAD_GLOBAL              1 (range)
+             16 LOAD_CONST               1 (0)
+             18 LOAD_GLOBAL              2 (len)
+             20 LOAD_FAST                0 (seqs)
+             22 CALL_FUNCTION            1
+             24 LOAD_FAST                2 (batch_size)
+             26 CALL_FUNCTION            3
+             28 GET_ITER
+        >>   30 EXTENDED_ARG             1
+             32 FOR_ITER               292 (to 326)
+             34 STORE_FAST               8 (i)
+
+240          36 LOAD_FAST                0 (seqs)
+             38 LOAD_FAST                8 (i)
+             40 LOAD_FAST                8 (i)
+             42 LOAD_FAST                2 (batch_size)
+             44 BINARY_ADD
+             46 BUILD_SLICE              2
+             48 BINARY_SUBSCR
+             50 STORE_FAST               9 (batch)
+
+241          52 LOAD_GLOBAL              3 (prepare_batch)
+             54 LOAD_FAST                9 (batch)
+             56 LOAD_FAST                5 (tokenizer)
+             58 LOAD_FAST                3 (prepend_bos)
+             60 LOAD_FAST                4 (device)
+             62 LOAD_CONST               2 (('prepend_bos', 'device'))
+             64 CALL_FUNCTION_KW         4
+             66 UNPACK_SEQUENCE          2
+             68 STORE_FAST              10 (input_ids)
+             70 STORE_FAST              11 (lengths)
+
+242          72 LOAD_GLOBAL              4 (torch)
+             74 LOAD_METHOD              5 (inference_mode)
+             76 CALL_METHOD              0
+             78 SETUP_WITH             104 (to 184)
+             80 POP_TOP
+
+243          82 LOAD_GLOBAL              6 (model_forward)
+             84 LOAD_FAST                1 (evo2_model)
+             86 LOAD_FAST               10 (input_ids)
+             88 CALL_FUNCTION            2
+             90 STORE_FAST              12 (logits)
+
+244          92 LOAD_GLOBAL              4 (torch)
+             94 LOAD_ATTR                7 (log_softmax)
+             96 LOAD_FAST               12 (logits)
+             98 LOAD_CONST               3 (-1)
+            100 LOAD_CONST               4 (('dim',))
+            102 CALL_FUNCTION_KW         2
+            104 STORE_FAST              13 (log_probs)
+
+245         106 LOAD_GLOBAL              4 (torch)
+            108 LOAD_METHOD              8 (gather)
+
+246         110 LOAD_FAST               13 (log_probs)
+            112 LOAD_CONST               0 (None)
+            114 LOAD_CONST               0 (None)
+            116 BUILD_SLICE              2
+            118 LOAD_CONST               0 (None)
+            120 LOAD_CONST               3 (-1)
+            122 BUILD_SLICE              2
+            124 LOAD_CONST               0 (None)
+            126 LOAD_CONST               0 (None)
+            128 BUILD_SLICE              2
+            130 BUILD_TUPLE              3
+            132 BINARY_SUBSCR
+
+247         134 LOAD_CONST               5 (2)
+
+248         136 LOAD_FAST               10 (input_ids)
+            138 LOAD_CONST               0 (None)
+            140 LOAD_CONST               0 (None)
+            142 BUILD_SLICE              2
+            144 LOAD_CONST               6 (1)
+            146 LOAD_CONST               0 (None)
+            148 BUILD_SLICE              2
+            150 BUILD_TUPLE              2
+            152 BINARY_SUBSCR
+            154 LOAD_METHOD              9 (unsqueeze)
+            156 LOAD_CONST               3 (-1)
+            158 CALL_METHOD              1
+
+245         160 CALL_METHOD              3
+            162 LOAD_METHOD             10 (squeeze)
+
+249         164 LOAD_CONST               3 (-1)
+
+245         166 CALL_METHOD              1
+            168 STORE_FAST              14 (token_log_probs)
+            170 POP_BLOCK
+            172 LOAD_CONST               0 (None)
+            174 DUP_TOP
+            176 DUP_TOP
+            178 CALL_FUNCTION            3
+            180 POP_TOP
+            182 JUMP_FORWARD            16 (to 200)
+        >>  184 WITH_EXCEPT_START
+            186 POP_JUMP_IF_TRUE       190
+            188 RERAISE
+        >>  190 POP_TOP
+            192 POP_TOP
+            194 POP_TOP
+            196 POP_EXCEPT
+            198 POP_TOP
+
+250     >>  200 LOAD_FAST               14 (token_log_probs)
+            202 LOAD_METHOD             11 (float)
+            204 CALL_METHOD              0
+            206 LOAD_METHOD             12 (detach)
+            208 CALL_METHOD              0
+            210 LOAD_METHOD             13 (cpu)
+            212 CALL_METHOD              0
+            214 LOAD_METHOD             14 (numpy)
+            216 CALL_METHOD              0
+            218 STORE_FAST              15 (arr)
+
+251         220 LOAD_FAST                3 (prepend_bos)
+            222 POP_JUMP_IF_FALSE      228
+            224 LOAD_CONST               6 (1)
+            226 JUMP_FORWARD             2 (to 230)
+        >>  228 LOAD_CONST               1 (0)
+        >>  230 STORE_FAST              16 (offset)
+
+252         232 LOAD_GLOBAL             15 (enumerate)
+            234 LOAD_FAST               11 (lengths)
+            236 CALL_FUNCTION            1
+            238 GET_ITER
+        >>  240 FOR_ITER                82 (to 324)
+            242 UNPACK_SEQUENCE          2
+            244 STORE_FAST              17 (row_idx)
+            246 STORE_FAST              18 (length)
+
+253         248 LOAD_GLOBAL             16 (int)
+            250 LOAD_FAST               18 (length)
+            252 LOAD_CONST               6 (1)
+            254 BINARY_SUBTRACT
+            256 LOAD_FAST               16 (offset)
+            258 BINARY_ADD
+            260 CALL_FUNCTION            1
+            262 STORE_FAST              19 (n_scored)
+
+254         264 LOAD_FAST               19 (n_scored)
+            266 LOAD_CONST               1 (0)
+            268 COMPARE_OP               1 (<=)
+            270 EXTENDED_ARG             1
+            272 POP_JUMP_IF_FALSE      282
+
+255         274 LOAD_GLOBAL             17 (ValueError)
+            276 LOAD_CONST               7 ('Evo2 likelihood scoring requires sequences of length at least 2.')
+            278 CALL_FUNCTION            1
+            280 RAISE_VARARGS            1
+
+256     >>  282 LOAD_FAST                6 (scores)
+            284 LOAD_METHOD             18 (append)
+            286 LOAD_GLOBAL             11 (float)
+            288 LOAD_FAST               15 (arr)
+            290 LOAD_FAST               17 (row_idx)
+            292 LOAD_CONST               0 (None)
+            294 LOAD_FAST               19 (n_scored)
+            296 BUILD_SLICE              2
+            298 BUILD_TUPLE              2
+            300 BINARY_SUBSCR
+            302 LOAD_METHOD             19 (mean)
+            304 CALL_METHOD              0
+            306 CALL_FUNCTION            1
+            308 CALL_METHOD              1
+            310 POP_TOP
+
+257         312 LOAD_FAST                7 (scored_positions)
+            314 LOAD_METHOD             18 (append)
+            316 LOAD_FAST               19 (n_scored)
+            318 CALL_METHOD              1
+            320 POP_TOP
+            322 JUMP_ABSOLUTE          240
+        >>  324 JUMP_ABSOLUTE           30
+
+258     >>  326 LOAD_GLOBAL             20 (np)
+            328 LOAD_ATTR               21 (asarray)
+            330 LOAD_FAST                6 (scores)
+            332 LOAD_GLOBAL             20 (np)
+            334 LOAD_ATTR               22 (float64)
+            336 LOAD_CONST               8 (('dtype',))
+            338 CALL_FUNCTION_KW         2
+            340 LOAD_GLOBAL             20 (np)
+            342 LOAD_ATTR               21 (asarray)
+            344 LOAD_FAST                7 (scored_positions)
+            346 LOAD_GLOBAL             20 (np)
+            348 LOAD_ATTR               23 (int64)
+            350 LOAD_CONST               8 (('dtype',))
+            352 CALL_FUNCTION_KW         2
+            354 BUILD_TUPLE              2
+            356 RETURN_VALUE
+
+================================================================================
+CODE OBJECT score_rows  (firstlineno=261, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=3 posonly=0 kwonly=0 nlocals=9 flags=0x1000043
+  varnames=('rows', 'evo2_model', 'args', 'seqs', 'fwd_scores', 'n_pos', 'rc_seqs', 'rc_scores', 'rc_n_pos')
+  names=('copy', 'astype', 'str', 'upper', 'tolist', 'score_mean_logprobs', 'batch_size', 'prepend_bos', 'device', 'reverse_complement', 'np', 'array_equal', 'RuntimeError', 'nan', 'exp')
+  freevars=() cellvars=()
+  consts=[None, 'seq', ('batch_size', 'prepend_bos', 'device'), 'evo2_mean_logprob_fwd', 'evo2_scored_positions', '<code <listcomp>>', 'score_rows.<locals>.<listcomp>', 'Forward and reverse-complement scored-position counts differ.', 'evo2_mean_logprob_rc', 0.5, 'evo2_mean_logprob', 'forward_rc_mean', 'evo2_orientation', 'forward', 'evo2_nll', 'evo2_perplexity']
+--------------------------------------------------------------------------------
+262           0 LOAD_FAST                0 (rows)
+              2 LOAD_METHOD              0 (copy)
+              4 CALL_METHOD              0
+              6 STORE_FAST               0 (rows)
+
+263           8 LOAD_FAST                0 (rows)
+             10 LOAD_CONST               1 ('seq')
+             12 BINARY_SUBSCR
+             14 LOAD_METHOD              1 (astype)
+             16 LOAD_GLOBAL              2 (str)
+             18 CALL_METHOD              1
+             20 LOAD_ATTR                2 (str)
+             22 LOAD_METHOD              3 (upper)
+             24 CALL_METHOD              0
+             26 LOAD_METHOD              4 (tolist)
+             28 CALL_METHOD              0
+             30 STORE_FAST               3 (seqs)
+
+264          32 LOAD_GLOBAL              5 (score_mean_logprobs)
+
+265          34 LOAD_FAST                3 (seqs)
+
+266          36 LOAD_FAST                1 (evo2_model)
+
+267          38 LOAD_FAST                2 (args)
+             40 LOAD_ATTR                6 (batch_size)
+
+268          42 LOAD_FAST                2 (args)
+             44 LOAD_ATTR                7 (prepend_bos)
+
+269          46 LOAD_FAST                2 (args)
+             48 LOAD_ATTR                8 (device)
+
+264          50 LOAD_CONST               2 (('batch_size', 'prepend_bos', 'device'))
+             52 CALL_FUNCTION_KW         5
+             54 UNPACK_SEQUENCE          2
+             56 STORE_FAST               4 (fwd_scores)
+             58 STORE_FAST               5 (n_pos)
+
+271          60 LOAD_FAST                4 (fwd_scores)
+             62 LOAD_FAST                0 (rows)
+             64 LOAD_CONST               3 ('evo2_mean_logprob_fwd')
+             66 STORE_SUBSCR
+
+272          68 LOAD_FAST                5 (n_pos)
+             70 LOAD_FAST                0 (rows)
+             72 LOAD_CONST               4 ('evo2_scored_positions')
+             74 STORE_SUBSCR
+
+273          76 LOAD_FAST                2 (args)
+             78 LOAD_ATTR                9 (reverse_complement)
+             80 POP_JUMP_IF_FALSE      178
+
+274          82 LOAD_CONST               5 (<code object <listcomp> at 0x150086caab30, file "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py", line 274>)
+             84 LOAD_CONST               6 ('score_rows.<locals>.<listcomp>')
+             86 MAKE_FUNCTION            0
+             88 LOAD_FAST                3 (seqs)
+             90 GET_ITER
+             92 CALL_FUNCTION            1
+             94 STORE_FAST               6 (rc_seqs)
+
+275          96 LOAD_GLOBAL              5 (score_mean_logprobs)
+
+276          98 LOAD_FAST                6 (rc_seqs)
+
+277         100 LOAD_FAST                1 (evo2_model)
+
+278         102 LOAD_FAST                2 (args)
+            104 LOAD_ATTR                6 (batch_size)
+
+279         106 LOAD_FAST                2 (args)
+            108 LOAD_ATTR                7 (prepend_bos)
+
+280         110 LOAD_FAST                2 (args)
+            112 LOAD_ATTR                8 (device)
+
+275         114 LOAD_CONST               2 (('batch_size', 'prepend_bos', 'device'))
+            116 CALL_FUNCTION_KW         5
+            118 UNPACK_SEQUENCE          2
+            120 STORE_FAST               7 (rc_scores)
+            122 STORE_FAST               8 (rc_n_pos)
+
+282         124 LOAD_GLOBAL             10 (np)
+            126 LOAD_METHOD             11 (array_equal)
+            128 LOAD_FAST                5 (n_pos)
+            130 LOAD_FAST                8 (rc_n_pos)
+            132 CALL_METHOD              2
+            134 POP_JUMP_IF_TRUE       144
+
+283         136 LOAD_GLOBAL             12 (RuntimeError)
+            138 LOAD_CONST               7 ('Forward and reverse-complement scored-position counts differ.')
+            140 CALL_FUNCTION            1
+            142 RAISE_VARARGS            1
+
+284     >>  144 LOAD_FAST                7 (rc_scores)
+            146 LOAD_FAST                0 (rows)
+            148 LOAD_CONST               8 ('evo2_mean_logprob_rc')
+            150 STORE_SUBSCR
+
+285         152 LOAD_FAST                4 (fwd_scores)
+            154 LOAD_FAST                7 (rc_scores)
+            156 BINARY_ADD
+            158 LOAD_CONST               9 (0.5)
+            160 BINARY_MULTIPLY
+            162 LOAD_FAST                0 (rows)
+            164 LOAD_CONST              10 ('evo2_mean_logprob')
+            166 STORE_SUBSCR
+
+286         168 LOAD_CONST              11 ('forward_rc_mean')
+            170 LOAD_FAST                0 (rows)
+            172 LOAD_CONST              12 ('evo2_orientation')
+            174 STORE_SUBSCR
+            176 JUMP_FORWARD            26 (to 204)
+
+288     >>  178 LOAD_GLOBAL             10 (np)
+            180 LOAD_ATTR               13 (nan)
+            182 LOAD_FAST                0 (rows)
+            184 LOAD_CONST               8 ('evo2_mean_logprob_rc')
+            186 STORE_SUBSCR
+
+289         188 LOAD_FAST                4 (fwd_scores)
+            190 LOAD_FAST                0 (rows)
+            192 LOAD_CONST              10 ('evo2_mean_logprob')
+            194 STORE_SUBSCR
+
+290         196 LOAD_CONST              13 ('forward')
+            198 LOAD_FAST                0 (rows)
+            200 LOAD_CONST              12 ('evo2_orientation')
+            202 STORE_SUBSCR
+
+291     >>  204 LOAD_FAST                0 (rows)
+            206 LOAD_CONST              10 ('evo2_mean_logprob')
+            208 BINARY_SUBSCR
+            210 UNARY_NEGATIVE
+            212 LOAD_FAST                0 (rows)
+            214 LOAD_CONST              14 ('evo2_nll')
+            216 STORE_SUBSCR
+
+292         218 LOAD_GLOBAL             10 (np)
+            220 LOAD_METHOD             14 (exp)
+            222 LOAD_FAST                0 (rows)
+            224 LOAD_CONST              14 ('evo2_nll')
+            226 BINARY_SUBSCR
+            228 CALL_METHOD              1
+            230 LOAD_FAST                0 (rows)
+            232 LOAD_CONST              15 ('evo2_perplexity')
+            234 STORE_SUBSCR
+
+293         236 LOAD_FAST                0 (rows)
+            238 RETURN_VALUE
+
+================================================================================
+CODE OBJECT <listcomp>  (firstlineno=274, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=1 posonly=0 kwonly=0 nlocals=2 flags=0x1000053
+  varnames=('.0', 'seq')
+  names=('reverse_complement',)
+  freevars=() cellvars=()
+  consts=[]
+--------------------------------------------------------------------------------
+274           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        >>    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (seq)
+              8 LOAD_GLOBAL              0 (reverse_complement)
+             10 LOAD_FAST                1 (seq)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        >>   18 RETURN_VALUE
+
+================================================================================
+CODE OBJECT bootstrap_ci  (firstlineno=296, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=3 posonly=0 kwonly=0 nlocals=5 flags=0x1000043
+  varnames=('values', 'n_boot', 'seed', 'rng', 'draws')
+  names=('np', 'asarray', 'float64', 'len', 'nan', 'random', 'default_rng', 'choice', 'mean', 'tuple', 'quantile', 'astype', 'float')
+  freevars=() cellvars=()
+  consts=[None, ('dtype',), 0, True, ('size', 'replace'), 1, ('axis',), 0.025, 0.975]
+--------------------------------------------------------------------------------
+297           0 LOAD_GLOBAL              0 (np)
+              2 LOAD_ATTR                1 (asarray)
+              4 LOAD_FAST                0 (values)
+              6 LOAD_GLOBAL              0 (np)
+              8 LOAD_ATTR                2 (float64)
+             10 LOAD_CONST               1 (('dtype',))
+             12 CALL_FUNCTION_KW         2
+             14 STORE_FAST               0 (values)
+
+298          16 LOAD_GLOBAL              3 (len)
+             18 LOAD_FAST                0 (values)
+             20 CALL_FUNCTION            1
+             22 LOAD_CONST               2 (0)
+             24 COMPARE_OP               2 (==)
+             26 POP_JUMP_IF_FALSE       40
+
+299          28 LOAD_GLOBAL              0 (np)
+             30 LOAD_ATTR                4 (nan)
+             32 LOAD_GLOBAL              0 (np)
+             34 LOAD_ATTR                4 (nan)
+             36 BUILD_TUPLE              2
+             38 RETURN_VALUE
+
+300     >>   40 LOAD_FAST                1 (n_boot)
+             42 LOAD_CONST               2 (0)
+             44 COMPARE_OP               1 (<=)
+             46 POP_JUMP_IF_FALSE       60
+
+301          48 LOAD_GLOBAL              0 (np)
+             50 LOAD_ATTR                4 (nan)
+             52 LOAD_GLOBAL              0 (np)
+             54 LOAD_ATTR                4 (nan)
+             56 BUILD_TUPLE              2
+             58 RETURN_VALUE
+
+302     >>   60 LOAD_GLOBAL              0 (np)
+             62 LOAD_ATTR                5 (random)
+             64 LOAD_METHOD              6 (default_rng)
+             66 LOAD_FAST                2 (seed)
+             68 CALL_METHOD              1
+             70 STORE_FAST               3 (rng)
+
+303          72 LOAD_FAST                3 (rng)
+             74 LOAD_ATTR                7 (choice)
+             76 LOAD_FAST                0 (values)
+             78 LOAD_FAST                1 (n_boot)
+             80 LOAD_GLOBAL              3 (len)
+             82 LOAD_FAST                0 (values)
+             84 CALL_FUNCTION            1
+             86 BUILD_TUPLE              2
+             88 LOAD_CONST               3 (True)
+             90 LOAD_CONST               4 (('size', 'replace'))
+             92 CALL_FUNCTION_KW         3
+             94 LOAD_ATTR                8 (mean)
+             96 LOAD_CONST               5 (1)
+             98 LOAD_CONST               6 (('axis',))
+            100 CALL_FUNCTION_KW         1
+            102 STORE_FAST               4 (draws)
+
+304         104 LOAD_GLOBAL              9 (tuple)
+            106 LOAD_GLOBAL              0 (np)
+            108 LOAD_METHOD             10 (quantile)
+            110 LOAD_FAST                4 (draws)
+            112 LOAD_CONST               7 (0.025)
+            114 LOAD_CONST               8 (0.975)
+            116 BUILD_LIST               2
+            118 CALL_METHOD              2
+            120 LOAD_METHOD             11 (astype)
+            122 LOAD_GLOBAL             12 (float)
+            124 CALL_METHOD              1
+            126 CALL_FUNCTION            1
+            128 RETURN_VALUE
+
+================================================================================
+CODE OBJECT summarize  (firstlineno=307, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=3 posonly=0 kwonly=0 nlocals=16 flags=0x1000043
+  varnames=('scored', 'n_boot', 'seed', 'split_test', 'heldout_nll', 'rows', 'group_cols', 'key', 'part', 'source', 'set_name', 'target', 'nll', 'ppl', 'ci_low', 'ci_high')
+  names=('empty', 'float', 'mean', 'np', 'nan', 'groupby', 'to_numpy', 'float64', 'bootstrap_ci', 'append', 'len', 'int', 'str', 'iloc', 'std', 'median', 'exp', 'isfinite', 'pd', 'DataFrame')
+  freevars=() cellvars=()
+  consts=[None, 'set', 'split_test_sample', 'evo2_nll', ('source', 'set', 'target_c0'), False, True, ('dropna', 'sort'), ('dtype',), 'evo2_perplexity', 'seq', 0, 'evo2_scored_positions', 'evo2_orientation', 'evo2_mean_logprob', ('ddof',), ('source', 'set', 'target_c0', 'n_samples', 'seq_len', 'scored_positions', 'orientation', 'evo2_mean_logprob_mean', 'evo2_nll_mean', 'evo2_nll_std', 'evo2_nll_median', 'evo2_nll_mean_ci95_low', 'evo2_nll_mean_ci95_high', 'evo2_perplexity_mean', 'evo2_perplexity_from_mean_nll', 'evo2_perplexity_median', 'evo2_nll_delta_vs_split_test')]
+--------------------------------------------------------------------------------
+308           0 LOAD_FAST                0 (scored)
+              2 LOAD_FAST                0 (scored)
+              4 LOAD_CONST               1 ('set')
+              6 BINARY_SUBSCR
+              8 LOAD_CONST               2 ('split_test_sample')
+             10 COMPARE_OP               2 (==)
+             12 BINARY_SUBSCR
+             14 STORE_FAST               3 (split_test)
+
+309          16 LOAD_FAST                3 (split_test)
+             18 LOAD_ATTR                0 (empty)
+             20 POP_JUMP_IF_TRUE        38
+             22 LOAD_GLOBAL              1 (float)
+             24 LOAD_FAST                3 (split_test)
+             26 LOAD_CONST               3 ('evo2_nll')
+             28 BINARY_SUBSCR
+             30 LOAD_METHOD              2 (mean)
+             32 CALL_METHOD              0
+             34 CALL_FUNCTION            1
+             36 JUMP_FORWARD             4 (to 42)
+        >>   38 LOAD_GLOBAL              3 (np)
+             40 LOAD_ATTR                4 (nan)
+        >>   42 STORE_FAST               4 (heldout_nll)
+
+310          44 BUILD_LIST               0
+             46 STORE_FAST               5 (rows)
+
+311          48 BUILD_LIST               0
+             50 LOAD_CONST               4 (('source', 'set', 'target_c0'))
+             52 LIST_EXTEND              1
+             54 STORE_FAST               6 (group_cols)
+
+312          56 LOAD_FAST                0 (scored)
+             58 LOAD_ATTR                5 (groupby)
+             60 LOAD_FAST                6 (group_cols)
+             62 LOAD_CONST               5 (False)
+             64 LOAD_CONST               6 (True)
+             66 LOAD_CONST               7 (('dropna', 'sort'))
+             68 CALL_FUNCTION_KW         3
+             70 GET_ITER
+        >>   72 EXTENDED_ARG             1
+             74 FOR_ITER               266 (to 342)
+             76 UNPACK_SEQUENCE          2
+             78 STORE_FAST               7 (key)
+             80 STORE_FAST               8 (part)
+
+313          82 LOAD_FAST                7 (key)
+             84 UNPACK_SEQUENCE          3
+             86 STORE_FAST               9 (source)
+             88 STORE_FAST              10 (set_name)
+             90 STORE_FAST              11 (target)
+
+314          92 LOAD_FAST                8 (part)
+             94 LOAD_CONST               3 ('evo2_nll')
+             96 BINARY_SUBSCR
+             98 LOAD_ATTR                6 (to_numpy)
+            100 LOAD_GLOBAL              3 (np)
+            102 LOAD_ATTR                7 (float64)
+            104 LOAD_CONST               8 (('dtype',))
+            106 CALL_FUNCTION_KW         1
+            108 STORE_FAST              12 (nll)
+
+315         110 LOAD_FAST                8 (part)
+            112 LOAD_CONST               9 ('evo2_perplexity')
+            114 BINARY_SUBSCR
+            116 LOAD_ATTR                6 (to_numpy)
+            118 LOAD_GLOBAL              3 (np)
+            120 LOAD_ATTR                7 (float64)
+            122 LOAD_CONST               8 (('dtype',))
+            124 CALL_FUNCTION_KW         1
+            126 STORE_FAST              13 (ppl)
+
+316         128 LOAD_GLOBAL              8 (bootstrap_ci)
+            130 LOAD_FAST               12 (nll)
+            132 LOAD_FAST                1 (n_boot)
+            134 LOAD_FAST                2 (seed)
+            136 CALL_FUNCTION            3
+            138 UNPACK_SEQUENCE          2
+            140 STORE_FAST              14 (ci_low)
+            142 STORE_FAST              15 (ci_high)
+
+317         144 LOAD_FAST                5 (rows)
+            146 LOAD_METHOD              9 (append)
+
+319         148 LOAD_FAST                9 (source)
+
+320         150 LOAD_FAST               10 (set_name)
+
+321         152 LOAD_FAST               11 (target)
+
+322         154 LOAD_GLOBAL             10 (len)
+            156 LOAD_FAST                8 (part)
+            158 CALL_FUNCTION            1
+
+323         160 LOAD_GLOBAL             11 (int)
+            162 LOAD_FAST                8 (part)
+            164 LOAD_CONST              10 ('seq')
+            166 BINARY_SUBSCR
+            168 LOAD_ATTR               12 (str)
+            170 LOAD_METHOD             10 (len)
+            172 CALL_METHOD              0
+            174 LOAD_ATTR               13 (iloc)
+            176 LOAD_CONST              11 (0)
+            178 BINARY_SUBSCR
+            180 CALL_FUNCTION            1
+
+324         182 LOAD_GLOBAL              1 (float)
+            184 LOAD_FAST                8 (part)
+            186 LOAD_CONST              12 ('evo2_scored_positions')
+            188 BINARY_SUBSCR
+            190 LOAD_METHOD              2 (mean)
+            192 CALL_METHOD              0
+            194 CALL_FUNCTION            1
+
+325         196 LOAD_FAST                8 (part)
+            198 LOAD_CONST              13 ('evo2_orientation')
+            200 BINARY_SUBSCR
+            202 LOAD_ATTR               13 (iloc)
+            204 LOAD_CONST              11 (0)
+            206 BINARY_SUBSCR
+
+326         208 LOAD_GLOBAL              1 (float)
+            210 LOAD_FAST                8 (part)
+            212 LOAD_CONST              14 ('evo2_mean_logprob')
+            214 BINARY_SUBSCR
+            216 LOAD_METHOD              2 (mean)
+            218 CALL_METHOD              0
+            220 CALL_FUNCTION            1
+
+327         222 LOAD_GLOBAL              1 (float)
+            224 LOAD_FAST               12 (nll)
+            226 LOAD_METHOD              2 (mean)
+            228 CALL_METHOD              0
+            230 CALL_FUNCTION            1
+
+328         232 LOAD_GLOBAL              1 (float)
+            234 LOAD_FAST               12 (nll)
+            236 LOAD_ATTR               14 (std)
+            238 LOAD_CONST              11 (0)
+            240 LOAD_CONST              15 (('ddof',))
+            242 CALL_FUNCTION_KW         1
+            244 CALL_FUNCTION            1
+
+329         246 LOAD_GLOBAL              1 (float)
+            248 LOAD_GLOBAL              3 (np)
+            250 LOAD_METHOD             15 (median)
+            252 LOAD_FAST               12 (nll)
+            254 CALL_METHOD              1
+            256 CALL_FUNCTION            1
+
+330         258 LOAD_FAST               14 (ci_low)
+
+331         260 LOAD_FAST               15 (ci_high)
+
+332         262 LOAD_GLOBAL              1 (float)
+            264 LOAD_FAST               13 (ppl)
+            266 LOAD_METHOD              2 (mean)
+            268 CALL_METHOD              0
+            270 CALL_FUNCTION            1
+
+333         272 LOAD_GLOBAL              1 (float)
+            274 LOAD_GLOBAL              3 (np)
+            276 LOAD_METHOD             16 (exp)
+            278 LOAD_FAST               12 (nll)
+            280 LOAD_METHOD              2 (mean)
+            282 CALL_METHOD              0
+            284 CALL_METHOD              1
+            286 CALL_FUNCTION            1
+
+334         288 LOAD_GLOBAL              1 (float)
+            290 LOAD_GLOBAL              3 (np)
+            292 LOAD_METHOD             15 (median)
+            294 LOAD_FAST               13 (ppl)
+            296 CALL_METHOD              1
+            298 CALL_FUNCTION            1
+
+336         300 LOAD_GLOBAL              3 (np)
+            302 LOAD_METHOD             17 (isfinite)
+            304 LOAD_FAST                4 (heldout_nll)
+            306 CALL_METHOD              1
+
+335         308 EXTENDED_ARG             1
+            310 POP_JUMP_IF_FALSE      328
+            312 LOAD_GLOBAL              1 (float)
+            314 LOAD_FAST               12 (nll)
+            316 LOAD_METHOD              2 (mean)
+            318 CALL_METHOD              0
+            320 LOAD_FAST                4 (heldout_nll)
+            322 BINARY_SUBTRACT
+            324 CALL_FUNCTION            1
+            326 JUMP_FORWARD             4 (to 332)
+
+337     >>  328 LOAD_GLOBAL              3 (np)
+            330 LOAD_ATTR                4 (nan)
+
+318     >>  332 LOAD_CONST              16 (('source', 'set', 'target_c0', 'n_samples', 'seq_len', 'scored_positions', 'orientation', 'evo2_mean_logprob_mean', 'evo2_nll_mean', 'evo2_nll_std', 'evo2_nll_median', 'evo2_nll_mean_ci95_low', 'evo2_nll_mean_ci95_high', 'evo2_perplexity_mean', 'evo2_perplexity_from_mean_nll', 'evo2_perplexity_median', 'evo2_nll_delta_vs_split_test'))
+            334 BUILD_CONST_KEY_MAP     17
+
+317         336 CALL_METHOD              1
+            338 POP_TOP
+            340 JUMP_ABSOLUTE           72
+
+340     >>  342 LOAD_GLOBAL             18 (pd)
+            344 LOAD_METHOD             19 (DataFrame)
+            346 LOAD_FAST                5 (rows)
+            348 CALL_METHOD              1
+            350 RETURN_VALUE
+
+================================================================================
+CODE OBJECT main  (firstlineno=343, file=/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/scripts/score_yeast_c0_evo2.py)
+  argcount=0 posonly=0 kwonly=0 nlocals=10 flags=0x1000043
+  varnames=('args', 'out_dir', 'csvs', 'targets', 'rows', 'evo2_model', 'scored', 'summary', 'scored_path', 'summary_path')
+  names=('parse_args', 'Path', 'out_dir', 'mkdir', 'discover_csvs', 'run_glob', 'FileNotFoundError', 'targets', 'set', 'pd', 'concat', 'baseline_rows', 'train_pt', 'split_pt', 'baseline_n', 'max_per_set', 'seed', 'generated_rows', 'empty', 'ValueError', 'load_evo2', 'model_name', 'score_rows', 'summarize', 'bootstrap', 'to_csv', 'print', 'to_string')
+  freevars=() cellvars=()
+  consts=[None, True, ('parents', 'exist_ok'), 'No sample_scores.csv files matched: ', ('ignore_index',), 'No sequences to score.', 'evo2_per_sequence.csv', 'evo2_summary.csv', False, ('index',), '\nwrote ', 'wrote ']
+--------------------------------------------------------------------------------
+344           0 LOAD_GLOBAL              0 (parse_args)
+              2 CALL_FUNCTION            0
+              4 STORE_FAST               0 (args)
+
+345           6 LOAD_GLOBAL              1 (Path)
+              8 LOAD_FAST                0 (args)
+             10 LOAD_ATTR                2 (out_dir)
+             12 CALL_FUNCTION            1
+             14 STORE_FAST               1 (out_dir)
+
+346          16 LOAD_FAST                1 (out_dir)
+             18 LOAD_ATTR                3 (mkdir)
+             20 LOAD_CONST               1 (True)
+             22 LOAD_CONST               1 (True)
+             24 LOAD_CONST               2 (('parents', 'exist_ok'))
+             26 CALL_FUNCTION_KW         2
+             28 POP_TOP
+
+348          30 LOAD_GLOBAL              4 (discover_csvs)
+             32 LOAD_FAST                0 (args)
+             34 LOAD_ATTR                5 (run_glob)
+             36 CALL_FUNCTION            1
+             38 STORE_FAST               2 (csvs)
+
+349          40 LOAD_FAST                2 (csvs)
+             42 POP_JUMP_IF_TRUE        60
+
+350          44 LOAD_GLOBAL              6 (FileNotFoundError)
+             46 LOAD_CONST               3 ('No sample_scores.csv files matched: ')
+             48 LOAD_FAST                0 (args)
+             50 LOAD_ATTR                5 (run_glob)
+             52 FORMAT_VALUE             0
+             54 BUILD_STRING             2
+             56 CALL_FUNCTION            1
+             58 RAISE_VARARGS            1
+
+351     >>   60 LOAD_FAST                0 (args)
+             62 LOAD_ATTR                7 (targets)
+             64 LOAD_CONST               0 (None)
+             66 IS_OP                    1
+             68 POP_JUMP_IF_FALSE       80
+             70 LOAD_GLOBAL              8 (set)
+             72 LOAD_FAST                0 (args)
+             74 LOAD_ATTR                7 (targets)
+             76 CALL_FUNCTION            1
+             78 JUMP_FORWARD             2 (to 82)
+        >>   80 LOAD_CONST               0 (None)
+        >>   82 STORE_FAST               3 (targets)
+
+353          84 LOAD_GLOBAL              9 (pd)
+             86 LOAD_ATTR               10 (concat)
+
+355          88 LOAD_GLOBAL             11 (baseline_rows)
+             90 LOAD_FAST                0 (args)
+             92 LOAD_ATTR               12 (train_pt)
+             94 LOAD_FAST                0 (args)
+             96 LOAD_ATTR               13 (split_pt)
+             98 LOAD_FAST                0 (args)
+            100 LOAD_ATTR               14 (baseline_n)
+            102 LOAD_FAST                0 (args)
+            104 LOAD_ATTR               15 (max_per_set)
+            106 LOAD_FAST                0 (args)
+            108 LOAD_ATTR               16 (seed)
+            110 CALL_FUNCTION            5
+
+356         112 LOAD_GLOBAL             17 (generated_rows)
+            114 LOAD_FAST                2 (csvs)
+            116 LOAD_FAST                3 (targets)
+            118 LOAD_FAST                0 (args)
+            120 LOAD_ATTR               15 (max_per_set)
+            122 LOAD_FAST                0 (args)
+            124 LOAD_ATTR               16 (seed)
+            126 CALL_FUNCTION            4
+
+354         128 BUILD_LIST               2
+
+358         130 LOAD_CONST               1 (True)
+
+353         132 LOAD_CONST               4 (('ignore_index',))
+            134 CALL_FUNCTION_KW         2
+            136 STORE_FAST               4 (rows)
+
+360         138 LOAD_FAST                4 (rows)
+            140 LOAD_ATTR               18 (empty)
+            142 POP_JUMP_IF_FALSE      152
+
+361         144 LOAD_GLOBAL             19 (ValueError)
+            146 LOAD_CONST               5 ('No sequences to score.')
+            148 CALL_FUNCTION            1
+            150 RAISE_VARARGS            1
+
+363     >>  152 LOAD_GLOBAL             20 (load_evo2)
+            154 LOAD_FAST                0 (args)
+            156 LOAD_ATTR               21 (model_name)
+            158 CALL_FUNCTION            1
+            160 STORE_FAST               5 (evo2_model)
+
+364         162 LOAD_GLOBAL             22 (score_rows)
+            164 LOAD_FAST                4 (rows)
+            166 LOAD_FAST                5 (evo2_model)
+            168 LOAD_FAST                0 (args)
+            170 CALL_FUNCTION            3
+            172 STORE_FAST               6 (scored)
+
+365         174 LOAD_GLOBAL             23 (summarize)
+            176 LOAD_FAST                6 (scored)
+            178 LOAD_FAST                0 (args)
+            180 LOAD_ATTR               24 (bootstrap)
+            182 LOAD_FAST                0 (args)
+            184 LOAD_ATTR               16 (seed)
+            186 CALL_FUNCTION            3
+            188 STORE_FAST               7 (summary)
+
+367         190 LOAD_FAST                1 (out_dir)
+            192 LOAD_CONST               6 ('evo2_per_sequence.csv')
+            194 BINARY_TRUE_DIVIDE
+            196 STORE_FAST               8 (scored_path)
+
+368         198 LOAD_FAST                1 (out_dir)
+            200 LOAD_CONST               7 ('evo2_summary.csv')
+            202 BINARY_TRUE_DIVIDE
+            204 STORE_FAST               9 (summary_path)
+
+369         206 LOAD_FAST                6 (scored)
+            208 LOAD_ATTR               25 (to_csv)
+            210 LOAD_FAST                8 (scored_path)
+            212 LOAD_CONST               8 (False)
+            214 LOAD_CONST               9 (('index',))
+            216 CALL_FUNCTION_KW         2
+            218 POP_TOP
+
+370         220 LOAD_FAST                7 (summary)
+            222 LOAD_ATTR               25 (to_csv)
+            224 LOAD_FAST                9 (summary_path)
+            226 LOAD_CONST               8 (False)
+            228 LOAD_CONST               9 (('index',))
+            230 CALL_FUNCTION_KW         2
+            232 POP_TOP
+
+372         234 LOAD_GLOBAL             26 (print)
+            236 LOAD_FAST                7 (summary)
+            238 LOAD_ATTR               27 (to_string)
+            240 LOAD_CONST               8 (False)
+            242 LOAD_CONST               9 (('index',))
+            244 CALL_FUNCTION_KW         1
+            246 CALL_FUNCTION            1
+            248 POP_TOP
+
+373         250 LOAD_GLOBAL             26 (print)
+            252 LOAD_CONST              10 ('\nwrote ')
+            254 LOAD_FAST                8 (scored_path)
+            256 FORMAT_VALUE             0
+            258 BUILD_STRING             2
+            260 CALL_FUNCTION            1
+            262 POP_TOP
+
+374         264 LOAD_GLOBAL             26 (print)
+            266 LOAD_CONST              11 ('wrote ')
+            268 LOAD_FAST                9 (summary_path)
+            270 FORMAT_VALUE             0
+            272 BUILD_STRING             2
+            274 CALL_FUNCTION            1
+            276 POP_TOP
+            278 LOAD_CONST               0 (None)
+            280 RETURN_VALUE

@@ -1,0 +1,71 @@
+{
+  "_what": "Table 16 replacement: total-variation distance between global base-composition marginals, with a real-vs-real floor.",
+  "_why": "The published Pearson rows are computed on 4 constrained numbers; against a sampled uniform reference r is exactly Uniform(-1,1) and measures nothing.",
+  "source": "results/dna/regen/fig6_table16/global_marginals.csv",
+  "rows": [
+    {
+      "comparison": "generated vs real (matched n)",
+      "reference": "real",
+      "n_reference": 4096,
+      "other": "generated",
+      "n_other": 4096,
+      "total_variation": 0.014834,
+      "note": "the comparison the table is making"
+    },
+    {
+      "comparison": "uniform vs real (matched n)",
+      "reference": "real",
+      "n_reference": 4096,
+      "other": "uniform",
+      "n_other": 4096,
+      "total_variation": 0.106416,
+      "note": "the row that was pure noise as a correlation"
+    },
+    {
+      "comparison": "generated vs held-out real",
+      "reference": "real_test",
+      "n_reference": 8294,
+      "other": "generated",
+      "n_other": 4096,
+      "total_variation": 0.01443,
+      "note": "against the parent-disjoint test split"
+    },
+    {
+      "comparison": "uniform vs held-out real",
+      "reference": "real_test",
+      "n_reference": 8294,
+      "other": "uniform",
+      "n_other": 4096,
+      "total_variation": 0.106438,
+      "note": "against the parent-disjoint test split"
+    },
+    {
+      "comparison": "generated vs training-split real",
+      "reference": "real_a_train",
+      "n_reference": 32890,
+      "other": "generated",
+      "n_other": 4096,
+      "total_variation": 0.007395,
+      "note": "the split the generator was trained on"
+    },
+    {
+      "comparison": "FLOOR: train real vs held-out real",
+      "reference": "real_test",
+      "n_reference": 8294,
+      "other": "real_a_train",
+      "n_other": 32890,
+      "total_variation": 0.010084,
+      "note": "two disjoint REAL splits -- the resolution limit of this measurement"
+    }
+  ],
+  "verdict": {
+    "floor_real_vs_real": 0.010084,
+    "generated_vs_heldout": 0.01443,
+    "generated_vs_train": 0.007395,
+    "uniform_vs_heldout": 0.106438,
+    "generated_within_floor_heldout": false,
+    "generated_within_floor_train": true,
+    "uniform_over_floor_x": 10.6,
+    "reading": "Uniform is an order of magnitude outside the real-vs-real floor, so the qualitative claim stands. But the generated marginals are not inside that floor against held-out parents: they sit at about 1.4x it, while sitting INSIDE it against the split the generator trained on. That gap is a generalisation effect the correlation could not show, and it should be reported rather than smoothed over."
+  }
+}

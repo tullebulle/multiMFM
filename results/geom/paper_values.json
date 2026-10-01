@@ -1,0 +1,80 @@
+{
+  "_what": "Numbers printed in the paper for the GEOM-Drugs experiment, transcribed verbatim. Nothing here is recomputed; the notebook puts these next to the values rebuilt from results/geom/.",
+  "_paper": "dMFM (40).pdf, ICLR 2027 submission 'Scalable inference-time steering in molecular design with multimodal Meta Flow Maps'",
+  "_precision": "Values the paper prints with a fixed number of decimals are stored as STRINGS holding the printed literal (thousands separators dropped so float() parses them). JSON numbers cannot carry trailing zeros -- 0.170 reads back as 0.17 -- and notebooks/_common.py compare() derives its tolerance from the decimal count, so a float would silently loosen it tenfold. Entries not fed to compare() (table19_geom_column, table20_geom_column, max_heavy_atoms) stay numeric.",
+  "table3": {
+    "caption": "GEOM-DRUGS structural fingerprint guidance. The two reference values are from TFG-Flow. multiMFM yielded 87.5% PB-valid structures, compared with 92.0% for its base generator.",
+    "_paper_lines": "paper.txt 385-391 (Table 3, p.7); PB percentages in the caption",
+    "rows": [
+      {"method": "Unconditional generation (TFG-Flow “Upper bound”)", "tanimoto": "0.170", "tanimoto_err": "0.001", "source": "Lin et al. 2025"},
+      {"method": "TFG-Flow (Lin et al., 2025)", "tanimoto": "0.208", "tanimoto_err": "0.002", "source": "Lin et al. 2025"},
+      {"method": "multiMFM", "tanimoto": "0.227", "tanimoto_err": null, "source": "this work"}
+    ],
+    "multimfm_pb_valid_pct": "87.5",
+    "base_pb_valid_pct": "92.0"
+  },
+  "text_claims": {
+    "num_molecules_evaluated": "4096",
+    "num_molecules_text": "The GEOM-Drugs evaluation generated 4,096 molecules; its reported Tanimoto similarity and PB validity come from the same run. (App. F.9)",
+    "guide_predictor": "Our E(G) is off-the-shelf from TFG-Flow. (Sec. 3.2)",
+    "max_heavy_atoms": 71,
+    "inference_settings": "10 flow-map integration steps and four posterior samples within a 100-step outer ODE trajectory. (App. F.8)"
+  },
+  "table19_geom_column": {
+    "training_set": "~1.17M conformers",
+    "hydrogen_atoms": "Excluded",
+    "max_heavy_atoms_in_data": 71,
+    "atom_vector_dimension": 9,
+    "coordinate_normalization_divisor": 2.0,
+    "probability_path": "Linear",
+    "training_time_distribution": "Beta(1.8, 1)",
+    "hidden_width": 256,
+    "transformer_layers": 16,
+    "attention_heads": 8,
+    "cross_attention": "Enabled",
+    "optimizer": "Adam",
+    "optimizer_betas": [0.9, 0.995],
+    "learning_rate": 0.002,
+    "learning_rate_schedule": "Constant",
+    "weight_decay": 0,
+    "gradient_clipping_l2": 0.5,
+    "ema_decay": 0.999,
+    "batch_before_rotation_copies": 512,
+    "additional_rotation_copies": 7,
+    "batch_including_rotation_copies": 4096,
+    "selected_checkpoint_step": 89310,
+    "coordinate_loss_coefficient": 1.0,
+    "atom_loss_coefficient": 0.1
+  },
+  "table20_geom_column": {
+    "hidden_width": 256,
+    "layers": 16,
+    "heads": 8,
+    "conditioning": "Additive",
+    "velocity_parameterization": "Endpoint",
+    "batch_per_gpu": 96,
+    "num_gpus": 4,
+    "global_batch": 384,
+    "selected_updates_in_phase": 10000,
+    "cosine_schedule_horizon": 30000,
+    "optimizer": "Adam",
+    "peak_learning_rate": 0.0001,
+    "warmup_steps": 500,
+    "gradient_clipping_l2": 1.0,
+    "ema_decay": 0.995,
+    "objective": "Diagonal + ESD",
+    "coordinate_weight": 1.0,
+    "atom_weight": 1.0,
+    "maximum_training_time_t_max": 0.95,
+    "conditioning_states": "Noised data endpoints",
+    "extra_mass_at_tcond_0": 0.1
+  },
+  "table21_geom_row": {
+    "dataset": "GEOM-Drugs",
+    "guidance_target": "Structural fingerprint",
+    "N": 4096,
+    "unsteered_pct": 92.0,
+    "multimfm_pct": 87.5,
+    "multimfm_ss_pct": null
+  }
+}

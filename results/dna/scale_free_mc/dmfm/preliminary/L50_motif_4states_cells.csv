@@ -1,0 +1,10 @@
+student,reward,mc,length,in_table14,dmfm_relative_l1,dmfm_cosine,published_glass_relative_l1,published_glass_cosine
+diag1step,motif,1,50,False,3.0339,0.2042,3.1808,0.1397
+diag1step,motif,2,50,False,2.7758,0.1603,3.1625,0.1742
+diag1step,motif,4,50,False,2.0039,0.2188,2.6686,0.1989
+diag1step,motif,8,50,True,1.9227,0.2806,2.0749,0.2382
+diag1step,motif,16,50,False,1.3668,0.2764,1.9339,0.2998
+diag1step,motif,32,50,False,1.1662,0.3388,1.4738,0.3708
+diag1step,motif,64,50,False,1.0,0.533,1.2252,0.4695
+diag1step,motif,128,50,True,0.8336,0.6219,1.0465,0.5743
+diag1step,motif,256,50,False,0.7018,0.7258,0.8446,0.6599

@@ -1,0 +1,34 @@
+{
+  "_what": "unguided (base-model) fingerprint Tanimoto and PB validity, from the unguided arm of the steering runs (same noise, same targets as the guided arm)",
+  "n64_seed0_job35670937": {
+    "N": 64,
+    "tanimoto": 0.20721659064292908,
+    "pb_valid": 0.875,
+    "conversion_rate": 1.0
+  },
+  "n4096x3_job47833756": {
+    "N": 11264,
+    "replicates": 3,
+    "tanimoto": 0.22872411369379816,
+    "pb_valid": 0.8802379261363636
+  },
+  "per_replicate": [
+    {
+      "replicate": "0",
+      "tanimoto": 0.22957433404917538,
+      "pb_valid": 0.88525390625
+    },
+    {
+      "replicate": "1",
+      "tanimoto": 0.22795402194378767,
+      "pb_valid": 0.87353515625
+    },
+    {
+      "replicate": "2",
+      "tanimoto": 0.2286172755533092,
+      "pb_valid": 0.8824869791666666
+    }
+  ],
+  "tfg_flow_reference_unconditional": 0.17,
+  "note": "TFG-Flow's own unconditional 'Upper bound' (0.170 +- 0.001) is a different generator on the same task, not this base model."
+}

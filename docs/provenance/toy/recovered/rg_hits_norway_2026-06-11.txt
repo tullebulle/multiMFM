@@ -1,0 +1,49 @@
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:1:"""Train off-diagonal MFM consistency with an ESD-teacher loss.
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:15:`esd_teacher` setup. Gaps start near zero and are annealed to random full
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:87:def make_consistency_batch(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:179:    consistency_weight: float = 1.0,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:182:    stop_grad_esd_teacher: bool = True,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:234:        "consistency_loss": [],
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:235:        "consistency_loss_c": [],
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:236:        "consistency_loss_y": [],
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:248:        s, u, I_s, t_cond, x_cond, gap_scale = make_consistency_batch(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:276:            vsu, jvp = torch.func.jvp(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:281:        esd_target = vss + (u - s).unsqueeze(-1) * jvp
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:282:        if stop_grad_esd_teacher:
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:284:        consistency_loss, consistency_loss_c, consistency_loss_y = split_loss(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:287:        consistency_loss = c_weight * consistency_loss_c + y_weight * consistency_loss_y
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:289:        loss = diagonal_weight * diag_loss + consistency_weight * consistency_loss
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:302:                f"diag {diag_loss.item():.6f}  esd {consistency_loss.item():.6f}  "
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:312:            log["consistency_loss"].append(consistency_loss.item())
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:313:            log["consistency_loss_c"].append(consistency_loss_c.item())
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:314:            log["consistency_loss_y"].append(consistency_loss_y.item())
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:328:        "objective": "esd_teacher_consistency_plus_diagonal_glass",
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:346:            "consistency_weight": consistency_weight,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:349:            "stop_grad_esd_teacher": stop_grad_esd_teacher,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:366:    p.add_argument("--ckpt", default="checkpoints/mfm_consistency.pt")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:386:    p.add_argument("--consistency_weight", type=float, default=1.0)
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:389:    p.add_argument("--no_stop_grad_esd_teacher", action="store_true")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:417:        consistency_weight=args.consistency_weight,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:420:        stop_grad_esd_teacher=not args.no_stop_grad_esd_teacher,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/probe_mfm_value_vs_glass.py:60:    p.add_argument("--mfm_ckpt", default="checkpoints/mfm_consistency_10000.pt")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/probe_mfm_diagonal.py:91:        ax.plot(steps, log["consistency_loss"], label="ESD")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/mfm_value_fn.py:129:    parser.add_argument("--ckpt", default="checkpoints/mfm_consistency_10000.pt")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/mfm_guidance_norway_smiley.ipynb:93:      "mfm checkpoint:  checkpoints/mfm_consistency_10000.pt\n"
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/mfm_guidance_norway_smiley.ipynb:99:    "MFM_CKPT = \"checkpoints/mfm_consistency_10000.pt\"\n",
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:6:from utils.mfm_lib import import_mfm_base_model, import_mfm_extract_posterior_velocity
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:29:    extract_posterior_velocity = import_mfm_extract_posterior_velocity()
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:30:    return extract_posterior_velocity(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:393:    def extract_posterior_velocity(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:406:        """Use mfm.losses.losses.extract_posterior_velocity with this model as the default teacher."""
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:706:    def extract_posterior_velocity(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:720:        """Use mfm.losses.losses.extract_posterior_velocity with this model as the default teacher."""
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/glass.py:3:Local port of `mfm.losses.losses.extract_posterior_velocity`, restricted to
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:15:`esd_teacher` setup. Gaps start near zero and are annealed to random full
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:182:    stop_grad_esd_teacher: bool = True,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:276:            vsu, jvp = torch.func.jvp(
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:282:        if stop_grad_esd_teacher:
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:328:        "objective": "esd_teacher_consistency_plus_diagonal_glass",
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:349:            "stop_grad_esd_teacher": stop_grad_esd_teacher,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:389:    p.add_argument("--no_stop_grad_esd_teacher", action="store_true")
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/train_mfm_consistency.py:420:        stop_grad_esd_teacher=not args.no_stop_grad_esd_teacher,
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway/sde_int.py:234:        """DFM PSD semigroup weight, using the same cross-product form."""

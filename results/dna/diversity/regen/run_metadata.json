@@ -1,0 +1,135 @@
+{
+  "args": {
+    "repo_root": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM",
+    "run_dirs": [
+      "results/dna/c0_guidance/n1000/target_m1p0",
+      "results/dna/c0_guidance/n1000/target_1p0"
+    ],
+    "data_pt": "data/dna/yeast_parent_disjoint/yeast_parent_L50.pt",
+    "split_pt": "data/dna/yeast_parent_disjoint/yeast_parent_L50_split_seed0.pt",
+    "out_dir": "outputs/dna/regen/diversity",
+    "k_nearest_train": 5,
+    "gen_chunk": 64,
+    "train_ref_chunk": 2048,
+    "pair_chunk": 128,
+    "max_pairwise_n": 3000,
+    "baseline_n": 1000,
+    "seed": 0,
+    "size_matched_draws": 1000,
+    "oracle_ckpt": "checkpoints/dna/c0/oracle/best_state.pt"
+  },
+  "original_code": "DNA-MFM@187fe7b175417a5a42a8759b105707f47bfdea17 scripts/analyze_yeast_c0_diversity.py (blob 5dd21edbc383ae08dfc34f7b70de70ff215704ce), utils/yeast_splits.py (blob 03d6d1faf5519cb7f04de22fb0aebaa187f35297)",
+  "split_sanity": {
+    "a_train": {
+      "n_windows": 32890,
+      "n_parents": 230
+    },
+    "a_val": {
+      "n_windows": 4147,
+      "n_parents": 29
+    },
+    "b_train": {
+      "n_windows": 32890,
+      "n_parents": 230
+    },
+    "b_val": {
+      "n_windows": 4147,
+      "n_parents": 29
+    },
+    "test": {
+      "n_windows": 8294,
+      "n_parents": 58
+    },
+    "parent_sets_pairwise_disjoint": true
+  },
+  "token_order_check": {
+    "n_unguided_sequences_used": 1000,
+    "data_token_fraction_0123": [
+      0.3103887432012432,
+      0.19492229992229992,
+      0.19330055361305362,
+      0.30138840326340327
+    ],
+    "unguided_fasta_base_fraction_ACGT": {
+      "A": 0.31736,
+      "C": 0.19724,
+      "G": 0.1915,
+      "T": 0.2939
+    },
+    "best_mapping_by_trinuc_L1": "ACGT",
+    "trinuc_L1_best_and_second": [
+      0.04448435476560476,
+      0.12889162457912456
+    ],
+    "second_best_mapping_by_trinuc_L1": "AGCT",
+    "best_mapping_by_dinuc_L1": "ACGT",
+    "dinuc_L1_best_and_second": [
+      0.027902498295355425,
+      0.0707036495250781
+    ],
+    "roundtrip_n_distinct_sequences": 3000,
+    "roundtrip_top3": [
+      {
+        "mapping_0123": "ACGT",
+        "dinuc_L1_vs_data": 0.027902498295355425,
+        "trinuc_L1_vs_data": 0.04448435476560476,
+        "unguided_mean_nearest_a_train_frac_NOT_DIAGNOSTIC": 0.45826,
+        "roundtrip_pearson_guide_vs_oracle": 0.9848548280002973,
+        "roundtrip_mae_guide_vs_oracle": 0.11833791845819602
+      },
+      {
+        "mapping_0123": "AGCT",
+        "dinuc_L1_vs_data": 0.0707036495250781,
+        "trinuc_L1_vs_data": 0.12889162457912456,
+        "unguided_mean_nearest_a_train_frac_NOT_DIAGNOSTIC": 0.45921999999999996,
+        "roundtrip_pearson_guide_vs_oracle": 0.8532101607017237,
+        "roundtrip_mae_guide_vs_oracle": 0.3501645370600745
+      },
+      {
+        "mapping_0123": "TCGA",
+        "dinuc_L1_vs_data": 0.09100520511234797,
+        "trinuc_L1_vs_data": 0.14307365724553225,
+        "unguided_mean_nearest_a_train_frac_NOT_DIAGNOSTIC": 0.4592,
+        "roundtrip_pearson_guide_vs_oracle": 0.7549849728591438,
+        "roundtrip_mae_guide_vs_oracle": 0.4595294410853336
+      }
+    ],
+    "code_evidence": "data/prepare_yeast_parent_splits.py and scripts/score_yeast_c0_oracle.py use DNA_TO_INT={'A':0,'C':1,'G':2,'T':3}; DNA-MFM scripts/sample_yeast_c0_guidance_hist.py decodes argmax with ['A','C','G','T']"
+  },
+  "unguided_identity": {
+    "compared": "unguided target -1 vs unguided target +1",
+    "n_a": 1000,
+    "n_b": 1000,
+    "identical_in_order": true,
+    "identical_as_multisets": true,
+    "n_positions_differing_in_order": 0,
+    "n_shared_distinct_sequences": 1000,
+    "fasta_headers_identical": true,
+    "guide_scores_identical": true,
+    "guided_sets_n_shared_sequences": 0,
+    "guided_vs_own_unguided_n_identical_pairs": {
+      "-1": 0,
+      "+1": 0
+    },
+    "n_compared_in_order": 1000,
+    "oracle_unguided_scores_identical": true
+  },
+  "oracle_rescore_check": {
+    "target_m1p0/guided": {
+      "max_abs_diff_vs_stored": 0.00026799457244863767,
+      "rescored_mean": -0.9485315680503845
+    },
+    "target_m1p0/unguided": {
+      "max_abs_diff_vs_stored": 0.0002938806811180056,
+      "rescored_mean": -0.17146508395671844
+    },
+    "target_1p0/guided": {
+      "max_abs_diff_vs_stored": 0.0003139976104736819,
+      "rescored_mean": 0.9170802235603333
+    },
+    "target_1p0/unguided": {
+      "max_abs_diff_vs_stored": 0.0002938806811180056,
+      "rescored_mean": -0.17146508395671844
+    }
+  }
+}

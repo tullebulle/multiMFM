@@ -1,0 +1,122 @@
+[
+ {
+  "t": 0.5,
+  "target": 1.0,
+  "reward_scale": 0.045,
+  "coefficient": 1.0,
+  "grad_norm_mean": 1.488109827041626,
+  "grad_norm_max": 1.7426058053970337,
+  "frac_above_clip10": 0.0,
+  "value_mean": -1.16744065284729
+ },
+ {
+  "t": 0.5,
+  "target": 1.0,
+  "reward_scale": 0.5,
+  "coefficient": 11.11111111111111,
+  "grad_norm_mean": 24.261943817138672,
+  "grad_norm_max": 37.28715133666992,
+  "frac_above_clip10": 1.0,
+  "value_mean": -4.8970770835876465
+ },
+ {
+  "t": 0.5,
+  "target": 1.0,
+  "reward_scale": 1.0,
+  "coefficient": 22.22222222222222,
+  "grad_norm_mean": 51.225303649902344,
+  "grad_norm_max": 84.05677032470703,
+  "frac_above_clip10": 1.0,
+  "value_mean": -7.855005264282227
+ },
+ {
+  "t": 0.5,
+  "target": -1.0,
+  "reward_scale": 0.045,
+  "coefficient": 1.0,
+  "grad_norm_mean": 1.0109171867370605,
+  "grad_norm_max": 1.3713586330413818,
+  "frac_above_clip10": 0.0,
+  "value_mean": -0.6791783571243286
+ },
+ {
+  "t": 0.5,
+  "target": -1.0,
+  "reward_scale": 0.5,
+  "coefficient": 11.11111111111111,
+  "grad_norm_mean": 10.601600646972656,
+  "grad_norm_max": 18.740312576293945,
+  "frac_above_clip10": 0.25,
+  "value_mean": -3.011444091796875
+ },
+ {
+  "t": 0.5,
+  "target": -1.0,
+  "reward_scale": 1.0,
+  "coefficient": 22.22222222222222,
+  "grad_norm_mean": 22.068037033081055,
+  "grad_norm_max": 39.83592224121094,
+  "frac_above_clip10": 1.0,
+  "value_mean": -4.5535149574279785
+ },
+ {
+  "t": 0.7,
+  "target": 1.0,
+  "reward_scale": 0.045,
+  "coefficient": 1.0,
+  "grad_norm_mean": 3.7538843154907227,
+  "grad_norm_max": 4.11311149597168,
+  "frac_above_clip10": 0.0,
+  "value_mean": -1.3090654611587524
+ },
+ {
+  "t": 0.7,
+  "target": 1.0,
+  "reward_scale": 0.5,
+  "coefficient": 11.11111111111111,
+  "grad_norm_mean": 48.283538818359375,
+  "grad_norm_max": 59.89999771118164,
+  "frac_above_clip10": 1.0,
+  "value_mean": -10.446002960205078
+ },
+ {
+  "t": 0.7,
+  "target": 1.0,
+  "reward_scale": 1.0,
+  "coefficient": 22.22222222222222,
+  "grad_norm_mean": 105.72209167480469,
+  "grad_norm_max": 145.78726196289062,
+  "frac_above_clip10": 1.0,
+  "value_mean": -19.408109664916992
+ },
+ {
+  "t": 0.7,
+  "target": -1.0,
+  "reward_scale": 0.045,
+  "coefficient": 1.0,
+  "grad_norm_mean": 2.770646095275879,
+  "grad_norm_max": 3.7521307468414307,
+  "frac_above_clip10": 0.0,
+  "value_mean": -0.7414543628692627
+ },
+ {
+  "t": 0.7,
+  "target": -1.0,
+  "reward_scale": 0.5,
+  "coefficient": 11.11111111111111,
+  "grad_norm_mean": 29.380054473876953,
+  "grad_norm_max": 68.57599639892578,
+  "frac_above_clip10": 1.0,
+  "value_mean": -5.055666923522949
+ },
+ {
+  "t": 0.7,
+  "target": -1.0,
+  "reward_scale": 1.0,
+  "coefficient": 22.22222222222222,
+  "grad_norm_mean": 64.43867492675781,
+  "grad_norm_max": 158.71327209472656,
+  "frac_above_clip10": 1.0,
+  "value_mean": -8.737563133239746
+ }
+]

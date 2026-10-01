@@ -1,0 +1,41 @@
+side,k,reward_cost_ratio,guided,search,crossover,bracket_lo,bracket_hi,verdict,guided_cheapest
+dna,1,0.0,dmfm,best_of_n,1503.340855396174,864.0,1536.0,crosses inside the shared range,278.0
+dna,1,0.0,dmfm,fk,431.1240325394397,288.0,480.0,crosses inside the shared range,278.0
+dna,1,0.0,dmfm,beam,775.2771468979372,768.0,960.0,crosses inside the shared range,278.0
+dna,1,0.0,dmfm,mcts,891.2535136246782,695.2533333333334,1074.08,crosses inside the shared range,278.0
+dna,1,0.03,dmfm,best_of_n,1491.697811916523,864.27,1536.48,crosses inside the shared range,280.76
+dna,1,0.03,dmfm,fk,431.88764724064515,289.08,481.8,crosses inside the shared range,280.76
+dna,1,0.03,dmfm,beam,772.0667457273782,768.36,960.48,crosses inside the shared range,280.76
+dna,1,0.03,dmfm,mcts,886.2031483175506,695.5233333333334,1074.56,crosses inside the shared range,280.76
+dna,1,0.1,dmfm,best_of_n,1465.0017821425404,864.9,1537.6,crosses inside the shared range,287.2
+dna,1,0.1,dmfm,fk,434.20323439187877,291.6,486.0,crosses inside the shared range,287.2
+dna,1,0.1,dmfm,beam,764.714354955868,576.8,769.2,crosses inside the shared range,287.2
+dna,1,0.1,dmfm,mcts,874.471296357755,696.1533333333334,1075.6799999999998,crosses inside the shared range,287.2
+dna,1,1.0,dmfm,best_of_n,1222.7350389412525,873.0,1552.0,crosses inside the shared range,370.0
+dna,1,1.0,dmfm,fk,467.31056433300864,324.0,540.0,crosses inside the shared range,370.0
+dna,1,1.0,dmfm,beam,695.2886435820153,584.0,780.0,crosses inside the shared range,370.0
+dna,1,1.0,dmfm,mcts,762.4191610509544,704.2533333333334,1090.08,crosses inside the shared range,370.0
+qm9,1,0.0,multiMFM,best-of-N,1647.7780108241036,1024.0,2048.0,crosses inside the shared range,1048.0
+qm9,1,0.0,multiMFM,Feynman-Kac,,,,guided better over the whole shared range,1048.0
+qm9,1,0.0,multiMFM-SS,best-of-N,4215.419164041707,4096.0,8192.0,crosses inside the shared range,1048.0
+qm9,1,0.0,multiMFM-SS,Feynman-Kac,,,,guided better over the whole shared range,1048.0
+qm9,1,0.0,DPS,best-of-N,,,,no overlapping budget range,158.0
+qm9,1,0.0,DPS,Feynman-Kac,,,,no overlapping budget range,158.0
+qm9,1,0.25,multiMFM,best-of-N,1643.594421023477,1026.0,2052.0,crosses inside the shared range,1076.75
+qm9,1,0.25,multiMFM,Feynman-Kac,,,,guided better over the whole shared range,1076.75
+qm9,1,0.25,multiMFM-SS,best-of-N,4266.173821542501,4104.0,8208.0,crosses inside the shared range,1105.5
+qm9,1,0.25,multiMFM-SS,Feynman-Kac,,,,guided better over the whole shared range,1105.5
+qm9,1,0.25,DPS,best-of-N,,,,no overlapping budget range,161.75
+qm9,1,0.25,DPS,Feynman-Kac,,,,no overlapping budget range,161.75
+qm9,1,1.0,multiMFM,best-of-N,1631.7532323086239,1032.0,2064.0,crosses inside the shared range,1163.0
+qm9,1,1.0,multiMFM,Feynman-Kac,,,,guided better over the whole shared range,1163.0
+qm9,1,1.0,multiMFM-SS,best-of-N,3532.3618844810862,2064.0,4128.0,crosses inside the shared range,1278.0
+qm9,1,1.0,multiMFM-SS,Feynman-Kac,,,,guided better over the whole shared range,1278.0
+qm9,1,1.0,DPS,best-of-N,,,,no overlapping budget range,173.0
+qm9,1,1.0,DPS,Feynman-Kac,,,,no overlapping budget range,173.0
+qm9,1,2.74,multiMFM,best-of-N,1611.937565755094,1045.92,2091.84,crosses inside the shared range,1363.1
+qm9,1,2.74,multiMFM,Feynman-Kac,,,,guided better over the whole shared range,1363.1
+qm9,1,2.74,multiMFM-SS,best-of-N,2778.2794411903246,2091.84,4183.68,crosses inside the shared range,1678.2
+qm9,1,2.74,multiMFM-SS,Feynman-Kac,,,,guided better over the whole shared range,1678.2
+qm9,1,2.74,DPS,best-of-N,,,,guided better over the whole shared range,199.1
+qm9,1,2.74,DPS,Feynman-Kac,,,,no overlapping budget range,199.1

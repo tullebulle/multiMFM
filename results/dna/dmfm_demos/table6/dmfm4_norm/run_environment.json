@@ -1,0 +1,11 @@
+{
+  "host": "holygpu8a19405.rc.fas.harvard.edu",
+  "slurm_job_id": "49426422",
+  "partition": "kempner_requeue",
+  "account": "kempner_albergo_lab",
+  "gpu": "NVIDIA A100-SXM4-40GB, 40960 MiB",
+  "arm": "dmfm4_norm",
+  "sets": ["outputs/dna/table1_dmfm4_norm_n1000/target_m1p0/merged/sample_scores.csv", "outputs/dna/table1_dmfm4_norm_n1000/target_1p0/merged/sample_scores.csv"],
+  "model_name": "evo2_7b_base",
+  "date": "2026-09-30T10:02:38-04:00"
+}

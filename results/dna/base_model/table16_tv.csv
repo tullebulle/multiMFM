@@ -1,0 +1,7 @@
+comparison,reference,n_reference,other,n_other,total_variation,note
+generated vs real (matched n),real,4096,generated,4096,0.014834,the comparison the table is making
+uniform vs real (matched n),real,4096,uniform,4096,0.106416,the row that was pure noise as a correlation
+generated vs held-out real,real_test,8294,generated,4096,0.01443,against the parent-disjoint test split
+uniform vs held-out real,real_test,8294,uniform,4096,0.106438,against the parent-disjoint test split
+generated vs training-split real,real_a_train,32890,generated,4096,0.007395,the split the generator was trained on
+FLOOR: train real vs held-out real,real_test,8294,real_a_train,32890,0.010084,two disjoint REAL splits -- the resolution limit of this measurement

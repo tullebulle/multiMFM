@@ -1,0 +1,45 @@
+{
+  "_source": "checkpoints/geom/mfm_student/student_step_10000_args.json (args stored in the checkpoint)",
+  "hidden_width": 256,
+  "layers": 16,
+  "heads": 8,
+  "conditioning": "additive",
+  "velocity_parameterization": "endpoint",
+  "batch_per_gpu": 96,
+  "num_gpus": 4,
+  "global_batch": 384,
+  "selected_updates_in_phase": 10000,
+  "cosine_schedule_horizon": 30000,
+  "optimizer": "Adam",
+  "peak_learning_rate": 0.0001,
+  "warmup_steps": 500,
+  "gradient_clipping_l2": 1.0,
+  "ema_decay": 0.995,
+  "objective": "Diagonal + ESD",
+  "coordinate_weight": 1.0,
+  "atom_weight": 1.0,
+  "maximum_training_time_t_max": 0.95,
+  "conditioning_states": "Noised data endpoints",
+  "extra_mass_at_tcond_0": 0.1,
+  "omitted_from_table20": {
+    "max_jump": 0.15,
+    "anneal_frac": 0.2,
+    "esd_delta_clip": 8.0,
+    "esd_target_clip": 10.0,
+    "diag_weight": 2.0,
+    "esd_weight": 1.0,
+    "t_cond_power": 2.0,
+    "lr_schedule": "cosine"
+  },
+  "distillation_data": {
+    "limit_data": 150000,
+    "available_molecules": 1141716,
+    "note": "the GEOM MFM was distilled on 150k of the ~1.17M molecules"
+  },
+  "teacher_checkpoint": "validation_teacher/big_curve/ckpts/epoch=38-step=89310.ckpt",
+  "init_ckpt_stage2a": "/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/geom-drug-tabasco/outputs/mfm_student_geom_stage2_ddp/stage2_20260727-163603/student_step_20000.pt",
+  "notes": [
+    "Gradient clipping 1.0 is the trainer's fixed value (not a CLI flag).",
+    "4 GPUs comes from the launcher (metaflow/mfm_student_stage2_ddp.sbatch, torchrun --nproc_per_node=4) and the wandb run name 'ddp4'; the checkpoint stores only the per-GPU batch."
+  ]
+}

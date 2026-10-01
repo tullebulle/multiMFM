@@ -1,0 +1,56 @@
+    dist = hi - lo
+    scale = gap_scale_for_step(step, warmup_steps, anneal_steps)
+    s = mid - 0.5 * scale * dist
+    u = mid + 0.5 * scale * dist
+    return s, u, scale
+
+
+def make_consistency_batch(
+    sample_data,
+    batch_size: int,
+    step: int,
+    generator: torch.Generator,
+    device: str,
+    time_min: float,
+    time_max: float,
+    gap_warmup_steps: int,
+    gap_anneal_steps: int,
+    t_cond_min: float,
+    t_cond_max: float,
+    t_cond_zero_prob: float,
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, float]:
+    c1, y1 = sample_data(batch_size, generator=generator, device=device)
+    c1_onehot = F.one_hot(c1, NUM_CLASSES).to(y1.dtype)
+    x1 = torch.cat([c1_onehot, y1], dim=-1)
+
+    s, u, gap_scale = sample_s_u(
+        batch_size=batch_size,
+        step=step,
+        warmup_steps=gap_warmup_steps,
+        anneal_steps=gap_anneal_steps,
+        t_min=time_min,
+        t_max=time_max,
+        generator=generator,
+        device=device,
+    )
+    x0 = torch.randn(x1.shape, generator=generator, device=device, dtype=x1.dtype)
+    I_s = (1.0 - s).unsqueeze(-1) * x0 + s.unsqueeze(-1) * x1
+
+    noise_cond = torch.randn(
+        x1.shape, generator=generator, device=device, dtype=x1.dtype
+    )
+    t_cond = sample_time(batch_size, t_cond_min, t_cond_max, generator, device)
+    if t_cond_zero_prob > 0.0:
+        zero_mask = torch.rand(batch_size, generator=generator, device=device)
+        t_cond = torch.where(
+            zero_mask < t_cond_zero_prob,
+            torch.zeros_like(t_cond),
+            t_cond,
+        )
+    x_cond = (1.0 - t_cond).unsqueeze(-1) * noise_cond + t_cond.unsqueeze(-1) * x1
+    return s, u, I_s, t_cond, x_cond, gap_scale
+
+
+def split_loss(diff: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    loss_c = diff[:, :NUM_CLASSES].pow(2).mean()
+    loss_y = diff[:, NUM_CLASSES:].pow(2).mean()

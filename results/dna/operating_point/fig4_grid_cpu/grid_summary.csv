@@ -1,0 +1,9 @@
+config,steps,mc,nfe_value,repeat,n_outputs,nfe_gen_per_output,mae,frac10,oracle_mae,device_name,student,seconds
+"NFE=8,steps=1,MC=8",1,8,8,0,8,824.0,0.048013214766979215,0.875,0.1673855231143534,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,35.24176812171936
+"NFE=8,steps=2,MC=4",2,4,8,0,8,824.0,0.11402548775076866,0.5,0.143757557682693,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,34.651334285736084
+"NFE=8,steps=4,MC=2",4,2,8,0,8,824.0,0.16422581830993294,0.375,0.09758402593433857,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,35.047523498535156
+"NFE=8,steps=8,MC=1",8,1,8,0,8,824.0,0.49636811632663014,0.0,0.48656030967831615,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,36.723939180374146
+"NFE=16,steps=1,MC=16",1,16,16,0,8,1552.0,0.07403374649584293,0.75,0.14035660400986671,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,69.08431792259216
+"NFE=16,steps=2,MC=8",2,8,16,0,8,1552.0,0.07772850655019284,0.75,0.15486700348556043,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,62.073914527893066
+"NFE=16,steps=4,MC=4",4,4,16,0,8,1552.0,0.25579306287690995,0.375,0.3179305536672473,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,62.074787855148315
+"NFE=16,steps=8,MC=2",8,2,16,0,8,1552.0,0.4474657153710723,0.125,0.47324598319828515,cpu,/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt,69.43359637260437

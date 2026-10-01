@@ -1,0 +1,1 @@
+Slurm job 49255662 (gpu_test, NVIDIA A100-SXM4-40GB, holygpu7c26201), 2026-09-29: sbatch scripts/qm9/smoke_test.sbatch sampling

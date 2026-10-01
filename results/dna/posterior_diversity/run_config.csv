@@ -1,0 +1,5 @@
+length,student_dir,student_ckpt,n_sources,n_futures,dmfm_sampler,dmfm_steps,glass_steps,times,seed
+50,workdir/yeast_parent_a_L50_dmfm_diagonal_h192_b4,epoch=95-step=49000.ckpt,32,16,flow_map,1,100,0.0 0.25 0.5 0.75 0.9 0.99 1.0,20260730
+100,workdir/yeast_parent_a_L100_dmfm_diagonal_h192_b4,epoch=80-step=39000.ckpt,32,16,flow_map,1,100,0.0 0.25 0.5 0.75 0.9 0.99 1.0,20260730
+200,workdir/yeast_parent_a_L200_dmfm_diagonal_h192_b4,epoch=51-step=45000.ckpt,32,16,flow_map,1,100,0.0 0.25 0.5 0.75 0.9 0.99 1.0,20260730
+400,workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726,epoch=33-step=45750-v1.ckpt,32,16,flow_map,1,100,0.0 0.25 0.5 0.75 0.9 0.99 1.0,20260730

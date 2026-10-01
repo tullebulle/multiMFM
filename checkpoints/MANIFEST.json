@@ -1,0 +1,483 @@
+{
+  "artifacts": {
+    "checkpoints/base_flow/model_step_100000.pt": {
+      "size": 4170106,
+      "sha256": "958bee475a3a6281d00e7234c286d98a1521bfa6ae9f327279068eed1e239ef3",
+      "group": "qm9",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/base_flow/model_step_100000.pt"
+    },
+    "checkpoints/dna/base/L100/args.json": {
+      "size": 1988,
+      "sha256": "4ef934bf9c0858d21ab6e4e01abfd4f2e090891eec843d77a6164d9732f91967",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dfm_dit_h192_b4/args.json",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=100, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L100/best.pt": {
+      "size": 35016164,
+      "sha256": "32db4ea4e13e34802a23e09a146e8d3f17d8d21a8d298fcbe9c78927778c1023",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dfm_dit_h192_b4/best.pt",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=100, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L200/args.json": {
+      "size": 1988,
+      "sha256": "548f034959e3fd2447c847b871e5e4311307f26bd49baa9605cf2380a73ebbe3",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dfm_dit_h192_b4/args.json",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=200, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L200/best.pt": {
+      "size": 35016164,
+      "sha256": "26970cbc3978104c35b86b20b512ca958eab0e239c9e06cd6da39cbf41057415",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dfm_dit_h192_b4/best.pt",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=200, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L400/args.json": {
+      "size": 1987,
+      "sha256": "e0c15ba241428271f4bdcb4086cedc4f809740c8f5ced64426d78e329dcf3081",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dfm_dit_h192_b4/args.json",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=400, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L400/best.pt": {
+      "size": 35016164,
+      "sha256": "9630a7a65a01944c077e097fb4e7140e967d00761ff1c16845701eb8469de83c",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dfm_dit_h192_b4/best.pt",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=400, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L50/args.json": {
+      "size": 1983,
+      "sha256": "f06ec829d95ec3a5833aea29d740c16a8e56305b62ff67c18faad33190c7b0e1",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dfm_dit_h192_b4/args.json",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=50, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/base/L50/best.pt": {
+      "size": 35016164,
+      "sha256": "e0338928f346ea4be30db06a444cec63490fd3711c7b5eabebb2284f44701739",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dfm_dit_h192_b4/best.pt",
+      "group": "dna",
+      "note": "base DFM DiT h192 b4, L=50, best a_val checkpoint (Table 9; teacher of every dMFM; sampler/GLASS reference in Table 1, Fig 5, Tables 13-15, 17, 18)"
+    },
+    "checkpoints/dna/c0/guide/best_state.pt": {
+      "size": 358116,
+      "sha256": "3403aaef91dc8e21b9a47708194dd00d65340222ed9e2e2a912b9c323c18859f",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/best_state.pt",
+      "group": "dna",
+      "note": "C0 guide regressor (park_cnn) yeast_parent_c0_guide_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/c0/guide/history.csv": {
+      "size": 15865,
+      "sha256": "e9f23073d49357e9355615a36102fec05cf375948fac5eeadf1d0d4d879c853e",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/history.csv",
+      "group": "dna",
+      "note": "C0 guide regressor (park_cnn) yeast_parent_c0_guide_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/c0/guide/metadata.json": {
+      "size": 1091,
+      "sha256": "3f65f574bc3ed72e74593efb85d6c51505dc476c69aa11486ae73cb30fe6a951",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/metadata.json",
+      "group": "dna",
+      "note": "C0 guide regressor (park_cnn) yeast_parent_c0_guide_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/c0/oracle/best_state.pt": {
+      "size": 358116,
+      "sha256": "cbbb8a04a67ed1ba1b59a0be629feb8fa09c42bc35f8d78f60e0af56e26fa3d0",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/best_state.pt",
+      "group": "dna",
+      "note": "C0 oracle regressor (park_cnn) yeast_parent_c0_oracle_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/c0/oracle/history.csv": {
+      "size": 13557,
+      "sha256": "c06df798aeb68342c266e96fd6d3ca4819af36c82c085d7b7177ba8399d114f6",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/history.csv",
+      "group": "dna",
+      "note": "C0 oracle regressor (park_cnn) yeast_parent_c0_oracle_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/c0/oracle/metadata.json": {
+      "size": 1091,
+      "sha256": "ffa406f952b45118f982ea4aa40980cce1756e1c9870fe579a7f4421fa2b0605",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/metadata.json",
+      "group": "dna",
+      "note": "C0 oracle regressor (park_cnn) yeast_parent_c0_oracle_2026-07-26 (Tables 1, 4-5, 11)"
+    },
+    "checkpoints/dna/dmfm/L100/args.json": {
+      "size": 4087,
+      "sha256": "ae79ba0c72b7c573c531e326d63c9df60e17d81dd732879fd505093717bfa842",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_diagonal_h192_b4/args.json",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=100, run yeast_parent_a_L100_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L100/epoch=80-step=39000.ckpt": {
+      "size": 39754222,
+      "sha256": "d712081075ccc874e29e1174decc3ff623490149ae019cb179ad0a8759cd05da",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_diagonal_h192_b4/epoch=80-step=39000.ckpt",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=100, run yeast_parent_a_L100_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L200/args.json": {
+      "size": 4087,
+      "sha256": "1a28be22cfe5fa81967a6f96ae568d110cb2174d0c63b0af4229179cd0cb7e35",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_diagonal_h192_b4/args.json",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=200, run yeast_parent_a_L200_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L200/epoch=51-step=45000.ckpt": {
+      "size": 39754222,
+      "sha256": "a530de2c1e0b79ddfad474e8828761cc1733c1e4c5f8e70470f8a00cd5a09a40",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_diagonal_h192_b4/epoch=51-step=45000.ckpt",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=200, run yeast_parent_a_L200_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L400/args.json": {
+      "size": 4162,
+      "sha256": "c9901303b97f925ff0b41198e2ac59554667995582aed9ed8136ec6d98a24246",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726/args.json",
+      "group": "dna",
+      "note": "selected dMFM L=400: diagonal-only finetune of the L400 diagonal+ESD run, run yeast_parent_a_L400_dmfm_diagonly_finetune_20260726 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L400/epoch=33-step=45750-v1.ckpt": {
+      "size": 39754990,
+      "sha256": "28163b80bb7f28012fa8898c377a27109bf3da9eef5e6398355a5a8f75beae94",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726/epoch=33-step=45750-v1.ckpt",
+      "group": "dna",
+      "note": "selected dMFM L=400: diagonal-only finetune of the L400 diagonal+ESD run, run yeast_parent_a_L400_dmfm_diagonly_finetune_20260726 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L50/args.json": {
+      "size": 4081,
+      "sha256": "64d34fd9ebf488481a9a9bcbc6df4290f9b3ce62e1980159b543fe50b7dc0d1a",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_diagonal_h192_b4/args.json",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=50, run yeast_parent_a_L50_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt": {
+      "size": 39754222,
+      "sha256": "bd86c8a6db490f01d4b6e62a27167d432bc5153a11ed746ff2f6bcd6fad652e9",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_diagonal_h192_b4/epoch=95-step=49000.ckpt",
+      "group": "dna",
+      "note": "selected dMFM (diagonal+ESD) L=50, run yeast_parent_a_L50_dmfm_diagonal_h192_b4 (Table 9 dMFM rows, Table 13, Table 17; init of the 4-step student)"
+    },
+    "checkpoints/dna/dmfm_4step/L100/args.json": {
+      "size": 4220,
+      "sha256": "cefcae669629cae9fa725d4ec1ba85e5a1b53674a97f6f86e11c49c6ed907bc9",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+      "group": "dna",
+      "note": "training args for 4-step dMFM L=100 (yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727)"
+    },
+    "checkpoints/dna/dmfm_4step/L100/epoch=306-step=149000.ckpt": {
+      "size": 39754606,
+      "sha256": "9f87269c1677724efabc6abce0111580d53c49a6b35ee8f57d7c1275f1d12461",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727/epoch=306-step=149000.ckpt",
+      "group": "dna",
+      "note": "4-step dMFM student L=100, run yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727 (Table 18)"
+    },
+    "checkpoints/dna/dmfm_4step/L200/args.json": {
+      "size": 4220,
+      "sha256": "5fe8e3b9e4ef3b2f2da346c76fc6522a48f196e15ea9183491d330eaac8f971b",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+      "group": "dna",
+      "note": "training args for 4-step dMFM L=200 (yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727)"
+    },
+    "checkpoints/dna/dmfm_4step/L200/epoch=39-step=34000.ckpt": {
+      "size": 39754542,
+      "sha256": "3a15b7ef1da8722a75e5e40ea1193a336c1e6d54ebc3916aa32b6f5a794da0d5",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727/epoch=39-step=34000.ckpt",
+      "group": "dna",
+      "note": "4-step dMFM student L=200, run yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727 (Table 18)"
+    },
+    "checkpoints/dna/dmfm_4step/L400/args.json": {
+      "size": 4233,
+      "sha256": "ba3e73c0b78ac01353d69a9be226153b94784e1813c3e5d389927b118088e422",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+      "group": "dna",
+      "note": "training args for 4-step dMFM L=400 (yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727)"
+    },
+    "checkpoints/dna/dmfm_4step/L400/epoch=96-step=129000.ckpt": {
+      "size": 39754606,
+      "sha256": "0cede715d71bb9436f2f145df0fa38fb52bbb731e7e747afa68ceb0c1293fad9",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727/epoch=96-step=129000.ckpt",
+      "group": "dna",
+      "note": "4-step dMFM student L=400, run yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727 (Table 18)"
+    },
+    "checkpoints/dna/dmfm_4step/L50/args.json": {
+      "size": 4213,
+      "sha256": "f2745f5daada9568eba245bd0f54218df7db420ab6d210a3fce2642812ee3d38",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+      "group": "dna",
+      "note": "training args for 4-step dMFM L=50 (yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727)"
+    },
+    "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt": {
+      "size": 39754542,
+      "sha256": "998b7065f41235c45556a0457da046e7f1d8948f3c9d2df70210d41f70a08c30",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727/epoch=29-step=15000.ckpt",
+      "group": "dna",
+      "note": "4-step dMFM student L=50, run yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727 (Table 18)"
+    },
+    "checkpoints/dna/dmfm_lineage/L400_diagonal/args.json": {
+      "size": 4087,
+      "sha256": "5afcb7e27a173ba373d665f517c68a0c03d30d326ce041bbca9ffc8b89743f02",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonal_h192_b4/args.json",
+      "group": "dna",
+      "note": "L400 diagonal+ESD dMFM step 45000 (yeast_parent_a_L400_dmfm_diagonal_h192_b4): resume point of the L400 diagonal-only finetune that produced checkpoints/dna/dmfm/L400 (scripts/dna/train_dmfm_l400_finetune.sbatch); not loaded by any result run"
+    },
+    "checkpoints/dna/dmfm_lineage/L400_diagonal/epoch=33-step=45000.ckpt": {
+      "size": 39754222,
+      "sha256": "0710a65328f04d954cfdbfda35597de5a9e877166446a0f76c93405873146363",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonal_h192_b4/epoch=33-step=45000.ckpt",
+      "group": "dna",
+      "note": "L400 diagonal+ESD dMFM step 45000 (yeast_parent_a_L400_dmfm_diagonal_h192_b4): resume point of the L400 diagonal-only finetune that produced checkpoints/dna/dmfm/L400 (scripts/dna/train_dmfm_l400_finetune.sbatch); not loaded by any result run"
+    },
+    "checkpoints/geom/mfm_student/student_step_10000.pt": {
+      "size": 120754788,
+      "sha256": "deaf74bcccc879f6c21d4bd9991a76d6c65876f4afe1800e093945edf656aeaa",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/geom-drug-tabasco/outputs/mfm_student_geom_stage2_ddp/stage2_20260727-222154/student_step_10000.pt",
+      "group": "geom",
+      "note": "selected GEOM multiMFM student, Stage-2b step 10000 (Table 20 GEOM column); used for Table 3"
+    },
+    "checkpoints/geom/mfm_student/student_step_10000_args.json": {
+      "size": 4774,
+      "sha256": "32c6b6aa8ded59f1e2e3b58271188a5f87d3042f51f8447fbf7799de6c598045",
+      "group": "geom",
+      "note": "training args / student_cfg / data_stats extracted from the student checkpoint (Table 20 GEOM column)",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/geom/mfm_student/student_step_10000_args.json"
+    },
+    "checkpoints/geom/structure_head/best.pth": {
+      "size": 4273220,
+      "sha256": "9e4e95578139210d2de07984590880f25d3f45a45965772375c72c26b97dead1",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/TFG-Flow/storage/ckpts/geom_structure_head_ddp_cont2/best.pth",
+      "group": "geom",
+      "note": "fingerprint guide head E (TFG-Flow EGNN Predictor, 1024-bit FP2), val Tanimoto 0.852; trained by the authors"
+    },
+    "checkpoints/geom/structure_head/best.txt": {
+      "size": 68,
+      "sha256": "1e3fb8b96abf4f1b26d51223c79ede6710226cc298426c13ad91d06e22a9ef34",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/TFG-Flow/storage/ckpts/geom_structure_head_ddp_cont2/best.txt",
+      "group": "geom",
+      "note": "best-epoch record of the guide head"
+    },
+    "checkpoints/geom/structure_head/train_args.json": {
+      "size": 3166,
+      "sha256": "529e2bc7b868bb4eb48cbc202fefaafdcad5b71381e8b0e5890997cdb3d81c52",
+      "group": "geom",
+      "note": "architecture + 4-leg training record of the fingerprint guide head",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/geom/structure_head/train_args.json"
+    },
+    "checkpoints/geom/teacher/epoch=38-step=89310.ckpt": {
+      "size": 297144124,
+      "sha256": "445df006a7ad40bb789fb4f73ecb7dc7effc3ad7a2ef5f5ae7ccc37d229b9be3",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/geom-drug-tabasco/validation_teacher/big_curve/ckpts/epoch=38-step=89310.ckpt",
+      "group": "geom",
+      "note": "GEOM-Drugs base flow model (Table 19 GEOM column); teacher for Table 3 steering and MFM distillation; EMA weights in optimizer_states"
+    },
+    "checkpoints/geom/teacher/hydra/config.yaml": {
+      "size": 3652,
+      "sha256": "40e802d95ba477c0a4ab90cf87a3a9f779ca6a886b41fd971b1481fcdd9f71d8",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/geom-drug-tabasco/outputs/2026-07-26/01-03-35/.hydra/config.yaml",
+      "group": "geom",
+      "note": "resolved Hydra config of the base-model run that produced epoch=38-step=89310.ckpt (outputs/2026-07-26/01-03-35)"
+    },
+    "checkpoints/geom/teacher/hydra/hydra.yaml": {
+      "size": 3924,
+      "sha256": "2b9394c72f6b6d2635f573e4baeba533f4465e535bdfebefe48346e0bdc76bbe",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/geom-drug-tabasco/outputs/2026-07-26/01-03-35/.hydra/hydra.yaml",
+      "group": "geom",
+      "note": "resolved Hydra config of the base-model run that produced epoch=38-step=89310.ckpt (outputs/2026-07-26/01-03-35)"
+    },
+    "checkpoints/geom/teacher/hydra/overrides.yaml": {
+      "size": 91,
+      "sha256": "96aaf159f776736a615ff70e2aed6ddfb8f21d0884c58377c6f54e8cf1cd8505",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/geom-drug-tabasco/outputs/2026-07-26/01-03-35/.hydra/overrides.yaml",
+      "group": "geom",
+      "note": "resolved Hydra config of the base-model run that produced epoch=38-step=89310.ckpt (outputs/2026-07-26/01-03-35)"
+    },
+    "checkpoints/mfm_student/student_step_1000.pt": {
+      "size": 1488848,
+      "sha256": "67953452e2a19f3d80d579ddce96ea27dce237a58c2fad9e2b4662ef41bd3cd0",
+      "group": "qm9",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/mfm_student/student_step_1000.pt"
+    },
+    "checkpoints/regressors/guide_clf_ckpt.zip": {
+      "size": 20737036,
+      "sha256": "cc6e2e01821ad99c107fcf4a9e1d44bb99bc84c78a8f45b9bee96628513ab724",
+      "group": "qm9",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/regressors/guide_clf_ckpt.zip"
+    },
+    "checkpoints/regressors/oracle_clf_ckpt.zip": {
+      "size": 20736759,
+      "sha256": "16859907246a9bf98318420752b9737d327ee7ebaf6e23321f45970dd81c68af",
+      "group": "qm9",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/regressors/oracle_clf_ckpt.zip"
+    },
+    "checkpoints/toy/ckpt_uniform_color_square.pt": {
+      "size": 14853786,
+      "sha256": "8d0ffd1dbfeed94ac3239c5784b54a68f29b5cc1b6a24a90099b8a8db29a1c95",
+      "group": "toy",
+      "note": "Toy base multimodal DiT flow model (Fig. 1 / Table 12 base stage). Retrained 2026-09-29, Slurm 49256183, bash scripts/toy/train_base.sh (20k steps, batch 4096, lr 3e-4, warmup 500, EMA 0.999, seed 0). Original purged.",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/ckpt_uniform_color_square.pt"
+    },
+    "checkpoints/toy/mfm_consistency_10000.pt": {
+      "size": 15650826,
+      "sha256": "1690248f883f7fad5098e1f27ef03fe54c3b8ac03fb9dc033a560cc2d5aa21d1",
+      "group": "toy",
+      "note": "Toy multimodal MFM, ESD consistency stage (the MFM used for guidance). Slurm 49256184, bash scripts/toy/train_mfm_consistency.sh (10k steps, batch 1024, lr 1e-4, warmup 500, gap_anneal_steps 5000, EMA 0.995, seed 0) -- command verbatim from docs/provenance/toy/recovered/cursor_terminal_1.txt.",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/mfm_consistency_10000.pt"
+    },
+    "checkpoints/toy/mfm_diagonal_10000.pt": {
+      "size": 15651462,
+      "sha256": "2c52d1f300d16fd354465155aa2190bdcc3a7acabacb4235bc6b2a576f2a67b0",
+      "group": "toy",
+      "note": "Toy multimodal MFM, diagonal GLASS distillation stage. Slurm 49256183, bash scripts/toy/train_mfm_diagonal.sh (10k steps, batch 2048, lr 3e-4, warmup 500, EMA 0.999, seed 0).",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/toy/mfm_diagonal_10000.pt"
+    },
+    "data/dna/yeast_parent_disjoint/parent_split_seed0.json": {
+      "size": 7431,
+      "sha256": "4789e01590d6cd2955856c6586cf5704d41bd96892e2ff8953e09266046686b4",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/parent_split_seed0.json",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L100.pt": {
+      "size": 63454042,
+      "sha256": "4ca72b27178007ef519f86858d6c220a840a1eca4d59ed4ffa54351fc5882b52",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L100.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L100_split_seed0.pt": {
+      "size": 630572,
+      "sha256": "5813b856a50b1d74a1bd35ab3dc2b0e3a2a3aa368c805cd9c743a0e3605e724c",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L100_split_seed0.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L200.pt": {
+      "size": 112630618,
+      "sha256": "7594676b29ad587aa4a6d63a5f785e1a4899b060d1f9dd8d7219daf5035075ce",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L200.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L200_split_seed0.pt": {
+      "size": 566060,
+      "sha256": "b50356b9cf8938ccde004a11198273ce9af97ca23d0feb7a6f1eaf78fc09aa93",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L200_split_seed0.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L400.pt": {
+      "size": 172276570,
+      "sha256": "fd84ca90524fdc5c02012a71b242a9baca3c85da676f71f0fb4722f5295f238e",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L400.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L400_split_seed0.pt": {
+      "size": 437100,
+      "sha256": "92c9eb99f81e85a38c16fbc4d636efc1a5c2ac2656d0b9afa49312a5e8e3bb1a",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L400_split_seed0.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L50.pt": {
+      "size": 34596760,
+      "sha256": "7d9f61d1e3489b78ee9712517eadf9bda82817fc40735c4ca462a98533d0a879",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L50.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/dna/yeast_parent_disjoint/yeast_parent_L50_split_seed0.pt": {
+      "size": 667422,
+      "sha256": "4fd6daee8b4777c4279bd48f30efeff7903071977be8888e7f5c91a911d4f4dd",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/yeast_parent_L50_split_seed0.pt",
+      "group": "dna",
+      "note": "parent-disjoint yeast windows/splits (Table 10; all DNA experiments)"
+    },
+    "data/geom/geom_fp/val.lmdb": {
+      "size": 173228032,
+      "sha256": "0f16c7aff637b83da6bf2b67c77ae1033a5397b9ed9f055b8ebea6d2bfb22c41",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/TFG-Flow/storage/datasets/geom_fp/val.lmdb",
+      "group": "geom",
+      "note": "prepared FP2 fingerprint LMDB, GEOM-Drugs val split (146,401 mols); source of the Table 3 target fingerprints"
+    },
+    "data/geom/geom_fp/val_meta.json": {
+      "size": 355,
+      "sha256": "fa2944530219fbaf3baddaa7bd0772b187384b67c89aa0d8f90e717ab541e753",
+      "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/TFG-Flow/storage/datasets/geom_fp/val_meta.json",
+      "group": "geom",
+      "note": "metadata for the val fingerprint LMDB (max_num_atoms=82, atom vocab)"
+    },
+    "data/qm9/datasets/yairschiff___qm9/default/0.0.0/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/dataset_info.json": {
+      "size": 2477,
+      "sha256": "1ce9dacaa618ac36635855ecdf8d1cbaccb603f021d3add19bf8b175ecc01df4",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/datasets/yairschiff___qm9/default/0.0.0/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/dataset_info.json",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/datasets/yairschiff___qm9/default/0.0.0/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/qm9-train.arrow": {
+      "size": 199715472,
+      "sha256": "54cbb0331cbb0a4421a107a1b1fdc4b20d681ac67f66cd4ef2a80c4545c6f213",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/datasets/yairschiff___qm9/default/0.0.0/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/qm9-train.arrow",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/.huggingface.yaml": {
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/.huggingface.yaml",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/dataset_infos.json": {
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/dataset_infos.json",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/qm9.py": {
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/.no_exist/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/qm9.py",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/blobs/8d526730480ec9db6be5cc30439c77b644c809352bd6c451efba1285cf239c2f": {
+      "size": 180380355,
+      "sha256": "8d526730480ec9db6be5cc30439c77b644c809352bd6c451efba1285cf239c2f",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/blobs/8d526730480ec9db6be5cc30439c77b644c809352bd6c451efba1285cf239c2f",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/blobs/a1e0396af19b47829f48df710253c2cc0eb28ea1": {
+      "size": 8092,
+      "sha256": "383ca2bf47606794ccc87799ed175f2e1ed2461c2bd1e293c54f168b1b85f093",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/blobs/a1e0396af19b47829f48df710253c2cc0eb28ea1",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/refs/main": {
+      "size": 40,
+      "sha256": "18a0ee31dcfe58e38733ece1192200f8589be0e7cee26226898b9ecbf87d88d8",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/refs/main",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/snapshots/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/README.md": {
+      "size": 8092,
+      "sha256": "383ca2bf47606794ccc87799ed175f2e1ed2461c2bd1e293c54f168b1b85f093",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/snapshots/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/README.md",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    },
+    "data/qm9/hub/datasets--yairschiff--qm9/snapshots/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/data/train-00000-of-00001-baa918c342229731.parquet": {
+      "size": 180380355,
+      "sha256": "8d526730480ec9db6be5cc30439c77b644c809352bd6c451efba1285cf239c2f",
+      "source": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/data/qm9/hub/datasets--yairschiff--qm9/snapshots/fe76afe05ba82b29b2f6b2d4da0cdad8d82e7d0e/data/train-00000-of-00001-baa918c342229731.parquet",
+      "group": "qm9",
+      "note": "offline Hugging Face cache for the QM9 generator/guide/oracle splits; equivalently re-downloadable from the yairschiff/qm9 dataset on the Hub"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "_what": "What TFG-Flow (Lin et al., ICLR 2025) actually reports and releases, checked against its paper and public repository on 2026-09-29, because paper Table 3 cites it for two reference values and for the guide predictor.",
+  "source_paper": {
+    "title": "TFG-Flow: Training-free Guidance in Multimodal Generative Flow",
+    "venue": "ICLR 2025",
+    "arxiv": "2501.14216",
+    "table": "Table 3 ('How generated molecules align with the target structure. The Tanimoto similarity results are averaged over 3 random seeds.')",
+    "values": {
+      "QM9": {"upper_bound": 0.164, "upper_bound_err": 0.004,
+              "tfg_flow": 0.290, "tfg_flow_err": 0.007,
+              "relative_improvement_pct": 76.83},
+      "GEOM-Drug": {"upper_bound": 0.170, "upper_bound_err": 0.001,
+                    "tfg_flow": 0.208, "tfg_flow_err": 0.002,
+                    "relative_improvement_pct": 22.35}
+    },
+    "confirms": "The 0.170 +- 0.001 and 0.208 +- 0.002 cited in our Table 3 are TFG-Flow's GEOM-Drug rows, so the dataset matches. '+-' is over 3 random seeds.",
+    "their_upper_bound_is": "their unconditional generative model ('TFG-Flow improves the similarity of unconditional generative model by ... 22.35% on GEOM-Drug')",
+    "their_evaluation_protocol": "App. D.1: 'For structure similarity, we use all the structures in the unseen half of training set for generative model and guidance predictor. The Tanimoto coefficient results are averaged over all the structures.' No molecule count is given.",
+    "their_reward": "f(G) = exp(-||E(G) - c||^2), E a multi-label classifier trained with binary cross-entropy to predict the fingerprint (Sec. 4.2) -- the same reward shape our paper states.",
+    "their_guide_architecture": "App. D.2: 'For target predictors, we train a 6-layer discriminative EGNN by adding linear head on the average pooling of output node feature.' Heavy atoms only.",
+    "their_geom_setup": "Their GEOMDrugDataset (dataloader/datasets/geom_drug.py) uses max_length = 30 atoms and a 5.52M-conformer split; our GEOM-Drugs generator covers up to 71 heavy atoms, so the two Tanimoto numbers are not measured on the same molecule-size distribution."
+  },
+  "released_checkpoints": {
+    "checked": ["local clone of github.com/linhaowei1/tfg-flow at commit 4e7ef16 (storage/ and git ls-files)",
+                "the repository README's 'Pre-trained Models' section",
+                "the public GitHub page"],
+    "contents": ["storage/flow_model.pth (QM9 base flow)",
+                 "storage/guide_clf_ckpt.zip (QM9 property guidance predictors: alpha, cv, gap, homo, lumo, mu)",
+                 "storage/oracle_clf_ckpt.zip (QM9 property oracles)"],
+    "structural_fingerprint_predictor_released": false,
+    "conclusion": "TFG-Flow releases no structural-fingerprint predictor, for QM9 or for GEOM-Drugs; its released predictors are the six QM9 property models this repo uses for the QM9 experiments. The GEOM-Drugs fingerprint head used for our Table 3 (checkpoints/geom/structure_head/best.pth) was trained by the authors, following TFG-Flow's guide architecture (6-layer EGNN, mean pooling, linear head) and its FP2 fingerprint definition. The sentence 'Our E(G) is off-the-shelf from TFG-Flow' is therefore incorrect and must change."
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "_note": "The ONE upstream original that the canonical collection does not hold. Copied 2026-09-29 by the dna-regen agent from the durable clone of github.com/tullebulle/DNA-MFM at commit 187fe7b kept on holylabs (a READ-ONLY source of the shared brief): /n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/DNA-MFM_187fe7b/scripts/. Plain file reads -- no clone, no GitHub operation, no credentials.",
+ "upstream": "github.com/tullebulle/DNA-MFM@187fe7b (the repository has 2 commits; parent d40b0f6)",
+ "source_dir": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/DNA-MFM_187fe7b/scripts",
+ "sha256": {
+  "score_yeast_c0_evo2.py": "059498df13c607cee8736fabb41f64d1b6ddfecab3f1d758c761f76787fafbe9"
+ },
+ "score_yeast_c0_evo2.py": {
+  "role": "The TRUE original of the Table 6 scorer (13,706 bytes).",
+  "how_the_port_was_made": "src/dmfm/experiments/score_yeast_c0_evo2.py is now DERIVED FROM THIS FILE by a scripted list of anchored substring edits (each anchor asserted to occur exactly once), not from the earlier bytecode reconstruction. Re-deriving changed no executable statement: the re-derived module is identical to the previous reconstruction under ast.dump with docstrings stripped.",
+  "scoring_path_unchanged": "Ignoring docstrings and comments, 13 of the 18 functions are AST-identical to this original: tokens_to_seqs, reverse_complement, load_args_payload, run_metadata, cap_df, generated_rows, load_evo2, model_forward, prepare_batch, score_mean_logprobs, score_rows, bootstrap_ci, summarize. That covers tokenisation, padding, the optional BOS, windowing, strand handling, the reduction, what is averaged, the bootstrap and the summary columns. Nothing Table 6 reports is affected, so Evo2 job 49277302 did NOT need rerunning after the re-derivation.",
+  "deviations": [
+   "parse_args/main take an argv parameter (in-process callability).",
+   "parse_args defaults are repo-relative via dmfm.paths; the originals (data/yeast_mid50.pt, data/yeast_mid50_split_seed0_train65000_val8000.pt, workdir/yeast_split_dmfm_c0_evo2) point into the purged split65k tree and are kept in comments beside each.",
+   "parse_args gains --train_split/--val_split/--test_split; baseline_rows gains a matching split_names parameter whose DEFAULT is the original triple ('train','val','test'). The original hard-coded those keys, which exist only in the purged split65k split file. Passing --train_split train --val_split val --test_split test restores the original behaviour exactly.",
+   "discover_csvs: default glob repointed from the purged split65k sample dirs to the shipped parent-disjoint n=1,000 C0 sets; its local variable `paths` renamed `paths_found` because dmfm.paths is imported under that name.",
+   "load_train_tokens: torch.load -> dmfm.utils.torch_io.torch_load (weights_only=False). The original ran under torch 2.7 where that was the default; payloads are tensors or a dict of tensors.",
+   "main names the default glob in its 'no files matched' error and passes split_names through.",
+   "imports: utils.yeast_splits -> dmfm.utils.yeast_splits, plus dmfm.paths and dmfm.utils.torch_io."
+  ],
+  "what_does_change_table_6": "Only the INPUT. The paper's split65k sample sets, split file and models are all purged, so the shipped defaults score the parent-disjoint n=1,000 C0 sets instead -- the same sets that results/dna/diversity/regen/ characterises for Tables 4 and 5."
+ },
+ "checked_absent_at_187fe7b_and_d40b0f6": [
+  "Any producer of figures/steering.png (Fig 8): no match anywhere in the clone for 'Gradient Norm', 'predicted endpoint', 'steering.png' or 'V_t(x_t)'. dmfm.regen.guidance_trace is therefore a REIMPLEMENTATION from the published panels.",
+  "Any Table 16 correlation code: no match anywhere for 'pearson' or 'position-wise'. The Table 16 correlations in dmfm.regen.base_marginals are therefore a REIMPLEMENTATION from the caption."
+ ],
+ "canonical_collection": "results/dna/original_scripts/ holds the four recovered producer scripts, their slurm launchers and a _sources.json with the upstream commit and sha256s. It is the canonical location; duplicates that used to sit here and in scripts/dna/regen/original/ were removed 2026-09-29. In particular make_yeast_split_sample_figures.py (sha256 1e4c212a...c96b9c), the authors' June re-creation of the four Fig 6 PDFs whose protocol dmfm.regen.base_marginals follows, now lives ONLY at results/dna/original_scripts/make_yeast_split_sample_figures.py."
+}

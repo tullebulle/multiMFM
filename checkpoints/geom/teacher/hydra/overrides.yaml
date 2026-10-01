@@ -1,0 +1,3 @@
+- experiment=geom_dfm
+- trainer=gpu
+- datamodule.lmdb_dir=/tmp/geom_dfm_35203410/lmdb_geom

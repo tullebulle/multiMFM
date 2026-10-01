@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+env/
+.envs/
+
+# Run outputs / logs
+outputs/
+logs/
+wandb/
+slurm-*.out
+
+# Caches (histograms under cache/histograms are tracked via .gitattributes/LFS)
+cache/matplotlib/
+cache/xdg/
+cache/torch/
+cache/tmp/
+
+# OS
+.DS_Store
+
+# Transient HF datasets locks / mamba temp files
+*.lock
+/mamba*
+
+# Large paper artifacts: not in git. Fetched/copied via scripts/manifest.py and
+# verified by sha256 against the tracked checkpoints/MANIFEST.json, which lists
+# every one of them. Nothing here needs Git LFS.
+/checkpoints/**
+/data/**
+# ...but keep the small text companions, so the exact training configuration of
+# every model is readable without fetching 2 GB of weights.
+!/checkpoints/**/
+!/checkpoints/MANIFEST.json
+!/checkpoints/**/*.json
+!/checkpoints/**/*.yaml
+!/checkpoints/**/*.csv
+!/checkpoints/**/*.txt
+checkpoints/MANIFEST.lock
+
+# huggingface_hub writes this on import (HF_HOME points at data/qm9)
+data/qm9/.agent_harnesses.json
+
+# stray logs
+activations_debug.log
+d2.log
+texput.log
+*.log
+
+# latex build artifacts (docs/status.pdf is tracked)
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.fls
+docs/*.fdb_latexmk
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.log

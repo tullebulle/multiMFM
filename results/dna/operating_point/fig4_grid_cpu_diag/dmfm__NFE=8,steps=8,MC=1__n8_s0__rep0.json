@@ -1,0 +1,120 @@
+{
+  "config": "NFE=8,steps=8,MC=1",
+  "config_params": {
+    "n_mc": 1,
+    "nfe_value": 8
+  },
+  "meta": {
+    "base_seed": 0,
+    "checkpoints": {
+      "base": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/base/L50/best.pt",
+      "c0_guide": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/guide/best_state.pt",
+      "c0_oracle": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/oracle/best_state.pt",
+      "dmfm": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt"
+    },
+    "device": "cpu",
+    "device_name": "cpu",
+    "device_type": "cpu",
+    "elapsed_s": 48.47588920593262,
+    "n_steps": 96,
+    "plan": "sweep",
+    "plan_index": 0,
+    "reward": "-(f_cyc(x) - y*)^2, scaled by 1/(2 sigma^2), sigma=0.15",
+    "settings": {
+      "base_seed": 0,
+      "config": "NFE=8,steps=8,MC=1",
+      "config_params": {
+        "n_mc": 1,
+        "nfe_value": 8
+      },
+      "fk_window": [
+        0.01,
+        0.95
+      ],
+      "guidance": [
+        8.0,
+        10.0,
+        10.0,
+        0.01,
+        0.95
+      ],
+      "length": 50,
+      "method": "dmfm",
+      "n_outputs": 8,
+      "n_steps": 96,
+      "plan": "sweep",
+      "repeat": 0,
+      "reward_scale": 1.0,
+      "reward_sigma": 0.15,
+      "sigma_sq_cap": 10.0,
+      "t_max": 1.0,
+      "target_c0": 0.3
+    },
+    "slurm_account": "kozinsky_lab",
+    "slurm_array_task_id": null,
+    "slurm_job_id": "49466933",
+    "slurm_partition": "kozinsky_requeue",
+    "target_c0": 0.3,
+    "tf32_matmul": false,
+    "torch_version": "2.5.1+cu124"
+  },
+  "method": "dmfm",
+  "metrics": {
+    "frac05": 0.0,
+    "frac10": 0.125,
+    "mae": 0.6224916690960527,
+    "mean_score": -0.32249166909605265,
+    "median_ae": 0.7109902232885361,
+    "oracle_frac05": 0.0,
+    "oracle_frac10": 0.125,
+    "oracle_mae": 0.659252891689539,
+    "oracle_mean_score": -0.34265125915408134,
+    "oracle_median_ae": 0.7941557347774506,
+    "oracle_std_score": 0.36596324622132737,
+    "std_score": 0.33270394986164387
+  },
+  "n_outputs": 8,
+  "nfe": {
+    "eta": 0.0,
+    "nfe_backward_per_output": 91.0,
+    "nfe_base_per_output": 96.0,
+    "nfe_gen_per_output": 824.0,
+    "nfe_gen_total": 6592,
+    "nfe_guide_per_output": 92.0,
+    "nfe_student_per_output": 728.0
+  },
+  "per_sample": {
+    "guide_score": [
+      -0.49201297760009766,
+      -0.508899450302124,
+      -0.6712632179260254,
+      -0.3299674689769745,
+      -0.7048136591911316,
+      0.2135573774576187,
+      -0.03304270654916763,
+      -0.053491249680519104
+    ],
+    "oracle_score": [
+      -0.4958977699279785,
+      -0.5719937086105347,
+      -0.6614335775375366,
+      -0.4924136996269226,
+      -0.6761623620986938,
+      0.36640653014183044,
+      -0.03314247727394104,
+      -0.1765730082988739
+    ],
+    "sequence": [
+      "CAAAGATGCGTCGACGAAGAAGAAGGCCTTGGGGATCAAGGACTCACATC",
+      "TGAAGGAGAATTGGAGAGATAGCAAGATCCAACACAAATTGGCACTCATC",
+      "ACCAAAGAGAGAATTATCCATTTTTGAGATGAGTCCATTTAAGGAAACTG",
+      "GCAGCTTGCAGTGAAGATCGTTGGGGTGCTGGTAGACATCACCGCCAGCA",
+      "TCAGGAAGAAATTAAGATGGACCCATTCATCAGTACAAGAAGCAACAGAA",
+      "GCTTAATCTCCTATTGATACACCTTTACACAGCACCTCGGTTGCTCTTGC",
+      "CTGCCTCCCAGAACCAGGCCCTTCAAAGTCGATGGTATCCCATTTTCTCC",
+      "CATGACAGTTTCCCAAGATTTTGCCATTCATCGAATCTATTACCGGTATT"
+    ]
+  },
+  "repeat": 0,
+  "seed": 0
+}

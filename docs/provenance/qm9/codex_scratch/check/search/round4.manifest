@@ -1,0 +1,14 @@
+# round 4: alpha headroom (gmax 0.95); early-stop guidance (gmax<0.95) + harder mu on validity-limited props
+# JOBID PROPERTY MU RS TAG GMAX
+34985247 alpha 3.10 0.3   r4_alpha_mu3p10          0.95
+34985221 alpha 3.30 0.3   r4_alpha_mu3p30          0.95
+34988184 gap   0.30 12000 r4_gap_mu0p30_g85        0.85
+34988143 gap   0.24 12000 r4_gap_mu0p24_g88        0.88
+34988141 homo  0.60 41500 r4_homo_mu0p60           0.95
+34989391 homo  0.80 41500 r4_homo_mu0p80_g85       0.85
+34989362 lumo  0.55 12000 r4_lumo_mu0p55_g85       0.85
+34989345 lumo  0.50 12000 r4_lumo_mu0p50_g88       0.88
+34989311 mu    0.80 8.638 r4_mu_mu0p80             0.95
+34989432 mu    0.95 8.638 r4_mu_mu0p95_g85         0.85
+34989449 cv    2.70 1.5   r4_cv_mu2p70             0.95
+34989466 cv    3.20 1.5   r4_cv_mu3p20_g85         0.85

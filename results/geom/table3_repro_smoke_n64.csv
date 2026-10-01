@@ -1,0 +1,2 @@
+tag,value_sampler,teacher,mfm_checkpoint,reward_lambda,mu,num_mols,sample_steps,value_samples,mfm_steps,value_glass_steps,guide_min_t,guide_max_t,unguided_tanimoto,guided_tanimoto,tanimoto_gain,unguided_pb_valid,guided_pb_valid,unguided_conversion,guided_conversion,slurm_job,run
+smoke_repro_lam0.02_mu0.5,mfm,epoch=38-step=89310.ckpt,student_step_10000.pt,0.02,0.5,64,100,4,10,,0.1,0.9,0.20995879173278809,0.2255411148071289,0.01558232307434082,0.875,0.84375,1.0,1.0,47833754,repro_smoke_n64

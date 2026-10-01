@@ -1,0 +1,26 @@
+curve,checkpoint,epoch,global_step,weights,num_samples,num_steps,hidden_dim,pb_valid,conversion_rate,pb_config
+big_curve,(overwritten; evaluated before deletion),1,4580,raw(default),200,200,256,0.455,0.93,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=4-step=11450.ckpt,4,11450,raw(default),200,200,256,0.77,0.955,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=5-step=13740.ckpt,5,13740,raw(default),200,200,256,0.815,0.97,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=6-step=16030.ckpt,6,16030,raw(default),200,200,256,0.8,0.94,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=7-step=18320.ckpt,7,18320,raw(default),200,200,256,0.84,0.985,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=8-step=20610.ckpt,8,20610,raw(default),200,200,256,0.905,0.965,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=9-step=22900.ckpt,9,22900,raw(default),200,200,256,0.885,0.965,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=10-step=25190.ckpt,10,25190,raw(default),200,200,256,0.815,0.96,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=11-step=27480.ckpt,11,27480,raw(default),200,200,256,0.82,0.97,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=23-step=54960.ckpt,23,54960,raw(default),200,200,256,0.83,0.96,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=29-step=68700.ckpt,29,68700,raw,200,200,256,0.88,0.98,src/tabasco/utils/posebusters_no_strain.yaml
+big_curve,epoch=30-step=70990.ckpt,30,70990,raw,200,200,256,0.9,0.97,src/tabasco/utils/posebusters_no_strain.yaml
+big_ddp_curve,epoch009-step00022900.ckpt,9,22900,raw,200,200,256,0.875,0.975,src/tabasco/utils/posebusters_no_strain.yaml
+small_curve,step00064000.ckpt,27,64000,raw(default),200,200,64,0.43,0.925,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00002000.ckpt,0,2000,raw(default),200,200,512,0.0,0.815,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00008000.ckpt,1,8000,raw,200,200,512,0.855,0.98,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00016000.ckpt,3,16000,raw,200,200,512,0.835,0.975,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00024000.ckpt,5,24000,raw,200,200,512,0.855,0.975,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00032000.ckpt,6,32000,raw,200,200,512,0.88,0.95,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00040000.ckpt,8,40000,raw,200,200,512,0.875,0.95,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00048000.ckpt,10,48000,raw,200,200,512,0.89,0.98,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00050000.ckpt,10,50000,raw(default),200,200,512,0.85,0.95,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00054000.ckpt,11,54000,raw,200,200,512,0.88,0.97,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00066000.ckpt,14,66000,raw,200,200,512,0.89,0.97,src/tabasco/utils/posebusters_no_strain.yaml
+xlarge_curve,step00070000.ckpt,15,70000,raw,200,200,512,0.945,0.975,src/tabasco/utils/posebusters_no_strain.yaml

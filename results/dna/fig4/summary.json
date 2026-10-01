@@ -1,0 +1,296 @@
+{
+  "_what": "Figure 4 rerun on the parent-disjoint L=50 models (authors' decision 3, 2026-09-29). Nothing of the submitted figure survives: see docs/provenance/dna/README.md.",
+  "panelA": {
+    "n_shards": 8,
+    "args": {
+      "length": 50,
+      "out": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/fig4/panelA/conds_00_04.json",
+      "cond_start": 0,
+      "cond_end": 4,
+      "n_conditions": 32,
+      "n_list": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512
+      ],
+      "sde_ref_n": 512,
+      "sde_steps": 1024,
+      "dmfm_nfe": 1,
+      "fmap_nfe": 256,
+      "reward_gain": 4.0,
+      "reward_seed": 1234,
+      "tcond_low": 0.05,
+      "tcond_high": 0.35,
+      "data_split": "test",
+      "seed": 12345,
+      "reward": "smooth",
+      "reference": "sde",
+      "glass_ref_n": 2048,
+      "glass_nfe": 8,
+      "target_c0": 0.3,
+      "reward_sigma": 0.15,
+      "reward_scale": 1.0,
+      "chunk": 512,
+      "device": null
+    },
+    "checkpoints": {
+      "base": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/base/L50/best.pt",
+      "dmfm": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt"
+    },
+    "slurm_job_ids": [
+      "49298117",
+      "49397748",
+      "49397749",
+      "49397750"
+    ],
+    "nfe_total": {
+      "base": 50307072,
+      "student": 32768,
+      "guide": 0
+    },
+    "devices_seen": {
+      "cuda": 8
+    },
+    "reference_floor": {
+      "reference": "sde",
+      "reference_n": 512,
+      "selfsplit_abs_diff_mean": 0.32377251982688904,
+      "V_ref_mean": 6.730279117822647,
+      "V_ref_sd": 0.48430803067921296,
+      "n_conditions": 32
+    },
+    "reward": "smooth",
+    "original_producer": "results/dna/original_scripts/benchmark_yeast_split_value_mc.py",
+    "headline": {
+      "dmfm": {
+        "1": 4.79539,
+        "2": 2.99963,
+        "4": 2.75356,
+        "8": 1.88607,
+        "16": 1.02268,
+        "32": 0.87849,
+        "64": 0.63586,
+        "128": 0.43703,
+        "256": 0.37493,
+        "512": 0.24711
+      },
+      "dps": {
+        "1": 2.86346,
+        "2": 2.86346,
+        "4": 2.86346,
+        "8": 2.86346,
+        "16": 2.86346,
+        "32": 2.86346,
+        "64": 2.86346,
+        "128": 2.86346,
+        "256": 2.86346,
+        "512": 2.86346
+      },
+      "fmap": {
+        "1": 4.20383,
+        "2": 4.20383,
+        "4": 4.20383,
+        "8": 4.20383,
+        "16": 4.20383,
+        "32": 4.20383,
+        "64": 4.20383,
+        "128": 4.20383,
+        "256": 4.20383,
+        "512": 4.20383
+      },
+      "sde_mc": {
+        "1": 3.8572,
+        "2": 2.50509,
+        "4": 2.4999,
+        "8": 1.46665,
+        "16": 1.20425,
+        "32": 0.68226,
+        "64": 0.49625,
+        "128": 0.47184,
+        "256": 0.35686,
+        "512": 0.30337
+      }
+    }
+  },
+  "panelA_c0_reward": {
+    "n_shards": 8,
+    "args": {
+      "length": 50,
+      "out": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/outputs/dna/fig4/panelA_c0/conds_00_04.json",
+      "cond_start": 0,
+      "cond_end": 4,
+      "n_conditions": 32,
+      "n_list": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512
+      ],
+      "sde_ref_n": 512,
+      "sde_steps": 1024,
+      "dmfm_nfe": 1,
+      "fmap_nfe": 256,
+      "reward_gain": 4.0,
+      "reward_seed": 1234,
+      "tcond_low": 0.05,
+      "tcond_high": 0.35,
+      "data_split": "test",
+      "seed": 12345,
+      "reward": "c0",
+      "reference": "glass",
+      "glass_ref_n": 2048,
+      "glass_nfe": 8,
+      "target_c0": 0.3,
+      "reward_sigma": 0.15,
+      "reward_scale": 1.0,
+      "chunk": 512,
+      "device": null
+    },
+    "checkpoints": {
+      "base": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/base/L50/best.pt",
+      "dmfm": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt"
+    },
+    "slurm_job_ids": [
+      "49298117",
+      "49397748",
+      "49397749",
+      "49397750"
+    ],
+    "nfe_total": {
+      "base": 34054144,
+      "student": 32768,
+      "guide": 131072
+    },
+    "devices_seen": {
+      "cuda": 8
+    },
+    "reference_floor": {
+      "reference": "glass",
+      "reference_n": 2048,
+      "selfsplit_abs_diff_mean": 0.0655943751335144,
+      "V_ref_mean": -1.959448516368866,
+      "V_ref_sd": 0.06275291970104192,
+      "n_conditions": 32
+    },
+    "reward": "c0",
+    "original_producer": "results/dna/original_scripts/benchmark_yeast_split_value_mc.py"
+  },
+  "panelB": {
+    "n_shards": 96,
+    "n_excluded": 0,
+    "slurm_job_ids": [
+      "49298117",
+      "49397748",
+      "49397749",
+      "49397750"
+    ],
+    "checkpoints": {
+      "base": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/base/L50/best.pt",
+      "c0_guide": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/guide/best_state.pt",
+      "c0_oracle": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/oracle/best_state.pt",
+      "dmfm": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt"
+    },
+    "n_steps": 96,
+    "target_c0": 0.3,
+    "settings_seen": [
+      {
+        "plan": "sweep",
+        "base_seed": 0,
+        "n_outputs": 100,
+        "n_shards": 96
+      }
+    ],
+    "devices_seen": {
+      "cuda": 96
+    },
+    "matched_nfe_comparison": [
+      {
+        "dmfm_config": "MC=1",
+        "nfe": 187.0,
+        "dmfm_mae": 0.13294625558455786,
+        "beam_mae_at_same_nfe": NaN,
+        "best_of_n_mae_at_same_nfe": NaN,
+        "fk_mae_at_same_nfe": NaN,
+        "mcts_mae_at_same_nfe": NaN
+      },
+      {
+        "dmfm_config": "MC=2",
+        "nfe": 278.0,
+        "dmfm_mae": 0.12058422139286996,
+        "beam_mae_at_same_nfe": NaN,
+        "best_of_n_mae_at_same_nfe": 0.3168144742386213,
+        "fk_mae_at_same_nfe": 0.20736452443047543,
+        "mcts_mae_at_same_nfe": 0.2943326088412435
+      },
+      {
+        "dmfm_config": "MC=4",
+        "nfe": 460.0,
+        "dmfm_mae": 0.0946813128590584,
+        "beam_mae_at_same_nfe": NaN,
+        "best_of_n_mae_at_same_nfe": 0.21495008636171536,
+        "fk_mae_at_same_nfe": 0.11490286799750915,
+        "mcts_mae_at_same_nfe": 0.1923857237883735
+      },
+      {
+        "dmfm_config": "MC=8",
+        "nfe": 824.0,
+        "dmfm_mae": 0.07357378794252872,
+        "beam_mae_at_same_nfe": 0.08935367944378113,
+        "best_of_n_mae_at_same_nfe": 0.1394545724371938,
+        "fk_mae_at_same_nfe": 0.05784305362646221,
+        "mcts_mae_at_same_nfe": 0.10420491746583785
+      },
+      {
+        "dmfm_config": "MC=16",
+        "nfe": 1552.0,
+        "dmfm_mae": 0.061337003777424494,
+        "beam_mae_at_same_nfe": 0.050223551498493,
+        "best_of_n_mae_at_same_nfe": 0.07240285337063418,
+        "fk_mae_at_same_nfe": 0.026633793815140888,
+        "mcts_mae_at_same_nfe": 0.04614205355030529
+      }
+    ],
+    "dmfm_wins_at_lowest_nfe": true
+  },
+  "pilot": {
+    "n_shards": 49,
+    "n_excluded": 0,
+    "slurm_job_ids": [
+      "49298117",
+      "49397748",
+      "49397749"
+    ],
+    "checkpoints": {
+      "base": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/base/L50/best.pt",
+      "c0_guide": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/guide/best_state.pt",
+      "c0_oracle": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/c0/oracle/best_state.pt",
+      "dmfm": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt"
+    },
+    "n_steps": 96,
+    "target_c0": 0.3,
+    "settings_seen": [
+      {
+        "plan": "pilot",
+        "base_seed": 12345,
+        "n_outputs": 32,
+        "n_shards": 49
+      }
+    ],
+    "devices_seen": {
+      "cuda": 49
+    }
+  }
+}

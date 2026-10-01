@@ -1,0 +1,6 @@
+# Model weights and datasets are not tracked in git; see checkpoints/MANIFEST.json
+# and scripts/manifest.py. Nothing here needs Git LFS.
+
+# Store every file byte for byte. Some results CSVs were written with CRLF by the
+# runs that produced them, and line-ending normalisation would rewrite recorded data.
+* -text

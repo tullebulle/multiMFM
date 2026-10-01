@@ -1,0 +1,14 @@
+# PB-valid BoL round 4: replicate each property's best config (2x) for a robust n=100 number
+# JOBID PROPERTY MU RS SELMINT TAG
+34985247 alpha 8.00  0.3   0.50 v4_alpha_mu8_a
+34985221 alpha 8.00  0.3   0.50 v4_alpha_mu8_b
+34988184 gap   0.60  12000 0.50 v4_gap_mu0p6_a
+34988143 gap   0.60  12000 0.50 v4_gap_mu0p6_b
+34988141 homo  1.50  41500 0.50 v4_homo_mu1p5_a
+34989391 homo  1.50  41500 0.50 v4_homo_mu1p5_b
+34989362 lumo  0.90  12000 0.50 v4_lumo_mu0p9_a
+34989345 lumo  0.90  12000 0.50 v4_lumo_mu0p9_b
+34989311 mu    2.00  8.638 0.50 v4_mu_mu2p0_a
+34989432 mu    2.00  8.638 0.50 v4_mu_mu2p0_b
+34989449 cv    5.00  1.5   0.50 v4_cv_mu5_a
+34989466 cv    5.00  1.5   0.50 v4_cv_mu5_b

@@ -1,0 +1,28 @@
+{
+  "_what": "directional check of the fingerprint value gradient",
+  "t": 0.5,
+  "num_mols": 4,
+  "reward_lambda": 0.01,
+  "posterior_samples": 4,
+  "mfm_steps": 10,
+  "probe_samples": 16,
+  "seed": 0,
+  "grad_coords_rms": 1.7147579193115234,
+  "grad_atomics_rms": 0.21615268290042877,
+  "guide_reward_by_step": {
+    "-1.0": -169.33428955078125,
+    "-0.3": -168.0975341796875,
+    "-0.1": -162.700439453125,
+    "-0.01": -169.791259765625,
+    "-0.001": -170.42184448242188,
+    "0.0": -169.2125244140625,
+    "0.001": -170.0949249267578,
+    "0.01": -169.16346740722656,
+    "0.1": -168.4087371826172,
+    "0.3": -174.79627990722656,
+    "1.0": -211.09793090820312
+  },
+  "verdict": "gradient ASCENDS the guide reward (plumbing correct)",
+  "_verdict_note": "WARNING, added 2026-09-29 after this file was written. The `verdict` field below was produced by the OLD grad-sign verdict logic (max of the positive deltas > 0), which compares the single best probe against step 0 and is NOT a sign test. Read properly, this scan's own guide_reward_by_step favours -grad at every |step| >= 0.1. The scan cannot settle the sign at any step size: at steps small enough to be linear its Monte-Carlo noise (fresh look-aheads) is ~1e4 times its signal, and at steps large enough to beat the noise it displaces every atom by 0.34-3.4 Angstrom. The verdict string was removed from the code; `multimfm.geom.diagnostics grad-sign` now prints the paired +/- comparison and declares itself underpowered. The sign and magnitude are established instead by fd_check_t0.5_lam0.01_cuda.json (FD ratio 1.006 for grad V), fd_check_reward_only.json (1.0003 for dr/dcoords), scripts/geom/sign_chain_selfcheck.py (analytic, exact to 7 digits) and the -mu sign test in guidance_grid.csv. See docs/geom_guidance_diagnosis.md section 2.2.",
+  "_measurements_unchanged": true
+}

@@ -1,0 +1,2 @@
+property,seed,n_splits,splits,unguided_oracle_mae,max_per_id_spread,n
+alpha,8,6,1x128|2x64|2x64-fm|4x32|4x32-fm|8x16,8.304543991088867,0.002349853515625,100

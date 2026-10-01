@@ -1,0 +1,13 @@
+# JOBID PROPERTY MU REWARD_SCALE TAG   (round 1: mu at 2x and 4x prior tuned value)
+34985247 alpha 1.20 0.3   r1_alpha_mu1p20
+34985221 alpha 2.40 0.3   r1_alpha_mu2p40
+34988184 gap   0.30 12000 r1_gap_mu0p30
+34988143 gap   0.60 12000 r1_gap_mu0p60
+34988141 homo  0.70 41500 r1_homo_mu0p70
+34989391 homo  1.40 41500 r1_homo_mu1p40
+34989362 lumo  0.50 12000 r1_lumo_mu0p50
+34989345 lumo  1.00 12000 r1_lumo_mu1p00
+34989311 mu    1.10 8.638 r1_mu_mu1p10
+34989432 mu    2.20 8.638 r1_mu_mu2p20
+34989449 cv    1.60 1.5   r1_cv_mu1p60
+34989466 cv    3.20 1.5   r1_cv_mu3p20

@@ -1,0 +1,141 @@
+train: true
+ckpt_path: null
+lightning_module:
+  _target_: tabasco.models.lightning_tabasco.LightningTabasco
+  model: ${model}
+  optimizer:
+    _target_: torch.optim.Adam
+    _partial_: true
+    lr: 0.002
+    weight_decay: 0.0
+    betas:
+    - 0.9
+    - 0.995
+model:
+  _target_: tabasco.models.flow_model.FlowMatchingModel
+  net:
+    _target_: tabasco.models.components.transformer_module.TransformerModule
+    spatial_dim: ${globals.spatial_dim}
+    atom_dim: ${globals.atom_dim}
+    hidden_dim: 256
+    num_layers: 16
+    num_heads: 8
+    implementation: reimplemented
+    cross_attention: true
+    atom_input_mode: continuous_linear
+    max_num_atoms: ${globals.max_num_atoms}
+  compile: false
+  interdist_loss: null
+  time_distribution: beta
+  time_alpha_factor: 1.8
+  num_random_augmentations: 7
+  sample_schedule: log
+  coords_interpolant:
+    _target_: tabasco.flow.interpolate.SDEMetricInterpolant
+    key: coords
+    loss_weight: 1.0
+    scale_noise_by_log_num_atoms: false
+    noise_scale: 1.0
+    langevin_sampling_schedule:
+      _target_: tabasco.sample.noise_schedule.SampleNoiseSchedule
+      cutoff: 0.9
+    white_noise_sampling_scale: 0.01
+    time_factor:
+      _target_: tabasco.flow.time_factor.InverseTimeFactor
+      max_value: 100.0
+      min_value: 0.05
+      zero_before: 0.0
+      eps: 1.0e-06
+  atomics_interpolant:
+    _target_: tabasco.flow.interpolate.GaussianSimplexAtomInterpolant
+    key: atomics
+    loss_weight: 0.1
+    beta_schedule: linear
+    beta_power: 1.0
+    time_factor:
+      _target_: tabasco.flow.time_factor.InverseTimeFactor
+      max_value: 100.0
+      min_value: 0.05
+      zero_before: 0.0
+      eps: 1.0e-06
+datamodule:
+  _target_: tabasco.data.lmdb_datamodule.LmdbDataModule
+  data_dir: ./data/processed_geom_train.pt
+  val_data_dir: ./data/processed_geom_val.pt
+  test_data_dir: ./data/processed_geom_test.pt
+  lmdb_dir: /tmp/geom_dfm_35203410/lmdb_geom
+  add_random_rotation: true
+  add_random_permutation: false
+  reorder_to_smiles_order: true
+  remove_hydrogens: true
+  batch_size: 512
+  num_workers: 8
+logger:
+  wandb:
+    _target_: lightning.pytorch.loggers.wandb.WandbLogger
+    save_dir: ${paths.output_dir}
+    offline: false
+    id: null
+    project: geom-drugs
+    log_model: false
+    prefix: ''
+    entity: ulrikunneberg-harvard-university
+    group: ''
+    tags: []
+    job_type: ''
+    name: geom-drug-dfm-teacher
+paths:
+  root_dir: .
+  data_dir: ${paths.root_dir}/data/
+  log_dir: ${paths.root_dir}/logs/
+  output_dir: ${hydra:runtime.output_dir}
+  work_dir: ${hydra:runtime.cwd}
+globals:
+  spatial_dim: 3
+  atom_dim: 9
+  max_num_atoms: 90
+trainer:
+  _target_: lightning.pytorch.trainer.Trainer
+  default_root_dir: ${paths.output_dir}
+  max_epochs: 1000000
+  accelerator: gpu
+  devices: 1
+  check_val_every_n_epoch: 1
+  gradient_clip_val: 0.5
+  deterministic: false
+  enable_progress_bar: false
+  max_steps: 200000
+extras:
+  ignore_warnings: false
+  enforce_tags: true
+  print_config: true
+callbacks:
+  dataset_stats:
+    _target_: tabasco.callbacks.DatasetStatsCallback
+  mol_metrics:
+    _target_: tabasco.callbacks.MoleculeMetricsCallback
+    num_samples: 100
+    compute_every: 5
+    num_sampling_steps: 100
+  posebusters_metrics:
+    _target_: tabasco.callbacks.PoseBustersCallback
+    num_samples: 100
+    compute_every: 5
+    num_sampling_steps: 100
+  save_mols:
+    _target_: tabasco.callbacks.SaveGeneratedMolsCallback
+    num_samples: 100
+    num_display_mols: 10
+    num_trajectories: 10
+    num_sampling_steps: 100
+    compute_every: 5
+  ema:
+    _target_: tabasco.callbacks.ema.EMA
+    decay: 0.999
+    every_n_steps: 1
+tags:
+- geom
+- dfm
+- continuous
+- teacher
+seed: 42

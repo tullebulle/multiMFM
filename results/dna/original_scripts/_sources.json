@@ -1,0 +1,32 @@
+{
+  "_note": "Verbatim copies of the ORIGINAL producer scripts, taken 2026-09-29 from a clone of github.com/tullebulle/DNA-MFM at commit 187fe7b ('Add yeast diversity and Evo2 validation'; parent d40b0f6). These are the true originals, not reconstructions. The copy was made from a /tmp clone that no longer exists; the durable copy of the same clone is recorded in durable_clone_path below, and every sha256 here was re-verified against it on 2026-09-29.",
+  "clone_path_at_copy_time": "/tmp/claude-66143/-n-netscratch-kozinsky-lab-Lab-uunneberg-repos-tabasco/bad102ed-.../scratchpad/DNA-MFM  (gone; /tmp is not durable)",
+  "upstream": "github.com/tullebulle/DNA-MFM@187fe7b",
+  "files": {
+    "benchmark_yeast_split_dmfm_steering.py": "50f6db65b5c565a1a7505cdbb988d0703c26e54e630685cc656007790fea31c4",
+    "benchmark_yeast_split_value_mc.py": "52972abd1791c883fcc1633c62506cb5bbffe19c649683580eb4773f1436cb12",
+    "make_yeast_split_sample_figures.py": "1e4c212a074a48410ed4c99be57567c6a2e345e7dc14471b4591c40217c96b9c",
+    "sample_yeast_c0_guidance_hist.py": "866c189750f942701ec997dc4776c6ad9befeff69f2f53b3ddcc94dade16af0b",
+    "slurm/benchmark_yeast_split_dmfm_steering.sbatch": "420986225ff15d5e17cd56923cd5da29751e8d9afed31d0b4955b36a8804226c",
+    "slurm/benchmark_yeast_split_value_mc.sbatch": "875eee67f57e8c4b8291dcc5fd1437a01fd46aca1c532d0fe6b219b27ef2fe62",
+    "slurm/make_yeast_split_sample_figures.sbatch": "339e17474eefff9921381c633b0187a38ba2b362812e90a7b31365784ae641fe",
+    "slurm/sample_yeast_c0_guidance_hist.sbatch": "3a64b5acfad51c511300121cc5577d7c0dad7b1aa4ef0e95307294ae2ea56edf",
+    "sample_yeast_split_dmfm_c0.py": {
+      "sha256": "40b0d52c691bfceb9192ea9313676bd5ae322de6ad98c35e64ee16c39b23a342",
+      "bytes": 6311,
+      "upstream": "dirichlet-flow-matching/scripts/sample_yeast_split_dmfm_c0.py, mtime 2026-07-26 (the surviving working repo) -- NOT the 187fe7b clone",
+      "note": "True producer of the published Tables 4-6 generated-sequence sets: it uses DMFMSteeringRunner, i.e. dMFM and not GLASS, so Table 5's caption was right and docs/dmfm_demo_reruns.md is wrong on this. Identified by the 2026-09-30 findings audit. PROVENANCE WARNING: this file POSTDATES commit 187fe7b. The clone at that commit lacks two arguments this version has, --student_args and --t_max (default 1.0), and t_max is one of the six guidance-protocol knobs that differ between the published runs and our regeneration (trajectory to t=1.0 vs 0.95). So 187fe7b is not complete provenance for the DNA work; the July working copy is required, as it already is for utils/mfm_diag_distill.py and utils/parsing.py."
+    }
+  },
+  "durable_clone_path": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/DNA-MFM_187fe7b",
+  "verified_against_durable_clone_20260929": {
+    "benchmark_yeast_split_dmfm_steering.py": "match",
+    "benchmark_yeast_split_value_mc.py": "match",
+    "make_yeast_split_sample_figures.py": "match",
+    "sample_yeast_c0_guidance_hist.py": "match",
+    "slurm/benchmark_yeast_split_dmfm_steering.sbatch": "match",
+    "slurm/benchmark_yeast_split_value_mc.sbatch": "match",
+    "slurm/make_yeast_split_sample_figures.sbatch": "match",
+    "slurm/sample_yeast_c0_guidance_hist.sbatch": "match"
+  }
+}

@@ -1,0 +1,42 @@
+# Separate environment for the Evo2 plausibility scoring (Table 6, Evo2 columns of
+# Table 13 / App. F.1, posterior-diversity Evo2 check). Evo2 needs Python >=3.11,<3.13 and a
+# newer torch than the main `multimfm` env, so it is kept apart.
+#
+#   micromamba env create -f scripts/dna/evo2_environment.yml
+#   micromamba activate evo2
+#   export PYTHONPATH="$PWD/src:${PYTHONPATH:-}"   # dmfm.experiments.score_*_evo2 (torch/numpy/pandas only)
+#
+# Versions are the ones found in the original venv used for the paper runs
+# (dirichlet-flow-matching/.envs/evo2, created 2026-06-10 with `uv venv` from CPython 3.12.11;
+# only the site-packages/*.dist-info directory names survived the netscratch purge, so
+# the pins below are exact for the packages listed but transitive deps are not locked):
+#   evo2 0.5.5, vtx (vortex) 1.0.8, torch 2.7.1+cu128, triton 3.3.1, numpy 2.4.6,
+#   pandas 3.0.3, huggingface_hub 1.18.0, hf_xet 1.5.1, einops 0.8.2, biopython 1.87.
+# The runs used no Transformer Engine and no flash-attn (evo2 logged "Transformer Engine not
+# installed. Falling back to bf16 projections"; vortex config use_flash_attn=False), on
+# H100 with `module load gcc/12.2.0-fasrc01 cuda/12.9.1-fasrc01`.
+#
+# Model weights: `Evo2("evo2_7b_base")` downloads `arcinstitute/evo2_7b_base`
+# (file evo2_7b_base.pt, ~14 GB; the paper runs used HF revision
+# 074097e9dc788e8bfe045d6495b9f6153a7c6bfc) into $HF_HOME/hub on first use. Set HF_HOME to a
+# large, non-purged, git-ignored location, e.g. `export HF_HOME=$PWD/cache/xdg/huggingface`
+# (what scripts/dna/score_evo2.sbatch does), and pre-download on a node with internet:
+#   python -c "from huggingface_hub import snapshot_download; snapshot_download('arcinstitute/evo2_7b_base', revision='074097e9dc788e8bfe045d6495b9f6153a7c6bfc')"
+name: evo2
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch==2.7.1
+      - triton==3.3.1
+      - evo2==0.5.5
+      - vtx==1.0.8
+      - numpy==2.4.6
+      - pandas==3.0.3
+      - huggingface_hub==1.18.0
+      - hf_xet==1.5.1
+      - einops==0.8.2
+      - biopython==1.87

@@ -1,0 +1,7 @@
+property,submitted_ss_mu,chosen_mu,submitted_mu_mae,submitted_mu_se,chosen_mae,changed,rule
+cv,5.0,5.0,0.41320857405662537,0.02319483951082305,0.41320857405662537,False,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95
+mu,3.0,3.0,0.5661842226982117,0.0543405527565579,0.5661842226982117,False,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95
+alpha,11.0,11.0,0.9944468140602112,0.059759298824329565,0.9944468140602112,False,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95
+gap,1.0,1.0,429.07554795055677,24.34350458935354,429.07554795055677,False,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95
+homo,1.5,1.5,252.54132699211596,14.50056888089289,252.54132699211596,False,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95
+lumo,1.5,3.0,297.5305110314945,18.583433753856333,245.15254623401887,True,keep the submitted SS mu unless another grid mu gives a lower Algorithm-3 oracle MAE by more than 2 SE of the difference (per-molecule errors) with PB-valid >= 0.95

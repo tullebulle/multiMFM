@@ -1,0 +1,5 @@
+set,n_samples,exact_unique_frac,nearest_gen_frac_mean,pairwise_gen_frac_mean,pairwise_gen_frac_median,nearest_a_train_frac_mean,novel_exact_vs_a_train_frac
+full_sample,1000,1.0,0.52188,0.7376993393393393,0.74,,
+a_train_sample,1000,1.0,0.52,0.7360735935935936,0.74,,
+a_val_sample,1000,1.0,0.51936,0.7384512112112113,0.74,0.45783999999999997,1.0
+test_sample,1000,1.0,0.52192,0.7381149549549549,0.74,0.45676,1.0

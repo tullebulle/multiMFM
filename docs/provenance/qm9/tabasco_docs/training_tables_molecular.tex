@@ -1,0 +1,239 @@
+% =====================================================================
+%  training_tables_molecular.tex
+%  Complete training descriptions for the QM9 and GEOM-Drugs models.
+%
+%  EVERY value below was read from the model checkpoints themselves
+%  (`model_args` / `args` / `student_cfg` / `hyper_parameters` /
+%  `data_stats`), not from launcher scripts or notes, so the tables
+%  describe the weights that actually produced the reported results.
+%
+%  Sources
+%    QM9 base flow   MultiMFM/checkpoints/base_flow/model_step_100000.pt
+%    QM9 MFM student MultiMFM/checkpoints/mfm_student/student_step_1000.pt
+%    GEOM teacher    geom-drug-tabasco/validation_teacher/big_curve/
+%                      ckpts/epoch=38-step=89310.ckpt
+%    GEOM MFM student geom-drug-tabasco/outputs/mfm_student_geom_stage2_ddp/
+%                      stage2_20260727-222154/student_step_10000.pt
+%
+%  These REPLACE tab:hyperparameters_multimfm (which describes the 2-D toy,
+%  not QM9) and supply the GEOM table the paper currently lacks.
+%
+%  Generated 2026-09-25.
+% =====================================================================
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,amsmath,amssymb,xcolor}
+\newcommand{\naa}{\textcolor{gray}{--}}
+\title{Molecular training details: QM9 and GEOM-Drugs}
+\date{2026-09-25}
+\begin{document}
+\maketitle
+
+\section{QM9}
+
+\begin{table}[h]\centering
+\caption{QM9 training. The base flow model is trained unconditionally; the
+multiMFM student is then distilled from it. Both are read from the released
+checkpoints. Note the student is a \emph{fine-tune}: it is initialised from an
+earlier student checkpoint rather than from scratch or from the teacher, and the
+reported weights are taken at update 1{,}000 of a 4{,}000-update cosine schedule.}
+\label{tab:qm9-training}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Hyperparameter} & \textbf{Base flow} & \textbf{multiMFM student} \\
+\midrule
+\multicolumn{3}{l}{\emph{Data}} \\
+Dataset                        & QM9 (\texttt{yairschiff/qm9}) & QM9 \\
+Partition                      & \texttt{train\_flow} & \texttt{train\_flow} \\
+Molecules                      & $50{,}000$ & $40{,}000$ \\
+Hydrogens                      & excluded & excluded \\
+Maximum heavy atoms            & $9$ & $9$ \\
+Atom classes $K$               & $9$ & $9$ \\
+Coordinate normalizer          & $1.0$ & $1.0$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Architecture}} \\
+Hidden dimension               & $64$ & $64$ \\
+Transformer layers             & $4$  & $4$ \\
+Attention heads                & $4$  & $4$ \\
+Encoder depth                  & \naa & $4$ \\
+Block conditioning             & \naa & additive \\
+Velocity parameterization      & \naa & endpoint \\
+Total parameters               & $338{,}121$ & $363{,}465$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Probability path}} \\
+Atom process                   & \multicolumn{2}{c}{Gaussian prior $\to$ simplex (\texttt{dfm\_gaussian})} \\
+$\beta$ schedule               & \multicolumn{2}{c}{linear, $\beta(t)=t$} \\
+Coordinate path                & \multicolumn{2}{c}{linear interpolant, zero-COM} \\
+Sampling schedule              & linear & linear \\
+\midrule
+\multicolumn{3}{l}{\emph{Optimization}} \\
+Optimizer                      & Adam & Adam \\
+Learning rate                  & $2\times10^{-3}$ & $1\times10^{-6}$ \\
+Warmup steps                   & \naa & $200$ \\
+Schedule                       & constant & cosine (horizon $4{,}000$) \\
+Batch size                     & $128$ & $4$ \\
+Training steps                 & $100{,}000$ & $1{,}000$ (of $4{,}000$) \\
+EMA decay                      & \naa & $0.999$ \\
+Gradient clipping ($\ell_2$)   & \naa & $1.0$ \\
+Seed                           & $0$ & $44$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Distillation objective (student only)}} \\
+Stage                          & \naa & 1 (diagonal) \\
+Diagonal weight                & \naa & $1.0$ \\
+Coordinate / atom weights      & \naa & $8.0\,/\,0.5$ \\
+Diagonal direction weight      & \naa & $5.0$ \\
+Sensitivity weight (L2)        & \naa & $0.1$ \\
+Sensitivity weight (direction) & \naa & $0.25$ \\
+Sensitivity $\varepsilon$      & \naa & $0.03$ \\
+Consistency (ESD) weight       & \naa & \textbf{not used at stage 1} \\
+Maximum training time $t_{\max}$ & \naa & $0.95$ \\
+$t_{\mathrm{cond}}$ grid       & \naa & $\{0.1,0.3,0.5,0.7,0.9\}$, jitter $0.04$ \\
+Conditioning states            & \naa & teacher-generated ($128$ steps) \\
+Teacher posterior steps        & \naa & $16$ \\
+Initialised from               & random & earlier student checkpoint \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Two disclosures the current text omits.}
+\begin{enumerate}
+\item \textbf{The QM9 student is trained with the diagonal and sensitivity terms
+only; it carries no ESD term.} The main-text objective
+$\mathcal{L}=\mathcal{L}_{\mathrm{diag}}+\mathcal{L}_{\mathrm{con}}$ and
+Algorithm~1 therefore do not describe this model. State which models use
+consistency training and which do not.
+\item \textbf{The student is a fine-tune of an earlier checkpoint}
+($\texttt{lr}=10^{-6}$, batch $4$, $1{,}000$ updates), so its cumulative training
+budget exceeds what the table shows. The parent checkpoint was lost to a disk
+purge, so the full lineage cannot be reconstructed; say so rather than implying
+the model was trained in $1{,}000$ updates.
+\end{enumerate}
+
+\paragraph{Definition of the sensitivity term.} Let $x_{\mathrm{cond}}$ be the
+conditioning state and $\delta$ a masked, zero-COM perturbation rescaled so that
+its per-sample RMS equals $\varepsilon$. With $v_\theta$ the student velocity and
+$v_{\mathrm{teacher}}$ the teacher's GLASS velocity,
+\[
+\mathcal{L}_{\mathrm{sens}}
+=\Big\|\,
+\tfrac{1}{\varepsilon}\big(v_\theta(x_{\mathrm{cond}}{+}\delta)-v_\theta(x_{\mathrm{cond}})\big)
+-\tfrac{1}{\varepsilon}\big(v_{\mathrm{teacher}}(x_{\mathrm{cond}}{+}\delta)-v_{\mathrm{teacher}}(x_{\mathrm{cond}})\big)
+\Big\|^2 ,
+\]
+plus a directional term $1-\cos(\cdot,\cdot)$ on the same two differences. It is a
+central finite difference with respect to the conditioning \emph{state} --- not the
+conditioning time, and not a forward-mode JVP despite the internal name.
+
+\section{GEOM-Drugs}
+
+\begin{table}[h]\centering
+\caption{GEOM-Drugs training. The teacher is trained unconditionally on
+GEOM-Drugs; the multiMFM student is distilled from its EMA weights. Values are
+read from the checkpoints. The student is the capped-gap stage-2 model used for
+the reported fingerprint-guidance results.}
+\label{tab:geom-training}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Hyperparameter} & \textbf{Teacher} & \textbf{multiMFM student} \\
+\midrule
+\multicolumn{3}{l}{\emph{Data}} \\
+Dataset                        & GEOM-Drugs & GEOM-Drugs \\
+Molecules                      & $1{,}172{,}182$ & $150{,}000$ \\
+Hydrogens                      & excluded & excluded \\
+Maximum heavy atoms            & $71$ & $71$ \\
+Atom classes $K$               & $9$ & $9$ \\
+Atom vocabulary                & \multicolumn{2}{c}{C, N, O, F, S, Cl, Br, I, $*$} \\
+Coordinate normalizer          & $2.0$ & $2.0$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Architecture}} \\
+Hidden dimension               & $256$ & $256$ \\
+Transformer layers             & $16$  & $16$ \\
+Attention heads                & $8$   & $8$ \\
+Encoder depth                  & \naa  & $16$ \\
+Block conditioning             & \naa  & additive \\
+Velocity parameterization      & \naa  & endpoint \\
+Total parameters               & $14{,}795{,}529$ & $15{,}191{,}817$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Probability path}} \\
+Atom process                   & \multicolumn{2}{c}{Gaussian prior $\to$ simplex (\texttt{dfm\_gaussian})} \\
+$\beta$ schedule               & \multicolumn{2}{c}{linear, $\beta(t)=t$} \\
+Sampling schedule              & log & log \\
+Random augmentations           & $7$ ($8\times$ effective batch) & inherited \\
+\midrule
+\multicolumn{3}{l}{\emph{Optimization}} \\
+Optimizer                      & Adam ($\beta=[0.9,0.995]$) & Adam \\
+Learning rate                  & $2\times10^{-3}$ & $1\times10^{-4}$ \\
+Weight decay                   & $0.0$ & $0.0$ \\
+Warmup steps                   & \naa & $500$ \\
+Batch size (per GPU)           & $256$ & $96$ \\
+GPUs                           & $2$ (DDP) & $4$ (DDP) \\
+Global effective batch         & $4{,}096$ ($8\times$ aug.) & $384$ \\
+Training steps                 & $89{,}310$ (epoch $38$) & $10{,}000$ (of $30{,}000$) \\
+EMA decay                      & $0.999$ & $0.995$ \\
+Seed                           & \naa & $0$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Distillation objective (student only)}} \\
+Stage                          & \naa & 2 (diagonal $+$ ESD) \\
+Diagonal weight                & \naa & $2.0$ \\
+Consistency (ESD) weight       & \naa & $1.0$ \\
+Coordinate / atom weights      & \naa & $1.0\,/\,1.0$ \\
+Sensitivity weights            & \naa & $0$ (disabled) \\
+ESD target clip                & \naa & $10.0$ \\
+ESD delta clip                 & \naa & $8.0$ \\
+Maximum jump $|u-s|$           & \naa & $0.15$ \\
+Anneal fraction                & \naa & $0.2$ \\
+Maximum training time $t_{\max}$ & \naa & $0.95$ \\
+$t_{\mathrm{cond}}$ power / zero rate & \naa & $2.0$ / $0.1$ \\
+Teacher posterior steps        & \naa & $64$ \\
+Teacher weights used           & \naa & EMA \\
+Initialised from               & random & earlier stage-2 checkpoint \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Disclosures.}
+\begin{enumerate}
+\item \textbf{The GEOM student is also a resume}, from an earlier stage-2
+checkpoint, so its $10{,}000$ updates are not its full budget.
+\item \textbf{The teacher is selected at epoch 38 by EMA validation loss}, not at
+the end of training; several longer runs exist. Name the selection criterion.
+\item \textbf{The maximum-jump cap of $0.15$ is load-bearing}: without it the ESD
+term diverges once the annealed gap reaches ${\sim}0.20$. This is worth one
+sentence, since it explains the clipping hyperparameters above.
+\end{enumerate}
+
+\section{Sampling settings used for the reported results}
+
+\begin{table}[h]\centering
+\caption{Inference-time settings. These are the configurations behind the
+reported numbers, not defaults --- the released scripts' argparse defaults differ
+and will not reproduce the results on their own.}
+\label{tab:molecular-sampling}
+\begin{tabular}{lrr}
+\toprule
+ & \textbf{QM9} & \textbf{GEOM-Drugs} \\
+\midrule
+Outer integration steps        & $128$ & $100$ \\
+Inner flow-map steps           & $4$ (diagonal) & $10$ \\
+Posterior (Monte Carlo) samples & $32$ & $4$ \\
+Guidance applied every         & step & $2$ steps \\
+Guidance window $t$            & $[0.05,\,0.95]$ & $[0.1,\,0.9]$ \\
+Soft atom temperature          & $0.25$ & $0.25$ \\
+Guidance strength $\mu$        & per property & $0.5$ \\
+Reward scale $\lambda$         & per property & $0.02$ \\
+Teacher weights                & final & EMA \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Reward.} For a target property value $y^{\star}$ and differentiable
+guide predictor $\hat y$, the terminal reward is
+$r(x_1)=-\big(\hat y(x_1)-y^{\star}\big)^2$, and the value function is
+$V_t(x)=\log\mathbb{E}\!\left[e^{\lambda r(X_1)}\mid X_t=x\right]$, estimated with
+the multiMFM posterior samples above. Atom types enter the guide through a
+softmax relaxation at temperature $0.25$; all \emph{reported} metrics use the hard
+\texttt{argmax} readout, so the differentiated objective and the evaluated
+objective are not the same function --- worth stating once.
+
+\end{document}

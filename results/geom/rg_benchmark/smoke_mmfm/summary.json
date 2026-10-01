@@ -1,0 +1,40 @@
+{
+  "method": "multimfm",
+  "n": 16,
+  "k_sd": 3.0,
+  "mu": 0.5,
+  "value_samples": 4,
+  "n_candidates": null,
+  "rg_mae": 0.27735941857099533,
+  "rg_mae_sem": 0.02121388994146488,
+  "nfe": {
+    "nfe_base": 100.0,
+    "nfe_base_bwd": 0.0,
+    "nfe_mfm": 1840.0,
+    "nfe_mfm_bwd": 1840.0,
+    "nfe_regressor": 0.0,
+    "nfe_regressor_bwd": 0.0,
+    "nfe_generative": 1940.0,
+    "nfe_generative_bwd": 1840.0,
+    "nfe_generative_fwd_equiv": 5620.0
+  },
+  "args": {
+    "method": "multimfm",
+    "n": 16,
+    "n_candidates": 1,
+    "value_samples": 4,
+    "mfm_steps": 10,
+    "sample_steps": 100,
+    "mu": 0.5,
+    "reward_scale": 1.0,
+    "guide_every": 1,
+    "guide_min_t": 0.1,
+    "guide_max_t": 0.9,
+    "k_sd": 3.0,
+    "batch": 8,
+    "seed": 0,
+    "rg_stats": "results/geom/rg_preflight.json",
+    "tag": "smoke_mmfm",
+    "out_dir": "results/geom/rg_benchmark"
+  }
+}

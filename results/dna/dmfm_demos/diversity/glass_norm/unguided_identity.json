@@ -1,0 +1,18 @@
+{
+  "compared": "unguided target -1 vs unguided target +1",
+  "n_a": 1000,
+  "n_b": 1000,
+  "identical_in_order": true,
+  "identical_as_multisets": true,
+  "n_positions_differing_in_order": 0,
+  "n_shared_distinct_sequences": 1000,
+  "fasta_headers_identical": true,
+  "guide_scores_identical": true,
+  "guided_sets_n_shared_sequences": 0,
+  "guided_vs_own_unguided_n_identical_pairs": {
+    "-1": 0,
+    "+1": 0
+  },
+  "n_compared_in_order": 1000,
+  "oracle_unguided_scores_identical": true
+}

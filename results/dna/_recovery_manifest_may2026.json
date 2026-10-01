@@ -1,0 +1,47 @@
+{
+ "transcripts_root": "~/.codex/sessions/2026/",
+ "files": [
+  {
+   "file": "benchmarks/recovered_2026-05-13/nfe_benchmark_agg.csv",
+   "transcript": "06/03/rollout-2026-06-03T13-57-06-019e8ea1-c496-7e71-9b42-7598ccca1ab7.jsonl",
+   "transcript_line": 105,
+   "what": "stdout of: sed -n '1,60p' workdir/yeast_split_dmfm_steering_benchmark_2026-05-13_12-51-45/nfe_benchmark_agg.csv (complete file)",
+   "sha256": "5390cc2e8b4d1fb988006e1de3484e946808bf37bda1d77c8c617a09a1c82183"
+  },
+  {
+   "file": "benchmarks/recovered_2026-05-13/args.json",
+   "transcript": "06/03/rollout-2026-06-03T13-57-06-019e8ea1-c496-7e71-9b42-7598ccca1ab7.jsonl",
+   "transcript_line": 106,
+   "what": "stdout of: sed -n '1,220p' workdir/yeast_split_dmfm_steering_benchmark_2026-05-13_12-51-45/args.json",
+   "sha256": "fd5859811a027277d06b297c3170bbd1d16384e4404d53dd5d2b10a4613bf3b5"
+  },
+  {
+   "file": "benchmarks/recovered_2026-05-13/dmfm_guidance_repeat_rows.column_output.txt",
+   "transcript": "07/26/rollout-2026-07-26T14-54-34-019f9fc7-6b22-7a43-83ce-30cbdbdebf12.jsonl",
+   "transcript_line": 193,
+   "what": "stdout of: column -s, -t < workdir/yeast_split_dmfm_steering_benchmark_2026-05-13_12-51-45/dmfm_guidance_repeat_rows.csv (whitespace-aligned; empty fields collapse)",
+   "sha256": "8372c429e3ab6f6826ff5a16dc731280319f04fe48a80a9e2da54ee4b2a976d4"
+  },
+  {
+   "file": "benchmarks/recovered_2026-05-13/dmfm_guidance_repeat_rows.csv",
+   "transcript": "07/26/rollout-2026-07-26T14-54-34-019f9fc7-6b22-7a43-83ce-30cbdbdebf12.jsonl",
+   "transcript_line": 193,
+   "what": "DERIVED: the column output re-split on whitespace (per-repeat rows have empty NFE fields)",
+   "sha256": "1f8f7f165b5c7432659a44ed4f538ac96facdb4be30ec424adc1e3fb79b69b2d"
+  },
+  {
+   "file": "c0_guidance/may2026_target0p3_recovered/summary_json_extracts.txt",
+   "transcript": "07/26/rollout-2026-07-26T14-54-34-019f9fc7-6b22-7a43-83ce-30cbdbdebf12.jsonl",
+   "transcript_line": 193,
+   "what": "stdout of: for p in workdir/yeast_c0_guidance_hist_*/summary.json; do echo $p; rg -n 'target|mae|mean|guided|unguided|distance' $p | head -n 40; done (selected lines only)",
+   "sha256": "db453411525539ba19cbd1aea9e10249c54b9a23557fb59856624abe507e071c"
+  },
+  {
+   "file": "c0_guidance/may2026_target0p3_recovered/summary_json_extracts.csv",
+   "transcript": "07/26/rollout-2026-07-26T14-54-34-019f9fc7-6b22-7a43-83ce-30cbdbdebf12.jsonl",
+   "transcript_line": 193,
+   "what": "DERIVED: the extracts parsed into one row per run (keys prefixed by JSON section; lines before the first section belong to 'delta')",
+   "sha256": "d8d50539b10e38aa2fbf0f6ce45661a20ca4a3d95c93ab494af5c6ee7f8702ab"
+  }
+ ]
+}

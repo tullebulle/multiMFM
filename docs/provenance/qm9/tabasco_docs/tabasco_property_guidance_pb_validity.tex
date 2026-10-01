@@ -1,0 +1,50 @@
+% LaTeX fragment; requires booktabs.
+% QM9 sources (relative to repository root):
+% codex_scratch/check/search/r2_cv_mu2p80/summary.json
+% codex_scratch/check/search/r3_mu_mu0p78/summary.json
+% codex_scratch/check/search/r5_alpha_mu3p40/summary.json
+% codex_scratch/check/search/r5_gap_mu0p17/summary.json
+% codex_scratch/check/search/r3_homo_mu0p50/summary.json
+% codex_scratch/check/search/r2_lumo_mu0p44/summary.json
+% GEOM source:
+% ../geom-drug-tabasco/outputs/mfm_capgap_steering/
+% mfm_fingerprint_steering_capgap_lam0.02_mu0.5.json
+% Alternate gap run r3_gap_mu0p16: 98.7% unsteered, 91.8% steered,
+% oracle MAE 599.6334 meV. The row below uses r5_gap_mu0p17,
+% oracle MAE 599.5664 meV. Both errors round to 600 meV.
+% PB configurations: QM9 src/tabasco/utils/posebusters_no_strain.yaml;
+% GEOM ../geom-drug-tabasco/pb_config.yaml.
+
+\begin{table}[t]
+    \centering
+    \small
+    \caption{PoseBusters validity before and after MFM guidance.
+    Rates are percentages of all generated molecules under each dataset's
+    experimental evaluation configuration. QM9 uses $1{,}000$ molecules per
+    property and shares the same unsteered baseline. GEOM-Drugs uses $64$
+    molecules. The gap row uses guidance strength $0.17$.}
+    \label{tab:tabasco-pb-guidance}
+    \begin{tabular}{llrrr}
+        \toprule
+        \textbf{Dataset} & \textbf{Guidance target} & \textbf{N}
+        & \textbf{Unsteered (\%)} & \textbf{Steered (\%)} \\
+        \midrule
+        QM9 & $C_v$ & $1{,}000$ & $98.7$ & $90.3$ \\
+        QM9 & $\mu$ & $1{,}000$ & $98.7$ & $91.6$ \\
+        QM9 & $\alpha$ & $1{,}000$ & $98.7$ & $91.3$ \\
+        QM9 & $\Delta\varepsilon$ & $1{,}000$ & $98.7$ & $90.9$ \\
+        QM9 & $\varepsilon_{\mathrm{HOMO}}$ & $1{,}000$ & $98.7$ & $92.3$ \\
+        QM9 & $\varepsilon_{\mathrm{LUMO}}$ & $1{,}000$ & $98.7$ & $92.2$ \\
+        \midrule
+        GEOM-Drugs & Structural fingerprint & $64$ & $87.5$ & $87.5$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+QM9 guidance retained $90.3$--$92.3\%$ PoseBusters validity across the six
+properties, compared with $98.7\%$ for unsteered generation. For the selected
+GEOM-Drugs fingerprint-guidance evaluation, validity remained $87.5\%$
+($56/64$ molecules) while mean Tanimoto similarity increased from $0.2072$
+to $0.2272$. The paired unsteered Tanimoto value here is the measured baseline
+for this run; it is distinct from the $0.170$ random-generation reference
+listed in the paper's comparison table.

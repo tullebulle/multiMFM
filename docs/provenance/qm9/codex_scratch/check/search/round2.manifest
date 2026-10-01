@@ -1,0 +1,13 @@
+# round 2: push alpha/cv harder; bracket the PB=0.90 knee for gap/homo/lumo/mu
+34985247 alpha 3.20 0.3   r2_alpha_mu3p20
+34985221 alpha 4.00 0.3   r2_alpha_mu4p00
+34988184 gap   0.20 12000 r2_gap_mu0p20
+34988143 gap   0.24 12000 r2_gap_mu0p24
+34988141 homo  0.45 41500 r2_homo_mu0p45
+34989391 homo  0.55 41500 r2_homo_mu0p55
+34989362 lumo  0.36 12000 r2_lumo_mu0p36
+34989345 lumo  0.44 12000 r2_lumo_mu0p44
+34989311 mu    0.50 8.638 r2_mu_mu0p50
+34989432 mu    0.70 8.638 r2_mu_mu0p70
+34989449 cv    2.40 1.5   r2_cv_mu2p40
+34989466 cv    2.80 1.5   r2_cv_mu2p80

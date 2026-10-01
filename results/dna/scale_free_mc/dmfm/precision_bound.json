@@ -1,0 +1,44 @@
+{
+  "length": 50,
+  "n_repeats": 8,
+  "n_states": 8,
+  "per_mc": {
+    "1": {
+      "cpu_fp32": {
+        "cosine": 0.14605423645077575,
+        "relative_l1": 2.386541301646302
+      },
+      "delta_cosine": -0.00011047061844138284,
+      "delta_relative_l1": -0.004150417431557862,
+      "gpu_tf32": {
+        "cosine": 0.14616470706921714,
+        "relative_l1": 2.39069171907786
+      },
+      "gradient_norm_deviation": {
+        "max": 0.08298125863075256,
+        "mean": 0.016087280586361885
+      }
+    },
+    "8": {
+      "cpu_fp32": {
+        "cosine": 0.2669851132364418,
+        "relative_l1": 1.6219297943303144
+      },
+      "delta_cosine": -0.0005151913345732839,
+      "delta_relative_l1": 0.005817915732523327,
+      "gpu_tf32": {
+        "cosine": 0.2675003045710151,
+        "relative_l1": 1.616111878597791
+      },
+      "gradient_norm_deviation": {
+        "max": 0.06617898494005203,
+        "mean": 0.018032148480415344
+      }
+    }
+  },
+  "published_run": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L50",
+  "reward": "motif",
+  "what": "published TF32-GPU finite-N GLASS estimates vs a CPU fp32 recomputation of the same estimates, scored as Table 14/15 cells against the same GLASS-2048 reference. An upper bound for the dMFM rerun (8 differentiated network evals vs 1).",
+  "worst_abs_delta_cosine": 0.0005151913345732839,
+  "worst_abs_delta_relative_l1": 0.005817915732523327
+}

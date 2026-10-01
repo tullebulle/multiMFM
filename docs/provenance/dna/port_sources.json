@@ -1,0 +1,438 @@
+{
+ "_what": "Origin of every ported src/dmfm module: original file(s), sha256 of the original (holylabs backup copy), and, where the file exists in github.com/tullebulle/DNA-MFM@187fe7b, the sha256 of the commit's version (durable clone paper_backup_dmfm_20260929/DNA-MFM_187fe7b) and whether the source used for the port is byte-identical to it. Function-level comparison of the port with these originals: docs/provenance/dna/verification.md section 5c.",
+ "modules": {
+  "src/dmfm/models/dna_models.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/model/dna_models.py",
+     "sha256": "0b9f9871455bd5ce3661a7d83c25023294a8abd6a63958621dabbf68328d4e65",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "0b9f9871455bd5ce3661a7d83c25023294a8abd6a63958621dabbf68328d4e65",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/models/dit_seq.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/model/dit_seq.py",
+     "sha256": "a7926feae9cb89a294d02d520a0fa0c67c6b09ba47f7950301e28fe845e450cd",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "a7926feae9cb89a294d02d520a0fa0c67c6b09ba47f7950301e28fe845e450cd",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/lightning/dna_module.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/lightning_modules/dna_module.py",
+     "sha256": "13787330fbefb8fb7c3fa874aacc8dd4b5e11ff1226d9ecf5d2b0596e84e4c9d",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "13787330fbefb8fb7c3fa874aacc8dd4b5e11ff1226d9ecf5d2b0596e84e4c9d",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/lightning/general_module.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/lightning_modules/general_module.py",
+     "sha256": "69ad076a7873d1beb1e6b41d4ed718f3e2626af56ae205006c6b60d43da6c4d3",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "69ad076a7873d1beb1e6b41d4ed718f3e2626af56ae205006c6b60d43da6c4d3",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/flow_utils.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "Gaussian-mode subset; single network evaluation per step since 2026-09-29 (legacy_double_eval restores the original)",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/utils/flow_utils.py",
+     "sha256": "647d813f4bcfa56dca30f58b7a97e5cc7ccfb10430d1312f0651735dda79e760",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "647d813f4bcfa56dca30f58b7a97e5cc7ccfb10430d1312f0651735dda79e760",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/dataset.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "YeastMiddleDataset only",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/utils/dataset.py",
+     "sha256": "553c6f84dcd5f12fcebed61d4d166bec01434faaec24c34c32c5e9b2f2b1d9f7",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "553c6f84dcd5f12fcebed61d4d166bec01434faaec24c34c32c5e9b2f2b1d9f7",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/esm.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "upgrade_state_dict only",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/utils/esm.py",
+     "sha256": "22376a0befed30cc40b1ddb86dd2b7567549d0b7721bd73ff42ea95ef7ee4d61",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "22376a0befed30cc40b1ddb86dd2b7567549d0b7721bd73ff42ea95ef7ee4d61",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/log_utils.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "renamed; no stdout dup2 on import",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/utils/logging.py",
+     "sha256": "a6e24ef9093ce56152c8faf8a934ade51d306e83c26f8133c02371a477b23de4",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "a6e24ef9093ce56152c8faf8a934ade51d306e83c26f8133c02371a477b23de4",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/yeast_splits.py": {
+   "kind": "library@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/utils/yeast_splits.py",
+     "sha256": "ed0d9784a9a8a839c60d13c6f1ecd4abee2ee20afe8f96b25ec006a95bc83aaa",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "ed0d9784a9a8a839c60d13c6f1ecd4abee2ee20afe8f96b25ec006a95bc83aaa",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/_mfm/base_model.py": {
+   "kind": "vendored mfm@187fe7b (recon)",
+   "note": "",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/mfm/src/mfm/models/base_model.py",
+     "sha256": "3587dbe93c8bd9eaff6672c2fab0aeaf79d98afec84367fcbcbf7fdba1bb1803",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/_mfm/losses.py": {
+   "kind": "vendored mfm@187fe7b (recon)",
+   "note": "extract_posterior_velocity + compute_loss only",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/mfm/src/mfm/losses/losses.py",
+     "sha256": "1c7bdc7efa655a7295c80e7246dddbb9fc58bdaf44e74669d9af4c328b507bbe",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "1c7bdc7efa655a7295c80e7246dddbb9fc58bdaf44e74669d9af4c328b507bbe",
+     "identical_to_commit": true
+    },
+    {
+     "path": "scratch_dfm_recon_20260925/mfm/src/mfm/losses/utils.py",
+     "sha256": "1a278d89367918518136a57e65670ade79f0a0ff51e1585625b27ed4b95d30d3",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "1a278d89367918518136a57e65670ade79f0a0ff51e1585625b27ed4b95d30d3",
+     "identical_to_commit": true
+    }
+   ]
+  },
+  "src/dmfm/utils/mfm_diag_distill.py": {
+   "kind": "July 2026 surviving file",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/utils/mfm_diag_distill.py",
+     "sha256": "407e7e295e5f349d0eba42d5fd261f78a864d84ba9a6a4c4348d41307b92703a",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "b8e18d37e371700e0940094a6128965909a87946b82923635efa41a7e96397c8",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/utils/parsing.py": {
+   "kind": "July 2026 surviving file",
+   "note": "data/model-dir defaults repo-relative",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/utils/parsing.py",
+     "sha256": "2421505a630ed8a18860b9cfc6b33501f86962088157ac38c0faf623f02f381c",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "e5551db9b1708a9754314ad3d55c085a7a675c93ac35d0c191334e1cd0c64ced",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/regressors/c0.py": {
+   "kind": "July 2026 surviving file",
+   "note": "verbatim + load_c0_regressor helper",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/dinko/c0_regressors.py",
+     "sha256": "b9c1648a1bd5367f5f8ce8b677bf1974085125fa57c6d86717dab57feb35efe2",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/utils/model_loading.py": {
+   "kind": "July 2026 surviving script",
+   "note": "the loader functions of that script",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/probe_dna_mfm_glass.py",
+     "sha256": "88a30681ad7b466123a597212b721ade1859c3dc94cf7c5326be83d2cce25c81",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "8cfb4c631353dbb6514b51250430a4df7699cf08eb71a778ba812f3d979f5fdd",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/experiments/ablate_dmfm_one_step_gradient_mc.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/ablate_dmfm_one_step_gradient_mc.py",
+     "sha256": "b0a1b96f06633a9f565b759aae959137173f281fa4f536d25f44e255151451f4",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/ablate_glass_gradient_mc.py": {
+   "kind": "July 2026 surviving script",
+   "note": "end_time=1.0 accepted for Euler (pre-flag behaviour)",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/ablate_glass_gradient_mc.py",
+     "sha256": "9c8efa262d82123aaef0c05a16e13b451adcf5dbab29ad7062f844237d41c307",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/analyze_c0_diversity.py": {
+   "kind": "Sep 2026 analyzer (surviving)",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_20260925/analyze_parent_c0_diversity.py",
+     "sha256": "d35d892c3b0de8694d6f5f8eef727006203a8b8505b5ac508fc73cfa7de609cb",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/_yeast_c0_diversity_metrics.py": {
+   "kind": "vendored 187fe7b script (surviving)",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_20260925/vendor/dna_mfm_187fe7b/scripts/analyze_yeast_c0_diversity.py",
+     "sha256": "121944ffa08a444aceae27b29381d6f278eb6a1e0ca6239f344a7c7cc9b48cc9",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/eval_posterior_diversity.py": {
+   "kind": "July 2026 surviving script",
+   "note": "data path + run_config fixed 2026-09-29",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/eval_parent_posterior_diversity.py",
+     "sha256": "07bc3783b4b214ebee40c5fe2fa6bc617eff65cb9be134b216a3b852bd007871",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/plot_gradient_accuracy_required_mc.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/plot_gradient_accuracy_required_mc.py",
+     "sha256": "9851622f6904e198bc9645b9236756e90f1db97ef7df54eb111ebc22f2b3de71",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/prepare_yeast_parent_splits.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/data/prepare_yeast_parent_splits.py",
+     "sha256": "3e5d38484989e669ca53041b65f60d846b1f414de3221ee6b528365e4d0db122",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/rescore_gradient_pairs_mae.py": {
+   "kind": "July 2026 surviving script",
+   "note": "verbatim logic; reproduces stored Table 18 CSVs with max|diff| 0",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/rescore_gradient_pairs_mae.py",
+     "sha256": "b4046a1fa13be744b92f9237d189cd9950a076830cc5cbdd53d3bf1490deff59",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/rescore_gradient_pairs_scale_free.py": {
+   "kind": "Aug 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/rescore_gradient_pairs_scale_free.py",
+     "sha256": "6bcf2c52c579b5ac19d30de6cb82ef80722bd7499c640b533d54453eefca814c",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/sample_c0_guidance.py": {
+   "kind": "library@187fe7b script (recon; equal to the commit's file up to C0Torch -> ParkC0Regressor, identical architecture)",
+   "note": "187fe7b copy: results/dna/original_scripts/sample_yeast_c0_guidance_hist.py (sha256 866c1897...)",
+   "sources": [
+    {
+     "path": "scratch_dfm_recon_20260925/scripts/sample_yeast_c0_guidance_hist.py",
+     "sha256": "36fb0ebaad20c63daea968d0064b19b430409e081afcd45fcfd2f14737e40127",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "866c189750f942701ec997dc4776c6ad9befeff69f2f53b3ddcc94dade16af0b",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/experiments/sample_c0_guidance_dmfm.py": {
+   "kind": "July 2026 surviving scripts",
+   "note": "+ --paired Table 1 protocol (new)",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/sample_yeast_split_dmfm_c0.py",
+     "sha256": "40b0d52c691bfceb9192ea9313676bd5ae322de6ad98c35e64ee16c39b23a342",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "7cbcdde0ccc1fd2ad002a3aa7e78be29c78e74cee4befc64c4a323c7c00c0fd7",
+     "identical_to_commit": false
+    },
+    {
+     "path": "dirichlet-flow-matching/scripts/benchmark_yeast_split_dmfm_steering.py",
+     "sha256": "ac72f82f77235faee633dce6ca835f7d8d48cef5bfda62a84365b6a78dd86dd2",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "50f6db65b5c565a1a7505cdbb988d0703c26e54e630685cc656007790fea31c4",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/experiments/sample_reward_attainment.py": {
+   "kind": "July 2026 surviving script",
+   "note": "data path fixed 2026-09-29",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/sample_parent_reward_attainment.py",
+     "sha256": "5504374b4a3b33df72d407baa093218fe6fd97fec462d43dd26b0df4377bdf66",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/score_c0_oracle.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/score_yeast_c0_oracle.py",
+     "sha256": "a9df6b7d5ec55ec2b08dc55c0368b792b732012ddddf09d45041064c4cba45a3",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/score_parent_posterior_evo2.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/score_parent_posterior_evo2.py",
+     "sha256": "5ed0abe9276c745f2c8f57dbbec71747f8349e7ac0170cd721576ef051184eb9",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/score_parent_reward_attainment_evo2.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/score_parent_reward_attainment_evo2.py",
+     "sha256": "54e25dc6d94aace5f0c9b966e12cce7e0099fb44cd68f718c86085f3f974322d",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/score_yeast_c0_evo2.py": {
+   "kind": "RECONSTRUCTED from bytecode",
+   "note": "see docs/provenance/dna/score_yeast_c0_evo2.dis.txt (owned by dna-regen)",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/__pycache__/score_yeast_c0_evo2.cpython-39.pyc",
+     "sha256": "30138882266b592e5ce2400eaed85ee8f206d5b1f151fd672bf047cbbc079f9e",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/summarize_gradient_accuracy_metrics.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/summarize_gradient_accuracy_metrics.py",
+     "sha256": "4ca94ae9f38d73796405853c82ba5eac34305174182015ab52d81411522c04f9",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/train_base_dfm.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/train_dna_dfm_dit.py",
+     "sha256": "cc906b17f37f98af375c2934b8ad823a43502f4c959be4a698859932ceb7073b",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "0dcaa50b0154cc2c19df876fb908e8afb824bf6e5b8a1dbc148dff9723994790",
+     "identical_to_commit": false
+    }
+   ]
+  },
+  "src/dmfm/experiments/train_c0_regressor.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/train_parent_c0_regressor.py",
+     "sha256": "94dedd8906bedb999ad0a891ac5c6527eeb1cc338ec1e92c37b8c750184ee9c1",
+     "found_in": "holylabs backup"
+    }
+   ]
+  },
+  "src/dmfm/experiments/train_dmfm.py": {
+   "kind": "July 2026 surviving script",
+   "note": "",
+   "sources": [
+    {
+     "path": "dirichlet-flow-matching/scripts/train_dna.py",
+     "sha256": "c78bac157c01641433a319f01ae18e5454b40dacefb69b9b922580bc3e137957",
+     "found_in": "holylabs backup",
+     "commit_187fe7b_sha256": "60065111a082adba252525afc3151dfb4ad8affe213ea15fce6e9d745119f8b3",
+     "identical_to_commit": false
+    }
+   ]
+  }
+ }
+}

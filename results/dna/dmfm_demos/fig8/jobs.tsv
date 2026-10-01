@@ -1,0 +1,2 @@
+2026-09-30T09:39:21-04:00	local	none		Fig8 arm=dmfm device=cpu mc=8 nfe_value=4 nfe_traj=64 target=0.30 gf=8 grad_normalize=1
+2026-09-30T09:42:28-04:00	local	none		Fig8 arm=glass device=cpu mc=8 nfe_value=4 nfe_traj=64 target=0.30 gf=8 grad_normalize=1

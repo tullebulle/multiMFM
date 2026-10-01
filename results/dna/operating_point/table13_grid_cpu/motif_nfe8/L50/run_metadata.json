@@ -1,0 +1,60 @@
+{
+  "_what": "Table 13's exact-reward attainment over the (posterior steps, MC) grid at fixed value-gradient NFE, under both the published clip-down rule and the scale-free rule. steps=1 @clip @mc=8 is the published configuration.",
+  "args": {
+    "batch_size": 8,
+    "bootstrap": 2000,
+    "calibration_batch_size": 32,
+    "calibration_samples": 1024,
+    "coeff_cap": 10.0,
+    "conjunction_tau": 0.1,
+    "device": "cpu",
+    "grad_clip": 10.0,
+    "guidance_frac": 8.0,
+    "guide_t_end": 0.95,
+    "guide_t_start": 0.5,
+    "length": 50,
+    "mc_chunk": 8,
+    "motif": "TTTTTC",
+    "motif2": "AAAATT",
+    "motif_tau": 0.1,
+    "n_samples": 32,
+    "nfe": 8,
+    "nfe_calibration": 64,
+    "nfe_traj": 64,
+    "out_dir": "results/dna/operating_point/table13_grid_cpu/motif_nfe8",
+    "reward": "motif",
+    "reward_beta": 1.0,
+    "reward_scale": 1.0,
+    "rules": [
+      "clip",
+      "norm"
+    ],
+    "seed": 20260731,
+    "steps_values": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "student": "convention",
+    "t_end": 0.999,
+    "target_percentile": 0.9
+  },
+  "run_env": {
+    "device": "cpu",
+    "device_name": "x86_64",
+    "host": "holy8a29208.rc.fas.harvard.edu",
+    "slurm_job_account": "kozinsky_lab",
+    "slurm_job_id": "49467013",
+    "slurm_job_partition": "kozinsky",
+    "tf32_matmul": false,
+    "torch": "2.5.1+cu124"
+  },
+  "score_center": 0.5875511527061462,
+  "score_std": 0.10575281083583832,
+  "students": {
+    "dmfm": "checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt",
+    "dmfm4": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt"
+  },
+  "teacher_ckpt": "checkpoints/dna/base/L50/best.pt"
+}

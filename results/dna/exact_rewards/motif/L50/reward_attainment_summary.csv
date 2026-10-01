@@ -1,0 +1,4 @@
+length,set,n_samples,score_mean,target_score,target_abs_error_mean,target_abs_error_ci95_low,target_abs_error_ci95_high,analytic_reward_mean,analytic_reward_ci95_low,analytic_reward_ci95_high,pairwise_hamming_frac,nearest_test_hamming_frac,exact_unique_frac,paired_target_error_improvement_mean,paired_target_error_improvement_ci95_low,paired_target_error_improvement_ci95_high,fraction_guided_target_improved
+50,unguided,100,0.442221075296402,0.5875512719154358,0.15228760242462158,0.1335532322525978,0.17203498259186742,-2.908841609954834,-3.612926548719406,-2.3083530902862552,0.7370545268058777,0.48420003056526184,1.0,,,,
+50,guided,100,0.5807955265045166,0.5875512719154358,0.025954023003578186,0.021528513496741654,0.03061813055537641,-0.10793078690767288,-0.14260526038706303,-0.07728849202394486,0.7225494980812073,0.4748000204563141,1.0,,,,
+50,paired_guidance_effect,100,,,,,,,,,,,,0.1263335645198822,0.10918552689254284,0.144182438403368,0.98

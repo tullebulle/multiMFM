@@ -1,0 +1,14 @@
+# round 5: push alpha headroom; finer steps on PB~0.92 winners; gap 0.16 replicate for noise. all gmax 0.95
+# JOBID PROPERTY MU RS TAG GMAX
+34985247 alpha 3.40 0.3   r5_alpha_mu3p40      0.95
+34985221 alpha 3.50 0.3   r5_alpha_mu3p50      0.95
+34988184 gap   0.17 12000 r5_gap_mu0p17        0.95
+34988143 gap   0.16 12000 r5_gap_mu0p16_rep    0.95
+34988141 homo  0.52 41500 r5_homo_mu0p52       0.95
+34989391 homo  0.48 41500 r5_homo_mu0p48       0.95
+34989362 lumo  0.45 12000 r5_lumo_mu0p45       0.95
+34989345 lumo  0.43 12000 r5_lumo_mu0p43       0.95
+34989311 mu    0.80 8.638 r5_mu_mu0p80_rep     0.95
+34989432 mu    0.76 8.638 r5_mu_mu0p76         0.95
+34989449 cv    2.75 1.5   r5_cv_mu2p75         0.95
+34989466 cv    2.85 1.5   r5_cv_mu2p85         0.95

@@ -1,0 +1,93 @@
+{
+ "_about": "Reference values for the toy example (paper Fig. 1, Table 12, App. E.2/F.7). The paper reports no quantitative numbers for the toy, so the reference for the guided/unguided metrics is the original session transcript (docs/provenance/toy/recovered/cursor_terminal_1.txt), not the PDF. Table 12 values ARE from the PDF.",
+
+ "_precision": "Values printed with a fixed number of decimals are stored as STRINGS holding the printed literal (thousands separators dropped so float() parses them: the paper prints 'Training steps 20,000'). JSON numbers cannot carry trailing zeros, and notebooks/_common.py compare() derives its tolerance from the decimal count, so a float would silently loosen it. The two learning rates and the early-stop margin are printed in scientific notation (3 x 10^-4, 1e-4, 10^-3), for which a decimal count is meaningless; they stay numeric and the notebook passes decimals= for them.",
+
+ "table12_printed": {
+  "_source": "dMFM (40).pdf, Table 12, p. 27 (paper.txt 1460-1489)",
+  "Number of classes K": "3",
+  "Continuous dimension d": "2",
+  "Source distribution": "N(0, I) for both modalities",
+  "Probability path": "Linear interpolant",
+  "Model width D": "128",
+  "Transformer blocks": "6",
+  "Attention heads": "8",
+  "MLP expansion ratio": "4",
+  "Tokens per sample": 2,
+  "Conditioning": "adaLN-Zero",
+  "Optimizer": "AdamW",
+  "Peak learning rate": 0.0003,
+  "Learning-rate schedule": "Cosine decay with warmup",
+  "Warmup steps": "500",
+  "EMA decay": "0.999",
+  "Batch size": "4096",
+  "Training steps": "20000",
+  "Continuous loss Ly": "MSE on y_hat_1",
+  "Discrete loss Lc": "Cross-entropy on z_hat",
+  "Consistency loss L_ESD": "ESD loss",
+  "Total loss": "L = Ly + Lc + L_ESD",
+  "Integrator": "Explicit Euler",
+  "Sampling steps": 100,
+  "Early-stop margin eps": 0.001,
+  "Class readout": "Sample from softmax(z_hat) at t = 1 - eps"
+ },
+
+ "table12_missing_esd_stage": {
+  "_source": "docs/REPRODUCIBILITY_PLAN.md sec. 7.5; command verbatim in cursor_terminal_1.txt lines 30-40 (--steps 10000 --batch_size 1024 --lr 1e-4 --warmup 500 --gap_anneal_steps 5000 --ema_decay 0.995). These are the reference values the paper OMITS, so the printed form is the command line's, not the PDF's.",
+  "Training steps": "10000",
+  "Batch size": "1024",
+  "Peak learning rate": 0.0001,
+  "Warmup steps": "500",
+  "EMA decay": "0.995",
+  "gap_anneal_steps": "5000",
+  "init": "checkpoints/mfm_diagonal_10000.pt"
+ },
+
+ "original_runs": {
+  "_source": "docs/provenance/toy/recovered/cursor_terminal_1.txt (the session that trained the MFM and ran the guidance)",
+
+  "esd_training_10k": {
+   "runtime_s": 1084.8,
+   "final_gap_scale": 1.0,
+   "final_mean_gap": 0.309,
+   "final_max_gap": 0.915,
+   "final_total_loss": 0.00211,
+   "final_diagonal_glass_loss": 0.000119,
+   "final_esd_consistency_loss": 0.001992
+  },
+  "esd_holdout_diagonal_probe": {
+   "ema_diagonal_loss_vs_glass": 0.000385,
+   "ema_relative_l2": 0.0141,
+   "ema_cosine": 0.99988,
+   "baseline_teacher_loss": 0.3796
+  },
+
+  "norway_unguided_N10000": {"mean_reward": 0.324, "match": 0.334},
+  "norway_glass_ratio2_smoke": {"mean_reward": 0.407, "match": 0.573},
+  "norway_mfm_1step_ratio2_smoke": {"mean_reward": 0.401, "match": 0.557},
+  "norway_mfm_1step_ratio2_N10000": {"mean_reward": 0.405, "match": 0.564},
+  "norway_mfm_1step_ratio3_N10000": {"match": 0.656},
+  "norway_mfm_1step_ratio4_N10000": {"mean_reward": 0.454, "match": 0.716},
+  "norway_mfm_1step_ratio6_N10000": {"mean_reward": 0.471, "match": 0.768},
+  "norway_mfm_1step_ratio8_N10000": {"match": 0.771},
+
+  "smiley_glass_bigger_geometry": {"mean_reward": 0.555, "match": 0.959},
+  "smiley_mfm_beta64_ratio2_late_N1000": {"mean_reward": 0.563, "match": 0.961},
+  "smiley_mfm_beta32_ratio2_late_N1000": {"mean_reward": 0.536, "match": 0.904},
+  "smiley_mfm_beta32_ratio6_default_geometry_N1000": {"mean_reward": 0.440, "match": 0.679}
+ },
+
+ "fig1": {
+  "published_pdf": "figures/norway.pdf in /n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dMFM (identical rendering to norway_base_smiley_four_panel_tweak.pdf); page 2 of 'dMFM (40).pdf'",
+  "produced_by": "norway/norway_base_smiley_four_panel.ipynb, last saved 2026-05-06T15:20:59Z (Cursor local history -491f92fd/hEXB.ipynb)",
+  "panel_sources_recorded_in_the_notebook_output": {
+   "prior": "torch.randn with seed=0, shape matching Norway endpoints",
+   "base": "unguided base-model samples, N=10000",
+   "norway": "figures/uniform_norway_slow_color_guidance_N10000_freeze_t08_ratio2_endpoints.pt",
+   "smiley_02h30_version": "figures/uniform_smiley_guidance_N1000_lam0p2_beta16_mc16_steps200_glass8_chunk100_endpoints.pt",
+   "smiley_final_15h20_version": "figures/uniform_smiley_delayed_color_bigger_smile_thick_mouth_N10000_endpoints.pt"
+  },
+  "guidance_backend": "GLASS posterior sampling (not multiMFM) -- see docs/provenance/toy/README.md",
+  "caption_in_pdf": "Examples of posterior guidance using a multimodal Meta Flow Map. p0(x) is the noise distribution, and p1(x) is the base model distribution. The Norway example steers only color coordinates, while the Smiley example steers both position and color."
+ }
+}

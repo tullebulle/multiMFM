@@ -1,0 +1,280 @@
+{
+ "dna_fig4_left_robustness": {
+  "caption": "Panel A's protocol with the right panel's reward and a GLASS reference.",
+  "files": [
+   "notebooks/figures/diagnostics/dna_fig4_left_robustness.png",
+   "notebooks/figures/diagnostics/dna_fig4_left_robustness.pdf"
+  ],
+  "kind": "diagnostic",
+  "log_axes": [
+   "axes[0]: x log, y log"
+  ],
+  "notes": [],
+  "paper_item": "Figure 4 (left), robustness variant",
+  "script": "notebooks/figures/build.py fig4l",
+  "sources": [
+   "results/dna/fig4/panelA_value_error_c0_reward.csv"
+  ]
+ },
+ "dna_fig4_right_axis_convention": {
+  "caption": "The same measurements on the published and the measured compute axis.",
+  "files": [
+   "notebooks/figures/diagnostics/dna_fig4_right_axis_convention.png",
+   "notebooks/figures/diagnostics/dna_fig4_right_axis_convention.pdf"
+  ],
+  "kind": "diagnostic",
+  "log_axes": [
+   "axes[0]: x log, y linear",
+   "axes[1]: x log, y linear"
+  ],
+  "notes": [],
+  "paper_item": "Figure 4 (right), accounting sensitivity",
+  "script": "notebooks/figures/build.py fig4r",
+  "sources": [
+   "results/shared/nfe_audit/dna_axes.csv"
+  ]
+ },
+ "dna_fig4_right_submitted_vs_rerun": {
+  "caption": "Different models, different guide and really-implemented baselines, so the two sets are not numerically comparable; the overlay only shows what changed.",
+  "files": [
+   "notebooks/figures/diagnostics/dna_fig4_right_submitted_vs_rerun.png",
+   "notebooks/figures/diagnostics/dna_fig4_right_submitted_vs_rerun.pdf"
+  ],
+  "kind": "diagnostic",
+  "log_axes": [
+   "axes[0]: x log, y linear"
+  ],
+  "notes": [],
+  "paper_item": "Figure 4 (right), submitted vs rerun",
+  "script": "notebooks/figures/build.py published4",
+  "sources": [
+   "results/dna/figure_digitized/fig4_right_nfe_benchmark_digitized.csv",
+   "results/dna/fig4/panelB_curves.csv"
+  ]
+ },
+ "dna_fig5_dmfm_preliminary": {
+  "caption": "4 of 32 states, motif reward, L=50 only, fp32 CPU against a TF32-GPU reference. results/dna/scale_free_mc/dmfm/preliminary/README.md says in as many words: do not put these in the paper.",
+  "files": [
+   "notebooks/figures/diagnostics/dna_fig5_dmfm_preliminary.png",
+   "notebooks/figures/diagnostics/dna_fig5_dmfm_preliminary.pdf"
+  ],
+  "kind": "diagnostic",
+  "log_axes": [
+   "axes[0]: x log, y linear",
+   "axes[1]: x log, y linear"
+  ],
+  "notes": [],
+  "paper_item": "Figure 5, preliminary dMFM slice",
+  "script": "notebooks/figures/build.py fig5",
+  "sources": [
+   "results/dna/scale_free_mc/dmfm/preliminary/L50_motif_4states_cells.csv"
+  ]
+ },
+ "new_qm9_steering_nfe": {
+  "caption": "Oracle MAE on alpha against forward-equivalent compute, n = 100 molecules per seed, mean +- SE over seeds 1/2/3, same base model and target set for every method. The x axis counts generative forward passes plus twice the back-propagated ones, the measured cost of a guided step here. Both axes are logarithmic: the y range spans 0.82 to 8.1 Bohr^3 and a linear axis would compress the region where the methods cross into the bottom eighth of the panel. Every method is drawn over its full measured budget ladder; best-of-N overtakes multiMFM-SS at the top of that range.",
+  "files": [
+   "notebooks/figures/new_qm9_steering_nfe.png",
+   "notebooks/figures/new_qm9_steering_nfe.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y log"
+  ],
+  "notes": [
+   "one column wide (3.35 in): include at width=\\columnwidth, unscaled",
+   "x LOG, y LOG -- state this in the caption",
+   "best-of-N is NOT trimmed: it wins at N = 512",
+   "DPS sample_steps extension withheld (1/N dose artifact, job 49455395)",
+   "multiMFM-SS's advantage is partly bought off this axis: 2x the regressor calls and 4-13x the PoseBusters checks of best-of-N"
+  ],
+  "paper_item": "QM9 steering comparison (new)",
+  "script": "notebooks/figures/build.py qm9",
+  "sources": [
+   "results/shared/nfe_audit/qm9_axes_untrimmed.csv"
+  ]
+ },
+ "published_dna_fig4_left_value_error": {
+  "caption": "The submitted Figure 4 (left), re-drawn from values digitized off the vector PDF (affine residual ~2e-5 pt). Both axes logarithmic. The published panel carries no error bars, so none are drawn; it also omits the SDE Monte-Carlo floor series that bounds what the comparison can resolve.",
+  "files": [
+   "notebooks/figures/published_dna_fig4_left_value_error.png",
+   "notebooks/figures/published_dna_fig4_left_value_error.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y log"
+  ],
+  "notes": [
+   "PUBLISHED VALUES, not a rerun",
+   "no error bars exist in the source figure",
+   "x LOG base 2, y LOG"
+  ],
+  "paper_item": "Figure 4 (left) as submitted",
+  "script": "notebooks/figures/build.py published4",
+  "sources": [
+   "results/dna/figure_digitized/fig4_left_MC_value_digitized.csv"
+  ]
+ },
+ "published_dna_fig4_right_nfe": {
+  "caption": "The submitted Figure 4 (right), re-drawn from values digitized off the vector PDF. x is logarithmic, y is linear from zero. The four baseline curves came from a CSV hard-coded in the benchmark script whose producing code was never in the repository and whose mae_sem is 0.000000 in every row, so no error bars can honestly be drawn for them.",
+  "files": [
+   "notebooks/figures/published_dna_fig4_right_nfe.png",
+   "notebooks/figures/published_dna_fig4_right_nfe.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y linear"
+  ],
+  "notes": [
+   "PUBLISHED VALUES, not a rerun",
+   "baseline error bars do not exist in the source",
+   "compute axis bills a back-propagated forward at zero"
+  ],
+  "paper_item": "Figure 4 (right) as submitted",
+  "script": "notebooks/figures/build.py published4",
+  "sources": [
+   "results/dna/figure_digitized/fig4_right_nfe_benchmark_digitized.csv"
+  ]
+ },
+ "rerun_dna_fig4": {
+  "caption": "Left: Absolute error of the value estimate against the number of posterior samples, over 32 conditioning states. Both axes are logarithmic (x base 2). Error bars are the standard error over conditions. The shaded band is the reference's own Monte-Carlo spread: no curve can be resolved inside it, so the N >= 256 points sit at or below the noise floor of the comparison and must not be read as resolved. Right: Target error against forward-equivalent compute for five inference-time steering methods on the parent-disjoint L=50 DNA flow. The x axis counts generative forward passes plus 1.1 back-propagated forward passes per returned sample (the 1.1 is measured on an H200 for this code path) and is logarithmic; y is linear and anchored at zero. Error bars are the standard error over 3 repeats of 100 outputs. dMFM leads below 430 forward-equivalent NFE and Feynman-Kac above it; both regions are inside the plotted range.",
+  "files": [
+   "notebooks/figures/rerun_dna_fig4.png",
+   "notebooks/figures/rerun_dna_fig4.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y log",
+   "axes[1]: x log, y linear"
+  ],
+  "notes": [
+   "full text width (6.85 in): include at width=\\textwidth, unscaled",
+   "x axis LOG (base 2), y axis LOG",
+   "the shaded band is the comparison's own noise floor, not a result",
+   "the SDE MC floor series is omitted from the published panel",
+   "x axis is LOG; y axis is LINEAR and includes zero",
+   "k = 1.1 is measured, not assumed (docs/nfe_accounting_audit.md)",
+   "on the published axis (backward billed at zero) the crossover is 582 instead, and dMFM appears to win at two settings rather than one"
+  ],
+  "paper_item": "Figure 4 (both panels)",
+  "script": "notebooks/figures/build.py fig4",
+  "sources": [
+   "results/shared/nfe_audit/dna_axes.csv",
+   "results/dna/fig4/panelA_value_error.csv",
+   "results/dna/fig4/summary.json"
+  ]
+ },
+ "rerun_dna_fig4_left_value_error": {
+  "caption": "Absolute error of the value estimate against the number of posterior samples, over 32 conditioning states. Both axes are logarithmic (x base 2). Error bars are the standard error over conditions. The shaded band is the reference's own Monte-Carlo spread: no curve can be resolved inside it, so the N >= 256 points sit at or below the noise floor of the comparison and must not be read as resolved.",
+  "files": [
+   "notebooks/figures/rerun_dna_fig4_left_value_error.png",
+   "notebooks/figures/rerun_dna_fig4_left_value_error.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y log"
+  ],
+  "notes": [
+   "one column wide (3.35 in): include at width=\\columnwidth, unscaled",
+   "x axis LOG (base 2), y axis LOG",
+   "the shaded band is the comparison's own noise floor, not a result",
+   "the SDE MC floor series is omitted from the published panel"
+  ],
+  "paper_item": "Figure 4 (left)",
+  "script": "notebooks/figures/build.py fig4l",
+  "sources": [
+   "results/shared/nfe_audit/dna_axes.csv",
+   "results/dna/fig4/panelA_value_error.csv",
+   "results/dna/fig4/summary.json"
+  ]
+ },
+ "rerun_dna_fig4_right_nfe": {
+  "caption": "Target error against forward-equivalent compute for five inference-time steering methods on the parent-disjoint L=50 DNA flow. The x axis counts generative forward passes plus 1.1 back-propagated forward passes per returned sample (the 1.1 is measured on an H200 for this code path) and is logarithmic; y is linear and anchored at zero. Error bars are the standard error over 3 repeats of 100 outputs. dMFM leads below 430 forward-equivalent NFE and Feynman-Kac above it; both regions are inside the plotted range.",
+  "files": [
+   "notebooks/figures/rerun_dna_fig4_right_nfe.png",
+   "notebooks/figures/rerun_dna_fig4_right_nfe.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y linear"
+  ],
+  "notes": [
+   "one column wide (3.35 in): include at width=\\columnwidth, unscaled",
+   "x axis is LOG; y axis is LINEAR and includes zero",
+   "k = 1.1 is measured, not assumed (docs/nfe_accounting_audit.md)",
+   "on the published axis (backward billed at zero) the crossover is 582 instead, and dMFM appears to win at two settings rather than one"
+  ],
+  "paper_item": "Figure 4 (right)",
+  "script": "notebooks/figures/build.py fig4r",
+  "sources": [
+   "results/shared/nfe_audit/dna_axes.csv",
+   "results/dna/fig4/panelA_value_error.csv",
+   "results/dna/fig4/summary.json"
+  ]
+ },
+ "rerun_dna_fig5_gradient_mc": {
+  "caption": "Accuracy of the finite-sample value gradient against the number of posterior samples, for three rewards and four sequence lengths. x is logarithmic (base 2); both y axes are linear and anchored at zero. Error bars are the 95% CI over 8 noise pools x 32 states carried in the results CSVs. Both the estimator and the reference here are GLASS; the dMFM version is still queued.",
+  "files": [
+   "notebooks/figures/rerun_dna_fig5_gradient_mc.png",
+   "notebooks/figures/rerun_dna_fig5_gradient_mc.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [
+   "axes[0]: x log, y linear",
+   "axes[1]: x log, y linear",
+   "axes[2]: x log, y linear",
+   "axes[3]: x log, y linear",
+   "axes[4]: x log, y linear",
+   "axes[5]: x log, y linear"
+  ],
+  "notes": [
+   "x LOG base 2; y LINEAR from zero",
+   "95% CIs are drawn -- the previous version of this figure omitted them although the columns existed",
+   "estimator AND reference are both GLASS (see docs/STATE_OF_CLAIMS.md)"
+  ],
+  "paper_item": "Figure 5 / Tables 14-15",
+  "script": "notebooks/figures/build.py fig5",
+  "sources": [
+   "results/dna/scale_free_mc/gc/gradient_scale_free_summary_all_lengths.csv",
+   "results/dna/scale_free_mc/motif/gradient_scale_free_summary_all_lengths.csv",
+   "results/dna/scale_free_mc/conjunction/gradient_scale_free_summary_all_lengths.csv"
+  ]
+ },
+ "rerun_fig1_toy_glass": {
+  "caption": "Prior, base, Norway-reward and Smiley-reward panels of the toy multimodal problem, 10,000 endpoints each. Scatter panels; no axis scales, so nothing here can be truncated or log-compressed.",
+  "files": [
+   "notebooks/figures/rerun_fig1_toy_glass.png",
+   "notebooks/figures/rerun_fig1_toy_glass.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [],
+  "notes": [
+   "kept in the recovered published layout, NOT the house style",
+   "full text width; the PDF is 10.3 in wide, so include it with an explicit width= -- its text is 25 pt and survives the reduction",
+   "the submitted Fig 1 PDF predates the toy MFM, so the published figure may show plain GLASS (docs/REPRODUCIBILITY_PLAN.md 7.6)"
+  ],
+  "paper_item": "Figure 1 (GLASS-guided variant)",
+  "script": "notebooks/figures/build.py fig1",
+  "sources": [
+   "results/toy/fig1_panels.npz"
+  ]
+ },
+ "rerun_fig1_toy_multimfm": {
+  "caption": "Prior, base, Norway-reward and Smiley-reward panels of the toy multimodal problem, 10,000 endpoints each. Scatter panels; no axis scales, so nothing here can be truncated or log-compressed.",
+  "files": [
+   "notebooks/figures/rerun_fig1_toy_multimfm.png",
+   "notebooks/figures/rerun_fig1_toy_multimfm.pdf"
+  ],
+  "kind": "paper",
+  "log_axes": [],
+  "notes": [
+   "kept in the recovered published layout, NOT the house style",
+   "full text width; the PDF is 10.3 in wide, so include it with an explicit width= -- its text is 25 pt and survives the reduction",
+   "the submitted Fig 1 PDF predates the toy MFM, so the published figure may show plain GLASS (docs/REPRODUCIBILITY_PLAN.md 7.6)"
+  ],
+  "paper_item": "Figure 1 (multiMFM-guided)",
+  "script": "notebooks/figures/build.py fig1",
+  "sources": [
+   "results/toy/fig1_panels.npz"
+  ]
+ }
+}

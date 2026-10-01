@@ -1,0 +1,14 @@
+# PB-valid best-of-lookahead round 1: aggressive mu (PB recovered by selection), select_min_t=0.70
+# JOBID PROPERTY MU RS SELMINT TAG
+34985247 alpha 3.50 0.3   0.70 v1_alpha_mu3p5
+34985221 alpha 5.00 0.3   0.70 v1_alpha_mu5p0
+34988184 gap   0.22 12000 0.70 v1_gap_mu0p22
+34988143 gap   0.30 12000 0.70 v1_gap_mu0p30
+34988141 homo  0.60 41500 0.70 v1_homo_mu0p60
+34989391 homo  0.80 41500 0.70 v1_homo_mu0p80
+34989362 lumo  0.50 12000 0.70 v1_lumo_mu0p50
+34989345 lumo  0.70 12000 0.70 v1_lumo_mu0p70
+34989311 mu    1.00 8.638 0.70 v1_mu_mu1p0
+34989432 mu    1.40 8.638 0.70 v1_mu_mu1p4
+34989449 cv    3.20 1.5   0.70 v1_cv_mu3p2
+34989466 cv    4.50 1.5   0.70 v1_cv_mu4p5

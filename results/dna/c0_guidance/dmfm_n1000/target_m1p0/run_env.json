@@ -1,0 +1,67 @@
+{
+  "0000_0200": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA H100 80GB HBM3",
+    "host": "holygpu8a17504.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49352242",
+    "slurm_array_task_id": "5",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49353507",
+    "slurm_job_partition": "kempner_h100",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0200_0400": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA H100 80GB HBM3",
+    "host": "holygpu8a17402.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49352242",
+    "slurm_array_task_id": "6",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49387127",
+    "slurm_job_partition": "kempner_h100",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0400_0600": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA H100 80GB HBM3",
+    "host": "holygpu8a17502.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49352242",
+    "slurm_array_task_id": "7",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49387128",
+    "slurm_job_partition": "kempner_h100",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0600_0800": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA H100 80GB HBM3",
+    "host": "holygpu8a17503.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49352242",
+    "slurm_array_task_id": "8",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49387129",
+    "slurm_job_partition": "kempner_h100",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  },
+  "0800_1000": {
+    "cpu_threads": 1,
+    "device": "cuda",
+    "device_name": "NVIDIA H100 80GB HBM3",
+    "host": "holygpu8a17503.rc.fas.harvard.edu",
+    "slurm_array_job_id": "49352242",
+    "slurm_array_task_id": "9",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49352242",
+    "slurm_job_partition": "kempner_h100",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  }
+}

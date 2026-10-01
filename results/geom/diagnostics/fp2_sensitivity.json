@@ -1,0 +1,52 @@
+{
+  "_what": "FP2 self-similarity after an isotropic coordinate perturbation (how much displacement Table 3's metric can even see)",
+  "num_mols": 16,
+  "repeats": 3,
+  "seed": 0,
+  "mean_atoms": 25.0625,
+  "n_valid_base": 16,
+  "rows": [
+    {
+      "sigma_normalized": 0.001,
+      "sigma_angstrom": 0.002,
+      "self_tanimoto_mean": 1.0,
+      "frac_molecules_with_any_bit_change": 0.0
+    },
+    {
+      "sigma_normalized": 0.003,
+      "sigma_angstrom": 0.006,
+      "self_tanimoto_mean": 1.0,
+      "frac_molecules_with_any_bit_change": 0.0
+    },
+    {
+      "sigma_normalized": 0.01,
+      "sigma_angstrom": 0.02,
+      "self_tanimoto_mean": 0.9776595036188761,
+      "frac_molecules_with_any_bit_change": 0.10416666666666667
+    },
+    {
+      "sigma_normalized": 0.03,
+      "sigma_angstrom": 0.06,
+      "self_tanimoto_mean": 0.7933053970336914,
+      "frac_molecules_with_any_bit_change": 0.4791666666666667
+    },
+    {
+      "sigma_normalized": 0.1,
+      "sigma_angstrom": 0.2,
+      "self_tanimoto_mean": 0.25802745421727497,
+      "frac_molecules_with_any_bit_change": 1.0
+    },
+    {
+      "sigma_normalized": 0.3,
+      "sigma_angstrom": 0.6,
+      "self_tanimoto_mean": 0.09293277313311894,
+      "frac_molecules_with_any_bit_change": 1.0
+    },
+    {
+      "sigma_normalized": 1.0,
+      "sigma_angstrom": 2.0,
+      "self_tanimoto_mean": 0.0420399953921636,
+      "frac_molecules_with_any_bit_change": 1.0
+    }
+  ]
+}

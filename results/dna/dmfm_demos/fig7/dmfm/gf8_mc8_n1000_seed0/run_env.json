@@ -1,0 +1,13 @@
+{
+  "cpu_threads": 1,
+  "device": "cuda",
+  "device_name": "NVIDIA A100-SXM4-40GB MIG 3g.20gb",
+  "host": "holygpu8a19605.rc.fas.harvard.edu",
+  "slurm_array_job_id": "49425774",
+  "slurm_array_task_id": "4",
+  "slurm_job_account": "kempner_albergo_lab",
+  "slurm_job_id": "49426506",
+  "slurm_job_partition": "kempner_requeue",
+  "tf32_matmul": true,
+  "torch": "2.5.1+cu124"
+}

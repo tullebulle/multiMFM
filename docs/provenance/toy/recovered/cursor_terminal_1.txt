@@ -1,0 +1,1007 @@
+---
+pid: 4164922
+cwd: /n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway
+active_command: codex
+last_command: codex
+last_exit_code: 0
+---
+  - take midpoint and distance
+  - shrink the distance by gap_scale
+  - anneal gap_scale from 0 to 1 over --gap_anneal_steps
+
+  I also had to disable flash SDP attention inside the JVP block, because this PyTorch build does not support forward-mode AD through flash attention.
+
+  Smoke tests passed:
+
+  - Compile passed.
+  - Aggressive 20-step stress test saved checkpoints/mfm_consistency_smoke.pt
+  - Realistic slow-gap 100-step smoke saved checkpoints/mfm_consistency_slowgap_smoke.pt
+
+  Slow-gap smoke final:
+
+  - total loss: 2.30e-4
+  - diagonal loss: 6.75e-5
+  - ESD loss: 1.63e-4
+  - gap scale: 0.02
+  - mean gap: 0.00645
+
+  Full run command:
+
+  eval "$(micromamba shell hook --shell bash)" && micromamba activate seq_h100 && python -u train_mfm_consistency.py \
+    --teacher_ckpt ckpt_uniform_color_square.pt \
+    --init_ckpt checkpoints/mfm_diagonal_10000.pt \
+    --ckpt checkpoints/mfm_consistency_10000.pt \
+    --steps 10000 \
+    --batch_size 1024 \
+    --lr 1e-4 \
+    --warmup 500 \
+    --gap_anneal_steps 5000 \
+    --ema_decay 0.995 \
+    --device cuda
+
+
+› Do a 1000 step and see how well it trains
+
+
+• I’ll run a 1000-step ESD consistency continuation from the 10k diagonal checkpoint, using the slow gap schedule so the final gap scale reaches 0.2. Then I’ll plot the loss curves and summarize whether the
+  diagonal knowledge is preserved.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The 1000-step consistency run is active on CUDA. Since JVP is involved, this will be slower than diagonal-only training.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 300 the loss is still small, but increasing with the growing gap as expected. Diagonal loss is staying around 1e-4, so the GLASS diagonal is not being forgotten so far.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Past halfway, the ESD loss fluctuates as gaps grow, but total loss remains below 1e-3. Diagonal loss has not blown up.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The 1000-step run finished and saved the checkpoint. I’m plotting the logged diagonal/ESD losses now so the trend is easier to inspect.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The loss plot is saved. I’m doing a quick visual check and a held-out diagonal probe on the resulting checkpoint, because we explicitly want to know whether the diagonal was retained.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The diagonal probe itself reached the checkpoint log plotting step, but the consistency checkpoint has different log keys than the diagonal checkpoint. I’m patching the probe plotter to handle both schemas
+  and rerunning it.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The held-out diagonal probe after consistency training still looks good: EMA relative L2 is about 1.15%, so the diagonal degraded from the pure diagonal model but did not collapse. I’ll check the updated
+  scatter quickly.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ran the 1000-step ESD consistency smoke.
+
+  Training setup:
+
+  - Init: checkpoints/mfm_diagonal_10000.pt
+  - Output: checkpoints/mfm_consistency_1000.pt
+  - batch_size=1024
+  - gap_anneal_steps=5000, so final gap_scale=0.2
+  - Runtime: 112.1s
+
+  Final training logs:
+
+  - total loss: 6.82e-4
+  - diagonal GLASS loss: 2.36e-4
+  - ESD consistency loss: 4.46e-4
+  - final mean gap: 0.061
+  - final max gap: 0.186
+
+  The training behaves reasonably: as the gap increases, the ESD term rises, but it stays below 1e-3; the diagonal loss increases compared to the pure diagonal checkpoint but stays controlled.
+
+  Held-out diagonal probe after consistency training:
+
+  - raw diagonal loss vs GLASS: 3.66e-4
+  - EMA diagonal loss vs GLASS: 2.36e-4
+  - EMA relative L2: 0.0115
+  - EMA cosine: 0.99995
+  - baseline teacher loss: 0.371
+
+  So it did not forget the diagonal badly, but the diagonal is worse than the pure 10k diagonal model (~3e-5). That is expected because consistency is starting to modify the model.
+
+  Saved:
+
+  - figures/mfm_consistency_1000_loss.png
+  - figures/mfm_consistency_1000_diag_glass_scatter.png
+  - figures/mfm_consistency_1000_diag_probe.json
+
+
+› Okay start a longer consistency run of 10k, would this result is finally full gap?
+
+
+• Yes. With --gap_anneal_steps 5000 and --steps 10000, the run reaches full gap at step 5000, then trains at full gap for the remaining 5000 steps. I’m starting that now from the 10k diagonal checkpoint.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The run has started cleanly. Step 1 is at near-zero gap, as expected; gap_scale will linearly reach 1.0 at step 5000.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 250, the gap is still small (gap_scale=0.05) and loss is under 1e-3. The ESD term dominates, which is expected once u-s becomes nonzero.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 500 reached full LR and gap_scale=0.10. Diagonal loss is still around 2e-4, so diagonal retention is okay early in the consistency run.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 1000, this matches the earlier 1000-step run scale: gap_scale=0.2, total loss 8e-4, diagonal 2.8e-4. Continuing toward full gap.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 1500, ESD jumped to about 0.0057 as gaps grew to 0.3. That is a notable increase, but the diagonal term remains much smaller. I’m watching whether it adapts or keeps climbing.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The step 1500 spike came down at step 1750. Loss is still higher than at small gaps, but not diverging.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 2000: gap scale 0.4, total loss about 0.0030; diagonal loss is back down to 2.7e-4. Good sign for preserving the diagonal while learning larger gaps.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Halfway through gap annealing: gap_scale=0.5. Loss is a few 1e-3, diagonal is stable around 2e-4.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• There’s another spike at gap scale 0.55, with diagonal also higher. I’m continuing; this may be stochastic from hard sampled gaps, but if it persists we may need a slower anneal or lower consistency weight.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The spike recovered at step 3000, then rose moderately at 3250. Overall this is noisy but not runaway; full-gap behavior will be the real test after step 5000.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 3500: gap scale 0.7, total loss 0.0042, diagonal 6.5e-4. This is still trainable but less clean than small-gap training.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At gap_scale=0.8, ESD loss is close to 0.009. Diagonal remains much lower, so the model is not forgetting diagonal, but the off-diagonal objective is getting harder.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The step 4000 spike reduced at 4250. We’re approaching full gap; I’ll keep monitoring after step 5000 where the schedule stops increasing.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 4500: gap_scale=0.9, total loss below 0.004. That’s acceptable going into the full-gap phase.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 5000, full gap is reached. From here to step 10000, the run is training at full gap; current total loss is 0.0043 and diagonal 7.7e-4.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• First full-gap checkpoint after annealing: ESD is around 0.0043, diagonal is low again. No collapse at full gap so far.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Full-gap training remains in the 0.003-0.004 range. Diagonal fluctuates, but the ESD term is not growing.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 6000 has a higher ESD batch again (0.0078). This confirms full-gap ESD has high variance across batches. I’ll let it continue; the diagonal is still controlled.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The full-gap spike dropped back down at step 6250. Training is noisy but stable.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Still stable at full gap. Loss is not trending down sharply, but it is holding below 1e-2 with LR decaying.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 7000 improved to total 0.0029. Full-gap phase is not failing; it’s noisy but learning/settling.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 7500, full-gap loss is around 0.0032 and diagonal loss is low. This is better than the mid-anneal spikes.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 7750 is another good full-gap batch: total 0.0028, ESD 0.0026. Continuing to completion.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• There was a single large ESD outlier at step 8000 (0.054), then it immediately returned to 0.003. That suggests rare hard full-gap batches rather than sustained divergence.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The final quarter is mostly stable around 0.0025-0.0035, aside from the one outlier. Diagonal retention remains good on training batches.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Step 9000: still full gap, total loss 0.0031. Almost done; I’ll run probes and plots after the checkpoint is saved.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At step 9500, full-gap ESD is around 0.0031; final checkpoint should save in about a minute.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The 10k consistency run finished. It did reach full gap at step 5000 and then trained full-gap for the second half. I’m plotting the run and probing diagonal retention now.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The plots and diagonal probe are done. Diagonal GLASS fit is worse than pure diagonal training but still strong: EMA relative L2 is about 1.41% and cosine is 0.99988. I’m checking the saved plots visually.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Yes, this run reached full gap. With --gap_anneal_steps 5000 and --steps 10000, gap_scale=1.0 from step 5000 through step 10000.
+
+  Completed:
+
+  - Checkpoint: checkpoints/mfm_consistency_10000.pt
+  - Runtime: 1084.8s
+  - Final gap_scale: 1.0
+  - Final mean gap: 0.309
+  - Final max gap: 0.915
+
+  Final training losses:
+
+  - total: 0.00211
+  - diagonal GLASS: 0.000119
+  - ESD consistency: 0.001992
+
+  Behavior:
+
+  - It trained stably to full gap.
+  - ESD loss is noisy at full gap, with one big outlier around step 8000, but it recovered immediately.
+  - Diagonal knowledge is mostly retained, though degraded compared to the pure diagonal checkpoint.
+
+  Held-out diagonal probe after consistency:
+
+  - EMA diagonal loss vs GLASS: 3.85e-4
+  - EMA relative L2: 0.0141
+  - EMA cosine: 0.99988
+  - Baseline teacher loss: 0.3796
+
+  Saved:
+
+  - figures/mfm_consistency_10000_loss.png
+  - figures/mfm_consistency_10000_diag_glass_scatter.png
+  - figures/mfm_consistency_10000_diag_probe.json
+
+
+› Okay now look at our experiments for the GLASS guidance of the Norway flag for instance. Are you able to take our trained MFM and replicate that experiment? Instead of doing guidance where you integrate the
+  GLASS to get the posterior, rather do the MFM with either one or 2-4 steps to get each posterior sample. Give me a plan to how to conduct this replication of experiment.
+
+
+• I’ll quickly inspect the existing Norway GLASS guidance scripts and the MFM sampling interface we now have, then I’ll lay out a concrete replication plan with the exact replacements.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Yes, we can replicate the Norway GLASS guidance experiment with the trained MFM as a posterior sampler.
+
+  Core Replacement
+
+  Old GLASS value estimator:
+
+  X1_samples = glass_integrate(
+      base_model,
+      t_cond=t,
+      x_cond=x_t,
+      n_samples=N,
+      n_steps=n_glass_steps,
+  )
+  V_t(x_t) = logmeanexp(r(X1_samples))
+
+  New MFM value estimator:
+
+  I = randn(B * N, D)
+
+  for s0, s1 in posterior_grid:
+      I = mfm.X(
+          s=s0,
+          u=s1,
+          x=I,
+          t_cond=t,
+          x_cond=x_t_repeated,
+      )
+
+  X1_samples = I
+  V_t(x_t) = logmeanexp(r(X1_samples))
+
+  So instead of integrating GLASS for, say, 8-20 Euler steps, we use the trained MFM map with 1, 2, or 4 posterior steps.
+
+  Important Detail
+
+  The outer generation should stay the same:
+
+  dx/dt = base_velocity + guidance
+
+  The MFM replaces only the posterior/value estimator used to compute:
+
+  guidance = ∇_x V_t(x)
+
+  So the base ODE still uses ckpt_uniform_color_square.pt, while the posterior sampler uses checkpoints/mfm_consistency_10000.pt.
+
+  Implementation Plan
+
+  1. Add mfm_value_fn.py
+     Functions:
+
+     load_mfm(ckpt, device, use_ema=True)
+
+     mfm_posterior_sample(
+         mfm,
+         t_cond,
+         x_cond,
+         n_samples,
+         n_mfm_steps,
+         final_u=1.0,
+         seed=...
+     )
+
+     mfm_value_function(
+         mfm,
+         t,
+         x,
+         reward_fn,
+         n_samples,
+         n_mfm_steps,
+         seed=...
+     )
+
+     mfm_value_function should mirror value_fn.value_function, so the guidance scripts only need a one-line replacement.
+
+  2. Sanity Check MFM Posterior Against GLASS
+     Before doing full guidance, compare on held-out conditioning states:
+      - same t
+      - same x_cond
+      - same initial posterior noise seeds
+      - GLASS endpoint samples with n_glass_steps=50
+      - MFM endpoint samples with n_mfm_steps=1, 2, 4
+
+     Metrics:
+      - endpoint MSE vs GLASS samples
+      - reward mean under Norway reward
+      - V_MFM vs V_GLASS
+      - gradient cosine:
+
+        cos(∇V_MFM, ∇V_GLASS)
+
+      - gradient norm ratio:
+
+        ||∇V_MFM|| / ||∇V_GLASS||
+
+  3. Create experiment_uniform_norway_mfm_guidance.py
+     Copy the existing delayed-color Norway script:
+
+     dMFM_experiments/experiment_uniform_norway_slow_color_guidance.py
+
+     Replace:
+
+     V = value_function(...)
+
+     with:
+
+     V = mfm_value_function(...)
+
+     Keep the rest identical:
+      - delayed color base
+      - color-only guidance
+      - fixed guidance ratio
+      - same Norway reward
+      - same plotting and summaries
+
+  4. Run Small Replication First
+     Use small settings:
+
+     --n_samples 200
+     --n_steps 100
+     --n_value_samples 8
+     --n_mfm_steps 1 2 4
+     --guidance_ratios 0 2
+     --guidance_start 0.8
+     --guidance_end 0.95
+
+     I would start with guidance_end=0.95 because our MFM was trained with t_cond_max=0.95. Then test 0.98 after confirming behavior.
+
+  5. Compare Against GLASS
+     Make a side-by-side figure:
+      - unguided
+      - GLASS guidance
+      - MFM 1-step guidance
+      - MFM 2-step guidance
+      - MFM 4-step guidance
+
+     Track:
+      - Norway reward
+      - target-color match
+      - color fractions
+      - region fractions
+      - fraction inside square
+      - runtime
+  6. Then Scale Up
+     If the small run matches qualitatively:
+
+     --n_samples 1000
+     --n_steps 200
+     --n_value_samples 16
+     --n_mfm_steps 1 2 4
+
+     Save figures under figures/, with names like:
+
+     figures/uniform_norway_mfm_guidance_steps1.png
+     figures/uniform_norway_mfm_guidance_steps2.png
+     figures/uniform_norway_mfm_guidance_steps4.png
+
+  Expected Outcome
+
+  If the MFM learned the posterior flow map well, 2-4 MFM posterior steps should reproduce the GLASS guidance behavior closely, but much faster.
+
+  The main risk is extrapolation:
+
+  - MFM training used times up to 0.95.
+  - The Norway guidance window previously went to 0.98.
+  - MFM posterior sampling also maps toward u=1.0.
+
+  So I would first evaluate with guidance_end=0.95, then push to 0.98, and if needed train a new MFM with time_max=0.99.
+
+
+› perfect plan, go for it
+
+
+• I’ll implement the MFM value estimator, then a Norway guidance script that keeps the old outer sampler intact and swaps only the posterior/value path. After that I’ll run a small MFM-vs-GLASS value/gradient
+  probe and a small guidance smoke test.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m going to add the shared Norway reward at top level first, because the current working tree only has the archived copy under dMFM_experiments/ and the new scripts should run from the repo root.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Next I’m adding mfm_value_fn.py, which mirrors value_fn.py but uses MultimodalMFM.X(s,u,...) instead of GLASS Euler integration. This is the key swap.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Now I’m adding a focused probe script to compare MFM value gradients against GLASS value gradients at Norway-relevant times. This will tell us whether 1, 2, or 4 MFM posterior steps are usable for guidance.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m adding the actual Norway guidance replication script now. It keeps the delayed color-only guidance logic and swaps GLASS value_function for MFM mfm_value_function.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The implementation files are in place. I’m compiling them and running the mfm_value_fn.py self-test before the GLASS comparison.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The MFM posterior sampler compiles and returns the expected (B, MC, D) samples. Now I’m running the MFM-vs-GLASS Norway value/gradient probe at t=0.8,0.9,0.95.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The value probe finished. V correlations are high, especially for 4 MFM steps; gradient directions are only moderate but usable in the late window, with 4 steps best near t=0.95. I’m running the small Norway
+  MFM guidance smoke now.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The guidance smoke is running. Unguided reward is 0.341; MFM 1-step already improves color match to 0.557 and reward to 0.401, so the MFM posterior is producing a real steering signal.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The small MFM replication finished: all MFM versions improve over unguided, with 1-step best in this smoke (match 0.557, reward 0.401). I’m checking the plots and running the matching small GLASS baseline so
+  we can compare directly.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The matching GLASS smoke finished: GLASS ratio 2 gives reward 0.407, match 0.573, runtime 5.9s. MFM 1-step gives reward 0.401, match 0.557, runtime 1.4s, so the replication is close in this small setting.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Implemented and ran the replication.
+
+  Added:
+
+  - mfm_value_fn.py: MFM posterior sampler + value function.
+  - probe_mfm_value_vs_glass.py: compares MFM value/gradient to GLASS.
+  - experiment_uniform_norway_mfm_guidance.py: Norway delayed-color guidance using MFM instead of GLASS.
+  - reward.py: restored top-level Norway reward helpers.
+
+  Key result, small smoke N=300, same window [0.8, 0.95], ratio 2, MC 8:
+
+  ┌────────────────┬────────┬───────┬─────────┐
+  │ method         │ reward │ match │ runtime │
+  ├────────────────┼────────┼───────┼─────────┤
+  │ unguided       │  0.341 │ 0.387 │    0.6s │
+  │ GLASS, 8 steps │  0.407 │ 0.573 │    5.9s │
+  │ MFM, 1 step    │  0.401 │ 0.557 │    1.4s │
+  │ MFM, 2 steps   │  0.396 │ 0.540 │    2.0s │
+  │ MFM, 4 steps   │  0.387 │ 0.517 │    3.3s │
+  └────────────────┴────────┴───────┴─────────┘
+
+  So yes: MFM guidance replicates the GLASS effect closely in this smoke test, with 1-step MFM being closest and faster.
+
+  Value/gradient probe:
+
+  - Saved: figures/mfm_vs_glass_norway_probe.json
+  - V correlation is high, especially for 4 steps near late times.
+  - Gradients are qualitatively aligned but imperfect; late times are better than t=0.8.
+
+  Saved figures:
+
+  - figures/uniform_norway_mfm_guidance_smoke.png
+  - figures/uniform_norway_mfm_guidance_smoke_diagnostics.png
+  - figures/uniform_norway_glass_guidance_smoke.png
+
+  The next useful run is N=1000 or N=10000 with MFM 1 step, since that was the best match in the smoke.
+
+
+› Run the 10000 particle one
+
+
+• I’ll run the 10k-particle MFM Norway guidance with the best smoke setting: MFM 1 step, ratio 2, MC 8, guidance window [0.8, 0.95]. It will save a fresh 10k figure and endpoint payload under figures/.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The unguided 10k baseline finished: reward 0.324, match 0.335. The guided MFM 1-step panel is now running; that’s the only expensive part.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The 10k run finished successfully. MFM 1-step improves match from 0.335 to 0.564 and reward from 0.324 to 0.405. I’m opening the saved figure to verify the plot.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Done. The 10k-particle MFM Norway run completed.
+
+  Result:
+
+  - Unguided reward: 0.324
+  - Unguided match: 0.335
+  - MFM 1-step reward: 0.405
+  - MFM 1-step match: 0.564
+  - Guided runtime: 27.9s
+  - Fraction inside square: 0.998
+
+  So the 10k run reproduces the GLASS steering effect at scale. The color field visibly shifts toward the Norway target regions.
+
+  Saved:
+
+  - figures/uniform_norway_mfm_guidance_N10000.png
+  - figures/uniform_norway_mfm_guidance_N10000_diagnostics.png
+  - figures/uniform_norway_mfm_guidance_N10000_endpoints.pt
+
+
+› How many points did we do the experiment? I see it's slightly more blurry
+
+
+■ Conversation interrupted - tell the model what to do differently. Something went wrong? Hit `/feedback` to report the issue.
+
+
+› › How many points did we do in the original  experiment? I see it's slightly more blurry
+
+
+• The original large Norway experiment was also N=10000.
+
+  The current MFM run also used N=10000, so the extra blur is not from fewer particles. It is probably from plotting style or the fact that the current figure uses the standard scatter settings with visible
+  alpha/overplotting, while the older “sharper” figure had larger/brighter dots and no background styling tweaks.
+
+  Current run:
+
+  n_samples=10000
+
+  Original Norway large run:
+
+  N=10000
+
+
+› When blutty I mean that the flag is less sharply bordered, so guidance seem slightly weaker
+
+
+• Yes, that interpretation is right. Since both runs used N=10000, the softer borders mean the MFM guidance is slightly weaker or noisier than the original GLASS guidance, not just a plotting artifact.
+
+  From the small matched smoke:
+
+  GLASS ratio=2: reward=0.407, match=0.573
+  MFM 1-step:    reward=0.401, match=0.557
+
+  So MFM is close, but measurably weaker. In the 10k run:
+
+  MFM 1-step: reward=0.405, match=0.564
+
+  Likely causes:
+
+  - The MFM value-gradient is only an approximation to GLASS.
+  - The gradient probe showed MFM gradients are correlated with GLASS but not identical.
+  - We used only 1 MFM posterior step, which was fastest and best in smoke, but still smooths/misaligns some posterior signal.
+  - The fixed guidance ratio rescales norm, but if direction is less accurate, boundaries become less crisp.
+
+  Best next knobs:
+
+  1. Increase guidance_ratio, e.g. 2.5 or 3.0.
+  2. Try later/tighter window, e.g. [0.85, 0.95], to reduce early wrong color pushes.
+  3. Try n_value_samples=16.
+  4. Compare MFM 2-step at higher ratio; 2-step had slightly weaker default result but may improve with stronger ratio.
+
+  I’d start with guidance_ratio=3.0, MFM 1-step, N=10000.
+
+• Context compacted
+
+
+› Try 100k particles to see
+
+
+• I’ll run the same MFM Norway guidance setup at N=100000 so the only intended change is particle count. I’ll save it with a new uniform_...N100000... filename under figures/ so we can compare against the 10k
+  result.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The 100k run hit a CUDA kernel limit in the base model’s attention call during the unguided pass, before any MFM guidance. I’m going to patch the sampler to evaluate the base velocity in chunks; that should
+  preserve the same dynamics while avoiding the large-batch kernel failure.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the script was still calling the base model on all 100k particles at once. I’m adding a --base_batch_size path for both the ODE velocity and final endpoint readout so 100k can run without changing the
+  math.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The chunked version compiles. I’m rerunning the same 100k job now with base-model chunks of 10k particles; guidance is still chunked at 1k for the value-gradient pass.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The run is moving now. It has passed the early unguided steps; color velocity is still frozen there, as expected, so the reward printout stays around the uniform baseline.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Unguided 100k completed: match is 0.334, reward 0.324, so it agrees with the 10k baseline. The guided pass has started; the value-gradient only turns on after t=0.8.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• It’s in the active guidance window now, which is the expensive part: 100k particles are being processed in 1k-particle value-gradient batches. No new line yet just means it is between the t=0.80 and t=0.90
+  progress prints.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• At t=0.899, guidance is active and the diagnostics look consistent: mean ||grad_c V||=2.237, and the applied guidance/base ratio is about 1.9, close to the requested 2.0 after accounting for zero-norm edge
+  cases.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The saved 100k plot is dense enough that the default marker size overplots heavily. Since endpoints were saved, I’m making one extra view from the same data with smaller markers so the boundary sharpness is
+  easier to judge without rerunning the sampler.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ran the 100k MFM Norway guidance experiment with the same config as before:
+
+  N=100000, MFM 1-step, guidance_ratio=2.0, beta=16, MC=8, window [0.8, 0.95].
+
+  Results:
+
+  - Unguided: reward 0.324, match 0.334
+  - Guided: reward 0.404, match 0.560
+  - 10k guided was about reward 0.405, match 0.564
+
+  So the blurrier/softer flag boundary is not from too few points. At 100k it becomes clearer that MFM guidance is just slightly weaker/noisier than the GLASS version.
+
+  Saved outputs:
+
+  - figures/uniform_norway_mfm_guidance_N100000.png
+  - figures/uniform_norway_mfm_guidance_N100000_smallpoints.png
+  - figures/uniform_norway_mfm_guidance_N100000_diagnostics.png
+  - figures/uniform_norway_mfm_guidance_N100000_endpoints.pt
+
+  I also patched experiment_uniform_norway_mfm_guidance.py with --base_batch_size, because the base model’s attention kernel failed on a single 100k batch. Verified with python -m py_compile.
+
+
+› the densepoints could be good but the red points seems to dominate quite a bit.
+
+
+• That is partly real and partly plotting. In the guided 100k run, red is 0.39 of samples while the red target region is 0.49, so red should be the largest color. But the current dense plot also draws red last
+  with a very saturated color, so it visually sits on top of blue and white. I’ll make a fairer dense view from the saved endpoints with randomized draw order and a slightly dimmer red.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Made a fairer dense version:
+
+  figures/uniform_norway_mfm_guidance_N100000_dense_balanced.png
+
+  Changes are plot-only: randomized draw order, smaller markers, slightly dimmer red. The data are unchanged. Red still dominates somewhat because guided red fraction is 0.39, but it no longer gets the extra
+  advantage of being plotted last.
+
+
+› no make the dots bigger as the other plot, but just we need to think about ordering in the other, the red was dominating too much
+
+
+• Right, the main issue in the big-dot version is class-wise drawing order: red was drawn after blue and white, so it sits on top everywhere. I’ll remake the big-dot plot using a single shuffled point order so
+  no color gets a systematic top layer.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Done. I remade the big-dot version with randomized per-point draw order, so red no longer gets plotted last as a whole class:
+
+  figures/uniform_norway_mfm_guidance_N100000_bigpoints_shuffled.png
+
+  This keeps the larger dot size from the original plot and only changes the layering logic. Red still appears strong because it is 39% of the guided samples and covers a large target region, but the
+  overplotting bias is reduced.
+
+
+› Still not happy with how it looks compared to what we got on GLASS. Do some experiments with N=10k only to try to get it better. Should be as good as the GLASS one we did!
+
+
+• I agree the 100k view makes it clearer that this is an actual guidance-quality gap, not just plotting. I’ll do a focused 10k sweep now: first increase the color-guidance ratio, then try a later/tighter window
+  and more MC samples if needed.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• First variant is already stronger: at t=0.899, reward is 0.385 versus 0.370 in the ratio-2 100k run. I’m waiting for the final match metric before deciding the next knob.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 3 improved match from 0.56 to 0.656, which is the right direction. I’m trying ratio 4 next; this tests whether MFM just needs a stronger normalized color push to match the GLASS effect.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 4 is better again: match 0.716, reward 0.454. I’m going one step stronger at ratio 6, because the color fractions are still not pathological and the samples are staying inside the square.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 6 keeps improving: match 0.768, reward 0.471, still inside square. I’m going to inspect the plot against the older GLASS-looking result before deciding whether to push more or change the window.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 6 is now essentially at the old GLASS score (0.768 vs GLASS 0.775 match). Visually it is still a little less clean in the vertical cross, so I’m testing whether ratio 8 sharpens it or starts to
+  overdrive the colors.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 8 only improves the scalar match marginally (0.771) and starts starving the white class (0.25), so ratio 6 looks like the better visual tradeoff. I’m trying ratio 6 with MC=16 now; if the issue is
+  gradient noise from the MFM value estimate, this should clean it up without overdriving the class balance.
+
+
+› This is good enough!
+
+
+• Good. I’d keep the ratio=6, MC=8 run as the current best visual/metric tradeoff.
+
+  Best saved output:
+
+  figures/uniform_norway_mfm_guidance_N10000_ratio6.png
+
+  Metrics:
+
+  - MFM ratio=2: match 0.560
+  - MFM ratio=3: match 0.656
+  - MFM ratio=4: match 0.716
+  - MFM ratio=6: match 0.768
+  - MFM ratio=8: match 0.771, but visually starts starving white
+  - MFM ratio=6, MC=16: match 0.741, worse here
+
+  So the practical conclusion is: the MFM guidance works, but needs about 3x stronger normalized color guidance than GLASS for this setup.
+
+
+› Awesome. Also replicate the smiley?
+
+
+• I’ll replicate the same idea for the smiley: use the trained MFM value estimator instead of GLASS, keep the run small enough to iterate at N=10k, and compare against the earlier GLASS-style smiley settings/
+  files already in figures/.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The old smiley script used two guidance channels: weak position guidance over the whole path and delayed color guidance after t=0.8. I’m going to keep that structure, but swap the value-function backend from
+  GLASS to the MFM sampler; then I’ll start with N=1000 before spending time on N=10000.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m going to add a dedicated MFM smiley script rather than overloading the Norway one. It will keep the old smiley reward and plotting geometry, but use mfm_value_function for both the weak position guidance
+  and the delayed color guidance.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The MFM smiley script compiles. I’m running a 1k smoke with the Norway-calibrated color ratio 6, weak position guidance 0.2, and MFM 1-step posterior samples.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The first smoke worked in the sense that position guidance pulls almost every sample onto smiley features, but color match is only 0.659. I’m going to inspect the plot, then likely increase the delayed color
+  ratio as we did for Norway.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Compared with the old GLASS smiley, MFM already places the points well, but color correction on the two eyes is weaker. I’m going to push only the delayed color ratio upward, keeping the same position
+  guidance, and test on N=1000 first.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 12 is worse: the color velocity explodes late and the match drops to 0.577. So for smiley the sweet spot is not “more color ratio”; it is probably lower/cleaner position guidance or a slightly different
+  late color window. I’ll try a mid value, ratio 8, before changing the position channel.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 8 also got worse, so ratio 6 is the best color ratio so far. The next plausible source of the gap is posterior approximation: I’m trying MFM with 2 posterior map steps while keeping ratio 6.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Two MFM posterior steps did not help; it slightly worsened color match. I’m now reducing the position strength to see if the current position gradient is over-concentrating samples before color can settle.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Reducing position guidance hurt both reward and color match. The best small run is still pos_lambda=0.2, ratio 6. I’m testing beta next, because that changes the value landscape itself instead of just scaling
+  the applied color vector.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Beta 32 improved the small run: reward 0.440, match 0.679, and color fractions are more balanced. I’ll test beta 64 once; if it over-concentrates, beta 32 is the one to scale to 10k.
+
+
+› It's probably good enough! Lets see a plot
+
+
+• This is the current best MFM smiley smoke run: N=1000, beta=32, color_ratio=6, pos_lambda=0.2.
+
+  Saved here:
+
+  figures/uniform_smiley_mfm_guidance_N1000_ratio6_beta32.png
+
+  Metrics: reward 0.440, feature coverage 1.000, color-target match 0.679.
+
+
+› I take it back, it doesnt look that good yet
+
+
+• Agreed. The MFM smiley run gets the geometry, but the color assignment on the eyes and mouth is not close enough to the GLASS version. I’m going to tighten this systematically: match the old GLASS run
+  settings first (200 outer steps, MC 16), then test whether the remaining issue is MFM posterior steps or beta/color scheduling.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found a concrete mismatch: the “good” GLASS smiley was not using the defaults I just ran. It used a much larger/easier smiley: eye_sigma=0.28, mouth_sigma=0.23, mouth_x_half=0.84, mouth_curve=0.65, k=18,
+  etc. I’m stopping the default-geometry run and rerunning MFM against the actual GLASS geometry.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The rerun is using the actual old GLASS geometry now. Baseline metrics already match the saved GLASS baseline exactly, so this is the right comparison. It’s in the guided portion now.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• This did not fix it by itself: with GLASS geometry and ratio 6, MFM only gets match 0.675, far from GLASS 0.959. The remaining mismatch is likely timing: the old GLASS run kept both position guidance and
+  color guidance later (color_end=0.98, position effectively to the end), while my MFM script had been conservative and stopped at 0.95. I’m going to test that next on N=1000.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Late guidance fixed a lot: match moved from 0.675 to 0.849, and reward from 0.415 to 0.494. The old GLASS run is 0.959, so I’m trying a small increase in color ratio under the same late window rather than the
+  earlier overstrong setting.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Ratio 3 is worse, so the late-window color ratio has a narrow optimum and 2.0 is currently best. I’m testing beta under that best timing now; beta changes which posterior samples dominate the value estimate,
+  not just the applied vector size.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Beta 32 is much better: match 0.904, reward 0.536, close to GLASS reward 0.555. I’m trying beta 64 once under the same timing; if it over-sharpens the position modes, beta 32 is the current best.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Beta 64 with the correct late window lands essentially on the GLASS metric: MFM match 0.961 vs saved GLASS match 0.959, reward 0.563 vs 0.555. I’m opening that plot now.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• This version is the right comparison and looks much better:
+
+  figures/uniform_smiley_mfm_guidance_N1000_glassgeom_ratio2_late_beta64.png
+
+  Key fix: I had been using the wrong smiley geometry. The good GLASS run used a larger/easier smiley. With that geometry plus late guidance to t=0.98 and beta=64, MFM matches GLASS closely:
+
+  - GLASS saved run: reward 0.555, match 0.959
+  - MFM best run: reward 0.563, match 0.961
+
+  Saved endpoints:
+
+  figures/uniform_smiley_mfm_guidance_N1000_glassgeom_ratio2_late_beta64_endpoints.pt
+
+  I also added experiment_uniform_smiley_mfm_guidance.py for this MFM version.
+
+
+› Okay nice. Can you make a jupyter notebook where we perform both of these examples, Norway and Smiley top to bottom.
+
+
+• I’ll add a notebook that actually reruns the two final MFM steering examples, rather than just loading static figures. I’ll keep the knobs centralized at the top so you can switch N or guidance strength
+  easily.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I’m creating the notebook at the repo root as mfm_guidance_norway_smiley.ipynb. It will import the finalized scripts, run Norway with the calibrated ratio=6, then run Smiley with the GLASS-matched geometry
+  and beta=64.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The notebook is written. I’m validating that it is valid notebook JSON and that all code cells parse before I hand it over.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The notebook syntax is valid. I’m not executing the full notebook here because it reruns the 10k Norway and 1k Smiley experiments, but the cells are set up to save the same style of outputs into figures/ when
+  run.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• Created the notebook:
+
+  mfm_guidance_norway_smiley.ipynb
+
+  It runs both examples top to bottom:
+
+  - Norway: calibrated MFM run with N=10000, color_ratio=6, beta=16
+  - Smiley: GLASS-matched geometry with N=1000, color_ratio=2, beta=64, late window to t=0.98
+
+  It saves endpoint .pt files, main plots, no-background smiley plot, and diagnostics under figures/.
+
+  Validation passed: notebook JSON is valid and all code cells parse.
+
+
+› Can you show me where in the code we did the verification of our GLASS implementation, the posterior test against SDE integration?
+
+
+⚠ Falling back from WebSockets to HTTPS transport. stream disconnected before completion: websocket closed by server before response.completed
+
+• I’ll search the repo for the GLASS posterior/SDE verification code paths and point you to the exact files and entry points.
+
+• Explored
+  └ Search GLASS|glass|posterior|SDE|sde|value_function|finite|verification|verify|probe in .
+    List rg --files
+    Search glass|sde|verify|posterior|probe|value
+    Read experiment_glass_joint.py, experiment_glass_continuous.py, sde_int.py, experiment_glass_discrete.py
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• I found the verification scripts. I’m grabbing line numbers now so the references are clickable and precise.
+
+• Explored
+  └ Read experiment_glass_joint.py, glass.py, experiment_glass_discrete.py, experiment_glass_continuous.py, experiment_glass_sweep.py
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+• The GLASS implementation itself is here:
+
+  glass.py:20
+
+  That defines glass_posterior_velocity(...), the posterior ODE velocity used by all the tests.
+
+  The SDE posterior verification scripts are in dMFM_experiments/:
+
+  1. Continuous-only posterior test
+     dMFM_experiments/experiment_glass_continuous.py:1
+
+     Key pieces:
+      - GLASS sampler: dMFM_experiments/experiment_glass_continuous.py:48
+      - Euler-Maruyama SDE sampler: dMFM_experiments/experiment_glass_continuous.py:70
+      - Side-by-side posterior comparison: dMFM_experiments/experiment_glass_continuous.py:138
+  2. Discrete/color-only posterior test
+     dMFM_experiments/experiment_glass_discrete.py:1
+
+     Key pieces:
+      - GLASS sampler in c space: dMFM_experiments/experiment_glass_discrete.py:63
+      - SDE sampler in c space: dMFM_experiments/experiment_glass_discrete.py:86
+      - Class-fraction diagnostics: dMFM_experiments/experiment_glass_discrete.py:219
+  3. Full joint posterior test, x = (c, y)
+     dMFM_experiments/experiment_glass_joint.py:1
+
+     Key pieces:
+      - Joint teacher velocity: dMFM_experiments/experiment_glass_joint.py:33
+      - Joint GLASS sampler: dMFM_experiments/experiment_glass_joint.py:47
+      - Joint SDE sampler: dMFM_experiments/experiment_glass_joint.py:68
+      - Diagnostics comparing class fractions, per-class y stats, and joint mean: dMFM_experiments/experiment_glass_joint.py:143
+
+  There is also a batched sweep version:
+
+  dMFM_experiments/experiment_glass_sweep.py:1
+
+  That one runs many conditioning points across several t_cond values and reports aggregate GLASS-vs-SDE posterior agreement. The saved plots from these tests are the figures/glass_vs_sde*.png files.
+
+─ Worked for 5m 43s ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ 
+› Explain this codebase
+ 
+  gpt-5.5 xhigh · /n/netscratch/kozinsky_lab/Lab/uunneberg/repos/norway

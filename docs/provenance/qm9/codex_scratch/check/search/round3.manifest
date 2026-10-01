@@ -1,0 +1,13 @@
+# round 3: pin the PB>=0.90 optimum per property
+34985247 alpha 2.70 0.3   r3_alpha_mu2p70
+34985221 alpha 3.00 0.3   r3_alpha_mu3p00
+34988184 gap   0.16 12000 r3_gap_mu0p16
+34988143 gap   0.18 12000 r3_gap_mu0p18
+34988141 homo  0.40 41500 r3_homo_mu0p40
+34989391 homo  0.50 41500 r3_homo_mu0p50
+34989362 lumo  0.46 12000 r3_lumo_mu0p46
+34989345 lumo  0.48 12000 r3_lumo_mu0p48
+34989311 mu    0.78 8.638 r3_mu_mu0p78
+34989432 mu    0.85 8.638 r3_mu_mu0p85
+34989449 cv    2.60 1.5   r3_cv_mu2p60
+34989466 cv    2.90 1.5   r3_cv_mu2p90

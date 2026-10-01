@@ -1,0 +1,5 @@
+config,nfe_fwd_equiv,oracle_mae,oracle_mae_sem,pb_valid,n_seeds
+"K=2,lambda=0",286,5.9642,0.1927,1.0,3
+"K=4,lambda=0",572,3.6292,0.0491,1.0,3
+"K=8,lambda=0",1144,2.3083,0.041,1.0,3
+"K=16,lambda=0",2288,1.467,0.0562,1.0,3

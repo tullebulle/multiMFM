@@ -1,0 +1,65 @@
+{
+  "yeast_parent_a_L50_dfm_dit_h192_b4": {
+    "args_json_mtime": "2026-07-25T19:39:45",
+    "tfevents_start": null,
+    "last_checkpoint": "last.pt",
+    "last_checkpoint_mtime": "2026-07-25T20:38:39",
+    "wall_hours_args_to_last_ckpt": 0.982
+  },
+  "yeast_parent_a_L100_dfm_dit_h192_b4": {
+    "args_json_mtime": "2026-07-25T19:39:45",
+    "tfevents_start": null,
+    "last_checkpoint": "last.pt",
+    "last_checkpoint_mtime": "2026-07-25T20:37:41",
+    "wall_hours_args_to_last_ckpt": 0.965
+  },
+  "yeast_parent_a_L200_dfm_dit_h192_b4": {
+    "args_json_mtime": "2026-07-25T19:39:44",
+    "tfevents_start": null,
+    "last_checkpoint": "last.pt",
+    "last_checkpoint_mtime": "2026-07-25T20:36:46",
+    "wall_hours_args_to_last_ckpt": 0.95
+  },
+  "yeast_parent_a_L400_dfm_dit_h192_b4": {
+    "args_json_mtime": "2026-07-25T19:39:44",
+    "tfevents_start": null,
+    "last_checkpoint": "last.pt",
+    "last_checkpoint_mtime": "2026-07-25T20:52:30",
+    "wall_hours_args_to_last_ckpt": 1.213
+  },
+  "yeast_parent_a_L50_dmfm_diagonal_h192_b4": {
+    "args_json_mtime": "2026-07-26T09:32:02",
+    "tfevents_start": "2026-07-26T09:32:50",
+    "last_checkpoint": "last.ckpt",
+    "last_checkpoint_mtime": "2026-07-26T10:13:37",
+    "wall_hours_args_to_last_ckpt": 0.693
+  },
+  "yeast_parent_a_L100_dmfm_diagonal_h192_b4": {
+    "args_json_mtime": "2026-07-26T09:32:02",
+    "tfevents_start": "2026-07-26T09:32:50",
+    "last_checkpoint": "last.ckpt",
+    "last_checkpoint_mtime": "2026-07-26T10:12:36",
+    "wall_hours_args_to_last_ckpt": 0.676
+  },
+  "yeast_parent_a_L200_dmfm_diagonal_h192_b4": {
+    "args_json_mtime": "2026-07-26T09:32:02",
+    "tfevents_start": "2026-07-26T09:32:50",
+    "last_checkpoint": "last.ckpt",
+    "last_checkpoint_mtime": "2026-07-26T10:09:39",
+    "wall_hours_args_to_last_ckpt": 0.627
+  },
+  "yeast_parent_a_L400_dmfm_diagonal_h192_b4": {
+    "args_json_mtime": "2026-07-26T09:32:12",
+    "tfevents_start": "2026-07-26T09:33:05",
+    "last_checkpoint": "last.ckpt",
+    "last_checkpoint_mtime": "2026-07-26T10:10:30",
+    "wall_hours_args_to_last_ckpt": 0.639
+  },
+  "yeast_parent_a_L400_dmfm_diagonly_finetune_20260726": {
+    "args_json_mtime": "2026-07-26T16:12:12",
+    "tfevents_start": "2026-07-26T16:11:45",
+    "last_checkpoint": "last-v1.ckpt",
+    "last_checkpoint_mtime": "2026-07-26T16:12:58",
+    "wall_hours_args_to_last_ckpt": 0.013
+  }
+}

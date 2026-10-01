@@ -1,0 +1,13 @@
+{
+  "cpu_threads": 1,
+  "device": "cuda",
+  "device_name": "NVIDIA H200",
+  "host": "holygpu8a09204.rc.fas.harvard.edu",
+  "slurm_array_job_id": "49476650",
+  "slurm_array_task_id": "0",
+  "slurm_job_account": "kempner_albergo_lab",
+  "slurm_job_id": "49505595",
+  "slurm_job_partition": "kempner_h200",
+  "tf32_matmul": true,
+  "torch": "2.5.1+cu124"
+}

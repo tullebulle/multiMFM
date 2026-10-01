@@ -1,0 +1,18 @@
+# Repository-relative paths.
+#
+# ``multimfm.geom.train_base`` sets ``paths.root_dir`` to the repository root, so
+# nothing here depends on the working directory. Override on the command line
+# with ``paths.root_dir=/somewhere/else`` if the artifacts live elsewhere.
+root_dir: ${oc.env:MULTIMFM_ROOT,.}
+
+# data directory (GEOM artifacts live in ${paths.data_dir}/geom)
+data_dir: ${paths.root_dir}/data/
+
+# logging directory
+log_dir: ${paths.root_dir}/logs/
+
+# hydra run directory; holds the resolved config, wandb files and train.log
+output_dir: ${hydra:runtime.output_dir}
+
+# working directory hydra was launched from
+work_dir: ${hydra:runtime.cwd}

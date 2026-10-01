@@ -1,0 +1,44 @@
+{
+  "_what": "Direction of the GUIDE'S OWN objective (head-predicted FP2 Tanimoto) under steering. This is load-bearing: if guidance does not improve the quantity it optimises, the negative counted-fingerprint result cannot be explained as guide quality.",
+  "n4096x3_submitted_config": {
+    "slurm_job": 47833756,
+    "pooled_unguided_head_tanimoto": 0.23378497226671735,
+    "pooled_guided_head_tanimoto": 0.23079480501738459,
+    "pooled_head_gain": -0.002990167249332762,
+    "shards_with_negative_head_gain": 9,
+    "shards_total": 11,
+    "per_replicate": [
+      {
+        "replicate": 0,
+        "unguided": 0.2350017130374908,
+        "guided": 0.23129237443208692,
+        "head_gain": -0.0037093386054038724
+      },
+      {
+        "replicate": 1,
+        "unguided": 0.23259011283516878,
+        "guided": 0.23030715808272356,
+        "head_gain": -0.002282954752445228
+      },
+      {
+        "replicate": 2,
+        "unguided": 0.23375579714775077,
+        "guided": 0.23078157504399613,
+        "head_gain": -0.002974222103754661
+      }
+    ]
+  },
+  "n64_grid_submitted_point": {
+    "slurm_job": 35670937,
+    "unguided_head_tanimoto": 0.216476172208786,
+    "guided_head_tanimoto": 0.2290818393230438,
+    "note": "the only place the head-predicted similarity rises; n=64, one seed"
+  },
+  "holdout_sweep": {
+    "points": 5,
+    "head_gain_min": -0.0119477212429046,
+    "head_gain_max": -0.0052602589130401,
+    "all_negative": true
+  },
+  "conclusion": "At scale, and at every held-out (lambda, mu) tried, steering lowers the head-predicted Tanimoto as well as the counted one. The earlier claim that the guide's own similarity improves came from the n=64 grid point and is wrong in general; it has been retracted in docs/provenance/geom/paper_sentences.md. The remaining candidates are the guidance strength/scale (constant mu in place of sigma_t^2/2), the 4-sample log-mean-exp estimator, or an implementation defect -- which `multimfm.geom.diagnostics grad-sign` distinguishes."
+}

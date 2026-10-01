@@ -1,0 +1,136 @@
+{
+  "args": {
+    "batch_size": 8,
+    "coeff_cap": 10.0,
+    "configs": [
+      "glass_euler4@norm@gf=16",
+      "glass_euler4@norm@gf=32",
+      "dmfm4_fm4@norm@gf=32",
+      "diag_fm4@norm@gf=16",
+      "dmfm4_fm4@norm@gf=16",
+      "glass_euler4"
+    ],
+    "device": null,
+    "grad_clip": 10.0,
+    "guidance_frac": 8.0,
+    "guide_t_end": 0.95,
+    "guide_t_start": 0.5,
+    "length": 50,
+    "mc": 8,
+    "mc_chunk": 8,
+    "mode": "sample",
+    "n_probes": 8,
+    "n_samples": 32,
+    "nfe_traj": 64,
+    "out_dir": "results/dna/parity/sample_L50_n32_knobs_hi",
+    "probe_times": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "reference_end_time": 0.999,
+    "reference_solver": "rk4",
+    "reference_steps": 100,
+    "reward_scale": 0.5,
+    "reward_sigma": 0.15,
+    "sample_start": 0,
+    "seed": 0,
+    "t_max": 0.95,
+    "targets": [
+      1.0,
+      -1.0
+    ]
+  },
+  "configs": {
+    "diag_fm1": {
+      "ckpt": "checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 1,
+      "note": "diagonal student, one-step map (Tables 13/17 pairing)",
+      "student": "dmfm"
+    },
+    "diag_fm4": {
+      "ckpt": "checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "as shipped in table1_c0_guidance_dmfm.sbatch (suspected defect)",
+      "student": "dmfm"
+    },
+    "diag_fm4_e999": {
+      "ckpt": "checkpoints/dna/dmfm/L50/epoch=95-step=49000.ckpt",
+      "end_time": 0.999,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "diagonal student at 4 steps, Table 18's end_time",
+      "student": "dmfm"
+    },
+    "dmfm4_fm1": {
+      "ckpt": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 1,
+      "note": "4-step student forced to one step",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm2": {
+      "ckpt": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 2,
+      "note": "4-step student at 2 steps (gap 0.5, above its 0.25 training gap)",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm4": {
+      "ckpt": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "4-step ESD student at 4 steps (Table 18 pairing)",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm4_e999": {
+      "ckpt": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+      "end_time": 0.999,
+      "kind": "dmfm",
+      "n_steps": 4,
+      "note": "4-step student at 4 steps, Table 18's end_time",
+      "student": "dmfm4"
+    },
+    "dmfm4_fm8": {
+      "ckpt": "checkpoints/dna/dmfm_4step/L50/epoch=29-step=15000.ckpt",
+      "end_time": 1.0,
+      "kind": "dmfm",
+      "n_steps": 8,
+      "note": "4-step student at 8 steps (gap 0.125, inside its training range)",
+      "student": "dmfm4"
+    },
+    "glass_euler32": {
+      "ckpt": null,
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 32,
+      "note": "GLASS with 32 Euler steps (posterior-accuracy ceiling)",
+      "student": null
+    },
+    "glass_euler4": {
+      "ckpt": null,
+      "end_time": 1.0,
+      "kind": "glass",
+      "n_steps": 4,
+      "note": "Table 1 / Fig 3 posterior (GLASS, 4 Euler steps)",
+      "student": null
+    }
+  },
+  "run_env": {
+    "device": "cuda",
+    "device_name": "NVIDIA H200",
+    "host": "holygpu8a05601.rc.fas.harvard.edu",
+    "slurm_job_account": "kempner_albergo_lab",
+    "slurm_job_id": "49355914",
+    "slurm_job_partition": "kempner_h200",
+    "tf32_matmul": true,
+    "torch": "2.5.1+cu124"
+  }
+}

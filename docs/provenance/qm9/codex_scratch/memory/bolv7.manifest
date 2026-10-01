@@ -1,0 +1,15 @@
+# PB-valid BoL round 7: replicate+extend the round-6 gains. gap pushed further+replicated;
+# lumo/alpha replicated; homo re-checked at wider window; cv/dipole confirm. n=100, selT=0.30
+# JOBID PROPERTY MU RS SELMINT TAG
+35049269 gap   1.30 12000 0.30 v7_gap_mu1p3_a
+35049270 gap   1.30 12000 0.30 v7_gap_mu1p3_b
+35049272 gap   1.70 12000 0.30 v7_gap_mu1p7
+35049288 gap   2.50 12000 0.30 v7_gap_mu2p5
+35049262 lumo  1.50 12000 0.30 v7_lumo_mu1p5_a
+35049200 lumo  1.50 12000 0.30 v7_lumo_mu1p5_b
+35049197 alpha 11.0 0.3   0.30 v7_alpha_mu11_a
+35049193 alpha 11.0 0.3   0.30 v7_alpha_mu11_b
+35049192 mu    3.00 8.638 0.30 v7_mu_mu3p0_a
+35049152 cv    6.50 1.5   0.30 v7_cv_mu6p5_a
+35049153 homo  1.50 41500 0.30 v7_homo_mu1p5_s30
+35049145 homo  1.80 41500 0.30 v7_homo_mu1p8_s30

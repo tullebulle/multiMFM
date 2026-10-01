@@ -1,0 +1,4 @@
+run_dir,target_c0,set,n_samples,oracle_score_mean,oracle_target_mae,oracle_target_mae_ci95_low,oracle_target_mae_ci95_high,fraction_guided_improved
+workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0,-1.0,unguided,32,-0.16886430978775024,0.8311356902122498,0.7085802376270294,0.9638242051005361,
+workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0,-1.0,guided,32,-0.9155596494674683,0.15263673663139343,0.11829075794667006,0.19018923006951807,
+workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0,-1.0,paired_guidance_effect,32,,0.6784989833831787,0.553561407327652,0.8158915668725967,1.0

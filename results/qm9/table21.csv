@@ -1,0 +1,7 @@
+property,n,unsteered_pb_valid,multimfm_pb_valid,ss_pb_valid_a,ss_pb_valid_b,ss_pb_valid_mean_ab,ss_pb_valid_as_published,ss_published_pb_source,ss_final_endpoint_pb_valid_a,ss_final_endpoint_pb_valid_b
+cv,1000,0.987,0.903,0.974,0.973,0.9735,0.974,a,0.834,0.849
+mu,1000,0.987,0.916,0.956,0.96,0.958,0.96,b,0.754,0.761
+alpha,1000,0.987,0.913,0.97,0.98,0.975,0.975,mean,0.705,0.738
+gap,1000,0.987,0.909,0.958,0.968,0.963,0.958,a,0.722,0.774
+homo,1000,0.987,0.923,0.979,0.978,0.9784999999999999,0.978,b,0.831,0.839
+lumo,1000,0.987,0.922,,0.978,0.978,0.978,b,,0.776

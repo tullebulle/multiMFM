@@ -1,0 +1,61 @@
+{
+  "_what": "verification that the code ported into this repo reproduces the recorded Table 3 configuration on a GPU, and a fresh base-model PB measurement",
+  "steering_paper_point": {
+    "config": "lambda=0.02 mu=0.5 n=64 seed=0 sample_steps=100 mfm_steps=10 value_samples=4 guide_every=2 t in [0.1,0.9], EMA teacher, targets filter",
+    "runs": [
+      {
+        "label": "original (paper Table 3)",
+        "slurm_job": 35670937,
+        "date": "2026-07-28",
+        "gpu": "H200",
+        "env": "tabasco-gpu",
+        "code": "geom-drug-tabasco/glass/mfm_fingerprint_steering.py",
+        "unguided_tanimoto": 0.2072,
+        "guided_tanimoto": 0.2272,
+        "gain": 0.0199,
+        "unguided_pb": 0.875,
+        "guided_pb": 0.875
+      },
+      {
+        "label": "authors' post-purge rerun",
+        "slurm_job": 47833754,
+        "date": "2026-09-22",
+        "gpu": "H200",
+        "env": "multimfm",
+        "code": "geom-drug-tabasco/glass/mfm_fingerprint_steering.py",
+        "unguided_tanimoto": 0.21,
+        "guided_tanimoto": 0.2255,
+        "gain": 0.0156,
+        "unguided_pb": 0.875,
+        "guided_pb": 0.844
+      },
+      {
+        "label": "ported code in this repo",
+        "slurm_job": 49256831,
+        "date": "2026-09-29",
+        "gpu": "A100-SXM4-40GB",
+        "env": "multimfm",
+        "code": "python -m multimfm.geom.mfm_steering (scripts/geom/steer_table3.sbatch MODE=single)",
+        "unguided_tanimoto": 0.2117,
+        "guided_tanimoto": 0.2159,
+        "gain": 0.0042,
+        "unguided_pb": 0.875,
+        "guided_pb": 0.797
+      }
+    ],
+    "paired_gain_sem_at_n64": 0.0104,
+    "interpretation": "Guided sampling is not bit-reproducible (non-deterministic CUDA backward) and TF32 matmuls differ between GPU generations, so none of the three runs matches another exactly -- the authors' own rerun of the unchanged script already moved the unguided arm 0.2072 -> 0.2100 and the gain 0.0199 -> 0.0156. The ported code lands in the same range (unguided within 0.005 of both earlier runs) and its gain is 1.5 paired SEM from the recorded one. At n=64 the gain itself is ~1.9 SEM from zero, so these runs do not separate the port from the original, nor the effect from noise; the n=4,096 x 3 evaluation is the discriminating measurement."
+  },
+  "base_model_pb_validity": {
+    "slurm_job": 49256841,
+    "date": "2026-09-29",
+    "command": "python -m multimfm.geom.check_pb_validity --ema --num-samples 100 --num-steps 200 --pb-config configs/geom/posebusters_geom.yaml",
+    "checkpoint": "checkpoints/geom/teacher/epoch=38-step=89310.ckpt",
+    "weights": "ema",
+    "num_samples": 100,
+    "num_steps": 200,
+    "pb_valid": 0.88,
+    "conversion_rate": 0.98,
+    "note": "first measurement of the released base checkpoint under the GEOM PB configuration used by Table 3/21. 88.0% at N=100 is consistent with the 87.5% (N=64) and 88.0% (N=4,096x3) unguided arms of the steering runs, and not with Table 21's 92.0%. N=100 is small; NUM_SAMPLES=4096 sbatch scripts/geom/eval_pb_validity.sbatch settles it."
+  }
+}

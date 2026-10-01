@@ -1,0 +1,56 @@
+# @package _global_
+
+# Continuous flow-matching (DFM) teacher on GEOM-Drugs, SMALL architecture:
+# hidden_dim / num_layers / num_heads = 64 / 4 / 4 (matches the existing QM9
+# checkpoints). Same data + training setup as geom_dfm; only the net size differs.
+#
+#   python -m multimfm.geom.train_base experiment=geom_dfm_small
+
+tags: ["geom", "dfm", "continuous", "teacher", "small-64x4x4"]
+
+seed: 42
+
+datamodule:
+  _target_: tabasco.data.lmdb_datamodule.LmdbDataModule
+  data_dir: ${paths.data_dir}/geom/processed_geom_train.pt
+  val_data_dir: ${paths.data_dir}/geom/processed_geom_val.pt
+  test_data_dir: ${paths.data_dir}/geom/processed_geom_test.pt
+  lmdb_dir: ${paths.data_dir}/geom/lmdb_geom
+  add_random_rotation: true
+  add_random_permutation: false
+  reorder_to_smiles_order: true
+  remove_hydrogens: true          # heavy-atom-only teacher (atom_dim = 9)
+  batch_size: 512                 # tiny model; leaves the H200 far from full -- can raise later
+  num_workers: 8
+
+model:
+  net:
+    atom_input_mode: continuous_linear   # continuous FM
+    hidden_dim: 64
+    num_layers: 4
+    num_heads: 4
+  atomics_interpolant:
+    _target_: tabasco.flow.interpolate.GaussianSimplexAtomInterpolant
+    key: atomics
+    loss_weight: 0.1
+    beta_schedule: linear
+
+callbacks:
+  ema:
+    _target_: tabasco.callbacks.ema.EMA
+    decay: 0.999
+    every_n_steps: 1
+
+lightning_module:
+  optimizer:
+    lr: 0.002
+
+trainer:
+  max_steps: 200000
+  check_val_every_n_epoch: 1
+
+logger:
+  wandb:
+    name: "geom-drug-dfm-64x4x4"
+    project: "geom-drugs"
+    offline: true

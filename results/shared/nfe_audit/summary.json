@@ -1,0 +1,622 @@
+{
+  "convention": {
+    "axis_k": "generative forwards + k * generative forwards inside a differentiated graph",
+    "k=0": "the published axis (nfe_generative / nfe_gen_per_output)",
+    "k=1": "lower bound: frozen params, input-only gradient => no weight-gradient matmuls",
+    "k=1.1": "MEASURED: (fwd+bwd)/fwd = 2.01-2.14 on the DNA value-gradient path, batch 25-1600, NVIDIA H200, Slurm 49431669 (backward_cost_h200.json)",
+    "k=1.6": "midpoint kept from the first draft, before the measurement landed",
+    "k=2": "multimfm.nfe's existing nfe_generative_fwd_equiv (training-style backward)",
+    "k=3": "upper bound",
+    "note": "every verdict in docs/nfe_accounting_audit.md is the same for all k in [1, 2]"
+  },
+  "dna_axis": {
+    "beam|W=1,L=4,K=48": {
+      "axis_k0": 576.0,
+      "axis_k1": 576.0,
+      "axis_k1p1": 576.0,
+      "axis_k1p6": 576.0,
+      "axis_k2": 576.0,
+      "axis_k3": 576.0
+    },
+    "beam|W=1,L=4,K=32": {
+      "axis_k0": 768.0,
+      "axis_k1": 768.0,
+      "axis_k1p1": 768.0,
+      "axis_k1p6": 768.0,
+      "axis_k2": 768.0,
+      "axis_k3": 768.0
+    },
+    "beam|W=1,L=4,K=24": {
+      "axis_k0": 960.0,
+      "axis_k1": 960.0,
+      "axis_k1p1": 960.0,
+      "axis_k1p6": 960.0,
+      "axis_k2": 960.0,
+      "axis_k3": 960.0
+    },
+    "beam|W=1,L=4,K=16": {
+      "axis_k0": 1344.0,
+      "axis_k1": 1344.0,
+      "axis_k1p1": 1344.0,
+      "axis_k1p6": 1344.0,
+      "axis_k2": 1344.0,
+      "axis_k3": 1344.0
+    },
+    "beam|W=1,L=4,K=12": {
+      "axis_k0": 1728.0,
+      "axis_k1": 1728.0,
+      "axis_k1p1": 1728.0,
+      "axis_k1p6": 1728.0,
+      "axis_k2": 1728.0,
+      "axis_k3": 1728.0
+    },
+    "beam|W=1,L=4,K=8": {
+      "axis_k0": 2496.0,
+      "axis_k1": 2496.0,
+      "axis_k1p1": 2496.0,
+      "axis_k1p6": 2496.0,
+      "axis_k2": 2496.0,
+      "axis_k3": 2496.0
+    },
+    "beam|W=1,L=4,K=6": {
+      "axis_k0": 3264.0,
+      "axis_k1": 3264.0,
+      "axis_k1p1": 3264.0,
+      "axis_k1p6": 3264.0,
+      "axis_k2": 3264.0,
+      "axis_k3": 3264.0
+    },
+    "beam|W=1,L=4,K=4": {
+      "axis_k0": 4800.0,
+      "axis_k1": 4800.0,
+      "axis_k1p1": 4800.0,
+      "axis_k1p6": 4800.0,
+      "axis_k2": 4800.0,
+      "axis_k3": 4800.0
+    },
+    "best_of_n|N=2": {
+      "axis_k0": 192.0,
+      "axis_k1": 192.0,
+      "axis_k1p1": 192.0,
+      "axis_k1p6": 192.0,
+      "axis_k2": 192.0,
+      "axis_k3": 192.0
+    },
+    "best_of_n|N=3": {
+      "axis_k0": 288.0,
+      "axis_k1": 288.0,
+      "axis_k1p1": 288.0,
+      "axis_k1p6": 288.0,
+      "axis_k2": 288.0,
+      "axis_k3": 288.0
+    },
+    "best_of_n|N=5": {
+      "axis_k0": 480.0,
+      "axis_k1": 480.0,
+      "axis_k1p1": 480.0,
+      "axis_k1p6": 480.0,
+      "axis_k2": 480.0,
+      "axis_k3": 480.0
+    },
+    "best_of_n|N=9": {
+      "axis_k0": 864.0,
+      "axis_k1": 864.0,
+      "axis_k1p1": 864.0,
+      "axis_k1p6": 864.0,
+      "axis_k2": 864.0,
+      "axis_k3": 864.0
+    },
+    "best_of_n|N=16": {
+      "axis_k0": 1536.0,
+      "axis_k1": 1536.0,
+      "axis_k1p1": 1536.0,
+      "axis_k1p6": 1536.0,
+      "axis_k2": 1536.0,
+      "axis_k3": 1536.0
+    },
+    "best_of_n|N=32": {
+      "axis_k0": 3072.0,
+      "axis_k1": 3072.0,
+      "axis_k1p1": 3072.0,
+      "axis_k1p6": 3072.0,
+      "axis_k2": 3072.0,
+      "axis_k3": 3072.0
+    },
+    "dmfm|MC=1": {
+      "axis_k0": 187.0,
+      "axis_k1": 278.0,
+      "axis_k1p1": 287.1,
+      "axis_k1p6": 332.6,
+      "axis_k2": 369.0,
+      "axis_k3": 460.0
+    },
+    "dmfm|MC=2": {
+      "axis_k0": 278.0,
+      "axis_k1": 460.0,
+      "axis_k1p1": 478.20000000000005,
+      "axis_k1p6": 569.2,
+      "axis_k2": 642.0,
+      "axis_k3": 824.0
+    },
+    "dmfm|MC=4": {
+      "axis_k0": 460.0,
+      "axis_k1": 824.0,
+      "axis_k1p1": 860.4000000000001,
+      "axis_k1p6": 1042.4,
+      "axis_k2": 1188.0,
+      "axis_k3": 1552.0
+    },
+    "dmfm|MC=8": {
+      "axis_k0": 824.0,
+      "axis_k1": 1552.0,
+      "axis_k1p1": 1624.8000000000002,
+      "axis_k1p6": 1988.8,
+      "axis_k2": 2280.0,
+      "axis_k3": 3008.0
+    },
+    "dmfm|MC=16": {
+      "axis_k0": 1552.0,
+      "axis_k1": 3008.0,
+      "axis_k1p1": 3153.6000000000004,
+      "axis_k1p6": 3881.6,
+      "axis_k2": 4464.0,
+      "axis_k3": 5920.0
+    },
+    "fk|K=2": {
+      "axis_k0": 192.0,
+      "axis_k1": 192.0,
+      "axis_k1p1": 192.0,
+      "axis_k1p6": 192.0,
+      "axis_k2": 192.0,
+      "axis_k3": 192.0
+    },
+    "fk|K=3": {
+      "axis_k0": 288.0,
+      "axis_k1": 288.0,
+      "axis_k1p1": 288.0,
+      "axis_k1p6": 288.0,
+      "axis_k2": 288.0,
+      "axis_k3": 288.0
+    },
+    "fk|K=5": {
+      "axis_k0": 480.0,
+      "axis_k1": 480.0,
+      "axis_k1p1": 480.0,
+      "axis_k1p6": 480.0,
+      "axis_k2": 480.0,
+      "axis_k3": 480.0
+    },
+    "fk|K=9": {
+      "axis_k0": 864.0,
+      "axis_k1": 864.0,
+      "axis_k1p1": 864.0,
+      "axis_k1p6": 864.0,
+      "axis_k2": 864.0,
+      "axis_k3": 864.0
+    },
+    "fk|K=16": {
+      "axis_k0": 1536.0,
+      "axis_k1": 1536.0,
+      "axis_k1p1": 1536.0,
+      "axis_k1p6": 1536.0,
+      "axis_k2": 1536.0,
+      "axis_k3": 1536.0
+    },
+    "fk|K=32": {
+      "axis_k0": 3072.0,
+      "axis_k1": 3072.0,
+      "axis_k1p1": 3072.0,
+      "axis_k1p6": 3072.0,
+      "axis_k2": 3072.0,
+      "axis_k3": 3072.0
+    },
+    "mcts|I=2,children=2,K=16,C=0.5": {
+      "axis_k0": 192.0,
+      "axis_k1": 192.0,
+      "axis_k1p1": 192.0,
+      "axis_k1p6": 192.0,
+      "axis_k2": 192.0,
+      "axis_k3": 192.0
+    },
+    "mcts|I=3,children=2,K=16,C=0.5": {
+      "axis_k0": 272.0,
+      "axis_k1": 272.0,
+      "axis_k1p1": 272.0,
+      "axis_k1p6": 272.0,
+      "axis_k2": 272.0,
+      "axis_k3": 272.0
+    },
+    "mcts|I=5,children=2,K=16,C=0.5": {
+      "axis_k0": 427.84,
+      "axis_k1": 427.84,
+      "axis_k1p1": 427.84,
+      "axis_k1p6": 427.84,
+      "axis_k2": 427.84,
+      "axis_k3": 427.84
+    },
+    "mcts|I=9,children=2,K=16,C=0.5": {
+      "axis_k0": 695.2533333333334,
+      "axis_k1": 695.2533333333334,
+      "axis_k1p1": 695.2533333333334,
+      "axis_k1p6": 695.2533333333334,
+      "axis_k2": 695.2533333333334,
+      "axis_k3": 695.2533333333334
+    },
+    "mcts|I=16,children=2,K=16,C=0.5": {
+      "axis_k0": 1074.08,
+      "axis_k1": 1074.08,
+      "axis_k1p1": 1074.08,
+      "axis_k1p6": 1074.08,
+      "axis_k2": 1074.08,
+      "axis_k3": 1074.08
+    },
+    "mcts|I=32,children=2,K=16,C=0.5": {
+      "axis_k0": 1575.04,
+      "axis_k1": 1575.04,
+      "axis_k1p1": 1575.04,
+      "axis_k1p6": 1575.04,
+      "axis_k2": 1575.04,
+      "axis_k3": 1575.04
+    },
+    "mcts|I=64,children=2,K=16,C=0.5": {
+      "axis_k0": 1711.4666666666665,
+      "axis_k1": 1711.4666666666665,
+      "axis_k1p1": 1711.4666666666665,
+      "axis_k1p6": 1711.4666666666665,
+      "axis_k2": 1711.4666666666665,
+      "axis_k3": 1711.4666666666665
+    }
+  },
+  "headline_crossovers": {
+    "dna|dmfm|best_of_n|k=0.0": {
+      "crossover": null,
+      "measured_bracket": [
+        null,
+        null
+      ],
+      "verdict": "guided better over the whole shared range"
+    },
+    "dna|dmfm|best_of_n|k=1.0": {
+      "crossover": 1503.340855396174,
+      "measured_bracket": [
+        864.0,
+        1536.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|best_of_n|k=1.1": {
+      "crossover": 1462.927357288245,
+      "measured_bracket": [
+        864.0,
+        1536.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|best_of_n|k=1.6": {
+      "crossover": 1300.2129464590505,
+      "measured_bracket": [
+        864.0,
+        1536.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|best_of_n|k=2.0": {
+      "crossover": 1203.9451173906402,
+      "measured_bracket": [
+        864.0,
+        1536.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|best_of_n|k=3.0": {
+      "crossover": 1033.8957810049799,
+      "measured_bracket": [
+        864.0,
+        1536.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=0.0": {
+      "crossover": 581.8057146714063,
+      "measured_bracket": [
+        480.0,
+        864.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=1.0": {
+      "crossover": 431.1240325394397,
+      "measured_bracket": [
+        288.0,
+        480.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=1.1": {
+      "crossover": 428.04070794510153,
+      "measured_bracket": [
+        288.0,
+        480.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=1.6": {
+      "crossover": 415.1745912749478,
+      "measured_bracket": [
+        288.0,
+        480.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=2.0": {
+      "crossover": 407.21589953203323,
+      "measured_bracket": [
+        288.0,
+        480.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "dna|dmfm|fk|k=3.0": {
+      "crossover": 460.0,
+      "measured_bracket": [
+        null,
+        null
+      ],
+      "verdict": "search better over the whole shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=0.0": {
+      "crossover": 2754.8969069601653,
+      "measured_bracket": [
+        2048.0,
+        4096.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=1.0": {
+      "crossover": 1647.5082122016076,
+      "measured_bracket": [
+        1024.0,
+        2048.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=1.1": {
+      "crossover": 1634.7624743636238,
+      "measured_bracket": [
+        1024.0,
+        2048.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=1.6": {
+      "crossover": 1580.0239683422833,
+      "measured_bracket": [
+        1024.0,
+        2048.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=2.0": {
+      "crossover": 1545.4632284750262,
+      "measured_bracket": [
+        1024.0,
+        2048.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM|best-of-N|k=3.0": {
+      "crossover": 1968.0,
+      "measured_bracket": [
+        null,
+        null
+      ],
+      "verdict": "search better over the whole shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=0.0": {
+      "crossover": 4027.4011199699107,
+      "measured_bracket": [
+        2048.0,
+        4096.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=1.0": {
+      "crossover": 4214.231887966247,
+      "measured_bracket": [
+        4096.0,
+        8192.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=1.1": {
+      "crossover": 4249.564926820291,
+      "measured_bracket": [
+        4096.0,
+        8192.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=1.6": {
+      "crossover": 3282.8711392558916,
+      "measured_bracket": [
+        2048.0,
+        4096.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=2.0": {
+      "crossover": 2788.59825486369,
+      "measured_bracket": [
+        2048.0,
+        4096.0
+      ],
+      "verdict": "crosses inside the shared range"
+    },
+    "qm9|multiMFM-SS|best-of-N|k=3.0": {
+      "crossover": 2583.264876867814,
+      "measured_bracket": [
+        2048.0,
+        4096.0
+      ],
+      "verdict": "crosses inside the shared range"
+    }
+  },
+  "guided_wins_by_setting": {
+    "dna|dmfm|MC=1|k=0.0": null,
+    "dna|dmfm|MC=2|k=0.0": true,
+    "dna|dmfm|MC=4|k=0.0": true,
+    "dna|dmfm|MC=8|k=0.0": false,
+    "dna|dmfm|MC=16|k=0.0": false,
+    "dna|dmfm|MC=1|k=1.0": true,
+    "dna|dmfm|MC=2|k=1.0": false,
+    "dna|dmfm|MC=4|k=1.0": false,
+    "dna|dmfm|MC=8|k=1.0": false,
+    "dna|dmfm|MC=16|k=1.0": false,
+    "dna|dmfm|MC=1|k=1.1": true,
+    "dna|dmfm|MC=2|k=1.1": false,
+    "dna|dmfm|MC=4|k=1.1": false,
+    "dna|dmfm|MC=8|k=1.1": false,
+    "dna|dmfm|MC=16|k=1.1": false,
+    "dna|dmfm|MC=1|k=1.6": true,
+    "dna|dmfm|MC=2|k=1.6": false,
+    "dna|dmfm|MC=4|k=1.6": false,
+    "dna|dmfm|MC=8|k=1.6": false,
+    "dna|dmfm|MC=16|k=1.6": false,
+    "dna|dmfm|MC=1|k=2.0": true,
+    "dna|dmfm|MC=2|k=2.0": false,
+    "dna|dmfm|MC=4|k=2.0": false,
+    "dna|dmfm|MC=8|k=2.0": false,
+    "dna|dmfm|MC=16|k=2.0": false,
+    "dna|dmfm|MC=1|k=3.0": false,
+    "dna|dmfm|MC=2|k=3.0": false,
+    "dna|dmfm|MC=4|k=3.0": false,
+    "dna|dmfm|MC=8|k=3.0": false,
+    "dna|dmfm|MC=16|k=3.0": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=0.0": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=0.0": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=0.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=0.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=0.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=0.0": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=0.0": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=0.0": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=0.0": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=0.0": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=1.0": true,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=1.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=1.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=1.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=1.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=1.0": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=1.0": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=1.0": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=1.0": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=1.0": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=1.1": true,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=1.1": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=1.1": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=1.1": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=1.1": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=1.1": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=1.1": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=1.1": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=1.1": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=1.1": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=1.6": true,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=1.6": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=1.6": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=1.6": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=1.6": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=1.6": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=1.6": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=1.6": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=1.6": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=2.0": true,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=2.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=2.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=2.0": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=2.0": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=2.0": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=2.0": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=2.0": null,
+    "qm9|multiMFM|mu=3.4,MC=1,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM|mu=3.4,MC=2,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM|mu=3.4,MC=4,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM|mu=3.4,MC=8,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM|mu=3.4,MC=16,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM|mu=3.4,MC=32,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=1,select_min_t=0.3|k=3.0": true,
+    "qm9|multiMFM-SS|mu=3.4,MC=2,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=4,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=8,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=16,select_min_t=0.3|k=3.0": false,
+    "qm9|multiMFM-SS|mu=3.4,MC=32,select_min_t=0.3|k=3.0": false,
+    "qm9|DPS|mu=0.1,guide_every=8|k=3.0": null,
+    "qm9|DPS|mu=0.1,guide_every=4|k=3.0": null,
+    "qm9|DPS|mu=0.1,guide_every=2|k=3.0": null,
+    "qm9|DPS|mu=0.1,guide_every=1|k=3.0": true
+  },
+  "measured": {
+    "backward_cost_h200": {
+      "device": "NVIDIA H200",
+      "dna_fwd_plus_bwd_over_fwd_by_batch": {
+        "25": 2.006,
+        "100": 2.098,
+        "400": 2.032,
+        "1600": 2.143
+      },
+      "dna_implied_k": [
+        1.01,
+        1.1,
+        1.03,
+        1.14
+      ],
+      "qm9_guided_step_over_billed_forwards": {
+        "B25_MC1": 2.888,
+        "B25_MC4": 3.001,
+        "B25_MC16": 2.972,
+        "B100_MC1": 2.993,
+        "B100_MC4": 2.981,
+        "B100_MC16": 3.918
+      },
+      "qm9_note": "includes the off-axis reward regressor's forward and backward; a multiplier of 3.0 is exactly axis_k2",
+      "qm9_regressor_over_base_forward": {
+        "regressor_vs_base_B100": 1.39,
+        "regressor_vs_base_B400": 1.299
+      }
+    }
+  }
+}

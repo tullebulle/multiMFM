@@ -1,0 +1,217 @@
+{
+  "_what": "deterministic finite-difference check of the GEOM fingerprint guidance gradient",
+  "stages": [
+    "reward",
+    "soft"
+  ],
+  "t": 0.5,
+  "num_mols": 4,
+  "posterior_samples": 1,
+  "reward_lambda": 0.01,
+  "mfm_steps": 10,
+  "outer_steps": 100,
+  "soft_atom_temperature": 0.25,
+  "seed": 0,
+  "device": "cpu",
+  "evaluation_point": "real GEOM-Drugs val molecules (one-hot atom types), head-only mode",
+  "state_coords_rms": 1.166369915008545,
+  "state_atomics_rms": 0.3333333432674408,
+  "n_real_atoms": [
+    30,
+    24,
+    27,
+    26
+  ],
+  "endpoint_coords_rms": 1.166369915008545,
+  "endpoint_atomics_rms": 0.3333333432674408,
+  "endpoint_atomics_row_sum_mean": 1.0,
+  "endpoint_atomics_max_mean": 1.0,
+  "stage1_reward_coords": {
+    "grad_rms": 16.54178810119629,
+    "reward_mean": -166.87088012695312,
+    "directional": [
+      {
+        "rel_step": 1e-05,
+        "h": 1.166369915008545e-05,
+        "fd_slope": 5311.409596268277,
+        "grad_sq": 5309.91357421875,
+        "ratio": 1.0002817413181244
+      },
+      {
+        "rel_step": 0.0001,
+        "h": 0.0001166369915008545,
+        "fd_slope": 5335.481009216882,
+        "grad_sq": 5309.91357421875,
+        "ratio": 1.0048150378797631
+      },
+      {
+        "rel_step": 0.001,
+        "h": 0.0011663699150085448,
+        "fd_slope": 5528.5232752329775,
+        "grad_sq": 5309.91357421875,
+        "ratio": 1.0411701053056013
+      },
+      {
+        "rel_step": 0.01,
+        "h": 0.011663699150085449,
+        "fd_slope": 2766.3626533336333,
+        "grad_sq": 5309.91357421875,
+        "ratio": 0.5209807306026915
+      }
+    ],
+    "componentwise": [
+      {
+        "b": 2,
+        "atom": 26,
+        "dim": 2,
+        "autograd": -10.580679893493652,
+        "fd": -10.596654613244592
+      },
+      {
+        "b": 3,
+        "atom": 6,
+        "dim": 2,
+        "autograd": -15.37568473815918,
+        "fd": -15.358608044381668
+      },
+      {
+        "b": 2,
+        "atom": 24,
+        "dim": 1,
+        "autograd": -10.134718894958496,
+        "fd": -10.15185676528124
+      },
+      {
+        "b": 1,
+        "atom": 3,
+        "dim": 0,
+        "autograd": -24.366409301757812,
+        "fd": -24.385387900108544
+      },
+      {
+        "b": 3,
+        "atom": 9,
+        "dim": 0,
+        "autograd": 16.08275032043457,
+        "fd": 16.091216264556603
+      },
+      {
+        "b": 2,
+        "atom": 14,
+        "dim": 2,
+        "autograd": 2.442936658859253,
+        "fd": 2.459470453444424
+      },
+      {
+        "b": 1,
+        "atom": 20,
+        "dim": 1,
+        "autograd": -7.337625980377197,
+        "fd": -7.326082201749348
+      },
+      {
+        "b": 3,
+        "atom": 5,
+        "dim": 0,
+        "autograd": -6.9910712242126465,
+        "fd": -6.959778091661881
+      },
+      {
+        "b": 0,
+        "atom": 12,
+        "dim": 1,
+        "autograd": -1.0129197835922241,
+        "fd": -0.9942540130945544
+      },
+      {
+        "b": 0,
+        "atom": 26,
+        "dim": 1,
+        "autograd": 2.1795101165771484,
+        "fd": 2.1978246605248044
+      },
+      {
+        "b": 1,
+        "atom": 19,
+        "dim": 1,
+        "autograd": 17.290313720703125,
+        "fd": 17.294786911986854
+      },
+      {
+        "b": 2,
+        "atom": 12,
+        "dim": 2,
+        "autograd": -7.019689083099365,
+        "fd": -7.012107250245805
+      }
+    ],
+    "componentwise_median_rel_err": 0.0015098009025678039,
+    "pass": true
+  },
+  "stage2_soft_atomics": {
+    "grad_rms": 1.0809816122055054,
+    "reward_soft_mean": -165.82864379882812,
+    "reward_hard_mean": -166.87088012695312,
+    "pred_soft_vs_hard_l2": 1.0116267204284668,
+    "pred_soft_mean": 0.15730717778205872,
+    "pred_hard_mean": 0.15804974734783173,
+    "directional": [
+      {
+        "rel_step": 1e-05,
+        "h": 3.333333432674408e-06,
+        "fd_slope": 1043.701140770282,
+        "grad_sq": 1040.9852294921875,
+        "ratio": 1.0026089815697188
+      },
+      {
+        "rel_step": 0.0001,
+        "h": 3.333333432674408e-05,
+        "fd_slope": 1040.9545588208866,
+        "grad_sq": 1040.9852294921875,
+        "ratio": 0.9999705368813774
+      },
+      {
+        "rel_step": 0.001,
+        "h": 0.0003333333432674408,
+        "fd_slope": 1041.2292170158262,
+        "grad_sq": 1040.9852294921875,
+        "ratio": 1.0002343813502115
+      },
+      {
+        "rel_step": 0.01,
+        "h": 0.003333333432674408,
+        "fd_slope": 1038.6291194370651,
+        "grad_sq": 1040.9852294921875,
+        "ratio": 0.9977366537119151
+      }
+    ],
+    "hard_follow": [
+      {
+        "rel_step": 0.01,
+        "hard_reward_plus": -667.4835205078125,
+        "hard_reward_minus": -667.4835205078125,
+        "hard_reward_base": -667.4835205078125,
+        "argmax_changed": 0,
+        "n_real": 107
+      },
+      {
+        "rel_step": 0.1,
+        "hard_reward_plus": -667.4835205078125,
+        "hard_reward_minus": -667.4835205078125,
+        "hard_reward_base": -667.4835205078125,
+        "argmax_changed": 0,
+        "n_real": 107
+      },
+      {
+        "rel_step": 1.0,
+        "hard_reward_plus": -623.4107666015625,
+        "hard_reward_minus": -604.1492309570312,
+        "hard_reward_base": -667.4835205078125,
+        "argmax_changed": 16,
+        "n_real": 107
+      }
+    ],
+    "pass": true
+  },
+  "verdict": "reward gradient VERIFIED (stages 1-2); the full chain was not run"
+}

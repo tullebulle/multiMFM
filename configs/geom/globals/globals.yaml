@@ -1,0 +1,3 @@
+spatial_dim: 3
+atom_dim: 9          # GEOM-Drugs heavy-atom vocab: C,N,O,F,S,Cl,Br,I,* (len(ATOM_NAMES))
+max_num_atoms: 90    # >= max heavy atoms per molecule in GEOM-Drugs (dataset max = 71)

@@ -1,0 +1,4 @@
+run_dir,target_c0,set,n_samples,oracle_score_mean,oracle_target_mae,oracle_target_mae_ci95_low,oracle_target_mae_ci95_high,fraction_guided_improved
+outputs/dna/table1_dmfm4_norm_n1000/target_m1p0/merged,-1.0,unguided,1000,-0.17146508395671844,0.8325567245483398,0.8061169669032097,0.8574791684746742,
+outputs/dna/table1_dmfm4_norm_n1000/target_m1p0/merged,-1.0,guided,1000,-0.8974027037620544,0.17234866321086884,0.16414126418530942,0.18047164417803285,
+outputs/dna/table1_dmfm4_norm_n1000/target_m1p0/merged,-1.0,paired_guidance_effect,1000,,0.660207986831665,0.6328101649880409,0.6870133027434349,0.954

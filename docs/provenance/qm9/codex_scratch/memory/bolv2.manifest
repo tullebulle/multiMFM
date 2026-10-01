@@ -1,0 +1,14 @@
+# PB-valid BoL round 2: n=100, ALL lookaheads checked (parallel), select_min_t=0.50, push mu HARD
+# JOBID PROPERTY MU RS SELMINT TAG
+34985247 alpha 8.00  0.3   0.50 v2_alpha_mu8
+34985221 alpha 12.00 0.3   0.50 v2_alpha_mu12
+34988184 gap   0.50  12000 0.50 v2_gap_mu0p50
+34988143 gap   0.80  12000 0.50 v2_gap_mu0p80
+34988141 homo  1.50  41500 0.50 v2_homo_mu1p5
+34989391 homo  2.50  41500 0.50 v2_homo_mu2p5
+34989362 lumo  1.20  12000 0.50 v2_lumo_mu1p2
+34989345 lumo  2.00  12000 0.50 v2_lumo_mu2p0
+34989311 mu    2.50  8.638 0.50 v2_mu_mu2p5
+34989432 mu    3.50  8.638 0.50 v2_mu_mu3p5
+34989449 cv    6.00  1.5   0.50 v2_cv_mu6
+34989466 cv    10.00 1.5   0.50 v2_cv_mu10

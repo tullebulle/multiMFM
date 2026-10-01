@@ -1,0 +1,31 @@
+{
+  "args": {
+    "length": 50,
+    "n_probes": 4,
+    "mc": 8,
+    "probe_times": [
+      0.5
+    ],
+    "targets": [
+      -1.0,
+      1.0
+    ],
+    "deltas": [
+      1.484
+    ],
+    "n_random": 1,
+    "configs": [
+      "glass_euler4",
+      "glass_euler32",
+      "glass_euler32_e999"
+    ],
+    "reward_sigma": 0.15,
+    "reward_scale": 0.5,
+    "nfe_traj": 64,
+    "t_max": 0.95,
+    "seed": 0,
+    "device": "cpu",
+    "out_dir": "/tmp/fa_dir_quick"
+  },
+  "device": "cpu"
+}

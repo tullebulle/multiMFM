@@ -1,0 +1,442 @@
+=== DNA panel B, axes ===
+   method                     config  nfe_gen_per_output  nfe_gen_in_graph  nfe_guide_per_output     axis_k0     axis_k1   axis_k1p1   axis_k1p6     axis_k2     axis_k3      mae       se
+     beam               W=1,L=4,K=48          576.000000               0.0                   8.0  576.000000  576.000000  576.000000  576.000000  576.000000  576.000000 0.151616 0.012733
+     beam               W=1,L=4,K=32          768.000000               0.0                  12.0  768.000000  768.000000  768.000000  768.000000  768.000000  768.000000 0.098504 0.003390
+     beam               W=1,L=4,K=24          960.000000               0.0                  16.0  960.000000  960.000000  960.000000  960.000000  960.000000  960.000000 0.069493 0.003686
+     beam               W=1,L=4,K=16         1344.000000               0.0                  24.0 1344.000000 1344.000000 1344.000000 1344.000000 1344.000000 1344.000000 0.058486 0.003086
+     beam               W=1,L=4,K=12         1728.000000               0.0                  32.0 1728.000000 1728.000000 1728.000000 1728.000000 1728.000000 1728.000000 0.044056 0.002113
+     beam                W=1,L=4,K=8         2496.000000               0.0                  48.0 2496.000000 2496.000000 2496.000000 2496.000000 2496.000000 2496.000000 0.029634 0.001987
+     beam                W=1,L=4,K=6         3264.000000               0.0                  64.0 3264.000000 3264.000000 3264.000000 3264.000000 3264.000000 3264.000000 0.020787 0.001244
+     beam                W=1,L=4,K=4         4800.000000               0.0                  96.0 4800.000000 4800.000000 4800.000000 4800.000000 4800.000000 4800.000000 0.014280 0.000338
+best_of_n                        N=2          192.000000               0.0                   2.0  192.000000  192.000000  192.000000  192.000000  192.000000  192.000000 0.408153 0.015889
+best_of_n                        N=3          288.000000               0.0                   3.0  288.000000  288.000000  288.000000  288.000000  288.000000  288.000000 0.308093 0.009996
+best_of_n                        N=5          480.000000               0.0                   5.0  480.000000  480.000000  480.000000  480.000000  480.000000  480.000000 0.206484 0.008641
+best_of_n                        N=9          864.000000               0.0                   9.0  864.000000  864.000000  864.000000  864.000000  864.000000  864.000000 0.133575 0.010517
+best_of_n                       N=16         1536.000000               0.0                  16.0 1536.000000 1536.000000 1536.000000 1536.000000 1536.000000 1536.000000 0.072844 0.001600
+best_of_n                       N=32         3072.000000               0.0                  32.0 3072.000000 3072.000000 3072.000000 3072.000000 3072.000000 3072.000000 0.043363 0.001012
+     dmfm                       MC=1          187.000000              91.0                  92.0  187.000000  278.000000  287.100000  332.600000  369.000000  460.000000 0.132946 0.012502
+     dmfm                       MC=2          278.000000             182.0                 183.0  278.000000  460.000000  478.200000  569.200000  642.000000  824.000000 0.120584 0.005450
+     dmfm                       MC=4          460.000000             364.0                 365.0  460.000000  824.000000  860.400000 1042.400000 1188.000000 1552.000000 0.094681 0.004222
+     dmfm                       MC=8          824.000000             728.0                 729.0  824.000000 1552.000000 1624.800000 1988.800000 2280.000000 3008.000000 0.073574 0.001421
+     dmfm                      MC=16         1552.000000            1456.0                1457.0 1552.000000 3008.000000 3153.600000 3881.600000 4464.000000 5920.000000 0.061337 0.002583
+       fk                        K=2          192.000000               0.0                  24.0  192.000000  192.000000  192.000000  192.000000  192.000000  192.000000 0.314718 0.014588
+       fk                        K=3          288.000000               0.0                  36.0  288.000000  288.000000  288.000000  288.000000  288.000000  288.000000 0.197115 0.014797
+       fk                        K=5          480.000000               0.0                  60.0  480.000000  480.000000  480.000000  480.000000  480.000000  480.000000 0.107431 0.004294
+       fk                        K=9          864.000000               0.0                 108.0  864.000000  864.000000  864.000000  864.000000  864.000000  864.000000 0.053493 0.002788
+       fk                       K=16         1536.000000               0.0                 192.0 1536.000000 1536.000000 1536.000000 1536.000000 1536.000000 1536.000000 0.026875 0.004059
+       fk                       K=32         3072.000000               0.0                 384.0 3072.000000 3072.000000 3072.000000 3072.000000 3072.000000 3072.000000 0.010713 0.000189
+     mcts  I=2,children=2,K=16,C=0.5          192.000000               0.0                   2.0  192.000000  192.000000  192.000000  192.000000  192.000000  192.000000 0.360894 0.016651
+     mcts  I=3,children=2,K=16,C=0.5          272.000000               0.0                   3.0  272.000000  272.000000  272.000000  272.000000  272.000000  272.000000 0.298886 0.016836
+     mcts  I=5,children=2,K=16,C=0.5          427.840000               0.0                   5.0  427.840000  427.840000  427.840000  427.840000  427.840000  427.840000 0.204362 0.010199
+     mcts  I=9,children=2,K=16,C=0.5          695.253333               0.0                   9.0  695.253333  695.253333  695.253333  695.253333  695.253333  695.253333 0.124132 0.005398
+     mcts I=16,children=2,K=16,C=0.5         1074.080000               0.0                  16.0 1074.080000 1074.080000 1074.080000 1074.080000 1074.080000 1074.080000 0.073117 0.003504
+     mcts I=32,children=2,K=16,C=0.5         1575.040000               0.0                  32.0 1575.040000 1575.040000 1575.040000 1575.040000 1575.040000 1575.040000 0.045062 0.002125
+     mcts I=64,children=2,K=16,C=0.5         1711.466667               0.0                  64.0 1711.466667 1711.466667 1711.466667 1711.466667 1711.466667 1711.466667 0.036000 0.002994
+
+=== QM9 steering, axes (trimmed as plotted) ===
+     method                            config  nfe_gen_per_output  nfe_gen_in_graph  nfe_regressor  axis_k0  axis_k1  axis_k1p1  axis_k1p6  axis_k2  axis_k3      mae       se       pb
+        DPS              mu=0.1,guide_every=8               143.0              15.0           15.0    143.0    158.0      159.5      167.0    173.0    188.0 5.028033 0.178162 0.956667
+        DPS              mu=0.1,guide_every=4               157.0              29.0           29.0    157.0    186.0      188.9      203.4    215.0    244.0 3.857925 0.137972 0.936667
+        DPS              mu=0.1,guide_every=2               185.0              57.0           57.0    185.0    242.0      247.7      276.2    299.0    356.0 3.328492 0.079749 0.900000
+        DPS              mu=0.1,guide_every=1               243.0             115.0          115.0    243.0    358.0      369.5      427.0    473.0    588.0 2.818439 0.084256 0.886667
+Feynman-Kac  K=4,lambda=0.01,resample_every=8               572.0               0.0           64.0    572.0    572.0      572.0      572.0    572.0    572.0 8.140180 0.357223 0.986667
+Feynman-Kac  K=8,lambda=0.01,resample_every=8              1144.0               0.0          128.0   1144.0   1144.0     1144.0     1144.0   1144.0   1144.0 7.063321 0.212343 0.993333
+Feynman-Kac K=16,lambda=0.01,resample_every=8              2288.0               0.0          256.0   2288.0   2288.0     2288.0     2288.0   2288.0   2288.0 5.031918 0.280914 1.000000
+Feynman-Kac K=32,lambda=0.01,resample_every=8              4576.0               0.0          512.0   4576.0   4576.0     4576.0     4576.0   4576.0   4576.0 3.174101 0.206800 0.993333
+  best-of-N                               N=4               512.0               0.0            4.0    512.0    512.0      512.0      512.0    512.0    512.0 3.962717 0.222824 1.000000
+  best-of-N                               N=8              1024.0               0.0            8.0   1024.0   1024.0     1024.0     1024.0   1024.0   1024.0 2.293630 0.018822 1.000000
+  best-of-N                              N=16              2048.0               0.0           16.0   2048.0   2048.0     2048.0     2048.0   2048.0   2048.0 1.500668 0.062902 1.000000
+  best-of-N                              N=32              4096.0               0.0           32.0   4096.0   4096.0     4096.0     4096.0   4096.0   4096.0 1.077321 0.060760 1.000000
+  best-of-N                              N=64              8192.0               0.0           64.0   8192.0   8192.0     8192.0     8192.0   8192.0   8192.0 0.973133 0.032350 1.000000
+   multiMFM      mu=3.4,MC=1,select_min_t=0.3               588.0             460.0          115.0    588.0   1048.0     1094.0     1324.0   1508.0   1968.0 1.787133 0.103629 0.503333
+   multiMFM      mu=3.4,MC=2,select_min_t=0.3              1048.0             920.0          230.0   1048.0   1968.0     2060.0     2520.0   2888.0   3808.0 1.686762 0.142401 0.676667
+   multiMFM      mu=3.4,MC=4,select_min_t=0.3              1968.0            1840.0          460.0   1968.0   3808.0     3992.0     4912.0   5648.0   7488.0 1.436442 0.017113 0.766667
+   multiMFM      mu=3.4,MC=8,select_min_t=0.3              3808.0            3680.0          920.0   3808.0   7488.0     7856.0     9696.0  11168.0  14848.0 1.185257 0.064381 0.826667
+   multiMFM     mu=3.4,MC=16,select_min_t=0.3              7488.0            7360.0         1840.0   7488.0  14848.0    15584.0    19264.0  22208.0  29568.0 1.217906 0.041041 0.866667
+multiMFM-SS      mu=3.4,MC=1,select_min_t=0.3               588.0             460.0          115.0    588.0   1048.0     1094.0     1324.0   1508.0   1968.0 1.381396 0.062742 1.000000
+multiMFM-SS      mu=3.4,MC=2,select_min_t=0.3              1048.0             920.0          230.0   1048.0   1968.0     2060.0     2520.0   2888.0   3808.0 1.290175 0.048505 1.000000
+multiMFM-SS      mu=3.4,MC=4,select_min_t=0.3              1968.0            1840.0          460.0   1968.0   3808.0     3992.0     4912.0   5648.0   7488.0 1.069284 0.034659 1.000000
+multiMFM-SS      mu=3.4,MC=8,select_min_t=0.3              3808.0            3680.0          920.0   3808.0   7488.0     7856.0     9696.0  11168.0  14848.0 1.093787 0.088345 1.000000
+multiMFM-SS     mu=3.4,MC=16,select_min_t=0.3              7488.0            7360.0         1840.0   7488.0  14848.0    15584.0    19264.0  22208.0  29568.0 1.006223 0.044658 1.000000
+
+=== QM9 steering, axes (untrimmed) ===
+     method                            config  nfe_gen_per_output  nfe_gen_in_graph  axis_k0  axis_k1  axis_k1p1  axis_k1p6  axis_k2  axis_k3      mae       se
+        DPS              mu=0.1,guide_every=8               143.0              15.0    143.0    158.0      159.5      167.0    173.0    188.0 5.028033 0.178162
+        DPS              mu=0.1,guide_every=4               157.0              29.0    157.0    186.0      188.9      203.4    215.0    244.0 3.857925 0.137972
+        DPS              mu=0.1,guide_every=2               185.0              57.0    185.0    242.0      247.7      276.2    299.0    356.0 3.328492 0.079749
+        DPS              mu=0.1,guide_every=1               243.0             115.0    243.0    358.0      369.5      427.0    473.0    588.0 2.818439 0.084256
+Feynman-Kac  K=4,lambda=0.01,resample_every=8               572.0               0.0    572.0    572.0      572.0      572.0    572.0    572.0 8.140180 0.357223
+Feynman-Kac  K=8,lambda=0.01,resample_every=8              1144.0               0.0   1144.0   1144.0     1144.0     1144.0   1144.0   1144.0 7.063321 0.212343
+Feynman-Kac K=16,lambda=0.01,resample_every=8              2288.0               0.0   2288.0   2288.0     2288.0     2288.0   2288.0   2288.0 5.031918 0.280914
+Feynman-Kac K=32,lambda=0.01,resample_every=8              4576.0               0.0   4576.0   4576.0     4576.0     4576.0   4576.0   4576.0 3.174101 0.206800
+  best-of-N                               N=4               512.0               0.0    512.0    512.0      512.0      512.0    512.0    512.0 3.962717 0.222824
+  best-of-N                               N=8              1024.0               0.0   1024.0   1024.0     1024.0     1024.0   1024.0   1024.0 2.293630 0.018822
+  best-of-N                              N=16              2048.0               0.0   2048.0   2048.0     2048.0     2048.0   2048.0   2048.0 1.500668 0.062902
+  best-of-N                              N=32              4096.0               0.0   4096.0   4096.0     4096.0     4096.0   4096.0   4096.0 1.077321 0.060760
+  best-of-N                              N=64              8192.0               0.0   8192.0   8192.0     8192.0     8192.0   8192.0   8192.0 0.973133 0.032350
+  best-of-N                             N=128             16384.0               0.0  16384.0  16384.0    16384.0    16384.0  16384.0  16384.0 0.924311 0.084255
+  best-of-N                             N=256             32768.0               0.0  32768.0  32768.0    32768.0    32768.0  32768.0  32768.0 0.830945 0.030122
+  best-of-N                             N=512             65536.0               0.0  65536.0  65536.0    65536.0    65536.0  65536.0  65536.0 0.819037 0.048393
+   multiMFM      mu=3.4,MC=1,select_min_t=0.3               588.0             460.0    588.0   1048.0     1094.0     1324.0   1508.0   1968.0 1.787133 0.103629
+   multiMFM      mu=3.4,MC=2,select_min_t=0.3              1048.0             920.0   1048.0   1968.0     2060.0     2520.0   2888.0   3808.0 1.686762 0.142401
+   multiMFM      mu=3.4,MC=4,select_min_t=0.3              1968.0            1840.0   1968.0   3808.0     3992.0     4912.0   5648.0   7488.0 1.436442 0.017113
+   multiMFM      mu=3.4,MC=8,select_min_t=0.3              3808.0            3680.0   3808.0   7488.0     7856.0     9696.0  11168.0  14848.0 1.185257 0.064381
+   multiMFM     mu=3.4,MC=16,select_min_t=0.3              7488.0            7360.0   7488.0  14848.0    15584.0    19264.0  22208.0  29568.0 1.217906 0.041041
+   multiMFM     mu=3.4,MC=32,select_min_t=0.3             14848.0           14720.0  14848.0  29568.0    31040.0    38400.0  44288.0  59008.0 1.131677 0.062324
+multiMFM-SS      mu=3.4,MC=1,select_min_t=0.3               588.0             460.0    588.0   1048.0     1094.0     1324.0   1508.0   1968.0 1.381396 0.062742
+multiMFM-SS      mu=3.4,MC=2,select_min_t=0.3              1048.0             920.0   1048.0   1968.0     2060.0     2520.0   2888.0   3808.0 1.290175 0.048505
+multiMFM-SS      mu=3.4,MC=4,select_min_t=0.3              1968.0            1840.0   1968.0   3808.0     3992.0     4912.0   5648.0   7488.0 1.069284 0.034659
+multiMFM-SS      mu=3.4,MC=8,select_min_t=0.3              3808.0            3680.0   3808.0   7488.0     7856.0     9696.0  11168.0  14848.0 1.093787 0.088345
+multiMFM-SS     mu=3.4,MC=16,select_min_t=0.3              7488.0            7360.0   7488.0  14848.0    15584.0    19264.0  22208.0  29568.0 1.006223 0.044658
+multiMFM-SS     mu=3.4,MC=32,select_min_t=0.3             14848.0           14720.0  14848.0  29568.0    31040.0    38400.0  44288.0  59008.0 1.006256 0.024834
+
+=== crossovers ===
+         side      guided      search   k      axis   crossover  bracket_lo  bracket_hi                                   verdict  guided_axis_min  guided_axis_max  search_axis_min  search_axis_max
+          dna        dmfm   best_of_n 0.0   axis_k0         NaN         NaN         NaN guided better over the whole shared range            187.0           1552.0            192.0      3072.000000
+          dna        dmfm   best_of_n 1.0   axis_k1 1503.340855  864.000000     1536.00           crosses inside the shared range            278.0           3008.0            192.0      3072.000000
+          dna        dmfm   best_of_n 1.1 axis_k1p1 1462.927357  864.000000     1536.00           crosses inside the shared range            287.1           3153.6            192.0      3072.000000
+          dna        dmfm   best_of_n 1.6 axis_k1p6 1300.212946  864.000000     1536.00           crosses inside the shared range            332.6           3881.6            192.0      3072.000000
+          dna        dmfm   best_of_n 2.0   axis_k2 1203.945117  864.000000     1536.00           crosses inside the shared range            369.0           4464.0            192.0      3072.000000
+          dna        dmfm   best_of_n 3.0   axis_k3 1033.895781  864.000000     1536.00           crosses inside the shared range            460.0           5920.0            192.0      3072.000000
+          dna        dmfm          fk 0.0   axis_k0  581.805715  480.000000      864.00           crosses inside the shared range            187.0           1552.0            192.0      3072.000000
+          dna        dmfm          fk 1.0   axis_k1  431.124033  288.000000      480.00           crosses inside the shared range            278.0           3008.0            192.0      3072.000000
+          dna        dmfm          fk 1.1 axis_k1p1  428.040708  288.000000      480.00           crosses inside the shared range            287.1           3153.6            192.0      3072.000000
+          dna        dmfm          fk 1.6 axis_k1p6  415.174591  288.000000      480.00           crosses inside the shared range            332.6           3881.6            192.0      3072.000000
+          dna        dmfm          fk 2.0   axis_k2  407.215900  288.000000      480.00           crosses inside the shared range            369.0           4464.0            192.0      3072.000000
+          dna        dmfm          fk 3.0   axis_k3  460.000000         NaN         NaN search better over the whole shared range            460.0           5920.0            192.0      3072.000000
+          dna        dmfm        beam 0.0   axis_k0  950.187792  768.000000      960.00           crosses inside the shared range            187.0           1552.0            576.0      4800.000000
+          dna        dmfm        beam 1.0   axis_k1  775.277147  768.000000      960.00           crosses inside the shared range            278.0           3008.0            576.0      4800.000000
+          dna        dmfm        beam 1.1 axis_k1p1  763.176618  576.000000      768.00           crosses inside the shared range            287.1           3153.6            576.0      4800.000000
+          dna        dmfm        beam 1.6 axis_k1p6  712.541360  576.000000      768.00           crosses inside the shared range            332.6           3881.6            576.0      4800.000000
+          dna        dmfm        beam 2.0   axis_k2  682.008636  576.000000      768.00           crosses inside the shared range            369.0           4464.0            576.0      4800.000000
+          dna        dmfm        beam 3.0   axis_k3  654.141359  576.000000      768.00           crosses inside the shared range            460.0           5920.0            576.0      4800.000000
+          dna        dmfm        mcts 0.0   axis_k0 1154.092889 1074.080000     1575.04           crosses inside the shared range            187.0           1552.0            192.0      1711.466667
+          dna        dmfm        mcts 1.0   axis_k1  891.253514  695.253333     1074.08           crosses inside the shared range            278.0           3008.0            192.0      1711.466667
+          dna        dmfm        mcts 1.1 axis_k1p1  872.716568  695.253333     1074.08           crosses inside the shared range            287.1           3153.6            192.0      1711.466667
+          dna        dmfm        mcts 1.6 axis_k1p6  794.430483  695.253333     1074.08           crosses inside the shared range            332.6           3881.6            192.0      1711.466667
+          dna        dmfm        mcts 2.0   axis_k2  748.244407  695.253333     1074.08           crosses inside the shared range            369.0           4464.0            192.0      1711.466667
+          dna        dmfm        mcts 3.0   axis_k3  695.825235  695.253333     1074.08           crosses inside the shared range            460.0           5920.0            192.0      1711.466667
+          qm9    multiMFM   best-of-N 0.0   axis_k0 2754.896907 2048.000000     4096.00           crosses inside the shared range            588.0           7488.0            512.0      8192.000000
+          qm9    multiMFM   best-of-N 1.0   axis_k1 1647.508212 1024.000000     2048.00           crosses inside the shared range           1048.0          14848.0            512.0      8192.000000
+          qm9    multiMFM   best-of-N 1.1 axis_k1p1 1634.762474 1024.000000     2048.00           crosses inside the shared range           1094.0          15584.0            512.0      8192.000000
+          qm9    multiMFM   best-of-N 1.6 axis_k1p6 1580.023968 1024.000000     2048.00           crosses inside the shared range           1324.0          19264.0            512.0      8192.000000
+          qm9    multiMFM   best-of-N 2.0   axis_k2 1545.463228 1024.000000     2048.00           crosses inside the shared range           1508.0          22208.0            512.0      8192.000000
+          qm9    multiMFM   best-of-N 3.0   axis_k3 1968.000000         NaN         NaN search better over the whole shared range           1968.0          29568.0            512.0      8192.000000
+          qm9    multiMFM Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN guided better over the whole shared range            588.0           7488.0            572.0      4576.000000
+          qm9    multiMFM Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN guided better over the whole shared range           1048.0          14848.0            572.0      4576.000000
+          qm9    multiMFM Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN guided better over the whole shared range           1094.0          15584.0            572.0      4576.000000
+          qm9    multiMFM Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN guided better over the whole shared range           1324.0          19264.0            572.0      4576.000000
+          qm9    multiMFM Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN guided better over the whole shared range           1508.0          22208.0            572.0      4576.000000
+          qm9    multiMFM Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range           1968.0          29568.0            572.0      4576.000000
+          qm9 multiMFM-SS   best-of-N 0.0   axis_k0 4027.401120 2048.000000     4096.00           crosses inside the shared range            588.0           7488.0            512.0      8192.000000
+          qm9 multiMFM-SS   best-of-N 1.0   axis_k1 4214.231888 4096.000000     8192.00           crosses inside the shared range           1048.0          14848.0            512.0      8192.000000
+          qm9 multiMFM-SS   best-of-N 1.1 axis_k1p1 4249.564927 4096.000000     8192.00           crosses inside the shared range           1094.0          15584.0            512.0      8192.000000
+          qm9 multiMFM-SS   best-of-N 1.6 axis_k1p6 3282.871139 2048.000000     4096.00           crosses inside the shared range           1324.0          19264.0            512.0      8192.000000
+          qm9 multiMFM-SS   best-of-N 2.0   axis_k2 2788.598255 2048.000000     4096.00           crosses inside the shared range           1508.0          22208.0            512.0      8192.000000
+          qm9 multiMFM-SS   best-of-N 3.0   axis_k3 2583.264877 2048.000000     4096.00           crosses inside the shared range           1968.0          29568.0            512.0      8192.000000
+          qm9 multiMFM-SS Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN guided better over the whole shared range            588.0           7488.0            572.0      4576.000000
+          qm9 multiMFM-SS Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN guided better over the whole shared range           1048.0          14848.0            572.0      4576.000000
+          qm9 multiMFM-SS Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN guided better over the whole shared range           1094.0          15584.0            572.0      4576.000000
+          qm9 multiMFM-SS Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN guided better over the whole shared range           1324.0          19264.0            572.0      4576.000000
+          qm9 multiMFM-SS Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN guided better over the whole shared range           1508.0          22208.0            572.0      4576.000000
+          qm9 multiMFM-SS Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range           1968.0          29568.0            572.0      4576.000000
+          qm9         DPS   best-of-N 0.0   axis_k0         NaN         NaN         NaN               no overlapping budget range            143.0            243.0            512.0      8192.000000
+          qm9         DPS   best-of-N 1.0   axis_k1         NaN         NaN         NaN               no overlapping budget range            158.0            358.0            512.0      8192.000000
+          qm9         DPS   best-of-N 1.1 axis_k1p1         NaN         NaN         NaN               no overlapping budget range            159.5            369.5            512.0      8192.000000
+          qm9         DPS   best-of-N 1.6 axis_k1p6         NaN         NaN         NaN               no overlapping budget range            167.0            427.0            512.0      8192.000000
+          qm9         DPS   best-of-N 2.0   axis_k2         NaN         NaN         NaN               no overlapping budget range            173.0            473.0            512.0      8192.000000
+          qm9         DPS   best-of-N 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range            188.0            588.0            512.0      8192.000000
+          qm9         DPS Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN               no overlapping budget range            143.0            243.0            572.0      4576.000000
+          qm9         DPS Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN               no overlapping budget range            158.0            358.0            572.0      4576.000000
+          qm9         DPS Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN               no overlapping budget range            159.5            369.5            572.0      4576.000000
+          qm9         DPS Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN               no overlapping budget range            167.0            427.0            572.0      4576.000000
+          qm9         DPS Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN               no overlapping budget range            173.0            473.0            572.0      4576.000000
+          qm9         DPS Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range            188.0            588.0            572.0      4576.000000
+qm9_untrimmed    multiMFM   best-of-N 0.0   axis_k0 2754.373436 2048.000000     4096.00           crosses inside the shared range            588.0          14848.0            512.0     65536.000000
+qm9_untrimmed    multiMFM   best-of-N 1.0   axis_k1 1647.778011 1024.000000     2048.00           crosses inside the shared range           1048.0          29568.0            512.0     65536.000000
+qm9_untrimmed    multiMFM   best-of-N 1.1 axis_k1p1 1635.795748 1024.000000     2048.00           crosses inside the shared range           1094.0          31040.0            512.0     65536.000000
+qm9_untrimmed    multiMFM   best-of-N 1.6 axis_k1p6 1580.033355 1024.000000     2048.00           crosses inside the shared range           1324.0          38400.0            512.0     65536.000000
+qm9_untrimmed    multiMFM   best-of-N 2.0   axis_k2 1545.409244 1024.000000     2048.00           crosses inside the shared range           1508.0          44288.0            512.0     65536.000000
+qm9_untrimmed    multiMFM   best-of-N 3.0   axis_k3 1968.000000         NaN         NaN search better over the whole shared range           1968.0          59008.0            512.0     65536.000000
+qm9_untrimmed    multiMFM Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN guided better over the whole shared range            588.0          14848.0            572.0      4576.000000
+qm9_untrimmed    multiMFM Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN guided better over the whole shared range           1048.0          29568.0            572.0      4576.000000
+qm9_untrimmed    multiMFM Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN guided better over the whole shared range           1094.0          31040.0            572.0      4576.000000
+qm9_untrimmed    multiMFM Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN guided better over the whole shared range           1324.0          38400.0            572.0      4576.000000
+qm9_untrimmed    multiMFM Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN guided better over the whole shared range           1508.0          44288.0            572.0      4576.000000
+qm9_untrimmed    multiMFM Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range           1968.0          59008.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS   best-of-N 0.0   axis_k0 4028.492350 2048.000000     4096.00           crosses inside the shared range            588.0          14848.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS   best-of-N 1.0   axis_k1 4215.419164 4096.000000     8192.00           crosses inside the shared range           1048.0          29568.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS   best-of-N 1.1 axis_k1p1 4251.412827 4096.000000     8192.00           crosses inside the shared range           1094.0          31040.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS   best-of-N 1.6 axis_k1p6 3283.840456 2048.000000     4096.00           crosses inside the shared range           1324.0          38400.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS   best-of-N 2.0   axis_k2 2789.692673 2048.000000     4096.00           crosses inside the shared range           1508.0          44288.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS   best-of-N 3.0   axis_k3 2583.306628 2048.000000     4096.00           crosses inside the shared range           1968.0          59008.0            512.0     65536.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN guided better over the whole shared range            588.0          14848.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN guided better over the whole shared range           1048.0          29568.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN guided better over the whole shared range           1094.0          31040.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN guided better over the whole shared range           1324.0          38400.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN guided better over the whole shared range           1508.0          44288.0            572.0      4576.000000
+qm9_untrimmed multiMFM-SS Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range           1968.0          59008.0            572.0      4576.000000
+qm9_untrimmed         DPS   best-of-N 0.0   axis_k0         NaN         NaN         NaN               no overlapping budget range            143.0            243.0            512.0     65536.000000
+qm9_untrimmed         DPS   best-of-N 1.0   axis_k1         NaN         NaN         NaN               no overlapping budget range            158.0            358.0            512.0     65536.000000
+qm9_untrimmed         DPS   best-of-N 1.1 axis_k1p1         NaN         NaN         NaN               no overlapping budget range            159.5            369.5            512.0     65536.000000
+qm9_untrimmed         DPS   best-of-N 1.6 axis_k1p6         NaN         NaN         NaN               no overlapping budget range            167.0            427.0            512.0     65536.000000
+qm9_untrimmed         DPS   best-of-N 2.0   axis_k2         NaN         NaN         NaN               no overlapping budget range            173.0            473.0            512.0     65536.000000
+qm9_untrimmed         DPS   best-of-N 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range            188.0            588.0            512.0     65536.000000
+qm9_untrimmed         DPS Feynman-Kac 0.0   axis_k0         NaN         NaN         NaN               no overlapping budget range            143.0            243.0            572.0      4576.000000
+qm9_untrimmed         DPS Feynman-Kac 1.0   axis_k1         NaN         NaN         NaN               no overlapping budget range            158.0            358.0            572.0      4576.000000
+qm9_untrimmed         DPS Feynman-Kac 1.1 axis_k1p1         NaN         NaN         NaN               no overlapping budget range            159.5            369.5            572.0      4576.000000
+qm9_untrimmed         DPS Feynman-Kac 1.6 axis_k1p6         NaN         NaN         NaN               no overlapping budget range            167.0            427.0            572.0      4576.000000
+qm9_untrimmed         DPS Feynman-Kac 2.0   axis_k2         NaN         NaN         NaN               no overlapping budget range            173.0            473.0            572.0      4576.000000
+qm9_untrimmed         DPS Feynman-Kac 3.0   axis_k3         NaN         NaN         NaN guided better over the whole shared range            188.0            588.0            572.0      4576.000000
+
+=== matched-budget comparison (DNA, k=0 published vs k=1 recommended) ===
+-- k=0
+config   axis  guided_mae  best_of_n_at_same_budget  fk_at_same_budget  beam_at_same_budget  mcts_at_same_budget  best_search_at_same_budget guided_wins
+  MC=1  187.0    0.132946                       NaN                NaN                  NaN                  NaN                         NaN        None
+  MC=2  278.0    0.120584                  0.315739           0.205319                  NaN             0.293462                    0.205319        True
+  MC=4  460.0    0.094681                  0.213485           0.113003                  NaN             0.189705                    0.113003        True
+  MC=8  824.0    0.073574                  0.138350           0.056588             0.088240             0.100947                    0.056588       False
+ MC=16 1552.0    0.061337                  0.072281           0.026508             0.049727             0.045910                    0.026508       False
+-- k=1
+config   axis  guided_mae  best_of_n_at_same_budget  fk_at_same_budget  beam_at_same_budget  mcts_at_same_budget  best_search_at_same_budget guided_wins
+  MC=1  278.0    0.132946                  0.315739           0.205319                  NaN             0.293462                    0.205319        True
+  MC=2  460.0    0.120584                  0.213485           0.113003                  NaN             0.189705                    0.113003       False
+  MC=4  824.0    0.094681                  0.138350           0.056588             0.088240             0.100947                    0.056588       False
+  MC=8 1552.0    0.073574                  0.072281           0.026508             0.049727             0.045910                    0.026508       False
+ MC=16 3008.0    0.061337                  0.044052           0.011016             0.023157                  NaN                    0.011016       False
+-- k=1.1
+config   axis  guided_mae  best_of_n_at_same_budget  fk_at_same_budget  beam_at_same_budget  mcts_at_same_budget  best_search_at_same_budget guided_wins
+  MC=1  287.1    0.132946                  0.308763           0.197828                  NaN             0.285635                    0.197828        True
+  MC=2  478.2    0.120584                  0.207093           0.107911                  NaN             0.182296                    0.107911       False
+  MC=4  860.4    0.094681                  0.133989           0.053759             0.082474             0.095774                    0.053759       False
+  MC=8 1624.8    0.073574                  0.069843           0.024944             0.047223             0.041429                    0.024944       False
+ MC=16 3153.6    0.061337                       NaN                NaN             0.021755                  NaN                    0.021755       False
+-- k=2
+config   axis  guided_mae  best_of_n_at_same_budget  fk_at_same_budget  beam_at_same_budget  mcts_at_same_budget  best_search_at_same_budget guided_wins
+  MC=1  369.0    0.132946                  0.253725           0.146836                  NaN             0.231383                    0.146836        True
+  MC=2  642.0    0.120584                  0.166456           0.076086             0.128861             0.134716                    0.076086       False
+  MC=4 1188.0    0.094681                  0.095494           0.036546             0.062303             0.064367                    0.036546       False
+  MC=8 2280.0    0.073574                  0.054202           0.015912             0.032672                  NaN                    0.015912       False
+ MC=16 4464.0    0.061337                       NaN                NaN             0.015326                  NaN                    0.015326       False
+
+=== matched-budget comparison (QM9) ===
+-- k=0
+     guided                        config    axis  guided_mae  best-of-N_at_same_budget  Feynman-Kac_at_same_budget  best_search_at_same_budget guided_wins
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3   588.0    1.787133                  3.552850                    8.094337                    3.552850        True
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  1048.0    1.686762                  2.261338                    7.191199                    2.261338        True
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  1968.0    1.436442                  1.537714                    5.416825                    1.537714        True
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  3808.0    1.185257                  1.115540                    3.586421                    1.115540       False
+   multiMFM mu=3.4,MC=16,select_min_t=0.3  7488.0    1.217906                  0.986049                         NaN                    0.986049       False
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 14848.0    1.131677                  0.931093                         NaN                    0.931093       False
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3   588.0    1.381396                  3.552850                    8.094337                    3.552850        True
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  1048.0    1.290175                  2.261338                    7.191199                    2.261338        True
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  1968.0    1.069284                  1.537714                    5.416825                    1.537714        True
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  3808.0    1.093787                  1.115540                    3.586421                    1.115540        True
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3  7488.0    1.006223                  0.986049                         NaN                    0.986049       False
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 14848.0    1.006256                  0.931093                         NaN                    0.931093       False
+-- k=1
+     guided                        config    axis  guided_mae  best-of-N_at_same_budget  Feynman-Kac_at_same_budget  best_search_at_same_budget guided_wins
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1048.0    1.787133                  2.261338                    7.191199                    2.261338        True
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  1968.0    1.686762                  1.537714                    5.416825                    1.537714       False
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  3808.0    1.436442                  1.115540                    3.586421                    1.115540       False
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  7488.0    1.185257                  0.986049                         NaN                    0.986049       False
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 14848.0    1.217906                  0.931093                         NaN                    0.931093       False
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 29568.0    1.131677                  0.844167                         NaN                    0.844167       False
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1048.0    1.381396                  2.261338                    7.191199                    2.261338        True
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  1968.0    1.290175                  1.537714                    5.416825                    1.537714        True
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  3808.0    1.069284                  1.115540                    3.586421                    1.115540        True
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  7488.0    1.093787                  0.986049                         NaN                    0.986049       False
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 14848.0    1.006223                  0.931093                         NaN                    0.931093       False
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 29568.0    1.006256                  0.844167                         NaN                    0.844167       False
+-- k=1.1
+     guided                        config    axis  guided_mae  best-of-N_at_same_budget  Feynman-Kac_at_same_budget  best_search_at_same_budget guided_wins
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1094.0    1.787133                  2.202660                    7.128238                    2.202660        True
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  2060.0    1.686762                  1.496482                    5.297089                    1.496482       False
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  3992.0    1.436442                  1.090651                    3.475666                    1.090651       False
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  7856.0    1.185257                  0.979132                         NaN                    0.979132       False
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 15584.0    1.217906                  0.927754                         NaN                    0.927754       False
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 31040.0    1.131677                  0.837890                         NaN                    0.837890       False
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1094.0    1.381396                  2.202660                    7.128238                    2.202660        True
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  2060.0    1.290175                  1.496482                    5.297089                    1.496482        True
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  3992.0    1.069284                  1.090651                    3.475666                    1.090651        True
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  7856.0    1.093787                  0.979132                         NaN                    0.979132       False
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 15584.0    1.006223                  0.927754                         NaN                    0.927754       False
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 31040.0    1.006256                  0.837890                         NaN                    0.837890       False
+-- k=2
+     guided                        config    axis  guided_mae  best-of-N_at_same_budget  Feynman-Kac_at_same_budget  best_search_at_same_budget guided_wins
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1508.0    1.787133                  1.809842                    6.170387                    1.809842        True
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  2888.0    1.686762                  1.273244                    4.310214                    1.273244       False
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  5648.0    1.436442                  1.027709                         NaN                    1.027709       False
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3 11168.0    1.185257                  0.950995                         NaN                    0.950995       False
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 22208.0    1.217906                  0.882116                         NaN                    0.882116       False
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 44288.0    1.131677                  0.825748                         NaN                    0.825748       False
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1508.0    1.381396                  1.809842                    6.170387                    1.809842        True
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  2888.0    1.290175                  1.273244                    4.310214                    1.273244       False
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  5648.0    1.069284                  1.027709                         NaN                    1.027709       False
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3 11168.0    1.093787                  0.950995                         NaN                    0.950995       False
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 22208.0    1.006223                  0.882116                         NaN                    0.882116       False
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 44288.0    1.006256                  0.825748                         NaN                    0.825748       False
+
+=== no-interpolation check: search at its largest measured budget <= the guided point ===
+-- dna k=0
+guided config   axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z   fk_mae  fk_budget       fk_z  beam_mae  beam_budget    beam_z  mcts_mae  mcts_budget     mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+  dmfm   MC=1  187.0    0.132946   0.012502            NaN               NaN          NaN      NaN        NaN        NaN       NaN          NaN       NaN       NaN          NaN        NaN            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=2  278.0    0.120584   0.005450       0.408153             192.0   -17.119181 0.314718      192.0 -12.465745       NaN          NaN       NaN  0.298886   272.000000 -10.075870            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=4  460.0    0.094681   0.004222       0.308093             288.0   -19.667429 0.197115      288.0  -6.657004       NaN          NaN       NaN  0.204362   427.840000  -9.935889            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=8  824.0    0.073574   0.001421       0.206484             480.0   -15.177514 0.107431      480.0  -7.485612  0.098504        768.0 -6.781912  0.124132   695.253333  -9.058147            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm  MC=16 1552.0    0.061337   0.002583       0.072844            1536.0    -3.786673 0.026875     1536.0   7.162859  0.058486       1344.0  0.708464  0.073117  1074.080000  -2.705937            NaN               NaN          NaN              NaN                 NaN            NaN
+-- dna k=1
+guided config   axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z   fk_mae  fk_budget      fk_z  beam_mae  beam_budget    beam_z  mcts_mae  mcts_budget    mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+  dmfm   MC=1  278.0    0.132946   0.012502       0.408153             192.0   -13.611810 0.314718      192.0 -9.460948       NaN          NaN       NaN  0.298886   272.000000 -7.913127            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=2  460.0    0.120584   0.005450       0.308093             288.0   -16.469569 0.197115      288.0 -4.853362       NaN          NaN       NaN  0.204362   427.840000 -7.244508            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=4  824.0    0.094681   0.004222       0.206484             480.0   -11.625009 0.107431      480.0 -2.117104  0.098504        768.0 -0.705917  0.124132   695.253333 -4.297555            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=8 1552.0    0.073574   0.001421       0.072844            1536.0     0.341202 0.026875     1536.0 10.859138  0.058486       1344.0  4.440810  0.073117  1074.080000  0.120908            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm  MC=16 3008.0    0.061337   0.002583       0.072844            1536.0    -3.786673 0.026875     1536.0  7.162859  0.029634       2496.0  9.727074  0.036000  1711.466667  6.406576            NaN               NaN          NaN              NaN                 NaN            NaN
+-- dna k=1.1
+guided config   axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z   fk_mae  fk_budget      fk_z  beam_mae  beam_budget    beam_z  mcts_mae  mcts_budget    mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+  dmfm   MC=1  287.1    0.132946   0.012502       0.408153             192.0   -13.611810 0.314718      192.0 -9.460948       NaN          NaN       NaN  0.298886   272.000000 -7.913127            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=2  478.2    0.120584   0.005450       0.308093             288.0   -16.469569 0.197115      288.0 -4.853362       NaN          NaN       NaN  0.204362   427.840000 -7.244508            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=4  860.4    0.094681   0.004222       0.206484             480.0   -11.625009 0.107431      480.0 -2.117104  0.098504        768.0 -0.705917  0.124132   695.253333 -4.297555            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=8 1624.8    0.073574   0.001421       0.072844            1536.0     0.341202 0.026875     1536.0 10.859138  0.058486       1344.0  4.440810  0.045062  1575.040000 11.150975            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm  MC=16 3153.6    0.061337   0.002583       0.043363            3072.0     6.477914 0.010713     3072.0 19.543867  0.029634       2496.0  9.727074  0.036000  1711.466667  6.406576            NaN               NaN          NaN              NaN                 NaN            NaN
+-- dna k=2
+guided config   axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z   fk_mae  fk_budget      fk_z  beam_mae  beam_budget    beam_z  mcts_mae  mcts_budget    mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+  dmfm   MC=1  369.0    0.132946   0.012502       0.308093             288.0   -10.941880 0.197115      288.0 -3.312535       NaN          NaN       NaN  0.298886   272.000000 -7.913127            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=2  642.0    0.120584   0.005450       0.206484             480.0    -8.408141 0.107431      480.0  1.895688  0.151616        576.0 -2.240582  0.204362   427.840000 -7.244508            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=4 1188.0    0.094681   0.004222       0.133575             864.0    -3.431754 0.053493      864.0  8.140120  0.069493        960.0  4.494114  0.073117  1074.080000  3.930210            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm   MC=8 2280.0    0.073574   0.001421       0.072844            1536.0     0.341202 0.026875     1536.0 10.859138  0.044056       1728.0 11.592101  0.036000  1711.466667 11.335848            NaN               NaN          NaN              NaN                 NaN            NaN
+  dmfm  MC=16 4464.0    0.061337   0.002583       0.043363            3072.0     6.477914 0.010713     3072.0 19.543867  0.020787       3264.0 14.142695  0.036000  1711.466667  6.406576            NaN               NaN          NaN              NaN                 NaN            NaN
+-- qm9 k=0
+     guided                        config    axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z  fk_mae  fk_budget  fk_z  beam_mae  beam_budget  beam_z  mcts_mae  mcts_budget  mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3   588.0    1.787133   0.103629            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       3.962717             512.0    -8.853085         8.140180               572.0     -17.080343
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  1048.0    1.686762   0.142401            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0    -4.224928         8.140180               572.0     -16.781299
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  1968.0    1.436442   0.017113            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -33.696726         7.063321              1144.0     -26.413433
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  3808.0    1.185257   0.064381            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -3.504231         5.031918              2288.0     -13.347312
+   multiMFM mu=3.4,MC=16,select_min_t=0.3  7488.0    1.217906   0.041041            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     1.917354         3.174101              4576.0      -9.278413
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 14848.0    1.131677   0.062324            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     2.257822         3.174101              4576.0      -9.456227
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3   588.0    1.381396   0.062742            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       3.962717             512.0   -11.150947         8.140180               572.0     -18.635093
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  1048.0    1.290175   0.048505            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -19.286397         8.140180               572.0     -19.001339
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  1968.0    1.069284   0.034659            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -31.042975         7.063321              1144.0     -27.859470
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  3808.0    1.093787   0.088345            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -3.751755         5.031918              2288.0     -13.373222
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3  7488.0    1.006223   0.044658            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0    -0.942859         3.174101              4576.0     -10.246776
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 14848.0    1.006256   0.024834            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     0.812166         3.174101              4576.0     -10.408045
+-- qm9 k=1
+     guided                        config    axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z  fk_mae  fk_budget  fk_z  beam_mae  beam_budget  beam_z  mcts_mae  mcts_budget  mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1048.0    1.787133   0.103629            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0    -4.808902         8.140180               572.0     -17.080343
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  1968.0    1.686762   0.142401            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0    -4.224928         7.063321              1144.0     -21.029239
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  3808.0    1.436442   0.017113            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -0.985237         5.031918              2288.0     -12.775504
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  7488.0    1.185257   0.064381            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     1.219265         3.174101              4576.0      -9.182554
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 14848.0    1.217906   0.041041            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     4.683940         3.174101              4576.0      -9.278413
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 29568.0    1.131677   0.062324            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     1.978667         3.174101              4576.0      -9.456227
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1048.0    1.381396   0.062742            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -13.926302         8.140180               572.0     -18.635093
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  1968.0    1.290175   0.048505            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -19.286397         7.063321              1144.0     -26.505164
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  3808.0    1.069284   0.034659            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -6.006530         5.031918              2288.0     -14.000037
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  7488.0    1.093787   0.088345            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     0.153567         3.174101              4576.0      -9.250775
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 14848.0    1.006223   0.044658            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     0.600061         3.174101              4576.0     -10.246776
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 29568.0    1.006256   0.024834            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     0.932898         3.174101              4576.0     -10.408045
+-- qm9 k=1.1
+     guided                        config    axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z  fk_mae  fk_budget  fk_z  beam_mae  beam_budget  beam_z  mcts_mae  mcts_budget  mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1094.0    1.787133   0.103629            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0    -4.808902         8.140180               572.0     -17.080343
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  2060.0    1.686762   0.142401            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0     1.195401         7.063321              1144.0     -21.029239
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  3992.0    1.436442   0.017113            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -0.985237         5.031918              2288.0     -12.775504
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3  7856.0    1.185257   0.064381            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     1.219265         3.174101              4576.0      -9.182554
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 15584.0    1.217906   0.041041            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     4.683940         3.174101              4576.0      -9.278413
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 31040.0    1.131677   0.062324            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     1.978667         3.174101              4576.0      -9.456227
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1094.0    1.381396   0.062742            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -13.926302         8.140180               572.0     -18.635093
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  2060.0    1.290175   0.048505            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -2.649971         7.063321              1144.0     -26.505164
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  3992.0    1.069284   0.034659            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -6.006530         5.031918              2288.0     -14.000037
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3  7856.0    1.093787   0.088345            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     0.153567         3.174101              4576.0      -9.250775
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 15584.0    1.006223   0.044658            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     0.600061         3.174101              4576.0     -10.246776
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 31040.0    1.006256   0.024834            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     0.932898         3.174101              4576.0     -10.408045
+-- qm9 k=2
+     guided                        config    axis  guided_mae  guided_se  best_of_n_mae  best_of_n_budget  best_of_n_z  fk_mae  fk_budget  fk_z  beam_mae  beam_budget  beam_z  mcts_mae  mcts_budget  mcts_z  best-of-N_mae  best-of-N_budget  best-of-N_z  Feynman-Kac_mae  Feynman-Kac_budget  Feynman-Kac_z
+   multiMFM  mu=3.4,MC=1,select_min_t=0.3  1508.0    1.787133   0.103629            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0    -4.808902         7.063321              1144.0     -22.330202
+   multiMFM  mu=3.4,MC=2,select_min_t=0.3  2888.0    1.686762   0.142401            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0     1.195401         5.031918              2288.0     -10.621360
+   multiMFM  mu=3.4,MC=4,select_min_t=0.3  5648.0    1.436442   0.017113            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0     5.689125         3.174101              4576.0      -8.373997
+   multiMFM  mu=3.4,MC=8,select_min_t=0.3 11168.0    1.185257   0.064381            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     2.944062         3.174101              4576.0      -9.182554
+   multiMFM mu=3.4,MC=16,select_min_t=0.3 22208.0    1.217906   0.041041            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     3.132708         3.174101              4576.0      -9.278413
+   multiMFM mu=3.4,MC=32,select_min_t=0.3 44288.0    1.131677   0.062324            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.830945           32768.0     4.344467         3.174101              4576.0      -9.456227
+multiMFM-SS  mu=3.4,MC=1,select_min_t=0.3  1508.0    1.381396   0.062742            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       2.293630            1024.0   -13.926302         7.063321              1144.0     -25.661537
+multiMFM-SS  mu=3.4,MC=2,select_min_t=0.3  2888.0    1.290175   0.048505            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.500668            2048.0    -2.649971         5.031918              2288.0     -13.125637
+multiMFM-SS  mu=3.4,MC=4,select_min_t=0.3  5648.0    1.069284   0.034659            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       1.077321            4096.0    -0.114893         3.174101              4576.0     -10.038038
+multiMFM-SS  mu=3.4,MC=8,select_min_t=0.3 11168.0    1.093787   0.088345            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.973133            8192.0     1.282435         3.174101              4576.0      -9.250775
+multiMFM-SS mu=3.4,MC=16,select_min_t=0.3 22208.0    1.006223   0.044658            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.924311           16384.0     0.858988         3.174101              4576.0     -10.246776
+multiMFM-SS mu=3.4,MC=32,select_min_t=0.3 44288.0    1.006256   0.024834            NaN               NaN          NaN     NaN        NaN   NaN       NaN          NaN     NaN       NaN          NaN     NaN       0.830945           32768.0     4.490604         3.174101              4576.0     -10.408045
+
+=== reward-model-on-the-axis sensitivity (k=1) ===
+side  k  reward_cost_ratio      guided      search   crossover  bracket_lo  bracket_hi                                   verdict  guided_cheapest
+ dna  1               0.00        dmfm   best_of_n 1503.340855  864.000000     1536.00           crosses inside the shared range           278.00
+ dna  1               0.00        dmfm          fk  431.124033  288.000000      480.00           crosses inside the shared range           278.00
+ dna  1               0.00        dmfm        beam  775.277147  768.000000      960.00           crosses inside the shared range           278.00
+ dna  1               0.00        dmfm        mcts  891.253514  695.253333     1074.08           crosses inside the shared range           278.00
+ dna  1               0.03        dmfm   best_of_n 1491.697812  864.270000     1536.48           crosses inside the shared range           280.76
+ dna  1               0.03        dmfm          fk  431.887647  289.080000      481.80           crosses inside the shared range           280.76
+ dna  1               0.03        dmfm        beam  772.066746  768.360000      960.48           crosses inside the shared range           280.76
+ dna  1               0.03        dmfm        mcts  886.203148  695.523333     1074.56           crosses inside the shared range           280.76
+ dna  1               0.10        dmfm   best_of_n 1465.001782  864.900000     1537.60           crosses inside the shared range           287.20
+ dna  1               0.10        dmfm          fk  434.203234  291.600000      486.00           crosses inside the shared range           287.20
+ dna  1               0.10        dmfm        beam  764.714355  576.800000      769.20           crosses inside the shared range           287.20
+ dna  1               0.10        dmfm        mcts  874.471296  696.153333     1075.68           crosses inside the shared range           287.20
+ dna  1               1.00        dmfm   best_of_n 1222.735039  873.000000     1552.00           crosses inside the shared range           370.00
+ dna  1               1.00        dmfm          fk  467.310564  324.000000      540.00           crosses inside the shared range           370.00
+ dna  1               1.00        dmfm        beam  695.288644  584.000000      780.00           crosses inside the shared range           370.00
+ dna  1               1.00        dmfm        mcts  762.419161  704.253333     1090.08           crosses inside the shared range           370.00
+ qm9  1               0.00    multiMFM   best-of-N 1647.778011 1024.000000     2048.00           crosses inside the shared range          1048.00
+ qm9  1               0.00    multiMFM Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1048.00
+ qm9  1               0.00 multiMFM-SS   best-of-N 4215.419164 4096.000000     8192.00           crosses inside the shared range          1048.00
+ qm9  1               0.00 multiMFM-SS Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1048.00
+ qm9  1               0.00         DPS   best-of-N         NaN         NaN         NaN               no overlapping budget range           158.00
+ qm9  1               0.00         DPS Feynman-Kac         NaN         NaN         NaN               no overlapping budget range           158.00
+ qm9  1               0.25    multiMFM   best-of-N 1643.594421 1026.000000     2052.00           crosses inside the shared range          1076.75
+ qm9  1               0.25    multiMFM Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1076.75
+ qm9  1               0.25 multiMFM-SS   best-of-N 4266.173822 4104.000000     8208.00           crosses inside the shared range          1105.50
+ qm9  1               0.25 multiMFM-SS Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1105.50
+ qm9  1               0.25         DPS   best-of-N         NaN         NaN         NaN               no overlapping budget range           161.75
+ qm9  1               0.25         DPS Feynman-Kac         NaN         NaN         NaN               no overlapping budget range           161.75
+ qm9  1               1.00    multiMFM   best-of-N 1631.753232 1032.000000     2064.00           crosses inside the shared range          1163.00
+ qm9  1               1.00    multiMFM Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1163.00
+ qm9  1               1.00 multiMFM-SS   best-of-N 3532.361884 2064.000000     4128.00           crosses inside the shared range          1278.00
+ qm9  1               1.00 multiMFM-SS Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1278.00
+ qm9  1               1.00         DPS   best-of-N         NaN         NaN         NaN               no overlapping budget range           173.00
+ qm9  1               1.00         DPS Feynman-Kac         NaN         NaN         NaN               no overlapping budget range           173.00
+ qm9  1               2.74    multiMFM   best-of-N 1611.937566 1045.920000     2091.84           crosses inside the shared range          1363.10
+ qm9  1               2.74    multiMFM Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1363.10
+ qm9  1               2.74 multiMFM-SS   best-of-N 2778.279441 2091.840000     4183.68           crosses inside the shared range          1678.20
+ qm9  1               2.74 multiMFM-SS Feynman-Kac         NaN         NaN         NaN guided better over the whole shared range          1678.20
+ qm9  1               2.74         DPS   best-of-N         NaN         NaN         NaN guided better over the whole shared range           199.10
+ qm9  1               2.74         DPS Feynman-Kac         NaN         NaN         NaN               no overlapping budget range           199.10
+
+=== DNA wall-clock ===
+   method                     config  nfe_gen_per_output  rows_in_flight  s_per_output  elapsed_s_mean  elapsed_s_sd  mae_mean
+     beam               W=1,L=4,K=48              576.00             400      0.012129        1.212853      0.061402  0.151616
+     beam               W=1,L=4,K=32              768.00             400      0.015647        1.564704      0.004184  0.098504
+     beam               W=1,L=4,K=24              960.00             400      0.019505        1.950488      0.001407  0.069493
+     beam               W=1,L=4,K=16             1344.00             400      0.027518        2.751836      0.004803  0.058486
+     beam               W=1,L=4,K=12             1728.00             400      0.035161        3.516108      0.002350  0.044056
+     beam                W=1,L=4,K=8             2496.00             400      0.050899        5.089882      0.007157  0.029634
+     beam                W=1,L=4,K=6             3264.00             400      0.066616        6.661582      0.012061  0.020787
+     beam                W=1,L=4,K=4             4800.00             400      0.097799        9.779908      0.009004  0.014280
+best_of_n                        N=2              192.00             200      0.004402        0.440192      0.010040  0.408153
+best_of_n                        N=3              288.00             300      0.005917        0.591710      0.027875  0.308093
+best_of_n                        N=5              480.00             500      0.009097        0.909744      0.011765  0.206484
+best_of_n                        N=9              864.00             900      0.015187        1.518743      0.007326  0.133575
+best_of_n                       N=16             1536.00            1600      0.025714        2.571415      0.001633  0.072844
+best_of_n                       N=32             3072.00            2048      0.051547        5.154737      0.001767  0.043363
+     dmfm                       MC=1              187.00              25      0.055783        5.578295      0.640614  0.132946
+     dmfm                       MC=2              278.00              50      0.054327        5.432729      0.371530  0.120584
+     dmfm                       MC=4              460.00             100      0.052025        5.202548      0.059845  0.094681
+     dmfm                       MC=8              824.00             200      0.058298        5.829790      0.019170  0.073574
+     dmfm                      MC=16             1552.00             400      0.087137        8.713737      0.040022  0.061337
+       fk                        K=2              192.00             200      0.005064        0.506375      0.068137  0.314718
+       fk                        K=3              288.00             300      0.006125        0.612544      0.002693  0.197115
+       fk                        K=5              480.00             500      0.009442        0.944156      0.005130  0.107431
+       fk                        K=9              864.00             900      0.015642        1.564158      0.015737  0.053493
+       fk                       K=16             1536.00            1600      0.026092        2.609191      0.000969  0.026875
+       fk                       K=32             3072.00            3200      0.050346        5.034621      0.002562  0.010713
+     mcts  I=2,children=2,K=16,C=0.5              192.00             100      0.008799        0.879885      0.012609  0.360894
+     mcts  I=3,children=2,K=16,C=0.5              272.00             100      0.012338        1.233793      0.008101  0.298886
+     mcts  I=5,children=2,K=16,C=0.5              427.84             100      0.020275        2.027462      0.017401  0.204362
+     mcts  I=9,children=2,K=16,C=0.5              696.64             100      0.040098        4.009751      0.045447  0.124132
+     mcts I=16,children=2,K=16,C=0.5             1076.48             100      0.079286        7.928627      0.277260  0.073117
+     mcts I=32,children=2,K=16,C=0.5             1557.28             100      0.157844       15.784380      0.516782  0.045062
+     mcts I=64,children=2,K=16,C=0.5             1724.96             100      0.262213       26.221307      0.336209  0.036000

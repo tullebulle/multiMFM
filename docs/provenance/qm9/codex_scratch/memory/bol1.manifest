@@ -1,0 +1,14 @@
+# best-of-lookahead round 1: sweep select_min_t {0.80,0.90}, dfm_self, moderate mu (high final PB)
+# JOBID PROPERTY MU RS SELMINT SOURCE TAG
+34985247 alpha 1.20 0.3   0.80 dfm_self b1_alpha_s80
+34985221 alpha 1.20 0.3   0.90 dfm_self b1_alpha_s90
+34988184 gap   0.15 12000 0.80 dfm_self b1_gap_s80
+34988143 gap   0.15 12000 0.90 dfm_self b1_gap_s90
+34988141 homo  0.35 41500 0.80 dfm_self b1_homo_s80
+34989391 homo  0.35 41500 0.90 dfm_self b1_homo_s90
+34989362 lumo  0.30 12000 0.80 dfm_self b1_lumo_s80
+34989345 lumo  0.30 12000 0.90 dfm_self b1_lumo_s90
+34989311 mu    0.35 8.638 0.80 dfm_self b1_mu_s80
+34989432 mu    0.35 8.638 0.90 dfm_self b1_mu_s90
+34989449 cv    1.60 1.5   0.80 dfm_self b1_cv_s80
+34989466 cv    1.60 1.5   0.90 dfm_self b1_cv_s90

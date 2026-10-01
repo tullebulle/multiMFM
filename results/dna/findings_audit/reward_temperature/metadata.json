@@ -1,0 +1,41 @@
+{
+  "args": {
+    "length": 50,
+    "n_probes": 8,
+    "probe_times": [
+      0.5,
+      0.7,
+      0.9
+    ],
+    "mc": [
+      8,
+      64
+    ],
+    "reward_sigma": 0.15,
+    "reward_scales": [
+      0.045,
+      0.5,
+      1.0
+    ],
+    "targets": [
+      1.0,
+      -1.0
+    ],
+    "posterior_steps": 4,
+    "seed": 0,
+    "nfe_traj": 64,
+    "t_max": 0.95,
+    "n_calib": 256,
+    "device": "cpu",
+    "out_dir": "/n/netscratch/albergo_lab/Lab/uunneberg/MultiMFM/results/dna/findings_audit/reward_temperature"
+  },
+  "calibration": {
+    "n_calib": 256,
+    "c0_mean": -0.1860996037721634,
+    "c0_std": 0.41356161236763,
+    "gc_mean": 0.3835156261920929,
+    "gc_std": 0.08913606405258179
+  },
+  "device": "cpu",
+  "_what": "ESS of the finite-N value's softmax weights vs the reward coefficient"
+}

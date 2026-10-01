@@ -1,0 +1,55 @@
+{
+  "calibration": {
+    "score_center": [
+      0.603253585100174,
+      0.6032537043094636
+    ],
+    "score_mean": [
+      0.4580051302909851,
+      0.45800256729125977
+    ],
+    "score_std": [
+      0.10723353922367096,
+      0.10723751783370972
+    ]
+  },
+  "cells": [
+    {
+      "N": 1,
+      "ours": 0.015763547271490097,
+      "probe": 0,
+      "published": 0.0160722769796848,
+      "rel_dev": 0.01920883447845833,
+      "repeat": 0
+    },
+    {
+      "N": 4,
+      "ours": 7.9767842292785645,
+      "probe": 0,
+      "published": 8.025164604187012,
+      "rel_dev": 0.006028583498861259,
+      "repeat": 3
+    },
+    {
+      "N": 2,
+      "ours": 4.042149066925049,
+      "probe": 1,
+      "published": 4.069183826446533,
+      "rel_dev": 0.006643779360809272,
+      "repeat": 0
+    },
+    {
+      "N": 1,
+      "ours": 6.9184489250183105,
+      "probe": 3,
+      "published": 6.872425556182861,
+      "rel_dev": 0.006696815914439951,
+      "repeat": 1
+    }
+  ],
+  "device": "cpu",
+  "length": 50,
+  "published_run": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L50",
+  "reward": "motif",
+  "worst_rel_dev": 0.01920883447845833
+}

@@ -1,0 +1,822 @@
+[
+ {
+  "file": "c0_guidance/pilot_n32/target_1p0/args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_target1p0_g8.0_seed0/args.json",
+  "sha256": "d9a34158cf57792eb221d8079f15c071ff386584676b99d255db479638cbdd3f"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_1p0/summary.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_target1p0_g8.0_seed0/summary.json",
+  "sha256": "bc44fa162824913dcc3cdf3efd1ab57a8f89de8870e48cec419c876d41042536"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_1p0/sample_scores.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_target1p0_g8.0_seed0/sample_scores.csv",
+  "sha256": "d2f8cf404aa13582d437cccc0aa707ddd6b647fcfb008e215a3f4c24ea90aeaf"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_1p0/oracle/oracle_per_sample.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_target1p0_g8.0_seed0/oracle/oracle_per_sample.csv",
+  "sha256": "31c93c2b92aa484b0b1da3f5eb63314c0ae0df58a7ad15618d4ec93fa9dacfe0"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_1p0/oracle/oracle_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_target1p0_g8.0_seed0/oracle/oracle_summary.csv",
+  "sha256": "2140522c830534504477d09c232b6e10aff0af53844c23073f4c3ec3bf712df3"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_m1p0/args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0/args.json",
+  "sha256": "ce8f93e98f2e5671cd6ed6288521e30f2c71b03075593de33da9a6bf26a3a719"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_m1p0/summary.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0/summary.json",
+  "sha256": "bddf6f34ee7d7b13b7a2c3cb92dfc76548809f3de7950dc1ab0d82a5768dd6e6"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_m1p0/sample_scores.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0/sample_scores.csv",
+  "sha256": "6ae1df9d71f09932d2325eac95b52a5b8446b399d41e9b64b1d3599660eb05b7"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_m1p0/oracle/oracle_per_sample.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0/oracle/oracle_per_sample.csv",
+  "sha256": "7d5837c9e0cd67bd31ad6db5400b3394299477fd538eedc38bb04918c909902e"
+ },
+ {
+  "file": "c0_guidance/pilot_n32/target_m1p0/oracle/oracle_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_pilot_targetm1p0_g8.0_seed0/oracle/oracle_summary.csv",
+  "sha256": "db6e55627a122378b1730c68f45e748c5143f1d0da1f93facd8f2a8177cc636f"
+ },
+ {
+  "file": "c0_guidance/n1000/target_1p0/args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0/args.json",
+  "sha256": "50bbeb9d05bc034ae4ffd5949572a130b4a152e36037fda121ce12356c3e1ae4"
+ },
+ {
+  "file": "c0_guidance/n1000/target_1p0/summary.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0/summary.json",
+  "sha256": "5c483206f887eef4eb84fc013ff1c38f9baf34106904fa58c0f9310cceb8292e"
+ },
+ {
+  "file": "c0_guidance/n1000/target_1p0/sample_scores.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0/sample_scores.csv",
+  "sha256": "aa31e5b1d47a14ae33b89445f617b394de717f34530b1ed58470e8ccb52e3650"
+ },
+ {
+  "file": "c0_guidance/n1000/target_1p0/oracle/oracle_per_sample.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0/oracle/oracle_per_sample.csv",
+  "sha256": "254f90797ce22f0eb41dd35640eff625f3e1741893f097212253e6c6779c42f1"
+ },
+ {
+  "file": "c0_guidance/n1000/target_1p0/oracle/oracle_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0/oracle/oracle_summary.csv",
+  "sha256": "cd9b2bf06b7248de2f4994b7af01fed33d471a9e1d6aca7c57192ee1de10bbe4"
+ },
+ {
+  "file": "c0_guidance/n1000/target_m1p0/args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0/args.json",
+  "sha256": "c63832aa6e8dc8272a484891098f3f69b77904e88f97a240ad905200e125f837"
+ },
+ {
+  "file": "c0_guidance/n1000/target_m1p0/summary.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0/summary.json",
+  "sha256": "369cf69a7234f621406c9fcf9ece3cb2e9a1a63ed5b7db06636a1a7eeacdbcc7"
+ },
+ {
+  "file": "c0_guidance/n1000/target_m1p0/sample_scores.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0/sample_scores.csv",
+  "sha256": "5587dda3acb35a568c0faabd701460da2819a9b883a1867db5b4333e414367c5"
+ },
+ {
+  "file": "c0_guidance/n1000/target_m1p0/oracle/oracle_per_sample.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0/oracle/oracle_per_sample.csv",
+  "sha256": "d3f87440d61a66b8e4de0826635e8bfde7e6820c33b259e2f49515be70c1c315"
+ },
+ {
+  "file": "c0_guidance/n1000/target_m1p0/oracle/oracle_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0/oracle/oracle_summary.csv",
+  "sha256": "b12bbd3f6ab6533c00f5e207266a1bb299a5afb370a98bab474a07c5ed22445a"
+ },
+ {
+  "file": "c0_guidance/sample_yeast_parent_c0_glass_pilot.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/sample_yeast_parent_c0_glass_pilot.sbatch",
+  "sha256": "d50452b93d0b8cb0af7a0190235c570e7c24ef4c5401ef1c5c73adab94a1ca9c"
+ },
+ {
+  "file": "diversity/n1000/README.md",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/README.md",
+  "sha256": "7db81318dd0fc7e0ff9b3757f3b72cc17644be9d3b1ca379e6278eb58dde3dec"
+ },
+ {
+  "file": "diversity/n1000/table6_baselines.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/table6_baselines.csv",
+  "sha256": "71d6b790defa3de37fcd5045450a4745e48c0eda381e1da38fb88411a97b0e4c"
+ },
+ {
+  "file": "diversity/n1000/table7_generated.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/table7_generated.csv",
+  "sha256": "18a7ce05a393d542ff34a0dd1808be1145e76f6afbc3b2757fcfb760a454b342"
+ },
+ {
+  "file": "diversity/n1000/table7_additions.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/table7_additions.csv",
+  "sha256": "4551ecfc5aa7a5dc736d63f5f6ce5827cf76d315e5a423ecaae1fc0468893fee"
+ },
+ {
+  "file": "diversity/n1000/diversity_summary_full.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/diversity_summary_full.csv",
+  "sha256": "d4681f43445c932d415558cfc1cf214adc8ffa0890450a8e26cff733af49b924"
+ },
+ {
+  "file": "diversity/n1000/size_matched_test_null_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/size_matched_test_null_summary.csv",
+  "sha256": "6a8b5d3015a81ddadf381cd972b80394b3b8cb9090f161d44489629a72fa0d26"
+ },
+ {
+  "file": "diversity/n1000/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/run_metadata.json",
+  "sha256": "f1776630af51ad8bfa81c9218615d64ba437d719163352f71e3699c759b10668"
+ },
+ {
+  "file": "diversity/n1000/sample_counts.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/sample_counts.csv",
+  "sha256": "6b188dc18cc8c1ca5e32bf6a0a760f1bd93fb02d422ab7feaed066cd1b2153e2"
+ },
+ {
+  "file": "diversity/n1000/unguided_identity.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/unguided_identity.json",
+  "sha256": "c63f7a07f287ad034e36aebe3ea5df12babe33b19f34b22b4e9c05ecf53ef885"
+ },
+ {
+  "file": "diversity/n1000/tables.md",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/tables.md",
+  "sha256": "e95d2fb9f6b4a12f89acca72341a58e8b5d6af16dd55729b7f5eaecab5836a6a"
+ },
+ {
+  "file": "diversity/n1000/generate_n1000.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/generate_n1000.sbatch",
+  "sha256": "8875781a5b614c5a8166e08a47f9f4fdd7367a71f76fe695dc97a9f29f1dcdac"
+ },
+ {
+  "file": "diversity/n1000/diversity_per_sample.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_n1000_20260925/diversity_per_sample.csv (run_dir column dropped)",
+  "sha256": "2c7c45ae83a117098a78ce00f08ad14385f57493f6dbd8dbe1a7310f3c0240f3"
+ },
+ {
+  "file": "diversity/analyze_parent_c0_diversity.py",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_parent_c0_diversity_20260925/analyze_parent_c0_diversity.py",
+  "sha256": "d35d892c3b0de8694d6f5f8eef727006203a8b8505b5ac508fc73cfa7de609cb"
+ },
+ {
+  "file": "training/base_L50_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dfm_dit_h192_b4/args.json",
+  "sha256": "f06ec829d95ec3a5833aea29d740c16a8e56305b62ff67c18faad33190c7b0e1"
+ },
+ {
+  "file": "training/dmfm_L50_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_diagonal_h192_b4/args.json",
+  "sha256": "64d34fd9ebf488481a9a9bcbc6df4290f9b3ce62e1980159b543fe50b7dc0d1a"
+ },
+ {
+  "file": "training/dmfm_4step_L50_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L50_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+  "sha256": "f2745f5daada9568eba245bd0f54218df7db420ab6d210a3fce2642812ee3d38"
+ },
+ {
+  "file": "training/base_L100_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dfm_dit_h192_b4/args.json",
+  "sha256": "4ef934bf9c0858d21ab6e4e01abfd4f2e090891eec843d77a6164d9732f91967"
+ },
+ {
+  "file": "training/dmfm_L100_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_diagonal_h192_b4/args.json",
+  "sha256": "ae79ba0c72b7c573c531e326d63c9df60e17d81dd732879fd505093717bfa842"
+ },
+ {
+  "file": "training/dmfm_4step_L100_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L100_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+  "sha256": "cefcae669629cae9fa725d4ec1ba85e5a1b53674a97f6f86e11c49c6ed907bc9"
+ },
+ {
+  "file": "training/base_L200_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dfm_dit_h192_b4/args.json",
+  "sha256": "548f034959e3fd2447c847b871e5e4311307f26bd49baa9605cf2380a73ebbe3"
+ },
+ {
+  "file": "training/dmfm_L200_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_diagonal_h192_b4/args.json",
+  "sha256": "1a28be22cfe5fa81967a6f96ae568d110cb2174d0c63b0af4229179cd0cb7e35"
+ },
+ {
+  "file": "training/dmfm_4step_L200_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L200_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+  "sha256": "5fe8e3b9e4ef3b2f2da346c76fc6522a48f196e15ea9183491d330eaac8f971b"
+ },
+ {
+  "file": "training/base_L400_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dfm_dit_h192_b4/args.json",
+  "sha256": "e0c15ba241428271f4bdcb4086cedc4f809740c8f5ced64426d78e329dcf3081"
+ },
+ {
+  "file": "training/dmfm_L400_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726/args.json",
+  "sha256": "c9901303b97f925ff0b41198e2ac59554667995582aed9ed8136ec6d98a24246"
+ },
+ {
+  "file": "training/dmfm_L400_parent_esd_run_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonal_h192_b4/args.json",
+  "sha256": "5afcb7e27a173ba373d665f517c68a0c03d30d326ce041bbca9ffc8b89743f02"
+ },
+ {
+  "file": "training/dmfm_L400_finetune_log.log",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_diagonly_finetune_20260726/log.log",
+  "sha256": "261b4fa93be51f91840c8c1ca34fb50cd37825eca35e1aafefe6324be3711c70"
+ },
+ {
+  "file": "training/dmfm_4step_L400_args.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_a_L400_dmfm_4step_esd_gap_upto025_corrected_20260727/args.json",
+  "sha256": "ba3e73c0b78ac01353d69a9be226153b94784e1813c3e5d389927b118088e422"
+ },
+ {
+  "file": "training/checkpoint_summary.json",
+  "source": "derived: torch.load of the checkpoints listed inside (backup copies)",
+  "sha256": ""
+ },
+ {
+  "file": "training/wallclock_from_mtimes.json",
+  "source": "derived: file mtimes (preserved in the backup) of args.json / last checkpoint and tfevents file names",
+  "sha256": ""
+ },
+ {
+  "file": "training/parent_split_seed0.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/data/yeast_parent_disjoint/parent_split_seed0.json",
+  "sha256": "4789e01590d6cd2955856c6586cf5704d41bd96892e2ff8953e09266046686b4"
+ },
+ {
+  "file": "training/sbatch/train_yeast_parent_L50_dfm.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/train_yeast_parent_L50_dfm.sbatch",
+  "sha256": "8a8df3aa126d8dbd2848b7847b218feab1a8e8d6e206848fe06705405a362eec"
+ },
+ {
+  "file": "training/sbatch/train_yeast_parent_dmfm_diagonal.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/train_yeast_parent_dmfm_diagonal.sbatch",
+  "sha256": "ed5c393781c6442b2b3c81367d1e708fd796fbe9ed90732b631eed85fe2d06a1"
+ },
+ {
+  "file": "training/sbatch/train_yeast_parent_dmfm_4step_continue.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/train_yeast_parent_dmfm_4step_continue.sbatch",
+  "sha256": "172cd90c9aa8a3b0cb3233ec3ce8f19480a7eda570474c86754b6a74338bc1ef"
+ },
+ {
+  "file": "training/sbatch/prepare_yeast_parent_disjoint_data.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/prepare_yeast_parent_disjoint_data.sbatch",
+  "sha256": "e36dd04c17b80d5fb58497c8ec6ff21f95bcf13f9d0b9dfa3de0e89c22bdf5f9"
+ },
+ {
+  "file": "training/sbatch/train_yeast_parent_c0_regressors.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/train_yeast_parent_c0_regressors.sbatch",
+  "sha256": "a088ea8ca73e0162e032a51c50d07a7a87b70c510c9e11e18bc04b3b93a9765b"
+ },
+ {
+  "file": "c0_regressors/guide/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/metadata.json",
+  "sha256": "3f65f574bc3ed72e74593efb85d6c51505dc476c69aa11486ae73cb30fe6a951"
+ },
+ {
+  "file": "c0_regressors/guide/test_predictions.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/test_predictions.csv",
+  "sha256": "94324775725d1b02f7077d8303e48a6eebc85f8719659b7b07a8161acfa82992"
+ },
+ {
+  "file": "c0_regressors/guide/history.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_guide_2026-07-26/history.csv",
+  "sha256": "e9f23073d49357e9355615a36102fec05cf375948fac5eeadf1d0d4d879c853e"
+ },
+ {
+  "file": "c0_regressors/oracle/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/metadata.json",
+  "sha256": "ffa406f952b45118f982ea4aa40980cce1756e1c9870fe579a7f4421fa2b0605"
+ },
+ {
+  "file": "c0_regressors/oracle/test_predictions.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/test_predictions.csv",
+  "sha256": "a21bd2fd36a71271315e3f95f2164c78b813f0ddbb4e43f77e5d2d3f46befbbc"
+ },
+ {
+  "file": "c0_regressors/oracle/history.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/yeast_parent_c0_oracle_2026-07-26/history.csv",
+  "sha256": "c06df798aeb68342c266e96fd6d3ca4819af36c82c085d7b7177ba8399d114f6"
+ },
+ {
+  "file": "exact_rewards/motif/L50/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L50/reward_attainment_samples.csv",
+  "sha256": "5233a101ec2efbb86e3ebf8ab97028455712f3ada81a898865b382f2a23b9356"
+ },
+ {
+  "file": "exact_rewards/motif/L50/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L50/reward_attainment_summary.csv",
+  "sha256": "de8962c3eab0fe42ef70943a04005fbf61129cb3ea9c4ed15780fb8e710f2d03"
+ },
+ {
+  "file": "exact_rewards/motif/L50/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L50/metadata.json",
+  "sha256": "25265b3d5e03875204fcd2776b6d14a809ebedd76fc4d46b4d73e9b5ffbf55cc"
+ },
+ {
+  "file": "exact_rewards/motif/L50/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L50/evo2/evo2_summary.csv",
+  "sha256": "74a2d5a6570ddc518c6564906ee5c98bd75c40c99ba7a5009a013f5f72c4d48c"
+ },
+ {
+  "file": "exact_rewards/motif/L50/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L50/evo2/evo2_per_sequence.csv",
+  "sha256": "4e388334393cf9a05bec2b7c48fe973089df7d9141094c595b744b1e3c709893"
+ },
+ {
+  "file": "exact_rewards/motif/L100/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L100/reward_attainment_samples.csv",
+  "sha256": "7e1d101c39410702dd8e3d3113511ab6dd047f34acc5fc3c3d813bf1e57c42c1"
+ },
+ {
+  "file": "exact_rewards/motif/L100/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L100/reward_attainment_summary.csv",
+  "sha256": "ee86c8e661fd181be3f363e0e4b5aefe49928ad23c83e8f9a387a4e7c21de283"
+ },
+ {
+  "file": "exact_rewards/motif/L100/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L100/metadata.json",
+  "sha256": "1087935cc1b3300e3f37cc0ce60c3beee9cb6ae94efe799f66e60a9f0adfe30e"
+ },
+ {
+  "file": "exact_rewards/motif/L100/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L100/evo2/evo2_summary.csv",
+  "sha256": "7a86ff75f700f4652911187ac8a834f488c4086767bf66a0d13cce6e5f9b82db"
+ },
+ {
+  "file": "exact_rewards/motif/L100/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L100/evo2/evo2_per_sequence.csv",
+  "sha256": "26347e5a6202bb418aec136050551ff98247df3748356779ba529e92cd20d8ac"
+ },
+ {
+  "file": "exact_rewards/motif/L200/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L200/reward_attainment_samples.csv",
+  "sha256": "eb6d1702c24726134cb9e00871a09e32e4d7bcd1a61f8d085c6db881bff4b981"
+ },
+ {
+  "file": "exact_rewards/motif/L200/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L200/reward_attainment_summary.csv",
+  "sha256": "0284583ea6eb403af8802d4d3c49c395c29a66b9a239eb88bb33b266d0993181"
+ },
+ {
+  "file": "exact_rewards/motif/L200/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L200/metadata.json",
+  "sha256": "24daf4b0ad01d32e9a96f617d0f806293648ab8aa59e177e3c88e13cbe771b5f"
+ },
+ {
+  "file": "exact_rewards/motif/L200/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L200/evo2/evo2_summary.csv",
+  "sha256": "c50bedd5b13d1fd91fa727789553a0a4691f92313f1557388ac14c360e5583dd"
+ },
+ {
+  "file": "exact_rewards/motif/L200/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L200/evo2/evo2_per_sequence.csv",
+  "sha256": "d6f24d13f4aa324da637e2e676f703f896c3b9e27897c4e81fcd0624fac6bdc1"
+ },
+ {
+  "file": "exact_rewards/motif/L400/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L400/reward_attainment_samples.csv",
+  "sha256": "02a66a23c9a816d9dc0d3dfa3cbdf6dc81c4520afdd26454911d886f80511acf"
+ },
+ {
+  "file": "exact_rewards/motif/L400/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L400/reward_attainment_summary.csv",
+  "sha256": "9732e2efa4a99780ae9bd252ad92fe6b4b859d9ca7e881a4283bfddccb6fa273"
+ },
+ {
+  "file": "exact_rewards/motif/L400/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L400/metadata.json",
+  "sha256": "2b0d1c8c509774d5d4fae3e3b0a1a3024da19ed331251de2ed53bb70c9e0b546"
+ },
+ {
+  "file": "exact_rewards/motif/L400/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L400/evo2/evo2_summary.csv",
+  "sha256": "a55edd5600c06bb460270762f480a1198bbedbead3105fcc5cd953817d764e84"
+ },
+ {
+  "file": "exact_rewards/motif/L400/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_motif_20260731/L400/evo2/evo2_per_sequence.csv",
+  "sha256": "1ac590e6627458b53f753fb0a118f1c2ff4b0652016c6042c8009ca358c6b81e"
+ },
+ {
+  "file": "exact_rewards/conjunction/L50/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L50/reward_attainment_samples.csv",
+  "sha256": "d3348096d6bc0e716fd69168f0ffb97cdc0ed7b7afe82ccf62a4d244f74441ea"
+ },
+ {
+  "file": "exact_rewards/conjunction/L50/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L50/reward_attainment_summary.csv",
+  "sha256": "115ef246281e4f0795a0276c346e3aa7b2fbf0c578bd6a54b3270465092cc304"
+ },
+ {
+  "file": "exact_rewards/conjunction/L50/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L50/metadata.json",
+  "sha256": "16f3558a9267f1cdf957b0663dfa54d65f3c1b74798d9db487f1506a58bdff60"
+ },
+ {
+  "file": "exact_rewards/conjunction/L50/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L50/evo2/evo2_summary.csv",
+  "sha256": "14ab8efdc2f2d7d37edbc9da1d1f5ed7e2f2e904324a4e3ebe90c5170e64dd52"
+ },
+ {
+  "file": "exact_rewards/conjunction/L50/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L50/evo2/evo2_per_sequence.csv",
+  "sha256": "f0f039cd1b874faa4a212676ccf05a02e25f2cae4270790065b9a68dbbb2c372"
+ },
+ {
+  "file": "exact_rewards/conjunction/L100/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L100/reward_attainment_samples.csv",
+  "sha256": "d5b14a5607f520e575fe73eeef9d52b9c67118e279a41c414ba87300db63b8e9"
+ },
+ {
+  "file": "exact_rewards/conjunction/L100/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L100/reward_attainment_summary.csv",
+  "sha256": "4125638612141c94afb66dc0aabd0fc838c68c5e73898a0f079a300ebb23418f"
+ },
+ {
+  "file": "exact_rewards/conjunction/L100/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L100/metadata.json",
+  "sha256": "3b9a567f9d7af698bff293e8d31363e743d435f94166f6cc64672f564706f3ac"
+ },
+ {
+  "file": "exact_rewards/conjunction/L100/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L100/evo2/evo2_summary.csv",
+  "sha256": "693355792b611189638e10040086ec90d5663f269a6c43986f8c5776e672d499"
+ },
+ {
+  "file": "exact_rewards/conjunction/L100/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L100/evo2/evo2_per_sequence.csv",
+  "sha256": "8e14fff8c46a3e4d8e096f2797e4e6beb2c30ab59ff213b1bd2bd75cbdeedc42"
+ },
+ {
+  "file": "exact_rewards/conjunction/L200/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L200/reward_attainment_samples.csv",
+  "sha256": "8db9a91eae4b7094610a3dabd8e5510d3f84d3aab38bbe9e9200eef17b6844e9"
+ },
+ {
+  "file": "exact_rewards/conjunction/L200/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L200/reward_attainment_summary.csv",
+  "sha256": "1e2df34200ceb6313e9e04d3b13874a808cdb63c76fc4e04c0a7d4d910fe7533"
+ },
+ {
+  "file": "exact_rewards/conjunction/L200/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L200/metadata.json",
+  "sha256": "0feabe47a0c94ea4ec09555b8a1b1ee27e33f132ef561f7a8f9ccc19c99fb9c9"
+ },
+ {
+  "file": "exact_rewards/conjunction/L200/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L200/evo2/evo2_summary.csv",
+  "sha256": "3e74fc7fff4c235a8564eabed17aa0ba121d1232d68a5ea8895a8ff6c46a284e"
+ },
+ {
+  "file": "exact_rewards/conjunction/L200/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L200/evo2/evo2_per_sequence.csv",
+  "sha256": "ed0e2526a11dc2b69ecd98448a0248d4481882d3a7e06370f8b60ec120de114b"
+ },
+ {
+  "file": "exact_rewards/conjunction/L400/reward_attainment_samples.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L400/reward_attainment_samples.csv",
+  "sha256": "b9fa98bf6b6df077a0996aa0b3fafb1223b64b261a52ca562cebe380b203d924"
+ },
+ {
+  "file": "exact_rewards/conjunction/L400/reward_attainment_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L400/reward_attainment_summary.csv",
+  "sha256": "3ed59f04be0abae4301ad1d7fe6651b7a30cc6dc7d7bfb35bd6a618ad7417a9e"
+ },
+ {
+  "file": "exact_rewards/conjunction/L400/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L400/metadata.json",
+  "sha256": "354357f309c37db198a4a7e9fb20022ad5771c59985dbb77a9808664392f04f3"
+ },
+ {
+  "file": "exact_rewards/conjunction/L400/evo2/evo2_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L400/evo2/evo2_summary.csv",
+  "sha256": "6e58a00b0c7226ac3edd7aef41b2550267dc6236022a6838a54c17edadde6511"
+ },
+ {
+  "file": "exact_rewards/conjunction/L400/evo2/evo2_per_sequence.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_reward_attainment_conjunction_20260731/L400/evo2/evo2_per_sequence.csv",
+  "sha256": "f28cd13c2a355c59ee0c564b54d56f498d35d3c1fb456acaf3fcb9f57be6f378"
+ },
+ {
+  "file": "exact_rewards/sample_parent_reward_attainment.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/sample_parent_reward_attainment.sbatch",
+  "sha256": "df9a082dafed10da99ab94a2a1db32b3775a8c4845270afa80fc43154a6bfcc8"
+ },
+ {
+  "file": "exact_rewards/score_parent_reward_attainment_evo2.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/score_parent_reward_attainment_evo2.sbatch",
+  "sha256": "71ef2db11df8e5982fff7ec94d703175529c9f663a020bb7d7dd7dbd91ab0492"
+ },
+ {
+  "file": "scale_free_mc/gc/gradient_scale_free_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/gradient_scale_free_summary_all_lengths.csv",
+  "sha256": "2f3c0ed958664291adb94e45dc2001d1e39dec2cae265cc308701e73277ce005"
+ },
+ {
+  "file": "scale_free_mc/gc/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/run_metadata.json",
+  "sha256": "4bef10f7f18d0f486b7407fb878c48d67ac846a33e0cf2049061a4044657f1bf"
+ },
+ {
+  "file": "scale_free_mc/gc/L50/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/L50/gradient_scale_free_per_state.csv",
+  "sha256": "c19b0eda2fabb864e6cb5f21b18c8223c879e0a2396b80b35cb3afb7b85ce326"
+ },
+ {
+  "file": "scale_free_mc/gc/L100/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/L100/gradient_scale_free_per_state.csv",
+  "sha256": "9e871761ac87d7ac79faf5a5773d889e6222aef769dcada7b3ea7973ae297d5c"
+ },
+ {
+  "file": "scale_free_mc/gc/L200/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/L200/gradient_scale_free_per_state.csv",
+  "sha256": "4e3bd46e6e2534abd36044b7edf049eeb2921f0e8947fad7d7224bb40b585e9a"
+ },
+ {
+  "file": "scale_free_mc/gc/L400/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_gc_pairmetrics/L400/gradient_scale_free_per_state.csv",
+  "sha256": "85efbba7cbefa3de16cd65da3badb0e708b7e2a89b33c0b0a3e5bcc7c20b0363"
+ },
+ {
+  "file": "scale_free_mc/motif/gradient_scale_free_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/gradient_scale_free_summary_all_lengths.csv",
+  "sha256": "346e9f50aea548867cd1692d01a2bf50514c5cb36b35677a630cb675a4b2161c"
+ },
+ {
+  "file": "scale_free_mc/motif/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/run_metadata.json",
+  "sha256": "8031df5ab9d49e49318658e215e40074c0812dd6e9597eb28fb256e13b05d5aa"
+ },
+ {
+  "file": "scale_free_mc/motif/L50/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L50/gradient_scale_free_per_state.csv",
+  "sha256": "6c0fb8dbfc5e81192a33e05fa7e18353b1ae7e2506318a1090bb141c9c4b7259"
+ },
+ {
+  "file": "scale_free_mc/motif/L100/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L100/gradient_scale_free_per_state.csv",
+  "sha256": "7fd20b9b2c9da538f49ad075ad497f6a04c8fc3a69bf21591dde30e4d266d9ec"
+ },
+ {
+  "file": "scale_free_mc/motif/L200/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L200/gradient_scale_free_per_state.csv",
+  "sha256": "5021e535aa83e7adf947ba72ebbd5335eac57f0cf9cf308cf5bc18e28d2e3460"
+ },
+ {
+  "file": "scale_free_mc/motif/L400/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_motif/L400/gradient_scale_free_per_state.csv",
+  "sha256": "7af251857c777ac3dd501c5c7ff1eb35cc9b3437e309be425caf465bd8dd91f8"
+ },
+ {
+  "file": "scale_free_mc/conjunction/gradient_scale_free_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/gradient_scale_free_summary_all_lengths.csv",
+  "sha256": "d838b1367ebff843a093cd01188fc3e391880fc1f055cbecb0e55bffde881d91"
+ },
+ {
+  "file": "scale_free_mc/conjunction/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/run_metadata.json",
+  "sha256": "6d6446fb677506ef233cfc8c46ba054cfb581d12d8d90c847b8297d05a2f1926"
+ },
+ {
+  "file": "scale_free_mc/conjunction/L50/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/L50/gradient_scale_free_per_state.csv",
+  "sha256": "52bfcd997602f4b004ba1985b8f2189719dd58192f30f87cc35b2580f9174c3c"
+ },
+ {
+  "file": "scale_free_mc/conjunction/L100/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/L100/gradient_scale_free_per_state.csv",
+  "sha256": "0d801f533d93d62e10b54cd2261741d81275045ef45595bef636bcac377738a8"
+ },
+ {
+  "file": "scale_free_mc/conjunction/L200/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/L200/gradient_scale_free_per_state.csv",
+  "sha256": "5f8b637146ac1e9b3ccbd49a2e24da184cdd721dbf43fc44f399775c4a5dccad"
+ },
+ {
+  "file": "scale_free_mc/conjunction/L400/gradient_scale_free_per_state.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_conjunction/L400/gradient_scale_free_per_state.csv",
+  "sha256": "e61dd59bd05a119f0a2bbc483d4fd68ef7555c03c7cb0b5837f4b1d5f70aca86"
+ },
+ {
+  "file": "scale_free_mc/scale_free_per_state_sums.csv",
+  "source": "derived from <run>/L*/gradient_pairs.pt of the three runs above (float64)",
+  "sha256": ""
+ },
+ {
+  "file": "scale_free_mc/older_figures_dir/required_mc_all_metrics.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_figures/required_mc_all_metrics.csv",
+  "sha256": "15da392c8bcc3dac6f1013ce97cdd4d98d570cf4e49bd36d26d127a59543c0b8"
+ },
+ {
+  "file": "scale_free_mc/older_figures_dir/required_mc_relative.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_figures/required_mc_relative.csv",
+  "sha256": "25acd357f485d422dd53607c5d021f1f916960001785a9be498923c57563ab0c"
+ },
+ {
+  "file": "scale_free_mc/older_figures_dir/required_mc_cosine.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_gradient_accuracy_figures/required_mc_cosine.csv",
+  "sha256": "2fb4bce2c6427a6788239179cb654dc57b291789ee0d364320ef47deeb418050"
+ },
+ {
+  "file": "scale_free_mc/ablate_yeast_glass_gradient_mc.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/ablate_yeast_glass_gradient_mc.sbatch",
+  "sha256": "199470295246e7e6e8d4bb21715cfa6a0347f6c6a2151af10154e9447f30092a"
+ },
+ {
+  "file": "posterior_diversity/posterior_condition_metrics.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/parent_posterior_diversity_mapselected_flowmap1_glass100_20260726/posterior_condition_metrics.csv",
+  "sha256": "cf1067715545dbfd511a4c80872ac98ffaf771fcfc8fcfb0318191d23b7c8f88"
+ },
+ {
+  "file": "posterior_diversity/posterior_diversity_summary.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/parent_posterior_diversity_mapselected_flowmap1_glass100_20260726/posterior_diversity_summary.csv",
+  "sha256": "7ad8c7cb36b8c7bcfc836584b96b58cbfe48dbe285b4bebbdc67643e8713087e"
+ },
+ {
+  "file": "posterior_diversity/run_config.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/parent_posterior_diversity_mapselected_flowmap1_glass100_20260726/run_config.csv",
+  "sha256": "2c12b241b3e22bfeb4c32bbdf6659370c141aa8fe7aa4fbdfcb270abe8533567"
+ },
+ {
+  "file": "posterior_diversity/eval_parent_posterior_diversity.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/eval_parent_posterior_diversity.sbatch",
+  "sha256": "9c7a4fa6b84797c4d149a6803bca4c675c6ec9c6c3550bc813f4bb80ed40e82c"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/gradient_mae_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/gradient_mae_summary_all_lengths.csv",
+  "sha256": "0dc07ec72d0f832a6a4668791daaa2061e2fd5d52d15e86bfdd98392e3decb4b"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/run_metadata.json",
+  "sha256": "3fc01dec6bb927361bd420bd13a25e8132562a61ac6e513c91614fb012382f72"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L50/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L50/gradient_mae_per_condition.csv",
+  "sha256": "a3a09ec87a999a88c1fc434f4a2843d60b0bab06fe66ea51b062e8e67ed2da4e"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L50/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L50/metadata.json",
+  "sha256": "c36784eda5a727b8a3451b8235e3c01c68a3114d036280d68a52bd06a1f573f5"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L100/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L100/gradient_mae_per_condition.csv",
+  "sha256": "e859a3288862b5775b69db4579166861ad9e221be5cb3140e4a4b2c292bda845"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L100/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L100/metadata.json",
+  "sha256": "916ea9984bd2da5768976dfae81c99a29be2612ce51ff1c1d37c0ff64639909c"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L200/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L200/gradient_mae_per_condition.csv",
+  "sha256": "b0c7c45ff82ba140125633e780a9c5337ef79a1fecbbcf9db1ec9fbcb4027ac0"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L200/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L200/metadata.json",
+  "sha256": "1410c3ff48408ef4ec6485a7d01b5c906a2b0248f434f9bc84bb6789ca334d7d"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L400/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L400/gradient_mae_per_condition.csv",
+  "sha256": "e73031bde7433361ccad70227e290765611ecda88ddb1e1c5b1f0ec0f3ec7d16"
+ },
+ {
+  "file": "dmfm_vs_glass/gc/L400/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/gc/L400/metadata.json",
+  "sha256": "6ba0b6aad3274904aed53ecfff979a1de013ddb6954e78c403a8fa83c2c3d516"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/gradient_mae_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/gradient_mae_summary_all_lengths.csv",
+  "sha256": "5ceb02612cc4a7bae9bce25e3e83e8e291686146ff88146f017c62bd854d32a5"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/run_metadata.json",
+  "sha256": "1e35e12f8a4282f092290d67533decf79d8f7bf9f4f9f8120622f905b7b9001d"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L50/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L50/gradient_mae_per_condition.csv",
+  "sha256": "525d8998214498b921a7573e5a8faf50840024cb9be0479933fa48152048aceb"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L50/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L50/metadata.json",
+  "sha256": "15a091f66e990d3280ac6672017908626c9d998a770559ecc3d19af90629403a"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L100/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L100/gradient_mae_per_condition.csv",
+  "sha256": "77b3c6496aee9792960bea49558305f30636fd06adb44697bc2f017543008bd7"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L100/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L100/metadata.json",
+  "sha256": "89894ce2cd91e2bc3fba09fa3a873ad9c3bfc1f3e580809cbed1cdcbd3a050c7"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L200/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L200/gradient_mae_per_condition.csv",
+  "sha256": "d267b1a1588ebb7cce095c9568eee27c771c6415043153fe8e2560e63951fb3a"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L200/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L200/metadata.json",
+  "sha256": "ee737f75566941c5ce31fda41d480438753135f0c35d4c1da19b02d55975a130"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L400/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L400/gradient_mae_per_condition.csv",
+  "sha256": "ae9b4a3c43df39d9d43a0f9a567dad0415a105aedc60facf9231dd3eea4d0753"
+ },
+ {
+  "file": "dmfm_vs_glass/motif/L400/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/motif/L400/metadata.json",
+  "sha256": "658567effd8f4400482c4163e31caa0ac4028a625a382012eb6bbeae579f2a4c"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/gradient_mae_summary_all_lengths.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/gradient_mae_summary_all_lengths.csv",
+  "sha256": "4c9f8a37dccb6b350b9c3fc47475ca0d63de75087d5e58804461cd73c22faa3e"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/run_metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/run_metadata.json",
+  "sha256": "1ac38dc29c2848254a7b00cf28d6bc081aff6b474fbcde1e75f9f0b85875cf05"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L50/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L50/gradient_mae_per_condition.csv",
+  "sha256": "aea97a5b819402196e582ea04b70aff38f5fd900e89c0bacf7d461add430a80a"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L50/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L50/metadata.json",
+  "sha256": "e4111ca472dd99840cfa64c4452ef94f9bdd2e888ce8e453f55934f2dba6e3e6"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L100/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L100/gradient_mae_per_condition.csv",
+  "sha256": "75271a2ba18f9f63e15568125a98e0f0cab5e08b8226f17ac9d1d380ab16169b"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L100/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L100/metadata.json",
+  "sha256": "533a5698f083c033b0f5607126bee2e1d536ccf5f9f8abc0e11354ac7cf6190f"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L200/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L200/gradient_mae_per_condition.csv",
+  "sha256": "85e83a3679acf15a3517947d8d92890fc4d26200e758f0d846b749b72369574e"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L200/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L200/metadata.json",
+  "sha256": "888266a7c4e7363a72ebdc3486d4064df56fc5c06ab714b28269e69c4f6de809"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L400/gradient_mae_per_condition.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L400/gradient_mae_per_condition.csv",
+  "sha256": "a472b4f912a061b232eb06d56d4ee613b18a1d9524159f5de703148c3f72f9bb"
+ },
+ {
+  "file": "dmfm_vs_glass/conjunction/L400/metadata.json",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/workdir/rebuttal_dmfm4_glass128_mae_precision_20260727/conjunction/L400/metadata.json",
+  "sha256": "fceb8504d06e323e44cc7c2457d61f5e009eff90b0e155319b465eac372f6780"
+ },
+ {
+  "file": "dmfm_vs_glass/evaluate_dmfm4_glass_mae_precision.sbatch",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/slurm/evaluate_dmfm4_glass_mae_precision.sbatch",
+  "sha256": "aef5e1782353d06d0034fd3adf6314b227f7f08590dcf6c77e89b30f0e3d90b2"
+ },
+ {
+  "file": "benchmarks/fig4_right_hardcoded_baselines.csv",
+  "source": "/n/holylabs/kozinsky_lab/Users/uunneberg/paper_backup_dmfm_20260929/dirichlet-flow-matching/scripts/benchmark_yeast_split_dmfm_steering.py lines 28-48 (OLD_NON_DMFM_BASELINES string, verbatim)",
+  "sha256": ""
+ },
+ {
+  "file": "base_model/real_base_freqs_L50.csv",
+  "source": "derived from data/yeast_parent_disjoint/yeast_parent_L50.pt (+ _split_seed0.pt): per-position A/C/G/T frequencies (token order ACGT = 0123)",
+  "sha256": ""
+ }
+]

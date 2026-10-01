@@ -1,0 +1,13 @@
+model_checkpoint:
+  _target_: lightning.pytorch.callbacks.ModelCheckpoint
+  # Persist to <repo>/outputs/geom/base/<SLURM job id>/ (NFS, survives node-local
+  # /tmp staging). Falls back to "manual" for non-SLURM/interactive runs.
+  # checkpoints/geom/ is reserved for the released artifacts (see MANIFEST.json).
+  dirpath: ${paths.root_dir}/outputs/geom/base/${oc.env:SLURM_JOB_ID,manual}
+  filename: "epoch{epoch:03d}-step{step:08d}"
+  auto_insert_metric_name: false
+  # Save at each validation (validation runs every epoch) instead of every N steps.
+  every_n_epochs: 1
+  save_on_train_epoch_end: false   # checkpoint at validation end, not train-epoch end
+  save_top_k: -1        # keep every checkpoint
+  save_last: true       # also maintain last.ckpt for easy resume

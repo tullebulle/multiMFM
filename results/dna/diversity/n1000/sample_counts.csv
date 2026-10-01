@@ -1,0 +1,5 @@
+run_dir,target_c0,set,n_fasta,n_sample_scores_csv,n_oracle_csv,fasta_equals_csv_in_order,seq_lengths,n_exact_unique,n_samples_args_json,seed_args_json
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0,-1.0,guided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_targetm1p0_g8.0_seed0,-1.0,unguided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0,1.0,guided,1000,1000,1000,True,50,1000,1000,0
+/n/netscratch/kozinsky_lab/Lab/uunneberg/repos/dirichlet-flow-matching/workdir/yeast_parent_glass_n1000_target1p0_g8.0_seed0,1.0,unguided,1000,1000,1000,True,50,1000,1000,0

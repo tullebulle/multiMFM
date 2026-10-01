@@ -1,0 +1,2 @@
+reward,length,n_cells,mean_mine,mean_published,max_abs_diff,median_rel_diff,max_rel_diff
+gc,L50,64,0.15039278424910657,0.14035474599722872,0.18897533416748002,0.0806452652497261,1.1102324523849632
