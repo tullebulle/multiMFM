@@ -115,8 +115,12 @@ def main() -> None:
             if pb is not None:
                 pbs = pb_summary_for_state(state, data_stats=pb_stats, posebusters=pb, sanitize=True)
                 per = pbs.get("pb_valid_per_mol")
-                if per is not None:
-                    valid = valid & torch.as_tensor(per, dtype=torch.bool)
+                if per is None:      # never silently fall back to conversion validity
+                    raise RuntimeError(
+                        "pb_summary_for_state returned no pb_valid_per_mol; without it --pb "
+                        "would select without a validity constraint and report the conversion "
+                        "rate as PoseBusters validity")
+                valid = valid & torch.as_tensor(per, dtype=torch.bool)
             true_tani = torch.as_tensor(s["tanimoto_real_per_mol"], dtype=torch.float)
             cand = (head_tani.float(), valid, true_tani)
             if best is None:

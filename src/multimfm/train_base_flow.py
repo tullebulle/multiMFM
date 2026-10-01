@@ -766,6 +766,7 @@ def compute_pb_summary(
             "num_pb_remove_h_failures": 0,
             "num_pb_add_h_failures": 0,
             "pb_valid": 0.0,
+            "pb_valid_per_mol": [False] * total_generated,
             "pb_intersection": 0.0,
             **diversity_summary,
         }
@@ -786,6 +787,7 @@ def compute_pb_summary(
             "num_pb_remove_h_failures": remove_h_failures,
             "num_pb_add_h_failures": add_h_failures,
             "pb_valid": 0.0,
+            "pb_valid_per_mol": [False] * total_generated,
             "pb_intersection": 0.0,
             **diversity_summary,
         }
@@ -801,12 +803,23 @@ def compute_pb_summary(
             "num_pb_remove_h_failures": remove_h_failures,
             "num_pb_add_h_failures": add_h_failures,
             "pb_valid": 0.0,
+            "pb_valid_per_mol": [False] * total_generated,
             "pb_intersection": 0.0,
             **diversity_summary,
         }
     results.insert(0, "sample_idx", pb_indices)
     check_columns = [column for column in results.columns if column != "sample_idx"]
     passes_all = ~results[check_columns].isin([False]).any(axis=1)
+
+    # Per-molecule mask over the ORIGINAL batch, not over the molecules that reached
+    # PoseBusters: a sample that failed conversion never appears in ``pb_indices`` and is
+    # False here, which matches how ``pb_valid`` puts conversion failures in the denominator.
+    # A caller that must select among candidates needs this; the aggregate cannot be
+    # un-averaged after the fact.
+    valid_per_mol = [False] * total_generated
+    for idx, ok in zip(pb_indices, passes_all.tolist()):
+        if 0 <= int(idx) < total_generated:
+            valid_per_mol[int(idx)] = bool(ok)
 
     summary = {
         "num_generated": total_generated,
@@ -817,6 +830,7 @@ def compute_pb_summary(
         "num_pb_add_h_failures": add_h_failures,
         "pb_valid": passes_all.sum() / total_generated,
         "pb_intersection": passes_all.sum() / total_generated,
+        "pb_valid_per_mol": valid_per_mol,
         **diversity_summary,
     }
     for column in check_columns:
